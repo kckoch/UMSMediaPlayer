@@ -27,12 +27,12 @@ Instructions (without Eclipse)
 
 1. (Windows) Execute the following at a command prompt in the project directory:
 
-        gradlew fatJar        
+        gradlew build        
 
    (Linux)
    
         chmod +x gradlew
-        ./gradlew fatJar
+        ./gradlew build
      
 2. Execute the jar:
 

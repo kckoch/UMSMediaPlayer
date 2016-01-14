@@ -32,7 +32,7 @@ public class BrowseUPNPDemo {
 			objectId = args[0];
 		}
 		
-		System.out.println("Sending request for container ID: " + objectId);
+		System.err.println("Sending request for container ID: " + objectId);
 
 		String soapMsg = SOAP.replace("{OBJECT_ID}", objectId);
 
@@ -51,8 +51,8 @@ public class BrowseUPNPDemo {
 			String resultStr = response.body().string();
 			processResults(resultStr);
 		} else {
-			System.out.println("Response code: " + response.code());
-			System.out.println("Response: " + response.message());
+			System.err.println("Response code: " + response.code());
+			System.err.println("Response: " + response.message());
 		}		
 		
 	}
