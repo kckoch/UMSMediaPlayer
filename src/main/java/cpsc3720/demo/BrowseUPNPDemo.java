@@ -27,19 +27,16 @@ public class BrowseUPNPDemo {
 "</s:Envelope>";
 
 	public static void main(String[] args) throws IOException {
-		
-		if (args.length != 1) {
-			System.err.println("Please supply Object ID to browse as a command line argument.");
-			System.exit(1);
+		String objectId = "0";
+		if (args.length == 1) {
+			objectId = args[0];
 		}
-		
-		String objectId = args[0];
 		
 		System.out.println("Sending request for container ID: " + objectId);
 
-		MediaType XML = MediaType.parse("text/xml; charset=utf-8");
 		String soapMsg = SOAP.replace("{OBJECT_ID}", objectId);
 
+		MediaType XML = MediaType.parse("text/xml; charset=utf-8");
 		RequestBody body = RequestBody.create(XML, soapMsg);
 		Request request = new Request.Builder()
 			.url("http://127.0.0.1:5001/upnp/control/content_directory")
