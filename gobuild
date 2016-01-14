@@ -5,9 +5,6 @@
 # To Execute: 
 #     bash gobuild
 #
-# NOTE: This file must be converted to use Linux line ending characters
-# using the following before it will run correctly:
-#     dos2unix gobuild
 
 echo Launching build...
 
