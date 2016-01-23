@@ -1,0 +1,2079 @@
+DEBUG 2016-01-13 15:12:46.221 [main] Base path set to file:///C:/Users/Stephen/Downloads/ums-5.5.0/UMS.conf
+DEBUG 2016-01-13 15:12:46.273 [main] FileName set to UMS.conf
+DEBUG 2016-01-13 15:12:46.273 [main] Base path set to C:\Users\Stephen\Downloads\ums-5.5.0
+DEBUG 2016-01-13 15:12:46.336 [main] Default logfile folder set to: C:\Users\Stephen\Downloads\ums-5.5.0
+DEBUG 2016-01-13 15:12:46.605 [main] LogBack started with configuration file: C:\Users\Stephen\Downloads\ums-5.5.0\logback.xml
+DEBUG 2016-01-13 15:12:46.621 [main] Wed Jan 13 15:12:46 EST 2016
+DEBUG 2016-01-13 15:12:47.106 [main] Writing PID: 11592
+DEBUG 2016-01-13 15:12:47.106 [main] 
+INFO  2016-01-13 15:12:47.106 [main] Starting Universal Media Server 5.5.0
+INFO  2016-01-13 15:12:47.121 [main] Based on PS3 Media Server by shagrath, copyright 2008-2014
+INFO  2016-01-13 15:12:47.121 [main] http://www.universalmediaserver.com
+INFO  2016-01-13 15:12:47.121 [main] 
+INFO  2016-01-13 15:12:47.121 [main] Build: 05eff7734 (2016-01-06)
+INFO  2016-01-13 15:12:47.121 [main] Java: Java HotSpot(TM) Client VM 1.8.0_65 32-bit by Oracle Corporation
+INFO  2016-01-13 15:12:47.137 [main] OS: Windows 10 64-bit 10.0
+INFO  2016-01-13 15:12:47.137 [main] Encoding: Cp1252
+INFO  2016-01-13 15:12:47.137 [main] Memory: 247 MB
+INFO  2016-01-13 15:12:47.153 [main] Language: English (United States)
+INFO  2016-01-13 15:12:47.153 [main] 
+INFO  2016-01-13 15:12:47.153 [main] Working directory: C:\Users\Stephen\Downloads\ums-5.5.0
+INFO  2016-01-13 15:12:47.175 [main] Temporary directory: C:\Users\Stephen\AppData\Local\Temp\UMS
+INFO  2016-01-13 15:12:47.175 [main] Logging configuration file: C:\Users\Stephen\Downloads\ums-5.5.0\logback.xml
+INFO  2016-01-13 15:12:47.175 [main] Logfile: C:\Users\Stephen\Downloads\ums-5.5.0\debug.log
+INFO  2016-01-13 15:12:47.191 [main] 
+INFO  2016-01-13 15:12:47.191 [main] Profile directory: C:\Users\Stephen\Downloads\ums-5.5.0\
+INFO  2016-01-13 15:12:47.191 [main] Profile directory permissions: drwx
+INFO  2016-01-13 15:12:47.191 [main] Profile configuration file: C:\Users\Stephen\Downloads\ums-5.5.0\UMS.conf
+INFO  2016-01-13 15:12:47.206 [main] Profile configuration file permissions: -rwx
+INFO  2016-01-13 15:12:47.206 [main] Profile name: sschaub-laptop
+INFO  2016-01-13 15:12:47.206 [main] 
+DEBUG 2016-01-13 15:12:47.206 [main] Reading web_conf: "C:\Users\Stephen\Downloads\ums-5.5.0\WEB.conf" (previous: null, default: "C:\Users\Stephen\Downloads\ums-5.5.0\WEB.conf")
+INFO  2016-01-13 15:12:47.206 [main] Web configuration file: C:\Users\Stephen\Downloads\ums-5.5.0\WEB.conf
+WARN  2016-01-13 15:12:47.206 [main] Web configuration file not found: File "C:\Users\Stephen\Downloads\ums-5.5.0\WEB.conf" not found
+INFO  2016-01-13 15:12:47.222 [main] 
+DEBUG 2016-01-13 15:12:47.253 [main] Reading run_wizard: false (default: true)
+DEBUG 2016-01-13 15:12:48.078 [main] Reading minimized: true (default: false)
+DEBUG 2016-01-13 15:12:48.457 [main] Reading folders: "Music" (default: "")
+INFO  2016-01-13 15:12:48.457 [main] Checking shared folder: Music
+DEBUG 2016-01-13 15:12:48.879 [main] Reading cred.path: null (previous: "", default: null)
+DEBUG 2016-01-13 15:12:48.936 [main] Checking dbgpack property in UMS.conf
+DEBUG 2016-01-13 15:12:48.951 [main] adding C:\Users\Stephen\Downloads\ums-5.5.0\WEB.conf
+DEBUG 2016-01-13 15:12:48.951 [main] adding C:\Users\Stephen\Downloads\ums-5.5.0\UMS.conf
+DEBUG 2016-01-13 15:12:48.951 [main] adding C:\Users\Stephen\Downloads\ums-5.5.0\debug.log.prev
+DEBUG 2016-01-13 15:12:48.951 [main] adding C:\Users\Stephen\Downloads\ums-5.5.0\debug.log
+INFO  2016-01-13 15:12:48.974 [main] Loading MediaInfo library
+ERROR 2016-01-13 15:12:49.027 [main] Error loading MediaInfo library: Unable to load library 'mediainfo': Native library (win32-x86/mediainfo.dll) not found in resource path ([file:/C:/Users/Stephen/Downloads/ums-5.5.0/ums.jar])
+INFO  2016-01-13 15:12:49.043 [main] The server will now use the less accurate FFmpeg parsing method
+INFO  2016-01-13 15:12:49.043 [main] Loading renderer configurations from C:\Users\Stephen\Downloads\ums-5.5.0\renderers
+DEBUG 2016-01-13 15:12:49.080 [main] Added file watch at renderers: renderers\\AnyCast.conf
+DEBUG 2016-01-13 15:12:49.080 [main] Added file watch at renderers: renderers\\Apple-iDevice-AirPlayer.conf
+DEBUG 2016-01-13 15:12:49.096 [main] Added file watch at renderers: renderers\\Apple-iDevice-VLC.conf
+DEBUG 2016-01-13 15:12:49.096 [main] Added file watch at renderers: renderers\\Apple-iDevice.conf
+DEBUG 2016-01-13 15:12:49.096 [main] Added file watch at renderers: renderers\\BlackBerry-PlayBook-KalemSoftMP.conf
+DEBUG 2016-01-13 15:12:49.096 [main] Added file watch at renderers: renderers\\CambridgeAudio-AzurBD.conf
+DEBUG 2016-01-13 15:12:49.112 [main] Added file watch at renderers: renderers\\DefaultRenderer.conf
+DEBUG 2016-01-13 15:12:49.112 [main] Added file watch at renderers: renderers\\DirecTV.conf
+DEBUG 2016-01-13 15:12:49.112 [main] Added file watch at renderers: renderers\\DLink-DSM510.conf
+DEBUG 2016-01-13 15:12:49.112 [main] Added file watch at renderers: renderers\\Free-Freebox.conf
+DEBUG 2016-01-13 15:12:49.127 [main] Added file watch at renderers: renderers\\Freecom-MusicPal.conf
+DEBUG 2016-01-13 15:12:49.127 [main] Added file watch at renderers: renderers\\Google-Android-Chromecast.conf
+DEBUG 2016-01-13 15:12:49.127 [main] Added file watch at renderers: renderers\\Google-Android.conf
+DEBUG 2016-01-13 15:12:49.127 [main] Added file watch at renderers: renderers\\Hama-IR320.conf
+DEBUG 2016-01-13 15:12:49.127 [main] Added file watch at renderers: renderers\\Hisense-K680.conf
+DEBUG 2016-01-13 15:12:49.143 [main] Added file watch at renderers: renderers\\Kodi.conf
+DEBUG 2016-01-13 15:12:49.143 [main] Added file watch at renderers: renderers\\LG-LA6200.conf
+DEBUG 2016-01-13 15:12:49.143 [main] Added file watch at renderers: renderers\\LG-LA644V.conf
+DEBUG 2016-01-13 15:12:49.143 [main] Added file watch at renderers: renderers\\LG-LB.conf
+DEBUG 2016-01-13 15:12:49.158 [main] Added file watch at renderers: renderers\\LG-LM620.conf
+DEBUG 2016-01-13 15:12:49.158 [main] Added file watch at renderers: renderers\\LG-LM660.conf
+DEBUG 2016-01-13 15:12:49.158 [main] Added file watch at renderers: renderers\\LG-LS5700.conf
+DEBUG 2016-01-13 15:12:49.158 [main] Added file watch at renderers: renderers\\LG-ST600.conf
+DEBUG 2016-01-13 15:12:49.177 [main] Added file watch at renderers: renderers\\LG-UB820V.conf
+DEBUG 2016-01-13 15:12:49.181 [main] Added file watch at renderers: renderers\\LG-WebOS.conf
+DEBUG 2016-01-13 15:12:49.181 [main] Added file watch at renderers: renderers\\Logitech-Squeezebox.conf
+DEBUG 2016-01-13 15:12:49.181 [main] Added file watch at renderers: renderers\\Microsoft-WindowsMediaPlayer.conf
+DEBUG 2016-01-13 15:12:49.181 [main] Added file watch at renderers: renderers\\Microsoft-Xbox360.conf
+DEBUG 2016-01-13 15:12:49.181 [main] Added file watch at renderers: renderers\\Microsoft-XboxOne.conf
+DEBUG 2016-01-13 15:12:49.181 [main] Added file watch at renderers: renderers\\Miracast-M806.conf
+DEBUG 2016-01-13 15:12:49.196 [main] Added file watch at renderers: renderers\\Netgear-NeoTV.conf
+DEBUG 2016-01-13 15:12:49.212 [main] Added file watch at renderers: renderers\\Netgem-N7700.conf
+DEBUG 2016-01-13 15:12:49.212 [main] Added file watch at renderers: renderers\\Nokia-N900.conf
+DEBUG 2016-01-13 15:12:49.212 [main] Added file watch at renderers: renderers\\Onkyo-TXNR717.conf
+DEBUG 2016-01-13 15:12:49.212 [main] Added file watch at renderers: renderers\\OPPO-BDP.conf
+DEBUG 2016-01-13 15:12:49.212 [main] Added file watch at renderers: renderers\\OPPO-BDP83.conf
+DEBUG 2016-01-13 15:12:49.212 [main] Added file watch at renderers: renderers\\Panasonic-DMPBDT.conf
+DEBUG 2016-01-13 15:12:49.227 [main] Added file watch at renderers: renderers\\Panasonic-DMPBDT220.conf
+DEBUG 2016-01-13 15:12:49.227 [main] Added file watch at renderers: renderers\\Panasonic-DMPBDT360.conf
+DEBUG 2016-01-13 15:12:49.227 [main] Added file watch at renderers: renderers\\Panasonic-SCBTT.conf
+DEBUG 2016-01-13 15:12:49.227 [main] Added file watch at renderers: renderers\\Panasonic-Viera.conf
+DEBUG 2016-01-13 15:12:49.227 [main] Added file watch at renderers: renderers\\Panasonic-VieraAS600E.conf
+DEBUG 2016-01-13 15:12:49.243 [main] Added file watch at renderers: renderers\\Panasonic-VieraAS650.conf
+DEBUG 2016-01-13 15:12:49.243 [main] Added file watch at renderers: renderers\\Panasonic-VieraET60.conf
+DEBUG 2016-01-13 15:12:49.243 [main] Added file watch at renderers: renderers\\Panasonic-VieraS60.conf
+DEBUG 2016-01-13 15:12:49.243 [main] Added file watch at renderers: renderers\\Panasonic-VieraTHPU30Z.conf
+DEBUG 2016-01-13 15:12:49.259 [main] Added file watch at renderers: renderers\\Panasonic-VieraTXL32V10E.conf
+DEBUG 2016-01-13 15:12:49.262 [main] Added file watch at renderers: renderers\\Panasonic-VieraVT60.conf
+DEBUG 2016-01-13 15:12:49.265 [main] Added file watch at renderers: renderers\\Philips-AureaAndNetTV.conf
+DEBUG 2016-01-13 15:12:49.268 [main] Added file watch at renderers: renderers\\Philips-PFL.conf
+DEBUG 2016-01-13 15:12:49.272 [main] Added file watch at renderers: renderers\\Philips-Streamium.conf
+DEBUG 2016-01-13 15:12:49.276 [main] Added file watch at renderers: renderers\\Pioneer-Kuro.conf
+DEBUG 2016-01-13 15:12:49.279 [main] Added file watch at renderers: renderers\\PopcornHour.conf
+DEBUG 2016-01-13 15:12:49.280 [main] Added file watch at renderers: renderers\\Realtek.conf
+DEBUG 2016-01-13 15:12:49.280 [main] Added file watch at renderers: renderers\\Roku-Roku3-3.conf
+DEBUG 2016-01-13 15:12:49.280 [main] Added file watch at renderers: renderers\\Roku-Roku3-5.conf
+DEBUG 2016-01-13 15:12:49.280 [main] Added file watch at renderers: renderers\\Samsung-BDC6800.conf
+DEBUG 2016-01-13 15:12:49.296 [main] Added file watch at renderers: renderers\\Samsung-BDH6500.conf
+DEBUG 2016-01-13 15:12:49.296 [main] Added file watch at renderers: renderers\\Samsung-C6600.conf
+DEBUG 2016-01-13 15:12:49.296 [main] Added file watch at renderers: renderers\\Samsung-CD.conf
+DEBUG 2016-01-13 15:12:49.296 [main] Added file watch at renderers: renderers\\Samsung-D6400.conf
+DEBUG 2016-01-13 15:12:49.296 [main] Added file watch at renderers: renderers\\Samsung-D7000.conf
+DEBUG 2016-01-13 15:12:49.296 [main] Added file watch at renderers: renderers\\Samsung-EH5300.conf
+DEBUG 2016-01-13 15:12:49.312 [main] Added file watch at renderers: renderers\\Samsung-EH6070.conf
+DEBUG 2016-01-13 15:12:49.312 [main] Added file watch at renderers: renderers\\Samsung-ES6100.conf
+DEBUG 2016-01-13 15:12:49.312 [main] Added file watch at renderers: renderers\\Samsung-ES6575.conf
+DEBUG 2016-01-13 15:12:49.312 [main] Added file watch at renderers: renderers\\Samsung-ES8000.conf
+DEBUG 2016-01-13 15:12:49.327 [main] Added file watch at renderers: renderers\\Samsung-ES8005.conf
+DEBUG 2016-01-13 15:12:49.327 [main] Added file watch at renderers: renderers\\Samsung-F5100.conf
+DEBUG 2016-01-13 15:12:49.327 [main] Added file watch at renderers: renderers\\Samsung-F5505.conf
+DEBUG 2016-01-13 15:12:49.327 [main] Added file watch at renderers: renderers\\Samsung-F5900.conf
+DEBUG 2016-01-13 15:12:49.327 [main] Added file watch at renderers: renderers\\Samsung-GalaxyS5.conf
+DEBUG 2016-01-13 15:12:49.343 [main] Added file watch at renderers: renderers\\Samsung-H4500.conf
+DEBUG 2016-01-13 15:12:49.343 [main] Added file watch at renderers: renderers\\Samsung-H6203.conf
+DEBUG 2016-01-13 15:12:49.359 [main] Added file watch at renderers: renderers\\Samsung-H6400.conf
+DEBUG 2016-01-13 15:12:49.359 [main] Added file watch at renderers: renderers\\Samsung-HTE3.conf
+DEBUG 2016-01-13 15:12:49.359 [main] Added file watch at renderers: renderers\\Samsung-HTF4.conf
+DEBUG 2016-01-13 15:12:49.359 [main] Added file watch at renderers: renderers\\Samsung-HU7000.conf
+DEBUG 2016-01-13 15:12:49.359 [main] Added file watch at renderers: renderers\\Samsung-HU9000.conf
+DEBUG 2016-01-13 15:12:49.359 [main] Added file watch at renderers: renderers\\Samsung-J55xx.conf
+DEBUG 2016-01-13 15:12:49.375 [main] Added file watch at renderers: renderers\\Samsung-JU6400.conf
+DEBUG 2016-01-13 15:12:49.378 [main] Added file watch at renderers: renderers\\Samsung-Mobile.conf
+DEBUG 2016-01-13 15:12:49.380 [main] Added file watch at renderers: renderers\\Samsung-NotCD.conf
+DEBUG 2016-01-13 15:12:49.380 [main] Added file watch at renderers: renderers\\Samsung-SMTG7400.conf
+DEBUG 2016-01-13 15:12:49.380 [main] Added file watch at renderers: renderers\\Samsung-WiseLink.conf
+DEBUG 2016-01-13 15:12:49.380 [main] Added file watch at renderers: renderers\\Sharp-Aquos.conf
+DEBUG 2016-01-13 15:12:49.380 [main] Added file watch at renderers: renderers\\Showtime3.conf
+DEBUG 2016-01-13 15:12:49.380 [main] Added file watch at renderers: renderers\\Showtime4.conf
+DEBUG 2016-01-13 15:12:49.380 [main] Added file watch at renderers: renderers\\Sony-Bluray.conf
+DEBUG 2016-01-13 15:12:49.396 [main] Added file watch at renderers: renderers\\Sony-Bluray2013.conf
+DEBUG 2016-01-13 15:12:49.396 [main] Added file watch at renderers: renderers\\Sony-Bravia4500.conf
+DEBUG 2016-01-13 15:12:49.396 [main] Added file watch at renderers: renderers\\Sony-Bravia5500.conf
+DEBUG 2016-01-13 15:12:49.396 [main] Added file watch at renderers: renderers\\Sony-BraviaBX305.conf
+DEBUG 2016-01-13 15:12:49.396 [main] Added file watch at renderers: renderers\\Sony-BraviaEX.conf
+DEBUG 2016-01-13 15:12:49.412 [main] Added file watch at renderers: renderers\\Sony-BraviaEX620.conf
+DEBUG 2016-01-13 15:12:49.412 [main] Added file watch at renderers: renderers\\Sony-BraviaHX.conf
+DEBUG 2016-01-13 15:12:49.412 [main] Added file watch at renderers: renderers\\Sony-BraviaHX75.conf
+DEBUG 2016-01-13 15:12:49.412 [main] Added file watch at renderers: renderers\\Sony-BraviaNX70x.conf
+DEBUG 2016-01-13 15:12:49.412 [main] Added file watch at renderers: renderers\\Sony-BraviaNX800.conf
+DEBUG 2016-01-13 15:12:49.412 [main] Added file watch at renderers: renderers\\Sony-BraviaW.conf
+DEBUG 2016-01-13 15:12:49.428 [main] Added file watch at renderers: renderers\\Sony-BraviaXBR.conf
+DEBUG 2016-01-13 15:12:49.428 [main] Added file watch at renderers: renderers\\Sony-HomeTheatreSystem.conf
+DEBUG 2016-01-13 15:12:49.428 [main] Added file watch at renderers: renderers\\Sony-PlayStation3.conf
+DEBUG 2016-01-13 15:12:49.428 [main] Added file watch at renderers: renderers\\Sony-PlayStation4.conf
+DEBUG 2016-01-13 15:12:49.428 [main] Added file watch at renderers: renderers\\Sony-PlayStationVita.conf
+DEBUG 2016-01-13 15:12:49.428 [main] Added file watch at renderers: renderers\\Sony-SMPN100.conf
+DEBUG 2016-01-13 15:12:49.443 [main] Added file watch at renderers: renderers\\Sony-STR5800ES.conf
+DEBUG 2016-01-13 15:12:49.443 [main] Added file watch at renderers: renderers\\Sony-Xperia.conf
+DEBUG 2016-01-13 15:12:49.443 [main] Added file watch at renderers: renderers\\Sony-XperiaZ3.conf
+DEBUG 2016-01-13 15:12:49.443 [main] Added file watch at renderers: renderers\\Technisat-S1Plus.conf
+DEBUG 2016-01-13 15:12:49.443 [main] Added file watch at renderers: renderers\\Telefunken-TV.conf
+DEBUG 2016-01-13 15:12:49.443 [main] Added file watch at renderers: renderers\\Telstra-Tbox.conf
+DEBUG 2016-01-13 15:12:49.443 [main] Added file watch at renderers: renderers\\Thomson-U3.conf
+DEBUG 2016-01-13 15:12:49.443 [main] Added file watch at renderers: renderers\\VideoWeb-VideoWebTV.conf
+DEBUG 2016-01-13 15:12:49.459 [main] Added file watch at renderers: renderers\\Vizio-SmartTV.conf
+DEBUG 2016-01-13 15:12:49.459 [main] Added file watch at renderers: renderers\\WesternDigital-WDTVLive.conf
+DEBUG 2016-01-13 15:12:49.459 [main] Added file watch at renderers: renderers\\XBMC.conf
+DEBUG 2016-01-13 15:12:49.459 [main] Added file watch at renderers: renderers\\Yamaha-RN500.conf
+DEBUG 2016-01-13 15:12:49.476 [main] Added file watch at renderers: renderers\\Yamaha-RXA1010.conf
+DEBUG 2016-01-13 15:12:49.478 [main] Added file watch at renderers: renderers\\Yamaha-RXV3900.conf
+DEBUG 2016-01-13 15:12:49.479 [main] Added file watch at renderers: renderers\\Yamaha-RXV671.conf
+INFO  2016-01-13 15:12:49.480 [main] Enabled 121 configurations, listed in order of loading priority:
+INFO  2016-01-13 15:12:49.481 [main] :   Panasonic AS600
+INFO  2016-01-13 15:12:49.481 [main] :   Panasonic AS650
+INFO  2016-01-13 15:12:49.481 [main] :   Panasonic BDT220
+INFO  2016-01-13 15:12:49.481 [main] :   Panasonic BDT360
+INFO  2016-01-13 15:12:49.481 [main] :   Panasonic ET60
+INFO  2016-01-13 15:12:49.481 [main] :   Panasonic Home Theater (SC-BTT)
+INFO  2016-01-13 15:12:49.497 [main] :   Panasonic S60
+INFO  2016-01-13 15:12:49.497 [main] :   Panasonic VT60
+INFO  2016-01-13 15:12:49.497 [main] :   Sony Blu-ray (2013)
+INFO  2016-01-13 15:12:49.497 [main] :   Xperia Z3
+INFO  2016-01-13 15:12:49.497 [main] :   Chromecast
+INFO  2016-01-13 15:12:49.497 [main] :   Hisense K680
+INFO  2016-01-13 15:12:49.512 [main] :   LG LCD TV (2014)
+INFO  2016-01-13 15:12:49.512 [main] :   LG LM660
+INFO  2016-01-13 15:12:49.512 [main] :   LG LS5700
+INFO  2016-01-13 15:12:49.512 [main] :   LG UB820V
+INFO  2016-01-13 15:12:49.512 [main] :   LG WebOS TV
+INFO  2016-01-13 15:12:49.512 [main] :   Panasonic TV
+INFO  2016-01-13 15:12:49.512 [main] :   Samsung BD-C6800
+INFO  2016-01-13 15:12:49.512 [main] :   Samsung D6400
+INFO  2016-01-13 15:12:49.528 [main] :   Samsung D7000
+INFO  2016-01-13 15:12:49.528 [main] :   Samsung EH5300
+INFO  2016-01-13 15:12:49.528 [main] :   Samsung EH6070
+INFO  2016-01-13 15:12:49.528 [main] :   Samsung ES6100
+INFO  2016-01-13 15:12:49.528 [main] :   Samsung ES6575
+INFO  2016-01-13 15:12:49.528 [main] :   Samsung ES8000
+INFO  2016-01-13 15:12:49.528 [main] :   Samsung ES8005
+INFO  2016-01-13 15:12:49.528 [main] :   Samsung F5100
+INFO  2016-01-13 15:12:49.543 [main] :   Samsung F5505
+INFO  2016-01-13 15:12:49.543 [main] :   Samsung F5900
+INFO  2016-01-13 15:12:49.543 [main] :   Samsung H4500
+INFO  2016-01-13 15:12:49.543 [main] :   Samsung H6203
+INFO  2016-01-13 15:12:49.543 [main] :   Samsung H6400
+INFO  2016-01-13 15:12:49.543 [main] :   Samsung H6500
+INFO  2016-01-13 15:12:49.559 [main] :   Samsung HT-E3 Series
+INFO  2016-01-13 15:12:49.559 [main] :   Samsung HT-F4
+INFO  2016-01-13 15:12:49.559 [main] :   Samsung HU7000
+INFO  2016-01-13 15:12:49.559 [main] :   Samsung HU9000
+INFO  2016-01-13 15:12:49.559 [main] :   Samsung J55xx Series
+INFO  2016-01-13 15:12:49.559 [main] :   Samsung JU6400
+INFO  2016-01-13 15:12:49.559 [main] :   VLC for iOS
+INFO  2016-01-13 15:12:49.559 [main] :   Xbox One
+INFO  2016-01-13 15:12:49.576 [main] :   AirPlayer
+INFO  2016-01-13 15:12:49.578 [main] :   Android
+INFO  2016-01-13 15:12:49.579 [main] :   AnyCast
+INFO  2016-01-13 15:12:49.581 [main] :   Apple iPad / iPhone
+INFO  2016-01-13 15:12:49.581 [main] :   Azur BD
+INFO  2016-01-13 15:12:49.581 [main] :   BRAVIA KDL-xxNX800
+INFO  2016-01-13 15:12:49.581 [main] :   D-Link DSM-510
+INFO  2016-01-13 15:12:49.581 [main] :   DirecTV
+INFO  2016-01-13 15:12:49.581 [main] :   Freebox
+INFO  2016-01-13 15:12:49.581 [main] :   Freecom MusicPal
+INFO  2016-01-13 15:12:49.581 [main] :   Hama IR320
+INFO  2016-01-13 15:12:49.597 [main] :   KalemSoft Media Player
+INFO  2016-01-13 15:12:49.597 [main] :   Kodi
+INFO  2016-01-13 15:12:49.597 [main] :   LG LA6200
+INFO  2016-01-13 15:12:49.597 [main] :   LG LA644V
+INFO  2016-01-13 15:12:49.597 [main] :   LG LM620
+INFO  2016-01-13 15:12:49.597 [main] :   LG Smart TV Upgrader
+INFO  2016-01-13 15:12:49.597 [main] :   Logitech Squeezebox
+INFO  2016-01-13 15:12:49.597 [main] :   Miracast M806
+INFO  2016-01-13 15:12:49.612 [main] :   Netgear NeoTV
+INFO  2016-01-13 15:12:49.612 [main] :   Netgem N7700
+INFO  2016-01-13 15:12:49.612 [main] :   Nokia N900
+INFO  2016-01-13 15:12:49.612 [main] :   Onkyo TX-NR717
+INFO  2016-01-13 15:12:49.612 [main] :   OPPO BDP
+INFO  2016-01-13 15:12:49.612 [main] :   OPPO BDP-83
+INFO  2016-01-13 15:12:49.612 [main] :   Panasonic BDT
+INFO  2016-01-13 15:12:49.612 [main] :   Panasonic TX-L32V10E
+INFO  2016-01-13 15:12:49.628 [main] :   Panasonic U30Z
+INFO  2016-01-13 15:12:49.628 [main] :   Philips Aurea
+INFO  2016-01-13 15:12:49.628 [main] :   Philips TV
+INFO  2016-01-13 15:12:49.628 [main] :   Pioneer Kuro
+INFO  2016-01-13 15:12:49.628 [main] :   PlayStation 3
+INFO  2016-01-13 15:12:49.628 [main] :   PlayStation 4
+INFO  2016-01-13 15:12:49.628 [main] :   PlayStation Vita
+INFO  2016-01-13 15:12:49.628 [main] :   Popcorn Hour
+INFO  2016-01-13 15:12:49.628 [main] :   Realtek
+INFO  2016-01-13 15:12:49.643 [main] :   Roku 3 (NSP 3)
+INFO  2016-01-13 15:12:49.643 [main] :   Roku 3 (NSP 5)
+INFO  2016-01-13 15:12:49.643 [main] :   Samsung C/D Series
+INFO  2016-01-13 15:12:49.643 [main] :   Samsung C6600
+INFO  2016-01-13 15:12:49.643 [main] :   Samsung E+ Series
+INFO  2016-01-13 15:12:49.643 [main] :   Samsung Galaxy S5
+INFO  2016-01-13 15:12:49.643 [main] :   Samsung Mobile
+INFO  2016-01-13 15:12:49.643 [main] :   Samsung SMT-G7400
+INFO  2016-01-13 15:12:49.659 [main] :   Samsung WiseLink
+INFO  2016-01-13 15:12:49.659 [main] :   Sharp Aquos
+INFO  2016-01-13 15:12:49.659 [main] :   Showtime 3
+INFO  2016-01-13 15:12:49.659 [main] :   Showtime 4
+INFO  2016-01-13 15:12:49.659 [main] :   Sony Blu-ray
+INFO  2016-01-13 15:12:49.659 [main] :   Sony Bravia 4500
+INFO  2016-01-13 15:12:49.659 [main] :   Sony Bravia 5500
+INFO  2016-01-13 15:12:49.659 [main] :   Sony Bravia BX305
+INFO  2016-01-13 15:12:49.659 [main] :   Sony Bravia EX
+INFO  2016-01-13 15:12:49.676 [main] :   Sony Bravia EX620
+INFO  2016-01-13 15:12:49.678 [main] :   Sony Bravia HX
+INFO  2016-01-13 15:12:49.680 [main] :   Sony Bravia HX75
+INFO  2016-01-13 15:12:49.681 [main] :   Sony Bravia NX70x
+INFO  2016-01-13 15:12:49.681 [main] :   Sony Bravia W
+INFO  2016-01-13 15:12:49.681 [main] :   Sony Bravia XBR
+INFO  2016-01-13 15:12:49.681 [main] :   Sony Home Theatre System
+INFO  2016-01-13 15:12:49.681 [main] :   Sony SMP-N100
+INFO  2016-01-13 15:12:49.681 [main] :   Sony STR-DA5800ES
+INFO  2016-01-13 15:12:49.681 [main] :   Sony Xperia Z/ZL/ZQ/Z1/Z2
+INFO  2016-01-13 15:12:49.697 [main] :   Streamium
+INFO  2016-01-13 15:12:49.697 [main] :   Technisat S1+
+INFO  2016-01-13 15:12:49.697 [main] :   Telefunken TV
+INFO  2016-01-13 15:12:49.697 [main] :   Telstra T-Box
+INFO  2016-01-13 15:12:49.697 [main] :   Thomson U3 Series
+INFO  2016-01-13 15:12:49.697 [main] :   Unknown renderer
+INFO  2016-01-13 15:12:49.697 [main] :   VideoWeb TV
+INFO  2016-01-13 15:12:49.697 [main] :   Vizio Smart TV
+INFO  2016-01-13 15:12:49.712 [main] :   WD TV Live
+INFO  2016-01-13 15:12:49.712 [main] :   WMP
+INFO  2016-01-13 15:12:49.712 [main] :   XBMC
+INFO  2016-01-13 15:12:49.712 [main] :   Xbox 360
+INFO  2016-01-13 15:12:49.712 [main] :   Yamaha R-N500
+INFO  2016-01-13 15:12:49.712 [main] :   Yamaha RX-A1010
+INFO  2016-01-13 15:12:49.712 [main] :   Yamaha RX-V3900
+INFO  2016-01-13 15:12:49.712 [main] :   Yamaha RX-V671
+INFO  2016-01-13 15:12:49.728 [main] Loading device configurations from C:\Users\Stephen\Downloads\ums-5.5.0\renderers
+DEBUG 2016-01-13 15:12:49.728 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\AnyCast.conf
+DEBUG 2016-01-13 15:12:49.728 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Apple-iDevice-AirPlayer.conf
+DEBUG 2016-01-13 15:12:49.728 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Apple-iDevice-VLC.conf
+DEBUG 2016-01-13 15:12:49.744 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Apple-iDevice.conf
+DEBUG 2016-01-13 15:12:49.744 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\BlackBerry-PlayBook-KalemSoftMP.conf
+DEBUG 2016-01-13 15:12:49.744 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\CambridgeAudio-AzurBD.conf
+DEBUG 2016-01-13 15:12:49.744 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\DefaultRenderer.conf
+DEBUG 2016-01-13 15:12:49.744 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\DirecTV.conf
+DEBUG 2016-01-13 15:12:49.744 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\DLink-DSM510.conf
+DEBUG 2016-01-13 15:12:49.744 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Free-Freebox.conf
+DEBUG 2016-01-13 15:12:49.744 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Freecom-MusicPal.conf
+DEBUG 2016-01-13 15:12:49.744 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Google-Android-Chromecast.conf
+DEBUG 2016-01-13 15:12:49.759 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Google-Android.conf
+DEBUG 2016-01-13 15:12:49.759 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Hama-IR320.conf
+DEBUG 2016-01-13 15:12:49.759 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Hisense-K680.conf
+DEBUG 2016-01-13 15:12:49.759 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Kodi.conf
+DEBUG 2016-01-13 15:12:49.759 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\LG-LA6200.conf
+DEBUG 2016-01-13 15:12:49.759 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\LG-LA644V.conf
+DEBUG 2016-01-13 15:12:49.759 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\LG-LB.conf
+DEBUG 2016-01-13 15:12:49.759 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\LG-LM620.conf
+DEBUG 2016-01-13 15:12:49.759 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\LG-LM660.conf
+DEBUG 2016-01-13 15:12:49.776 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\LG-LS5700.conf
+DEBUG 2016-01-13 15:12:49.779 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\LG-ST600.conf
+DEBUG 2016-01-13 15:12:49.781 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\LG-UB820V.conf
+DEBUG 2016-01-13 15:12:49.781 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\LG-WebOS.conf
+DEBUG 2016-01-13 15:12:49.781 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Logitech-Squeezebox.conf
+DEBUG 2016-01-13 15:12:49.781 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Microsoft-WindowsMediaPlayer.conf
+DEBUG 2016-01-13 15:12:49.781 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Microsoft-Xbox360.conf
+DEBUG 2016-01-13 15:12:49.781 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Microsoft-XboxOne.conf
+DEBUG 2016-01-13 15:12:49.781 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Miracast-M806.conf
+DEBUG 2016-01-13 15:12:49.781 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Netgear-NeoTV.conf
+DEBUG 2016-01-13 15:12:49.781 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Netgem-N7700.conf
+DEBUG 2016-01-13 15:12:49.781 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Nokia-N900.conf
+DEBUG 2016-01-13 15:12:49.781 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Onkyo-TXNR717.conf
+DEBUG 2016-01-13 15:12:49.781 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\OPPO-BDP.conf
+DEBUG 2016-01-13 15:12:49.797 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\OPPO-BDP83.conf
+DEBUG 2016-01-13 15:12:49.797 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Panasonic-DMPBDT.conf
+DEBUG 2016-01-13 15:12:49.797 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Panasonic-DMPBDT220.conf
+DEBUG 2016-01-13 15:12:49.797 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Panasonic-DMPBDT360.conf
+DEBUG 2016-01-13 15:12:49.797 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Panasonic-SCBTT.conf
+DEBUG 2016-01-13 15:12:49.797 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Panasonic-Viera.conf
+DEBUG 2016-01-13 15:12:49.797 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Panasonic-VieraAS600E.conf
+DEBUG 2016-01-13 15:12:49.797 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Panasonic-VieraAS650.conf
+DEBUG 2016-01-13 15:12:49.813 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Panasonic-VieraET60.conf
+DEBUG 2016-01-13 15:12:49.813 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Panasonic-VieraS60.conf
+DEBUG 2016-01-13 15:12:49.813 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Panasonic-VieraTHPU30Z.conf
+DEBUG 2016-01-13 15:12:49.813 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Panasonic-VieraTXL32V10E.conf
+DEBUG 2016-01-13 15:12:49.828 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Panasonic-VieraVT60.conf
+DEBUG 2016-01-13 15:12:49.828 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Philips-AureaAndNetTV.conf
+DEBUG 2016-01-13 15:12:49.828 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Philips-PFL.conf
+DEBUG 2016-01-13 15:12:49.828 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Philips-Streamium.conf
+DEBUG 2016-01-13 15:12:49.828 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Pioneer-Kuro.conf
+DEBUG 2016-01-13 15:12:49.828 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\PopcornHour.conf
+DEBUG 2016-01-13 15:12:49.828 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Realtek.conf
+DEBUG 2016-01-13 15:12:49.828 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Roku-Roku3-3.conf
+DEBUG 2016-01-13 15:12:49.844 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Roku-Roku3-5.conf
+DEBUG 2016-01-13 15:12:49.844 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-BDC6800.conf
+DEBUG 2016-01-13 15:12:49.844 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-BDH6500.conf
+DEBUG 2016-01-13 15:12:49.844 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-C6600.conf
+DEBUG 2016-01-13 15:12:49.844 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-CD.conf
+DEBUG 2016-01-13 15:12:49.844 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-D6400.conf
+DEBUG 2016-01-13 15:12:49.844 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-D7000.conf
+DEBUG 2016-01-13 15:12:49.844 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-EH5300.conf
+DEBUG 2016-01-13 15:12:49.860 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-EH6070.conf
+DEBUG 2016-01-13 15:12:49.860 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-ES6100.conf
+DEBUG 2016-01-13 15:12:49.860 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-ES6575.conf
+DEBUG 2016-01-13 15:12:49.860 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-ES8000.conf
+DEBUG 2016-01-13 15:12:49.860 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-ES8005.conf
+DEBUG 2016-01-13 15:12:49.860 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-F5100.conf
+DEBUG 2016-01-13 15:12:49.860 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-F5505.conf
+DEBUG 2016-01-13 15:12:49.860 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-F5900.conf
+DEBUG 2016-01-13 15:12:49.876 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-GalaxyS5.conf
+DEBUG 2016-01-13 15:12:49.879 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-H4500.conf
+DEBUG 2016-01-13 15:12:49.881 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-H6203.conf
+DEBUG 2016-01-13 15:12:49.882 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-H6400.conf
+DEBUG 2016-01-13 15:12:49.882 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-HTE3.conf
+DEBUG 2016-01-13 15:12:49.882 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-HTF4.conf
+DEBUG 2016-01-13 15:12:49.882 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-HU7000.conf
+DEBUG 2016-01-13 15:12:49.882 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-HU9000.conf
+DEBUG 2016-01-13 15:12:49.882 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-J55xx.conf
+DEBUG 2016-01-13 15:12:49.882 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-JU6400.conf
+DEBUG 2016-01-13 15:12:49.882 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-Mobile.conf
+DEBUG 2016-01-13 15:12:49.897 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-NotCD.conf
+DEBUG 2016-01-13 15:12:49.897 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-SMTG7400.conf
+DEBUG 2016-01-13 15:12:49.897 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Samsung-WiseLink.conf
+DEBUG 2016-01-13 15:12:49.897 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Sharp-Aquos.conf
+DEBUG 2016-01-13 15:12:49.897 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Showtime3.conf
+DEBUG 2016-01-13 15:12:49.913 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Showtime4.conf
+DEBUG 2016-01-13 15:12:49.913 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Sony-Bluray.conf
+DEBUG 2016-01-13 15:12:49.913 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Sony-Bluray2013.conf
+DEBUG 2016-01-13 15:12:49.913 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Sony-Bravia4500.conf
+DEBUG 2016-01-13 15:12:49.913 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Sony-Bravia5500.conf
+DEBUG 2016-01-13 15:12:49.913 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Sony-BraviaBX305.conf
+DEBUG 2016-01-13 15:12:49.913 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Sony-BraviaEX.conf
+DEBUG 2016-01-13 15:12:49.913 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Sony-BraviaEX620.conf
+DEBUG 2016-01-13 15:12:49.929 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Sony-BraviaHX.conf
+DEBUG 2016-01-13 15:12:49.929 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Sony-BraviaHX75.conf
+DEBUG 2016-01-13 15:12:49.929 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Sony-BraviaNX70x.conf
+DEBUG 2016-01-13 15:12:49.929 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Sony-BraviaNX800.conf
+DEBUG 2016-01-13 15:12:49.929 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Sony-BraviaW.conf
+DEBUG 2016-01-13 15:12:49.929 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Sony-BraviaXBR.conf
+DEBUG 2016-01-13 15:12:49.929 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Sony-HomeTheatreSystem.conf
+DEBUG 2016-01-13 15:12:49.944 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Sony-PlayStation3.conf
+DEBUG 2016-01-13 15:12:49.944 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Sony-PlayStation4.conf
+DEBUG 2016-01-13 15:12:49.944 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Sony-PlayStationVita.conf
+DEBUG 2016-01-13 15:12:49.944 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Sony-SMPN100.conf
+DEBUG 2016-01-13 15:12:49.944 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Sony-STR5800ES.conf
+DEBUG 2016-01-13 15:12:49.944 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Sony-Xperia.conf
+DEBUG 2016-01-13 15:12:49.944 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Sony-XperiaZ3.conf
+DEBUG 2016-01-13 15:12:49.944 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Technisat-S1Plus.conf
+DEBUG 2016-01-13 15:12:49.960 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Telefunken-TV.conf
+DEBUG 2016-01-13 15:12:49.960 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Telstra-Tbox.conf
+DEBUG 2016-01-13 15:12:49.960 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Thomson-U3.conf
+DEBUG 2016-01-13 15:12:49.960 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\VideoWeb-VideoWebTV.conf
+DEBUG 2016-01-13 15:12:49.960 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Vizio-SmartTV.conf
+DEBUG 2016-01-13 15:12:49.960 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\WesternDigital-WDTVLive.conf
+DEBUG 2016-01-13 15:12:49.960 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\XBMC.conf
+DEBUG 2016-01-13 15:12:49.960 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Yamaha-RN500.conf
+DEBUG 2016-01-13 15:12:49.960 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Yamaha-RXA1010.conf
+DEBUG 2016-01-13 15:12:49.960 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Yamaha-RXV3900.conf
+DEBUG 2016-01-13 15:12:49.960 [main] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\renderers: C:\\Users\\Stephen\\Downloads\\ums-5.5.0\\renderers\\Yamaha-RXV671.conf
+DEBUG 2016-01-13 15:12:50.545 [main] UPNP Services are online, listening for media renderers
+DEBUG 2016-01-13 15:12:50.545 [main] Attached http player control handler to web server
+INFO  2016-01-13 15:12:51.319 [main] Checking the fontconfig cache in the background, this can take two minutes or so.
+DEBUG 2016-01-13 15:12:51.346 [mplayer.exe-0] Starting win32/mplayer.exe dummy
+ERROR 2016-01-13 15:12:51.359 [mplayer.exe-0] Error initializing process: 
+INFO  2016-01-13 15:12:51.356 [main] Found VLC version 2.2.1 at: C:\Program Files (x86)\VideoLAN\VLC\vlc.exe
+INFO  2016-01-13 15:12:51.373 [main] Searching for plugins in C:\Users\Stephen\Downloads\ums-5.5.0\plugins
+INFO  2016-01-13 15:12:51.386 [main] No plugins found
+INFO  2016-01-13 15:12:51.444 [main] Executable of transcoder profile AviSynth/FFmpeg not found
+INFO  2016-01-13 15:12:51.454 [main] Executable of transcoder profile FFmpeg Audio not found
+INFO  2016-01-13 15:12:51.481 [main] Executable of transcoder profile MEncoder not found
+INFO  2016-01-13 15:12:51.486 [main] Executable of transcoder profile AviSynth/MEncoder not found
+INFO  2016-01-13 15:12:51.491 [main] Executable of transcoder profile FFmpeg not found
+INFO  2016-01-13 15:12:51.494 [main] Registering transcoding engine: VLC
+DEBUG 2016-01-13 15:12:51.494 [main] Error reading ffmpeg web filters: File 'C:\Users\Stephen\Downloads\ums-5.5.0\ffmpeg.webfilters' does not exist
+ERROR 2016-01-13 15:12:51.510 [main] Error running command [win32/ffmpeg.exe, -protocols]
+java.io.IOException: Cannot run program "win32/ffmpeg.exe": CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessBuilder.start(Unknown Source) ~[na:1.8.0_65]
+	at net.pms.util.ProcessUtil.run(ProcessUtil.java:184) [ums.jar:5.5.0]
+	at net.pms.util.ProcessUtil.run(ProcessUtil.java:215) [ums.jar:5.5.0]
+	at net.pms.encoders.FFmpegOptions.getSupportedProtocols(FFmpegOptions.java:90) [ums.jar:5.5.0]
+	at net.pms.encoders.FFmpegWebVideo.<init>(FFmpegWebVideo.java:98) [ums.jar:5.5.0]
+	at net.pms.encoders.PlayerFactory.registerPlayers(PlayerFactory.java:129) [ums.jar:5.5.0]
+	at net.pms.encoders.PlayerFactory.initialize(PlayerFactory.java:109) [ums.jar:5.5.0]
+	at net.pms.PMS.init(PMS.java:698) [ums.jar:5.5.0]
+	at net.pms.PMS.createInstance(PMS.java:1072) [ums.jar:5.5.0]
+	at net.pms.PMS.main(PMS.java:1230) [ums.jar:5.5.0]
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessImpl.create(Native Method) ~[na:1.8.0_65]
+	at java.lang.ProcessImpl.<init>(Unknown Source) ~[na:1.8.0_65]
+	at java.lang.ProcessImpl.start(Unknown Source) ~[na:1.8.0_65]
+	... 10 common frames omitted
+DEBUG 2016-01-13 15:12:51.557 [main] FFmpeg supported protocols: []
+INFO  2016-01-13 15:12:51.557 [main] Executable of transcoder profile FFmpeg Web Video not found
+INFO  2016-01-13 15:12:51.572 [main] Executable of transcoder profile MEncoder Web not found
+INFO  2016-01-13 15:12:51.594 [main] Registering transcoding engine: VLC Web Video
+INFO  2016-01-13 15:12:51.594 [main] Executable of transcoder profile tsMuxeR not found
+INFO  2016-01-13 15:12:51.610 [main] Executable of transcoder profile Audio High Fidelity not found
+INFO  2016-01-13 15:12:51.610 [main] Registering transcoding engine: VLC Web Audio (Legacy)
+INFO  2016-01-13 15:12:51.626 [main] Registering transcoding engine: VLC Web Video (Legacy)
+INFO  2016-01-13 15:12:51.626 [main] Executable of transcoder profile FFmpeg DVR-MS Remux not found
+INFO  2016-01-13 15:12:51.626 [main] Executable of transcoder profile dcraw Thumbnailer not found
+DEBUG 2016-01-13 15:12:51.863 [main] Reading cred.path: "" (previous: null, default: "")
+DEBUG 2016-01-13 15:12:51.867 [main] Reading hostname: "192.168.0.102" (default: null)
+INFO  2016-01-13 15:12:51.867 [main] Using forced address 192.168.0.102
+INFO  2016-01-13 15:12:51.871 [main] Created socket: /192.168.0.102:5001
+INFO  2016-01-13 15:12:52.104 [main] WEB interface is available at: http://192.168.0.102:9001
+DEBUG 2016-01-13 15:12:52.119 [main] Using database URL: jdbc:h2:C:\Users\Stephen\Downloads\ums-5.5.0\database/medias
+INFO  2016-01-13 15:12:52.121 [main] Using database located at: C:\Users\Stephen\Downloads\ums-5.5.0\database
+DEBUG 2016-01-13 15:12:52.539 [cling-8] Matched media renderer "WMP" based on dlna details "NEWCS-PC 192.168.0.100 uuid:0e055bb3-af76-4dfd-aa5c-414d1d285b1c Microsoft Corporation Windows Media Player 12 Windows Media Player Renderer http://www.microsoft.com http://go.microsoft.com/fwlink/?LinkId=105927"
+DEBUG 2016-01-13 15:12:52.543 [cling-8] Reading MimeTypesChanges: "audio/wav=audio/L16|video/mp4=video/mpeg" (default: "")
+DEBUG 2016-01-13 15:12:52.544 [cling-8] Reading RendererName: "WMP" (default: "Unknown renderer")
+DEBUG 2016-01-13 15:12:52.545 [cling-8] Adding status button for NEWCS-PC
+DEBUG 2016-01-13 15:12:52.550 [cling-8] Reading RendererIcon: "wmp.png" (default: "unknown.png")
+DEBUG 2016-01-13 15:12:52.601 [cling-8] New renderer found: "NEWCS-PC" with dlna details: {friendlyName=NEWCS-PC, address=192.168.0.100, udn=uuid:0e055bb3-af76-4dfd-aa5c-414d1d285b1c, manufacturer=Microsoft Corporation, modelName=Windows Media Player, modelNumber=12, modelDescription=Windows Media Player Renderer, manufacturerURL=http://www.microsoft.com, modelURL=http://go.microsoft.com/fwlink/?LinkId=105927}
+DEBUG 2016-01-13 15:12:52.601 [cling-8] Adding device: urn:schemas-upnp-org:device:MediaRenderer:1 (RemoteDevice) Identity: (RemoteDeviceIdentity) UDN: uuid:0e055bb3-af76-4dfd-aa5c-414d1d285b1c, Descriptor: http://192.168.0.100:2869/upnphost/udhisapi.dll?content=uuid:0e055bb3-af76-4dfd-aa5c-414d1d285b1c, Root: true
+DEBUG 2016-01-13 15:12:52.602 [cling-8] Subscribing to RenderingControl service on NEWCS-PC
+DEBUG 2016-01-13 15:12:52.626 [cling-8] Created upnp player for NEWCS-PC
+DEBUG 2016-01-13 15:12:53.034 [main] Database file count: 3
+DEBUG 2016-01-13 15:12:53.034 [main] Database version: 5
+INFO  2016-01-13 15:12:53.119 [main] A tiny cache admin interface is available at: http://192.168.0.102:5001/console/home
+DEBUG 2016-01-13 15:12:53.226 [main] master is internal:net.pms.dlna.RealFile str Track 3.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 3.mp3
+DEBUG 2016-01-13 15:12:53.241 [main] master is internal:net.pms.dlna.RealFile str Track 2.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 2.mp3
+DEBUG 2016-01-13 15:12:53.241 [main] master is internal:net.pms.dlna.RealFile str 03 Come Thou Fount - Bish.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\03 Come Thou Fount - Bish.mp3
+DEBUG 2016-01-13 15:12:53.256 [main] master is internal:net.pms.dlna.RealFile str 02 Brethren We Have Come To Worship.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\02 Brethren We Have Come To Worship.mp3
+DEBUG 2016-01-13 15:12:53.256 [cling-11] Subscription established: RenderingControl on NEWCS-PC
+DEBUG 2016-01-13 15:12:53.256 [main] master is internal:net.pms.dlna.RealFile str 01 All Creatures of Our God and King.mp3>C:\Users\Stephen\Music\01 All Creatures of Our God and King.mp3
+INFO  2016-01-13 15:12:53.272 [main] Checking shared folder: Music
+DEBUG 2016-01-13 15:12:53.303 [cling-10] PresetNameList: FactoryDefaults
+DEBUG 2016-01-13 15:12:53.325 [main] Sending ALIVE...
+DEBUG 2016-01-13 15:12:53.988 [main] Reading uuid: "b38366b8-0d6d-4aa8-ba14-b64a6ec7adb1" (default: null)
+INFO  2016-01-13 15:12:53.988 [main] Using the following UUID configured in UMS.conf: b38366b8-0d6d-4aa8-ba14-b64a6ec7adb1
+INFO  2016-01-13 15:12:54.088 [New I/O worker #1] No IP filter specified, access granted to /192.168.0.102
+DEBUG 2016-01-13 15:12:54.104 [New I/O worker #1] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:12:54.104 [New I/O worker #1] Adding status button for Unknown renderer
+DEBUG 2016-01-13 15:12:54.126 [New I/O worker #1] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+INFO  2016-01-13 15:12:54.126 [New I/O worker #1] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: Windows10/10.0 UPnP/1.0 Cling/2.0, Cache-Control: no-cache, Pragma: no-cache
+DEBUG 2016-01-13 15:12:54.157 [New I/O worker #4] Matched media renderer "Unknown renderer" based on address /192.168.0.102
+DEBUG 2016-01-13 15:12:54.173 [New I/O worker #4] Finishing configuration for Unknown renderer
+DEBUG 2016-01-13 15:12:54.173 [New I/O worker #4] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:12:54.173 [New I/O worker #4] Updating status button for Unknown renderer
+DEBUG 2016-01-13 15:12:54.173 [New I/O worker #4] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+INFO  2016-01-13 15:12:54.173 [New I/O worker #4] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: Windows10/10.0 UPnP/1.0 Cling/2.0, Cache-Control: no-cache, Pragma: no-cache
+DEBUG 2016-01-13 15:12:54.189 [New I/O worker #5] Matched media renderer "Unknown renderer" based on address /192.168.0.102
+DEBUG 2016-01-13 15:12:54.204 [New I/O worker #5] Finishing configuration for Unknown renderer
+DEBUG 2016-01-13 15:12:54.204 [New I/O worker #5] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:12:54.204 [New I/O worker #5] Updating status button for Unknown renderer
+DEBUG 2016-01-13 15:12:54.204 [New I/O worker #5] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+INFO  2016-01-13 15:12:54.204 [New I/O worker #5] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: Windows10/10.0 UPnP/1.0 Cling/2.0, Cache-Control: no-cache, Pragma: no-cache
+DEBUG 2016-01-13 15:12:54.226 [New I/O worker #6] Matched media renderer "Unknown renderer" based on address /192.168.0.102
+DEBUG 2016-01-13 15:12:54.226 [New I/O worker #6] Finishing configuration for Unknown renderer
+DEBUG 2016-01-13 15:12:54.226 [New I/O worker #6] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:12:54.226 [New I/O worker #6] Updating status button for Unknown renderer
+DEBUG 2016-01-13 15:12:54.226 [New I/O worker #6] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+INFO  2016-01-13 15:12:54.226 [New I/O worker #6] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: Windows10/10.0 UPnP/1.0 Cling/2.0, Cache-Control: no-cache, Pragma: no-cache
+INFO  2016-01-13 15:12:54.258 [main] Universal Media Server is now available for renderers to find
+INFO  2016-01-13 15:12:54.642 [New I/O worker #7] No IP filter specified, access granted to /192.168.0.100
+DEBUG 2016-01-13 15:12:54.642 [New I/O worker #7] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:12:54.726 [New I/O worker #7] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:12:54.889 [New I/O worker #8] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:12:54.927 [New I/O worker #1] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:12:54.959 [New I/O worker #2] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:12:54.990 [New I/O worker #3] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:12:55.005 [New I/O worker #4] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:12:55.043 [New I/O worker #5] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:12:55.058 [New I/O worker #6] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:12:55.158 [New I/O worker #7] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:12:57.267 [New I/O worker #8] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:12:57.299 [New I/O worker #8] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:12:57.314 [New I/O worker #1] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:12:57.352 [New I/O worker #2] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:12:57.368 [New I/O worker #3] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:12:57.399 [New I/O worker #4] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:12:57.433 [New I/O worker #5] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:12:57.468 [New I/O worker #6] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:12:57.484 [New I/O worker #7] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:12:57.515 [New I/O worker #8] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:13:01.215 [New I/O worker #1] Matched media renderer "Unknown renderer" based on address /192.168.0.102
+DEBUG 2016-01-13 15:13:01.215 [New I/O worker #1] Finishing configuration for Unknown renderer
+DEBUG 2016-01-13 15:13:01.215 [New I/O worker #1] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:13:01.215 [New I/O worker #1] Updating status button for Unknown renderer
+DEBUG 2016-01-13 15:13:01.215 [New I/O worker #1] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+INFO  2016-01-13 15:13:01.215 [New I/O worker #1] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: Windows10/10.0 UPnP/1.0 Cling/2.0, Cache-Control: no-cache, Pragma: no-cache
+DEBUG 2016-01-13 15:13:01.231 [New I/O worker #1] master is internal:net.pms.dlna.RealFile str Track 3.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 3.mp3
+DEBUG 2016-01-13 15:13:01.251 [New I/O worker #1] master is internal:net.pms.dlna.RealFile str Track 2.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 2.mp3
+DEBUG 2016-01-13 15:13:01.253 [New I/O worker #1] master is internal:net.pms.dlna.RealFile str 03 Come Thou Fount - Bish.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\03 Come Thou Fount - Bish.mp3
+DEBUG 2016-01-13 15:13:01.269 [New I/O worker #1] master is internal:net.pms.dlna.RealFile str 02 Brethren We Have Come To Worship.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\02 Brethren We Have Come To Worship.mp3
+DEBUG 2016-01-13 15:13:01.269 [New I/O worker #1] master is internal:net.pms.dlna.RealFile str 01 All Creatures of Our God and King.mp3>C:\Users\Stephen\Music\01 All Creatures of Our God and King.mp3
+INFO  2016-01-13 15:13:01.284 [New I/O worker #1] Checking shared folder: Music
+DEBUG 2016-01-13 15:13:02.393 [New I/O worker #2] Matched media renderer "Unknown renderer" based on address /192.168.0.102
+DEBUG 2016-01-13 15:13:02.393 [New I/O worker #2] Finishing configuration for Unknown renderer
+DEBUG 2016-01-13 15:13:02.393 [New I/O worker #2] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:13:02.393 [New I/O worker #2] Updating status button for Unknown renderer
+DEBUG 2016-01-13 15:13:02.393 [New I/O worker #2] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+INFO  2016-01-13 15:13:02.393 [New I/O worker #2] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: Windows10/10.0 UPnP/1.0 Cling/2.0, Cache-Control: no-cache, Pragma: no-cache
+DEBUG 2016-01-13 15:13:02.409 [New I/O worker #2] master is internal:net.pms.dlna.RealFile str Track 3.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 3.mp3
+DEBUG 2016-01-13 15:13:02.425 [New I/O worker #2] master is internal:net.pms.dlna.RealFile str Track 2.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 2.mp3
+DEBUG 2016-01-13 15:13:02.440 [New I/O worker #2] master is internal:net.pms.dlna.RealFile str 03 Come Thou Fount - Bish.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\03 Come Thou Fount - Bish.mp3
+DEBUG 2016-01-13 15:13:02.440 [New I/O worker #2] master is internal:net.pms.dlna.RealFile str 02 Brethren We Have Come To Worship.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\02 Brethren We Have Come To Worship.mp3
+DEBUG 2016-01-13 15:13:02.440 [New I/O worker #2] master is internal:net.pms.dlna.RealFile str 01 All Creatures of Our God and King.mp3>C:\Users\Stephen\Music\01 All Creatures of Our God and King.mp3
+INFO  2016-01-13 15:13:02.462 [New I/O worker #2] Checking shared folder: Music
+DEBUG 2016-01-13 15:13:03.169 [New I/O worker #3] Matched media renderer "Unknown renderer" based on address /192.168.0.102
+DEBUG 2016-01-13 15:13:03.169 [New I/O worker #3] Finishing configuration for Unknown renderer
+DEBUG 2016-01-13 15:13:03.169 [New I/O worker #3] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:13:03.169 [New I/O worker #3] Updating status button for Unknown renderer
+DEBUG 2016-01-13 15:13:03.169 [New I/O worker #3] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+INFO  2016-01-13 15:13:03.169 [New I/O worker #3] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: Windows10/10.0 UPnP/1.0 Cling/2.0, Cache-Control: no-cache, Pragma: no-cache
+DEBUG 2016-01-13 15:13:03.185 [New I/O worker #3] master is internal:net.pms.dlna.RealFile str Track 3.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 3.mp3
+DEBUG 2016-01-13 15:13:03.200 [New I/O worker #3] master is internal:net.pms.dlna.RealFile str Track 2.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 2.mp3
+DEBUG 2016-01-13 15:13:03.200 [New I/O worker #3] master is internal:net.pms.dlna.RealFile str 03 Come Thou Fount - Bish.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\03 Come Thou Fount - Bish.mp3
+DEBUG 2016-01-13 15:13:03.216 [New I/O worker #3] master is internal:net.pms.dlna.RealFile str 02 Brethren We Have Come To Worship.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\02 Brethren We Have Come To Worship.mp3
+DEBUG 2016-01-13 15:13:03.216 [New I/O worker #3] master is internal:net.pms.dlna.RealFile str 01 All Creatures of Our God and King.mp3>C:\Users\Stephen\Music\01 All Creatures of Our God and King.mp3
+INFO  2016-01-13 15:13:03.232 [New I/O worker #3] Checking shared folder: Music
+DEBUG 2016-01-13 15:13:04.262 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 15:13:21.193 [New I/O worker #8] Matched media renderer "Unknown renderer" based on address /192.168.0.102
+DEBUG 2016-01-13 15:13:21.193 [New I/O worker #8] Finishing configuration for Unknown renderer
+DEBUG 2016-01-13 15:13:21.193 [New I/O worker #8] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:13:21.193 [New I/O worker #8] Updating status button for Unknown renderer
+DEBUG 2016-01-13 15:13:21.193 [New I/O worker #8] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+INFO  2016-01-13 15:13:21.193 [New I/O worker #8] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: Windows10/10.0 UPnP/1.0 Cling/2.0, Cache-Control: no-cache, Pragma: no-cache
+DEBUG 2016-01-13 15:13:21.225 [New I/O worker #8] master is internal:net.pms.dlna.RealFile str Track 3.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 3.mp3
+DEBUG 2016-01-13 15:13:21.225 [New I/O worker #8] master is internal:net.pms.dlna.RealFile str Track 2.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 2.mp3
+DEBUG 2016-01-13 15:13:21.240 [New I/O worker #8] master is internal:net.pms.dlna.RealFile str 03 Come Thou Fount - Bish.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\03 Come Thou Fount - Bish.mp3
+DEBUG 2016-01-13 15:13:21.240 [New I/O worker #8] master is internal:net.pms.dlna.RealFile str 02 Brethren We Have Come To Worship.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\02 Brethren We Have Come To Worship.mp3
+DEBUG 2016-01-13 15:13:21.260 [New I/O worker #8] master is internal:net.pms.dlna.RealFile str 01 All Creatures of Our God and King.mp3>C:\Users\Stephen\Music\01 All Creatures of Our God and King.mp3
+INFO  2016-01-13 15:13:21.263 [New I/O worker #8] Checking shared folder: Music
+DEBUG 2016-01-13 15:13:24.513 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 15:13:24.844 [cling-11] Ignoring device: InternetGatewayDevice (RemoteDevice) Identity: (RemoteDeviceIdentity) UDN: uuid:12342409-1234-1234-5678-ee1234cc5678, Descriptor: http://192.168.0.1:52869/picsdesc.xml, Root: true
+DEBUG 2016-01-13 15:13:24.844 [cling-11] Ignoring embedded device: urn:schemas-upnp-org:device:WANDevice:1 (RemoteDevice) Identity: (RemoteDeviceIdentity) UDN: uuid:12342409-1234-1234-5678-ee1234cc5678, Descriptor: http://192.168.0.1:52869/picsdesc.xml, Root: false
+DEBUG 2016-01-13 15:14:12.454 [New I/O worker #5] Matched media renderer "Unknown renderer" based on address /192.168.0.102
+DEBUG 2016-01-13 15:14:12.454 [New I/O worker #5] Finishing configuration for Unknown renderer
+DEBUG 2016-01-13 15:14:12.454 [New I/O worker #5] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:14:12.454 [New I/O worker #5] Updating status button for Unknown renderer
+DEBUG 2016-01-13 15:14:12.454 [New I/O worker #5] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+INFO  2016-01-13 15:14:12.454 [New I/O worker #5] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: okhttp/3.0.0-RC1
+DEBUG 2016-01-13 15:14:12.470 [New I/O worker #5] master is internal:net.pms.dlna.RealFile str Track 3.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 3.mp3
+DEBUG 2016-01-13 15:14:12.470 [New I/O worker #5] master is internal:net.pms.dlna.RealFile str Track 2.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 2.mp3
+DEBUG 2016-01-13 15:14:12.485 [New I/O worker #5] master is internal:net.pms.dlna.RealFile str 03 Come Thou Fount - Bish.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\03 Come Thou Fount - Bish.mp3
+DEBUG 2016-01-13 15:14:12.491 [New I/O worker #5] master is internal:net.pms.dlna.RealFile str 02 Brethren We Have Come To Worship.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\02 Brethren We Have Come To Worship.mp3
+DEBUG 2016-01-13 15:14:12.491 [New I/O worker #5] master is internal:net.pms.dlna.RealFile str 01 All Creatures of Our God and King.mp3>C:\Users\Stephen\Music\01 All Creatures of Our God and King.mp3
+INFO  2016-01-13 15:14:12.507 [New I/O worker #5] Checking shared folder: Music
+DEBUG 2016-01-13 15:14:12.563 [New I/O worker #5] Connection error: java.io.IOException: An existing connection was forcibly closed by the remote host
+DEBUG 2016-01-13 15:14:12.563 [New I/O worker #5] Premature end, stopping...
+DEBUG 2016-01-13 15:14:12.563 [New I/O worker #5] Connection error: java.io.IOException: An existing connection was forcibly closed by the remote host
+DEBUG 2016-01-13 15:14:12.563 [New I/O worker #5] Premature end, stopping...
+DEBUG 2016-01-13 15:14:38.804 [New I/O worker #6] Matched media renderer "Unknown renderer" based on address /192.168.0.102
+DEBUG 2016-01-13 15:14:38.804 [New I/O worker #6] Finishing configuration for Unknown renderer
+DEBUG 2016-01-13 15:14:38.804 [New I/O worker #6] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:14:38.804 [New I/O worker #6] Updating status button for Unknown renderer
+DEBUG 2016-01-13 15:14:38.804 [New I/O worker #6] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+INFO  2016-01-13 15:14:38.804 [New I/O worker #6] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: okhttp/3.0.0-RC1
+DEBUG 2016-01-13 15:14:38.804 [New I/O worker #6] master is internal:net.pms.dlna.RealFile str Track 3.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 3.mp3
+DEBUG 2016-01-13 15:14:38.819 [New I/O worker #6] master is internal:net.pms.dlna.RealFile str Track 2.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 2.mp3
+DEBUG 2016-01-13 15:14:38.819 [New I/O worker #6] master is internal:net.pms.dlna.RealFile str 03 Come Thou Fount - Bish.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\03 Come Thou Fount - Bish.mp3
+DEBUG 2016-01-13 15:14:38.835 [New I/O worker #6] master is internal:net.pms.dlna.RealFile str 02 Brethren We Have Come To Worship.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\02 Brethren We Have Come To Worship.mp3
+DEBUG 2016-01-13 15:14:38.835 [New I/O worker #6] master is internal:net.pms.dlna.RealFile str 01 All Creatures of Our God and King.mp3>C:\Users\Stephen\Music\01 All Creatures of Our God and King.mp3
+INFO  2016-01-13 15:14:38.851 [New I/O worker #6] Checking shared folder: Music
+DEBUG 2016-01-13 15:14:38.881 [New I/O worker #6] Connection error: java.io.IOException: An existing connection was forcibly closed by the remote host
+DEBUG 2016-01-13 15:14:38.882 [New I/O worker #6] Premature end, stopping...
+DEBUG 2016-01-13 15:14:38.882 [New I/O worker #6] Connection error: java.io.IOException: An existing connection was forcibly closed by the remote host
+DEBUG 2016-01-13 15:14:38.882 [New I/O worker #6] Premature end, stopping...
+DEBUG 2016-01-13 15:14:54.804 [cling-16] Ignoring device: WFADevice (RemoteDevice) Identity: (RemoteDeviceIdentity) UDN: uuid:63041253-1019-2006-1228-f8e903bb0b2e, Descriptor: http://192.168.0.1:52881/simplecfg.xml, Root: true
+DEBUG 2016-01-13 15:15:05.251 [New I/O worker #7] Matched media renderer "Unknown renderer" based on address /192.168.0.102
+DEBUG 2016-01-13 15:15:05.251 [New I/O worker #7] Finishing configuration for Unknown renderer
+DEBUG 2016-01-13 15:15:05.251 [New I/O worker #7] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:15:05.251 [New I/O worker #7] Updating status button for Unknown renderer
+DEBUG 2016-01-13 15:15:05.251 [New I/O worker #7] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+INFO  2016-01-13 15:15:05.251 [New I/O worker #7] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: Windows10/10.0 UPnP/1.0 Cling/2.0, Cache-Control: no-cache, Pragma: no-cache
+DEBUG 2016-01-13 15:15:05.266 [New I/O worker #7] master is internal:net.pms.dlna.RealFile str Track 3.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 3.mp3
+DEBUG 2016-01-13 15:15:05.282 [New I/O worker #7] master is internal:net.pms.dlna.RealFile str Track 2.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 2.mp3
+DEBUG 2016-01-13 15:15:05.282 [New I/O worker #7] master is internal:net.pms.dlna.RealFile str 03 Come Thou Fount - Bish.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\03 Come Thou Fount - Bish.mp3
+DEBUG 2016-01-13 15:15:05.298 [New I/O worker #7] master is internal:net.pms.dlna.RealFile str 02 Brethren We Have Come To Worship.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\02 Brethren We Have Come To Worship.mp3
+DEBUG 2016-01-13 15:15:05.298 [New I/O worker #7] master is internal:net.pms.dlna.RealFile str 01 All Creatures of Our God and King.mp3>C:\Users\Stephen\Music\01 All Creatures of Our God and King.mp3
+INFO  2016-01-13 15:15:05.313 [New I/O worker #7] Checking shared folder: Music
+DEBUG 2016-01-13 15:15:06.301 [New I/O worker #8] Matched media renderer "Unknown renderer" based on address /192.168.0.102
+DEBUG 2016-01-13 15:15:06.316 [New I/O worker #8] Finishing configuration for Unknown renderer
+DEBUG 2016-01-13 15:15:06.316 [New I/O worker #8] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:15:06.316 [New I/O worker #8] Updating status button for Unknown renderer
+DEBUG 2016-01-13 15:15:06.316 [New I/O worker #8] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+INFO  2016-01-13 15:15:06.316 [New I/O worker #8] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: Windows10/10.0 UPnP/1.0 Cling/2.0, Cache-Control: no-cache, Pragma: no-cache
+DEBUG 2016-01-13 15:15:06.316 [New I/O worker #8] master is internal:net.pms.dlna.RealFile str Track 3.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 3.mp3
+DEBUG 2016-01-13 15:15:06.332 [New I/O worker #8] master is internal:net.pms.dlna.RealFile str Track 2.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 2.mp3
+DEBUG 2016-01-13 15:15:06.348 [New I/O worker #8] master is internal:net.pms.dlna.RealFile str 03 Come Thou Fount - Bish.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\03 Come Thou Fount - Bish.mp3
+DEBUG 2016-01-13 15:15:06.354 [New I/O worker #8] master is internal:net.pms.dlna.RealFile str 02 Brethren We Have Come To Worship.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\02 Brethren We Have Come To Worship.mp3
+DEBUG 2016-01-13 15:15:06.354 [New I/O worker #8] master is internal:net.pms.dlna.RealFile str 01 All Creatures of Our God and King.mp3>C:\Users\Stephen\Music\01 All Creatures of Our God and King.mp3
+INFO  2016-01-13 15:15:06.370 [New I/O worker #8] Checking shared folder: Music
+DEBUG 2016-01-13 15:16:24.744 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 15:18:55.201 [New I/O worker #5] Matched media renderer "Unknown renderer" based on address /192.168.0.102
+DEBUG 2016-01-13 15:18:55.201 [New I/O worker #5] Finishing configuration for Unknown renderer
+DEBUG 2016-01-13 15:18:55.201 [New I/O worker #5] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:18:55.201 [New I/O worker #5] Updating status button for Unknown renderer
+DEBUG 2016-01-13 15:18:55.201 [New I/O worker #5] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+INFO  2016-01-13 15:18:55.201 [New I/O worker #5] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: okhttp/3.0.0-RC1
+DEBUG 2016-01-13 15:18:55.201 [New I/O worker #5] master is internal:net.pms.dlna.RealFile str Track 3.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 3.mp3
+DEBUG 2016-01-13 15:18:55.217 [New I/O worker #5] master is internal:net.pms.dlna.RealFile str Track 2.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 2.mp3
+DEBUG 2016-01-13 15:18:55.217 [New I/O worker #5] master is internal:net.pms.dlna.RealFile str 03 Come Thou Fount - Bish.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\03 Come Thou Fount - Bish.mp3
+DEBUG 2016-01-13 15:18:55.233 [New I/O worker #5] master is internal:net.pms.dlna.RealFile str 02 Brethren We Have Come To Worship.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\02 Brethren We Have Come To Worship.mp3
+DEBUG 2016-01-13 15:18:55.248 [New I/O worker #5] master is internal:net.pms.dlna.RealFile str 01 All Creatures of Our God and King.mp3>C:\Users\Stephen\Music\01 All Creatures of Our God and King.mp3
+INFO  2016-01-13 15:18:55.248 [New I/O worker #5] Checking shared folder: Music
+DEBUG 2016-01-13 15:18:55.291 [New I/O worker #5] Connection error: java.io.IOException: An existing connection was forcibly closed by the remote host
+DEBUG 2016-01-13 15:18:55.291 [New I/O worker #5] Premature end, stopping...
+DEBUG 2016-01-13 15:18:55.292 [New I/O worker #5] Connection error: java.io.IOException: An existing connection was forcibly closed by the remote host
+DEBUG 2016-01-13 15:18:55.292 [New I/O worker #5] Premature end, stopping...
+DEBUG 2016-01-13 15:19:24.932 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 15:19:54.198 [New I/O worker #8] Matched media renderer "Unknown renderer" based on address /192.168.0.102
+DEBUG 2016-01-13 15:19:54.201 [New I/O worker #8] Finishing configuration for Unknown renderer
+DEBUG 2016-01-13 15:19:54.202 [New I/O worker #8] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:19:54.202 [New I/O worker #8] Updating status button for Unknown renderer
+DEBUG 2016-01-13 15:19:54.202 [New I/O worker #8] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+INFO  2016-01-13 15:19:54.203 [New I/O worker #8] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: okhttp/3.0.0-RC1
+DEBUG 2016-01-13 15:19:54.203 [New I/O worker #8] master is internal:net.pms.dlna.RealFile str Track 3.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 3.mp3
+DEBUG 2016-01-13 15:19:54.219 [New I/O worker #8] master is internal:net.pms.dlna.RealFile str Track 2.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 2.mp3
+DEBUG 2016-01-13 15:19:54.219 [New I/O worker #8] master is internal:net.pms.dlna.RealFile str 03 Come Thou Fount - Bish.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\03 Come Thou Fount - Bish.mp3
+DEBUG 2016-01-13 15:19:54.219 [New I/O worker #8] master is internal:net.pms.dlna.RealFile str 02 Brethren We Have Come To Worship.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\02 Brethren We Have Come To Worship.mp3
+DEBUG 2016-01-13 15:19:54.234 [New I/O worker #8] master is internal:net.pms.dlna.RealFile str 01 All Creatures of Our God and King.mp3>C:\Users\Stephen\Music\01 All Creatures of Our God and King.mp3
+INFO  2016-01-13 15:19:54.234 [New I/O worker #8] Checking shared folder: Music
+DEBUG 2016-01-13 15:19:54.275 [New I/O worker #8] Connection error: java.io.IOException: An existing connection was forcibly closed by the remote host
+DEBUG 2016-01-13 15:19:54.275 [New I/O worker #8] Premature end, stopping...
+DEBUG 2016-01-13 15:19:54.276 [New I/O worker #8] Connection error: java.io.IOException: An existing connection was forcibly closed by the remote host
+DEBUG 2016-01-13 15:19:54.276 [New I/O worker #8] Premature end, stopping...
+DEBUG 2016-01-13 15:20:28.484 [New I/O worker #1] Matched media renderer "Unknown renderer" based on address /192.168.0.102
+DEBUG 2016-01-13 15:20:28.500 [New I/O worker #1] Finishing configuration for Unknown renderer
+DEBUG 2016-01-13 15:20:28.500 [New I/O worker #1] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:20:28.500 [New I/O worker #1] Updating status button for Unknown renderer
+DEBUG 2016-01-13 15:20:28.500 [New I/O worker #1] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+INFO  2016-01-13 15:20:28.500 [New I/O worker #1] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: okhttp/3.0.0-RC1
+DEBUG 2016-01-13 15:20:28.500 [New I/O worker #1] master is internal:net.pms.dlna.RealFile str Track 3.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 3.mp3
+DEBUG 2016-01-13 15:20:28.515 [New I/O worker #1] master is internal:net.pms.dlna.RealFile str Track 2.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 2.mp3
+DEBUG 2016-01-13 15:20:28.515 [New I/O worker #1] master is internal:net.pms.dlna.RealFile str 03 Come Thou Fount - Bish.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\03 Come Thou Fount - Bish.mp3
+DEBUG 2016-01-13 15:20:28.515 [New I/O worker #1] master is internal:net.pms.dlna.RealFile str 02 Brethren We Have Come To Worship.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\02 Brethren We Have Come To Worship.mp3
+DEBUG 2016-01-13 15:20:28.531 [New I/O worker #1] master is internal:net.pms.dlna.RealFile str 01 All Creatures of Our God and King.mp3>C:\Users\Stephen\Music\01 All Creatures of Our God and King.mp3
+INFO  2016-01-13 15:20:28.531 [New I/O worker #1] Checking shared folder: Music
+DEBUG 2016-01-13 15:20:28.574 [New I/O worker #1] Connection error: java.io.IOException: An existing connection was forcibly closed by the remote host
+DEBUG 2016-01-13 15:20:28.575 [New I/O worker #1] Premature end, stopping...
+DEBUG 2016-01-13 15:20:28.575 [New I/O worker #1] Connection error: java.io.IOException: An existing connection was forcibly closed by the remote host
+DEBUG 2016-01-13 15:20:28.575 [New I/O worker #1] Premature end, stopping...
+DEBUG 2016-01-13 15:20:48.026 [New I/O worker #2] Matched media renderer "Unknown renderer" based on address /192.168.0.102
+DEBUG 2016-01-13 15:20:48.026 [New I/O worker #2] Finishing configuration for Unknown renderer
+DEBUG 2016-01-13 15:20:48.026 [New I/O worker #2] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:20:48.026 [New I/O worker #2] Updating status button for Unknown renderer
+DEBUG 2016-01-13 15:20:48.026 [New I/O worker #2] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+INFO  2016-01-13 15:20:48.026 [New I/O worker #2] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: okhttp/3.0.0-RC1
+DEBUG 2016-01-13 15:20:48.026 [New I/O worker #2] master is internal:net.pms.dlna.RealFile str Track 3.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 3.mp3
+DEBUG 2016-01-13 15:20:48.044 [New I/O worker #2] master is internal:net.pms.dlna.RealFile str Track 2.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 2.mp3
+DEBUG 2016-01-13 15:20:48.049 [New I/O worker #2] master is internal:net.pms.dlna.RealFile str 03 Come Thou Fount - Bish.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\03 Come Thou Fount - Bish.mp3
+DEBUG 2016-01-13 15:20:48.049 [New I/O worker #2] master is internal:net.pms.dlna.RealFile str 02 Brethren We Have Come To Worship.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\02 Brethren We Have Come To Worship.mp3
+DEBUG 2016-01-13 15:20:48.049 [New I/O worker #2] master is internal:net.pms.dlna.RealFile str 01 All Creatures of Our God and King.mp3>C:\Users\Stephen\Music\01 All Creatures of Our God and King.mp3
+INFO  2016-01-13 15:20:48.064 [New I/O worker #2] Checking shared folder: Music
+DEBUG 2016-01-13 15:20:48.118 [New I/O worker #2] Connection error: java.io.IOException: An existing connection was forcibly closed by the remote host
+DEBUG 2016-01-13 15:20:48.118 [New I/O worker #2] Premature end, stopping...
+DEBUG 2016-01-13 15:20:48.129 [New I/O worker #2] Connection error: java.io.IOException: An existing connection was forcibly closed by the remote host
+DEBUG 2016-01-13 15:20:48.129 [New I/O worker #2] Premature end, stopping...
+DEBUG 2016-01-13 15:22:19.456 [New I/O worker #3] Matched media renderer "Unknown renderer" based on address /192.168.0.102
+DEBUG 2016-01-13 15:22:19.456 [New I/O worker #3] Finishing configuration for Unknown renderer
+DEBUG 2016-01-13 15:22:19.456 [New I/O worker #3] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:22:19.456 [New I/O worker #3] Updating status button for Unknown renderer
+DEBUG 2016-01-13 15:22:19.456 [New I/O worker #3] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+INFO  2016-01-13 15:22:19.456 [New I/O worker #3] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: okhttp/3.0.0-RC1
+DEBUG 2016-01-13 15:22:19.472 [New I/O worker #3] master is internal:net.pms.dlna.RealFile str Track 3.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 3.mp3
+DEBUG 2016-01-13 15:22:19.472 [New I/O worker #3] master is internal:net.pms.dlna.RealFile str Track 2.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 2.mp3
+DEBUG 2016-01-13 15:22:19.487 [New I/O worker #3] master is internal:net.pms.dlna.RealFile str 03 Come Thou Fount - Bish.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\03 Come Thou Fount - Bish.mp3
+DEBUG 2016-01-13 15:22:19.487 [New I/O worker #3] master is internal:net.pms.dlna.RealFile str 02 Brethren We Have Come To Worship.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\02 Brethren We Have Come To Worship.mp3
+DEBUG 2016-01-13 15:22:19.487 [New I/O worker #3] master is internal:net.pms.dlna.RealFile str 01 All Creatures of Our God and King.mp3>C:\Users\Stephen\Music\01 All Creatures of Our God and King.mp3
+INFO  2016-01-13 15:22:19.503 [New I/O worker #3] Checking shared folder: Music
+DEBUG 2016-01-13 15:22:19.546 [New I/O worker #3] Connection error: java.io.IOException: An existing connection was forcibly closed by the remote host
+DEBUG 2016-01-13 15:22:19.546 [New I/O worker #3] Premature end, stopping...
+DEBUG 2016-01-13 15:22:19.547 [New I/O worker #3] Connection error: java.io.IOException: An existing connection was forcibly closed by the remote host
+DEBUG 2016-01-13 15:22:19.547 [New I/O worker #3] Premature end, stopping...
+DEBUG 2016-01-13 15:22:25.143 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 15:22:57.205 [New I/O worker #8] Matched media renderer "Unknown renderer" based on address /192.168.0.102
+DEBUG 2016-01-13 15:22:57.220 [New I/O worker #8] Finishing configuration for Unknown renderer
+DEBUG 2016-01-13 15:22:57.220 [New I/O worker #8] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:22:57.220 [New I/O worker #8] Updating status button for Unknown renderer
+DEBUG 2016-01-13 15:22:57.220 [New I/O worker #8] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+INFO  2016-01-13 15:22:57.220 [New I/O worker #8] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: okhttp/3.0.0-RC1
+DEBUG 2016-01-13 15:22:57.220 [New I/O worker #8] master is internal:net.pms.dlna.RealFile str Track 3.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 3.mp3
+DEBUG 2016-01-13 15:22:57.236 [New I/O worker #8] master is internal:net.pms.dlna.RealFile str Track 2.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 2.mp3
+DEBUG 2016-01-13 15:22:57.236 [New I/O worker #8] master is internal:net.pms.dlna.RealFile str 03 Come Thou Fount - Bish.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\03 Come Thou Fount - Bish.mp3
+DEBUG 2016-01-13 15:22:57.236 [New I/O worker #8] master is internal:net.pms.dlna.RealFile str 02 Brethren We Have Come To Worship.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\02 Brethren We Have Come To Worship.mp3
+DEBUG 2016-01-13 15:22:57.252 [New I/O worker #8] master is internal:net.pms.dlna.RealFile str 01 All Creatures of Our God and King.mp3>C:\Users\Stephen\Music\01 All Creatures of Our God and King.mp3
+INFO  2016-01-13 15:22:57.267 [New I/O worker #8] Checking shared folder: Music
+DEBUG 2016-01-13 15:22:57.304 [New I/O worker #8] Connection error: java.io.IOException: An existing connection was forcibly closed by the remote host
+DEBUG 2016-01-13 15:22:57.304 [New I/O worker #8] Premature end, stopping...
+DEBUG 2016-01-13 15:22:57.305 [New I/O worker #8] Connection error: java.io.IOException: An existing connection was forcibly closed by the remote host
+DEBUG 2016-01-13 15:22:57.305 [New I/O worker #8] Premature end, stopping...
+DEBUG 2016-01-13 15:23:15.339 [background-task-0] singleton task restart started
+DEBUG 2016-01-13 15:23:15.339 [background-task-0-restart(0)] task started
+INFO  2016-01-13 15:23:15.339 [background-task-0-restart(0)] Sending BYEBYE...
+INFO  2016-01-13 15:23:15.524 [background-task-0-restart(0)] Stopping server on host 192.168.0.102 and port 5001...
+INFO  2016-01-13 15:23:16.540 [background-task-0-restart(0)] Using forced address 192.168.0.102
+INFO  2016-01-13 15:23:16.544 [background-task-0-restart(0)] Created socket: /192.168.0.102:5001
+DEBUG 2016-01-13 15:23:16.578 [background-task-0-restart(0)] Sending ALIVE...
+DEBUG 2016-01-13 15:23:16.945 [New I/O worker #10] Matched media renderer "Unknown renderer" based on address /192.168.0.102
+DEBUG 2016-01-13 15:23:16.945 [New I/O worker #10] Finishing configuration for Unknown renderer
+DEBUG 2016-01-13 15:23:16.961 [New I/O worker #10] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:23:16.961 [New I/O worker #10] Updating status button for Unknown renderer
+DEBUG 2016-01-13 15:23:16.961 [New I/O worker #10] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+DEBUG 2016-01-13 15:23:16.961 [background-task-0-restart(0)] task ended
+INFO  2016-01-13 15:23:16.961 [New I/O worker #10] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: Windows10/10.0 UPnP/1.0 Cling/2.0, Cache-Control: no-cache, Pragma: no-cache
+DEBUG 2016-01-13 15:23:16.992 [New I/O worker #13] Matched media renderer "Unknown renderer" based on address /192.168.0.102
+DEBUG 2016-01-13 15:23:16.992 [New I/O worker #13] Finishing configuration for Unknown renderer
+DEBUG 2016-01-13 15:23:16.992 [New I/O worker #13] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:23:16.992 [New I/O worker #13] Updating status button for Unknown renderer
+DEBUG 2016-01-13 15:23:16.992 [New I/O worker #13] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+INFO  2016-01-13 15:23:16.992 [New I/O worker #13] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: Windows10/10.0 UPnP/1.0 Cling/2.0, Cache-Control: no-cache, Pragma: no-cache
+DEBUG 2016-01-13 15:23:17.014 [New I/O worker #14] Matched media renderer "Unknown renderer" based on address /192.168.0.102
+DEBUG 2016-01-13 15:23:17.014 [New I/O worker #14] Finishing configuration for Unknown renderer
+DEBUG 2016-01-13 15:23:17.014 [New I/O worker #14] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:23:17.014 [New I/O worker #14] Updating status button for Unknown renderer
+DEBUG 2016-01-13 15:23:17.014 [New I/O worker #14] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+INFO  2016-01-13 15:23:17.014 [New I/O worker #14] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: Windows10/10.0 UPnP/1.0 Cling/2.0, Cache-Control: no-cache, Pragma: no-cache
+DEBUG 2016-01-13 15:23:17.030 [New I/O worker #15] Matched media renderer "Unknown renderer" based on address /192.168.0.102
+DEBUG 2016-01-13 15:23:17.030 [New I/O worker #15] Finishing configuration for Unknown renderer
+DEBUG 2016-01-13 15:23:17.030 [New I/O worker #15] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:23:17.030 [New I/O worker #15] Updating status button for Unknown renderer
+DEBUG 2016-01-13 15:23:17.030 [New I/O worker #15] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+INFO  2016-01-13 15:23:17.030 [New I/O worker #15] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: Windows10/10.0 UPnP/1.0 Cling/2.0, Cache-Control: no-cache, Pragma: no-cache
+DEBUG 2016-01-13 15:23:19.056 [New I/O worker #16] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:23:19.103 [New I/O worker #16] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:23:19.125 [New I/O worker #17] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:23:19.157 [New I/O worker #10] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:23:19.172 [New I/O worker #11] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:23:19.225 [New I/O worker #12] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:23:19.241 [New I/O worker #13] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:23:19.257 [New I/O worker #14] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:23:19.273 [New I/O worker #15] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:23:19.324 [New I/O worker #16] Matched media renderer "NEWCS-PC" based on address /192.168.0.100
+DEBUG 2016-01-13 15:23:31.066 [New I/O worker #17] Matched media renderer "Unknown renderer" based on address /192.168.0.102
+DEBUG 2016-01-13 15:23:31.066 [New I/O worker #17] Finishing configuration for Unknown renderer
+DEBUG 2016-01-13 15:23:31.066 [New I/O worker #17] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:23:31.066 [New I/O worker #17] Updating status button for Unknown renderer
+DEBUG 2016-01-13 15:23:31.066 [New I/O worker #17] Marking renderer "Unknown renderer" at /192.168.0.102 as unrecognized
+INFO  2016-01-13 15:23:31.066 [New I/O worker #17] Media renderer was not recognized. Possible identifying HTTP headers:User-Agent: okhttp/3.0.0-RC1
+DEBUG 2016-01-13 15:23:31.082 [New I/O worker #17] master is internal:net.pms.dlna.RealFile str Track 3.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 3.mp3
+DEBUG 2016-01-13 15:23:31.082 [New I/O worker #17] master is internal:net.pms.dlna.RealFile str Track 2.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 2.mp3
+DEBUG 2016-01-13 15:23:31.098 [New I/O worker #17] master is internal:net.pms.dlna.RealFile str 03 Come Thou Fount - Bish.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\03 Come Thou Fount - Bish.mp3
+DEBUG 2016-01-13 15:23:31.098 [New I/O worker #17] master is internal:net.pms.dlna.RealFile str 02 Brethren We Have Come To Worship.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\02 Brethren We Have Come To Worship.mp3
+DEBUG 2016-01-13 15:23:31.113 [New I/O worker #17] master is internal:net.pms.dlna.RealFile str 01 All Creatures of Our God and King.mp3>C:\Users\Stephen\Music\01 All Creatures of Our God and King.mp3
+INFO  2016-01-13 15:23:31.129 [New I/O worker #17] Checking shared folder: Music
+DEBUG 2016-01-13 15:23:31.180 [New I/O worker #17] Connection error: java.io.IOException: An existing connection was forcibly closed by the remote host
+DEBUG 2016-01-13 15:23:31.180 [New I/O worker #17] Premature end, stopping...
+DEBUG 2016-01-13 15:23:31.181 [New I/O worker #17] Connection error: java.io.IOException: An existing connection was forcibly closed by the remote host
+DEBUG 2016-01-13 15:23:31.181 [New I/O worker #17] Premature end, stopping...
+DEBUG 2016-01-13 15:25:25.339 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 15:28:25.547 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 15:31:25.732 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 15:34:25.931 [UPNP-AliveMessageSender] Sending ALIVE...
+INFO  2016-01-13 15:35:12.640 [pool-4-thread-1] No IP filter specified, access granted to /127.0.0.1
+DEBUG 2016-01-13 15:35:12.643 [pool-4-thread-1] Got a browse request found id 31
+DEBUG 2016-01-13 15:35:12.648 [pool-4-thread-1] Reading MediaInfo: true (default: false)
+DEBUG 2016-01-13 15:35:12.716 [pool-4-thread-1] Setting web client ua: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36
+DEBUG 2016-01-13 15:35:12.716 [pool-4-thread-1] Setting Chrome browser info: platform:win32, screen:1366x768, isTouchDevice:false
+DEBUG 2016-01-13 15:35:12.716 [pool-4-thread-1] Adding status button for Chrome
+DEBUG 2016-01-13 15:35:12.747 [pool-4-thread-1] master is internal:net.pms.dlna.RealFile str Track 3.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 3.mp3
+DEBUG 2016-01-13 15:35:12.755 [pool-4-thread-1] master is internal:net.pms.dlna.RealFile str Track 2.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\Album 1\Track 2.mp3
+DEBUG 2016-01-13 15:35:12.763 [pool-4-thread-1] master is internal:net.pms.dlna.RealFile str 03 Come Thou Fount - Bish.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\03 Come Thou Fount - Bish.mp3
+DEBUG 2016-01-13 15:35:12.769 [pool-4-thread-1] master is internal:net.pms.dlna.RealFile str 02 Brethren We Have Come To Worship.mp3>C:\Users\Stephen\Downloads\ums-5.5.0\Music\02 Brethren We Have Come To Worship.mp3
+DEBUG 2016-01-13 15:35:12.776 [pool-4-thread-1] master is internal:net.pms.dlna.RealFile str 01 All Creatures of Our God and King.mp3>C:\Users\Stephen\Music\01 All Creatures of Our God and King.mp3
+DEBUG 2016-01-13 15:35:12.788 [pool-4-thread-1] Reading folders: "Music" (default: "")
+INFO  2016-01-13 15:35:12.788 [pool-4-thread-1] Checking shared folder: Music
+INFO  2016-01-13 15:35:13.210 [pool-4-thread-1] No IP filter specified, access granted to /127.0.0.1
+DEBUG 2016-01-13 15:35:13.227 [pool-4-thread-1] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/browse.html
+DEBUG 2016-01-13 15:35:13.254 [pool-4-thread-1] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\web: C:/Users/Stephen/Downloads/ums-5.5.0//web/browse.html
+DEBUG 2016-01-13 15:35:13.256 [pool-4-thread-1] Write page <!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			// reload if we have been sent back here after a VVA
+			if (typeof window.refresh != 'undefined' && window.refresh) {
+				window.refresh = false;
+				window.location.reload();
+			}
+			// ensure the browser info cookie is set
+			if ((' ' + document.cookie).indexOf(' UMSINFO=') == -1) {
+				document.cookie = 'UMSINFO=platform=' + navigator.platform + '&width=' + screen.width + '&height=' + screen.height + '&isTouchDevice=' + (window.screenX == 0 && ('ontouchstart' in window || 'onmsgesturechange' in window)) + ';Path=/';
+			}
+		</script>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="/files/reset.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web-narrow.css" type="text/css" media="screen and (max-width: 1080px)">
+		<link rel="stylesheet" href="/files/web-wide.css" type="text/css" media="screen and (min-width: 1081px)">
+		<link rel="icon" href="/files/favicon.ico" type="image/x-icon">
+		<script src="/files/jquery.min.js"></script>
+		<script src="/files/jquery.ums.js"></script>
+		<script src="/bump/bump.js"></script>
+		<title>Recently Played</title>
+	</head>
+	<body id="ContentPage" class="browsePage">
+		<div id="Container" class="noHzScroll">
+			<div id="Menu">
+				<a href="/browse/0" id="HomeButton"></a>
+				<form id="SearchForm" method="get">
+					<input type="text" id="SearchInput" name="str">
+					<input type="submit" id="SearchSubmit" title="Search" value="&nbsp;">
+				</form>
+				<a href="/doc" id="DocButton" title="Documentation"></a>
+			</div>
+
+			<div id="FoldersContainer" class="noFolders">
+				<ul id="Folders">
+				</ul>
+			</div>
+
+			<ul id="Media" class="noFolders">
+				<li>
+					<a href="#" onclick="umsAjax('/play/62', true);return false;" title="Clear"><img class="thumb" src="/thumb/62" alt="Clear"></a>
+					<span class="floatRight"></span>
+					<a href="#" onclick="umsAjax('/play/62', true);return false;" title="Clear"><span class="caption">Clear</span></a>
+				</li>
+				<li>
+					<a href="/play/63" title="Track 3"><img class="thumb" src="/thumb/63" alt="Track 3"></a>
+					<a class="bumpIcon" href="javascript:bump.start('//192.168.0.102:9001','/play/63','Track 3')" title="Play on another renderer"></a>
+<a class="playlist_del" href="#" onclick="umsAjax('/playlist/del/63', true);return false;" title="Remove from playlist"></a>
+					<a href="/play/63" title="Track 3"><span class="caption">Track 3</span></a>
+				</li>
+				<li>
+					<a href="/play/64" title="Track 2"><img class="thumb" src="/thumb/64" alt="Track 2"></a>
+					<a class="bumpIcon" href="javascript:bump.start('//192.168.0.102:9001','/play/64','Track 2')" title="Play on another renderer"></a>
+<a class="playlist_del" href="#" onclick="umsAjax('/playlist/del/64', true);return false;" title="Remove from playlist"></a>
+					<a href="/play/64" title="Track 2"><span class="caption">Track 2</span></a>
+				</li>
+				<li>
+					<a href="/play/65" title="01 All Creatures of Our God and King"><img class="thumb" src="/thumb/65" alt="01 All Creatures of Our God and King"></a>
+					<a class="bumpIcon" href="javascript:bump.start('//192.168.0.102:9001','/play/65','01 All Creatures of Our God and King')" title="Play on another renderer"></a>
+<a class="playlist_del" href="#" onclick="umsAjax('/playlist/del/65', true);return false;" title="Remove from playlist"></a>
+					<a href="/play/65" title="01 All Creatures of Our God and King"><span class="caption">01 All Creatures of Our God and King</span></a>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>
+
+DEBUG 2016-01-13 15:35:13.637 [pool-4-thread-2] file req /files/reset.css
+DEBUG 2016-01-13 15:35:13.642 [pool-4-thread-2] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/reset.css
+DEBUG 2016-01-13 15:35:13.658 [pool-4-thread-3] file req /files/web.css
+DEBUG 2016-01-13 15:35:13.659 [pool-4-thread-3] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web.css
+DEBUG 2016-01-13 15:35:13.659 [pool-4-thread-5] file req /files/jquery.min.js
+DEBUG 2016-01-13 15:35:13.660 [pool-4-thread-5] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.min.js
+DEBUG 2016-01-13 15:35:13.669 [pool-4-thread-4] file req /files/web-wide.css
+DEBUG 2016-01-13 15:35:13.670 [pool-4-thread-4] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-wide.css
+DEBUG 2016-01-13 15:35:13.673 [pool-4-thread-6] file req /files/jquery.ums.js
+DEBUG 2016-01-13 15:35:13.673 [pool-4-thread-6] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.ums.js
+DEBUG 2016-01-13 15:35:13.677 [pool-4-thread-7] file req /files/web-narrow.css
+DEBUG 2016-01-13 15:35:13.678 [pool-4-thread-7] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-narrow.css
+DEBUG 2016-01-13 15:35:13.692 [pool-4-thread-8] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/bump.js
+DEBUG 2016-01-13 15:35:13.700 [pool-4-thread-8] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/skin/skin.js
+DEBUG 2016-01-13 15:35:13.701 [pool-4-thread-8] Received http player control request from /127.0.0.1: /bump/bump.js
+DEBUG 2016-01-13 15:35:13.833 [pool-4-thread-9] input is sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream@11bf1ca out sun.net.httpserver.PlaceholderOutputStream@1246331
+DEBUG 2016-01-13 15:35:13.839 [pool-4-thread-11] use def thumb images/thumbnail-video-256.png
+DEBUG 2016-01-13 15:35:13.840 [pool-4-thread-12] use def thumb images/thumbnail-video-256.png
+DEBUG 2016-01-13 15:35:13.841 [pool-4-thread-11] input is sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream@b259fd out sun.net.httpserver.PlaceholderOutputStream@8ddcf3
+DEBUG 2016-01-13 15:35:13.843 [pool-4-thread-12] input is sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream@2f998d out sun.net.httpserver.PlaceholderOutputStream@100e90
+DEBUG 2016-01-13 15:35:13.844 [pool-4-thread-10] use def thumb images/thumbnail-video-256.png
+DEBUG 2016-01-13 15:35:13.853 [pool-4-thread-10] input is sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream@e55d2d out sun.net.httpserver.PlaceholderOutputStream@dad2a9
+DEBUG 2016-01-13 15:35:14.038 [pool-4-thread-13] file req /files/background-blank.jpg
+DEBUG 2016-01-13 15:35:14.039 [pool-4-thread-13] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/background-blank.jpg
+DEBUG 2016-01-13 15:35:14.041 [pool-4-thread-14] file req /files/menu-background-content.png
+DEBUG 2016-01-13 15:35:14.042 [pool-4-thread-14] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-background-content.png
+DEBUG 2016-01-13 15:35:14.048 [pool-4-thread-15] file req /files/menu-left-content.png
+DEBUG 2016-01-13 15:35:14.048 [pool-4-thread-16] file req /files/search32.png
+DEBUG 2016-01-13 15:35:14.049 [pool-4-thread-15] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-left-content.png
+DEBUG 2016-01-13 15:35:14.049 [pool-4-thread-16] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/search32.png
+DEBUG 2016-01-13 15:35:14.058 [pool-4-thread-17] file req /files/settings32.png
+DEBUG 2016-01-13 15:35:14.059 [pool-4-thread-17] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/settings32.png
+DEBUG 2016-01-13 15:35:14.067 [pool-4-thread-18] file req /files/bump/bump16-2.png
+DEBUG 2016-01-13 15:35:14.068 [pool-4-thread-18] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/bump16-2.png
+DEBUG 2016-01-13 15:35:14.072 [pool-4-thread-19] file req /files/bump/skin/remove16.png
+DEBUG 2016-01-13 15:35:14.078 [pool-4-thread-19] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/skin/remove16.png
+DEBUG 2016-01-13 15:35:20.719 [pool-4-thread-25] Got a browse request found id 31
+DEBUG 2016-01-13 15:35:20.725 [pool-4-thread-25] Write page <!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			// reload if we have been sent back here after a VVA
+			if (typeof window.refresh != 'undefined' && window.refresh) {
+				window.refresh = false;
+				window.location.reload();
+			}
+			// ensure the browser info cookie is set
+			if ((' ' + document.cookie).indexOf(' UMSINFO=') == -1) {
+				document.cookie = 'UMSINFO=platform=' + navigator.platform + '&width=' + screen.width + '&height=' + screen.height + '&isTouchDevice=' + (window.screenX == 0 && ('ontouchstart' in window || 'onmsgesturechange' in window)) + ';Path=/';
+			}
+		</script>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="/files/reset.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web-narrow.css" type="text/css" media="screen and (max-width: 1080px)">
+		<link rel="stylesheet" href="/files/web-wide.css" type="text/css" media="screen and (min-width: 1081px)">
+		<link rel="icon" href="/files/favicon.ico" type="image/x-icon">
+		<script src="/files/jquery.min.js"></script>
+		<script src="/files/jquery.ums.js"></script>
+		<script src="/bump/bump.js"></script>
+		<title>Recently Played</title>
+	</head>
+	<body id="ContentPage" class="browsePage">
+		<div id="Container" class="noHzScroll">
+			<div id="Menu">
+				<a href="/browse/0" id="HomeButton"></a>
+				<form id="SearchForm" method="get">
+					<input type="text" id="SearchInput" name="str">
+					<input type="submit" id="SearchSubmit" title="Search" value="&nbsp;">
+				</form>
+				<a href="/doc" id="DocButton" title="Documentation"></a>
+			</div>
+
+			<div id="FoldersContainer" class="noFolders">
+				<ul id="Folders">
+				</ul>
+			</div>
+
+			<ul id="Media" class="noFolders">
+				<li>
+					<a href="#" onclick="umsAjax('/play/62', true);return false;" title="Clear"><img class="thumb" src="/thumb/62" alt="Clear"></a>
+					<span class="floatRight"></span>
+					<a href="#" onclick="umsAjax('/play/62', true);return false;" title="Clear"><span class="caption">Clear</span></a>
+				</li>
+				<li>
+					<a href="/play/63" title="Track 3"><img class="thumb" src="/thumb/63" alt="Track 3"></a>
+					<a class="bumpIcon" href="javascript:bump.start('//192.168.0.102:9001','/play/63','Track 3')" title="Play on another renderer"></a>
+<a class="playlist_del" href="#" onclick="umsAjax('/playlist/del/63', true);return false;" title="Remove from playlist"></a>
+					<a href="/play/63" title="Track 3"><span class="caption">Track 3</span></a>
+				</li>
+				<li>
+					<a href="/play/64" title="Track 2"><img class="thumb" src="/thumb/64" alt="Track 2"></a>
+					<a class="bumpIcon" href="javascript:bump.start('//192.168.0.102:9001','/play/64','Track 2')" title="Play on another renderer"></a>
+<a class="playlist_del" href="#" onclick="umsAjax('/playlist/del/64', true);return false;" title="Remove from playlist"></a>
+					<a href="/play/64" title="Track 2"><span class="caption">Track 2</span></a>
+				</li>
+				<li>
+					<a href="/play/65" title="01 All Creatures of Our God and King"><img class="thumb" src="/thumb/65" alt="01 All Creatures of Our God and King"></a>
+					<a class="bumpIcon" href="javascript:bump.start('//192.168.0.102:9001','/play/65','01 All Creatures of Our God and King')" title="Play on another renderer"></a>
+<a class="playlist_del" href="#" onclick="umsAjax('/playlist/del/65', true);return false;" title="Remove from playlist"></a>
+					<a href="/play/65" title="01 All Creatures of Our God and King"><span class="caption">01 All Creatures of Our God and King</span></a>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>
+
+DEBUG 2016-01-13 15:35:20.948 [pool-4-thread-26] file req /files/reset.css
+DEBUG 2016-01-13 15:35:20.949 [pool-4-thread-26] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/reset.css
+DEBUG 2016-01-13 15:35:20.953 [pool-4-thread-27] file req /files/web.css
+DEBUG 2016-01-13 15:35:20.953 [pool-4-thread-27] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web.css
+DEBUG 2016-01-13 15:35:20.959 [pool-4-thread-1] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/bump.js
+DEBUG 2016-01-13 15:35:20.961 [pool-4-thread-1] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/skin/skin.js
+DEBUG 2016-01-13 15:35:20.962 [pool-4-thread-1] Received http player control request from /127.0.0.1: /bump/bump.js
+DEBUG 2016-01-13 15:35:20.971 [pool-4-thread-2] file req /files/web-narrow.css
+DEBUG 2016-01-13 15:35:20.972 [pool-4-thread-2] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-narrow.css
+DEBUG 2016-01-13 15:35:20.973 [pool-4-thread-28] file req /files/web-wide.css
+DEBUG 2016-01-13 15:35:20.974 [pool-4-thread-28] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-wide.css
+DEBUG 2016-01-13 15:35:20.977 [pool-4-thread-29] file req /files/jquery.min.js
+DEBUG 2016-01-13 15:35:20.978 [pool-4-thread-29] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.min.js
+DEBUG 2016-01-13 15:35:20.978 [pool-4-thread-30] file req /files/jquery.ums.js
+DEBUG 2016-01-13 15:35:20.979 [pool-4-thread-30] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.ums.js
+DEBUG 2016-01-13 15:35:21.000 [pool-4-thread-3] input is sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream@94b0e9 out sun.net.httpserver.PlaceholderOutputStream@1962b5f
+DEBUG 2016-01-13 15:35:21.115 [pool-4-thread-5] use def thumb images/thumbnail-video-256.png
+DEBUG 2016-01-13 15:35:21.117 [pool-4-thread-5] input is sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream@4c90c5 out sun.net.httpserver.PlaceholderOutputStream@14e0168
+DEBUG 2016-01-13 15:35:21.118 [pool-4-thread-4] use def thumb images/thumbnail-video-256.png
+DEBUG 2016-01-13 15:35:21.119 [pool-4-thread-5] use def thumb images/thumbnail-video-256.png
+DEBUG 2016-01-13 15:35:21.119 [pool-4-thread-4] input is sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream@52a35b out sun.net.httpserver.PlaceholderOutputStream@1502bf5
+DEBUG 2016-01-13 15:35:21.119 [pool-4-thread-5] input is sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream@bf9b39 out sun.net.httpserver.PlaceholderOutputStream@efe813
+DEBUG 2016-01-13 15:35:21.270 [pool-4-thread-7] file req /files/background-blank.jpg
+DEBUG 2016-01-13 15:35:21.270 [pool-4-thread-7] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/background-blank.jpg
+DEBUG 2016-01-13 15:35:21.272 [pool-4-thread-8] file req /files/menu-background-content.png
+DEBUG 2016-01-13 15:35:21.273 [pool-4-thread-8] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-background-content.png
+DEBUG 2016-01-13 15:35:21.280 [pool-4-thread-9] file req /files/menu-left-content.png
+DEBUG 2016-01-13 15:35:21.280 [pool-4-thread-9] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-left-content.png
+DEBUG 2016-01-13 15:35:21.286 [pool-4-thread-11] file req /files/search32.png
+DEBUG 2016-01-13 15:35:21.286 [pool-4-thread-11] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/search32.png
+DEBUG 2016-01-13 15:35:21.296 [pool-4-thread-12] file req /files/settings32.png
+DEBUG 2016-01-13 15:35:21.296 [pool-4-thread-12] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/settings32.png
+DEBUG 2016-01-13 15:35:21.297 [pool-4-thread-10] file req /files/bump/bump16-2.png
+DEBUG 2016-01-13 15:35:21.297 [pool-4-thread-10] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/bump16-2.png
+DEBUG 2016-01-13 15:35:21.297 [pool-4-thread-13] file req /files/bump/skin/remove16.png
+DEBUG 2016-01-13 15:35:21.298 [pool-4-thread-13] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/skin/remove16.png
+DEBUG 2016-01-13 15:35:22.509 [pool-4-thread-16] got a play request /play/62
+DEBUG 2016-01-13 15:35:22.509 [pool-4-thread-16] make play page 62
+DEBUG 2016-01-13 15:35:22.510 [pool-4-thread-16] Setting web client ua: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36
+DEBUG 2016-01-13 15:35:22.511 [pool-4-thread-16] Setting Chrome browser info: platform:win32, screen:1366x768, isTouchDevice:false
+DEBUG 2016-01-13 15:35:22.511 [pool-4-thread-16] clearing playlist "Recently Played": 5 items
+DEBUG 2016-01-13 15:35:22.513 [pool-4-thread-16] GlobalIdRepo: removing id 62 - Clear
+DEBUG 2016-01-13 15:35:22.514 [pool-4-thread-16] GlobalIdRepo: removing id 63 - Track 3.mp3
+DEBUG 2016-01-13 15:35:22.514 [pool-4-thread-16] GlobalIdRepo: removing id 64 - Track 2.mp3
+DEBUG 2016-01-13 15:35:22.514 [pool-4-thread-16] GlobalIdRepo: removing id 65 - 01 All Creatures of Our God and King.mp3
+DEBUG 2016-01-13 15:35:22.514 [pool-4-thread-16] play page <html><head><script>window.refresh=true;history.back()</script></head></html>
+DEBUG 2016-01-13 15:35:22.525 [pool-4-thread-15] Got a browse request found id 31
+DEBUG 2016-01-13 15:35:22.526 [pool-4-thread-15] Write page <!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			// reload if we have been sent back here after a VVA
+			if (typeof window.refresh != 'undefined' && window.refresh) {
+				window.refresh = false;
+				window.location.reload();
+			}
+			// ensure the browser info cookie is set
+			if ((' ' + document.cookie).indexOf(' UMSINFO=') == -1) {
+				document.cookie = 'UMSINFO=platform=' + navigator.platform + '&width=' + screen.width + '&height=' + screen.height + '&isTouchDevice=' + (window.screenX == 0 && ('ontouchstart' in window || 'onmsgesturechange' in window)) + ';Path=/';
+			}
+		</script>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="/files/reset.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web-narrow.css" type="text/css" media="screen and (max-width: 1080px)">
+		<link rel="stylesheet" href="/files/web-wide.css" type="text/css" media="screen and (min-width: 1081px)">
+		<link rel="icon" href="/files/favicon.ico" type="image/x-icon">
+		<script src="/files/jquery.min.js"></script>
+		<script src="/files/jquery.ums.js"></script>
+		<script src="/bump/bump.js"></script>
+		<title>Recently Played</title>
+	</head>
+	<body id="ContentPage" class="browsePage">
+		<div id="Container" class="noHzScroll">
+			<div id="Menu">
+				<a href="/browse/0" id="HomeButton"></a>
+				<a href="/doc" id="DocButton" title="Documentation"></a>
+			</div>
+
+			<div id="FoldersContainer" class="noFolders">
+				<ul id="Folders">
+				</ul>
+			</div>
+
+		</div>
+	</body>
+</html>
+
+DEBUG 2016-01-13 15:35:22.736 [pool-4-thread-17] file req /files/reset.css
+DEBUG 2016-01-13 15:35:22.736 [pool-4-thread-18] file req /files/web.css
+DEBUG 2016-01-13 15:35:22.736 [pool-4-thread-17] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/reset.css
+DEBUG 2016-01-13 15:35:22.737 [pool-4-thread-18] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web.css
+DEBUG 2016-01-13 15:35:22.739 [pool-4-thread-17] file req /files/web-wide.css
+DEBUG 2016-01-13 15:35:22.740 [pool-4-thread-17] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-wide.css
+DEBUG 2016-01-13 15:35:22.745 [pool-4-thread-20] file req /files/jquery.min.js
+DEBUG 2016-01-13 15:35:22.745 [pool-4-thread-20] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.min.js
+DEBUG 2016-01-13 15:35:22.758 [pool-4-thread-21] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/bump.js
+DEBUG 2016-01-13 15:35:22.759 [pool-4-thread-20] file req /files/jquery.ums.js
+DEBUG 2016-01-13 15:35:22.760 [pool-4-thread-20] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.ums.js
+DEBUG 2016-01-13 15:35:22.761 [pool-4-thread-21] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/skin/skin.js
+DEBUG 2016-01-13 15:35:22.762 [pool-4-thread-21] Received http player control request from /127.0.0.1: /bump/bump.js
+DEBUG 2016-01-13 15:35:22.862 [pool-4-thread-23] file req /files/web-narrow.css
+DEBUG 2016-01-13 15:35:22.863 [pool-4-thread-23] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-narrow.css
+DEBUG 2016-01-13 15:35:23.055 [pool-4-thread-24] file req /files/background-blank.jpg
+DEBUG 2016-01-13 15:35:23.056 [pool-4-thread-24] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/background-blank.jpg
+DEBUG 2016-01-13 15:35:23.057 [pool-4-thread-25] file req /files/menu-background-content.png
+DEBUG 2016-01-13 15:35:23.058 [pool-4-thread-25] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-background-content.png
+DEBUG 2016-01-13 15:35:23.058 [pool-4-thread-27] file req /files/menu-left-content.png
+DEBUG 2016-01-13 15:35:23.058 [pool-4-thread-27] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-left-content.png
+DEBUG 2016-01-13 15:35:23.059 [pool-4-thread-1] file req /files/settings32.png
+DEBUG 2016-01-13 15:35:23.060 [pool-4-thread-1] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/settings32.png
+DEBUG 2016-01-13 15:35:24.134 [pool-4-thread-2] file req /files/ok32.png
+DEBUG 2016-01-13 15:35:24.134 [pool-4-thread-2] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/ok32.png
+DEBUG 2016-01-13 15:35:29.438 [pool-4-thread-4] Got a browse request found id 0
+DEBUG 2016-01-13 15:35:29.442 [pool-4-thread-4] Write page <!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			// reload if we have been sent back here after a VVA
+			if (typeof window.refresh != 'undefined' && window.refresh) {
+				window.refresh = false;
+				window.location.reload();
+			}
+			// ensure the browser info cookie is set
+			if ((' ' + document.cookie).indexOf(' UMSINFO=') == -1) {
+				document.cookie = 'UMSINFO=platform=' + navigator.platform + '&width=' + screen.width + '&height=' + screen.height + '&isTouchDevice=' + (window.screenX == 0 && ('ontouchstart' in window || 'onmsgesturechange' in window)) + ';Path=/';
+			}
+		</script>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="/files/reset.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web-narrow.css" type="text/css" media="screen and (max-width: 1080px)">
+		<link rel="stylesheet" href="/files/web-wide.css" type="text/css" media="screen and (min-width: 1081px)">
+		<link rel="icon" href="/files/favicon.ico" type="image/x-icon">
+		<script src="/files/jquery.min.js"></script>
+		<script src="/files/jquery.ums.js"></script>
+		<script src="/bump/bump.js"></script>
+		<title>Universal Media Server</title>
+	</head>
+	<body id="ContentPage" class="browsePage">
+		<div id="Container" class="noHzScroll">
+			<div id="Menu">
+				<a href="/browse/0" id="HomeButton"></a>
+				<a href="/doc" id="DocButton" title="Documentation"></a>
+			</div>
+
+			<div id="FoldersContainer">
+				<ul id="Folders">
+					<li><a href="/browse/60" oncontextmenu="searchFun('/browse/60','Enter search string:');" title="Recently Played"><span>Recently Played</span></a></li>
+					<li><a href="/browse/61" oncontextmenu="searchFun('/browse/61','Enter search string:');" title="Music"><span>Music</span></a></li>
+				</ul>
+			</div>
+
+		</div>
+	</body>
+</html>
+
+DEBUG 2016-01-13 15:35:29.681 [pool-4-thread-6] file req /files/reset.css
+DEBUG 2016-01-13 15:35:29.681 [pool-4-thread-6] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/reset.css
+DEBUG 2016-01-13 15:35:29.681 [pool-4-thread-5] file req /files/web.css
+DEBUG 2016-01-13 15:35:29.682 [pool-4-thread-5] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web.css
+DEBUG 2016-01-13 15:35:29.684 [pool-4-thread-7] file req /files/web-wide.css
+DEBUG 2016-01-13 15:35:29.684 [pool-4-thread-7] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-wide.css
+DEBUG 2016-01-13 15:35:29.687 [pool-4-thread-8] file req /files/jquery.min.js
+DEBUG 2016-01-13 15:35:29.688 [pool-4-thread-8] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.min.js
+DEBUG 2016-01-13 15:35:29.690 [pool-4-thread-9] file req /files/jquery.ums.js
+DEBUG 2016-01-13 15:35:29.691 [pool-4-thread-9] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.ums.js
+DEBUG 2016-01-13 15:35:29.696 [pool-4-thread-11] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/bump.js
+DEBUG 2016-01-13 15:35:29.697 [pool-4-thread-11] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/skin/skin.js
+DEBUG 2016-01-13 15:35:29.698 [pool-4-thread-11] Received http player control request from /127.0.0.1: /bump/bump.js
+DEBUG 2016-01-13 15:35:29.707 [pool-4-thread-12] file req /files/web-narrow.css
+DEBUG 2016-01-13 15:35:29.708 [pool-4-thread-12] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-narrow.css
+DEBUG 2016-01-13 15:35:29.978 [pool-4-thread-10] file req /files/background-blank.jpg
+DEBUG 2016-01-13 15:35:29.978 [pool-4-thread-10] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/background-blank.jpg
+DEBUG 2016-01-13 15:35:29.980 [pool-4-thread-13] file req /files/menu-background-content.png
+DEBUG 2016-01-13 15:35:29.981 [pool-4-thread-13] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-background-content.png
+DEBUG 2016-01-13 15:35:29.982 [pool-4-thread-14] file req /files/menu-left-content.png
+DEBUG 2016-01-13 15:35:29.983 [pool-4-thread-14] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-left-content.png
+DEBUG 2016-01-13 15:35:29.983 [pool-4-thread-13] file req /files/settings32.png
+DEBUG 2016-01-13 15:35:29.984 [pool-4-thread-13] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/settings32.png
+DEBUG 2016-01-13 15:35:31.397 [pool-4-thread-18] Got a browse request found id 61
+DEBUG 2016-01-13 15:35:31.412 [pool-4-thread-18] Write page <!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			// reload if we have been sent back here after a VVA
+			if (typeof window.refresh != 'undefined' && window.refresh) {
+				window.refresh = false;
+				window.location.reload();
+			}
+			// ensure the browser info cookie is set
+			if ((' ' + document.cookie).indexOf(' UMSINFO=') == -1) {
+				document.cookie = 'UMSINFO=platform=' + navigator.platform + '&width=' + screen.width + '&height=' + screen.height + '&isTouchDevice=' + (window.screenX == 0 && ('ontouchstart' in window || 'onmsgesturechange' in window)) + ';Path=/';
+			}
+		</script>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="/files/reset.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web-narrow.css" type="text/css" media="screen and (max-width: 1080px)">
+		<link rel="stylesheet" href="/files/web-wide.css" type="text/css" media="screen and (min-width: 1081px)">
+		<link rel="icon" href="/files/favicon.ico" type="image/x-icon">
+		<script src="/files/jquery.min.js"></script>
+		<script src="/files/jquery.ums.js"></script>
+		<script src="/bump/bump.js"></script>
+		<title>Music</title>
+	</head>
+	<body id="ContentPage" class="browsePage">
+		<div id="Container" class="noHzScroll">
+			<div id="Menu">
+				<a href="/browse/0" id="HomeButton"></a>
+				<a href="/doc" id="DocButton" title="Documentation"></a>
+			</div>
+
+			<div id="FoldersContainer">
+				<ul id="Folders">
+					<li><a href="/browse/66" oncontextmenu="searchFun('/browse/66','Enter search string:');" title="Album 1"><span>Album 1</span></a></li>
+					<li><a href="/browse/67" oncontextmenu="searchFun('/browse/67','Enter search string:');" title="Album 2"><span>Album 2</span></a></li>
+					<li><a href="/browse/68" oncontextmenu="searchFun('/browse/68','Enter search string:');" title="Album 3"><span>Album 3</span></a></li>
+				</ul>
+			</div>
+
+		</div>
+	</body>
+</html>
+
+DEBUG 2016-01-13 15:35:31.610 [pool-4-thread-19] file req /files/reset.css
+DEBUG 2016-01-13 15:35:31.611 [pool-4-thread-19] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/reset.css
+DEBUG 2016-01-13 15:35:31.611 [pool-4-thread-17] file req /files/web.css
+DEBUG 2016-01-13 15:35:31.611 [pool-4-thread-17] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web.css
+DEBUG 2016-01-13 15:35:31.613 [pool-4-thread-22] file req /files/web-wide.css
+DEBUG 2016-01-13 15:35:31.613 [pool-4-thread-22] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-wide.css
+DEBUG 2016-01-13 15:35:31.623 [pool-4-thread-20] file req /files/jquery.min.js
+DEBUG 2016-01-13 15:35:31.624 [pool-4-thread-20] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.min.js
+DEBUG 2016-01-13 15:35:31.638 [pool-4-thread-21] file req /files/jquery.ums.js
+DEBUG 2016-01-13 15:35:31.638 [pool-4-thread-21] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.ums.js
+DEBUG 2016-01-13 15:35:31.644 [pool-4-thread-23] file req /files/web-narrow.css
+DEBUG 2016-01-13 15:35:31.645 [pool-4-thread-23] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-narrow.css
+DEBUG 2016-01-13 15:35:31.651 [pool-4-thread-24] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/bump.js
+DEBUG 2016-01-13 15:35:31.652 [pool-4-thread-24] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/skin/skin.js
+DEBUG 2016-01-13 15:35:31.653 [pool-4-thread-24] Received http player control request from /127.0.0.1: /bump/bump.js
+DEBUG 2016-01-13 15:35:31.916 [pool-4-thread-25] file req /files/background-blank.jpg
+DEBUG 2016-01-13 15:35:31.917 [pool-4-thread-25] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/background-blank.jpg
+DEBUG 2016-01-13 15:35:31.917 [pool-4-thread-27] file req /files/menu-background-content.png
+DEBUG 2016-01-13 15:35:31.919 [pool-4-thread-27] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-background-content.png
+DEBUG 2016-01-13 15:35:31.920 [pool-4-thread-25] file req /files/menu-left-content.png
+DEBUG 2016-01-13 15:35:31.920 [pool-4-thread-25] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-left-content.png
+DEBUG 2016-01-13 15:35:31.921 [pool-4-thread-27] file req /files/settings32.png
+DEBUG 2016-01-13 15:35:31.923 [pool-4-thread-27] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/settings32.png
+DEBUG 2016-01-13 15:35:32.790 [pool-4-thread-2] Got a browse request found id 66
+DEBUG 2016-01-13 15:35:32.815 [pool-4-thread-2] Write page <!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			// reload if we have been sent back here after a VVA
+			if (typeof window.refresh != 'undefined' && window.refresh) {
+				window.refresh = false;
+				window.location.reload();
+			}
+			// ensure the browser info cookie is set
+			if ((' ' + document.cookie).indexOf(' UMSINFO=') == -1) {
+				document.cookie = 'UMSINFO=platform=' + navigator.platform + '&width=' + screen.width + '&height=' + screen.height + '&isTouchDevice=' + (window.screenX == 0 && ('ontouchstart' in window || 'onmsgesturechange' in window)) + ';Path=/';
+			}
+		</script>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="/files/reset.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web-narrow.css" type="text/css" media="screen and (max-width: 1080px)">
+		<link rel="stylesheet" href="/files/web-wide.css" type="text/css" media="screen and (min-width: 1081px)">
+		<link rel="icon" href="/files/favicon.ico" type="image/x-icon">
+		<script src="/files/jquery.min.js"></script>
+		<script src="/files/jquery.ums.js"></script>
+		<script src="/bump/bump.js"></script>
+		<title>Album 1</title>
+	</head>
+	<body id="ContentPage" class="browsePage">
+		<div id="Container" class="noHzScroll">
+			<div id="Menu">
+				<a href="/browse/0" id="HomeButton"></a>
+				<form id="SearchForm" method="get">
+					<input type="text" id="SearchInput" name="str">
+					<input type="submit" id="SearchSubmit" title="Search" value="&nbsp;">
+				</form>
+				<a href="/doc" id="DocButton" title="Documentation"></a>
+			</div>
+
+			<div id="FoldersContainer" class="noFolders">
+				<ul id="Folders">
+				</ul>
+			</div>
+
+			<ul id="Media" class="noFolders">
+				<li>
+					<a href="/play/69" title="Track 1"><img class="thumb" src="/thumb/69" alt="Track 1"></a>
+					<a class="bumpIcon" href="javascript:bump.start('//192.168.0.102:9001','/play/69','Track 1')" title="Play on another renderer"></a>
+<a class="playlist_add" href="#" onclick="umsAjax('/playlist/add/69', false);return false;" title="Add to playlist"></a>
+					<a href="/play/69" title="Track 1"><span class="caption">Track 1</span></a>
+				</li>
+				<li>
+					<a href="/play/70" title="Track 2"><img class="thumb" src="/thumb/70" alt="Track 2"></a>
+					<a class="bumpIcon" href="javascript:bump.start('//192.168.0.102:9001','/play/70','Track 2')" title="Play on another renderer"></a>
+<a class="playlist_add" href="#" onclick="umsAjax('/playlist/add/70', false);return false;" title="Add to playlist"></a>
+					<a href="/play/70" title="Track 2"><span class="caption">Track 2</span></a>
+				</li>
+				<li>
+					<a href="/play/71" title="Track 3"><img class="thumb" src="/thumb/71" alt="Track 3"></a>
+					<a class="bumpIcon" href="javascript:bump.start('//192.168.0.102:9001','/play/71','Track 3')" title="Play on another renderer"></a>
+<a class="playlist_add" href="#" onclick="umsAjax('/playlist/add/71', false);return false;" title="Add to playlist"></a>
+					<a href="/play/71" title="Track 3"><span class="caption">Track 3</span></a>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>
+
+DEBUG 2016-01-13 15:35:33.012 [pool-4-thread-28] file req /files/reset.css
+DEBUG 2016-01-13 15:35:33.013 [pool-4-thread-28] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/reset.css
+DEBUG 2016-01-13 15:35:33.014 [pool-4-thread-29] file req /files/web.css
+DEBUG 2016-01-13 15:35:33.014 [pool-4-thread-29] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web.css
+DEBUG 2016-01-13 15:35:33.017 [pool-4-thread-29] file req /files/web-wide.css
+DEBUG 2016-01-13 15:35:33.017 [pool-4-thread-29] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-wide.css
+DEBUG 2016-01-13 15:35:33.024 [pool-4-thread-3] file req /files/jquery.min.js
+DEBUG 2016-01-13 15:35:33.024 [pool-4-thread-3] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.min.js
+DEBUG 2016-01-13 15:35:33.026 [pool-4-thread-4] file req /files/jquery.ums.js
+DEBUG 2016-01-13 15:35:33.027 [pool-4-thread-4] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.ums.js
+DEBUG 2016-01-13 15:35:33.031 [pool-4-thread-6] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/bump.js
+DEBUG 2016-01-13 15:35:33.032 [pool-4-thread-6] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/skin/skin.js
+DEBUG 2016-01-13 15:35:33.033 [pool-4-thread-6] Received http player control request from /127.0.0.1: /bump/bump.js
+DEBUG 2016-01-13 15:35:33.151 [pool-4-thread-5] use def thumb images/thumbnail-video-256.png
+DEBUG 2016-01-13 15:35:33.156 [pool-4-thread-5] input is sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream@ab5595 out sun.net.httpserver.PlaceholderOutputStream@1eb8663
+DEBUG 2016-01-13 15:35:33.159 [pool-4-thread-7] use def thumb images/thumbnail-video-256.png
+DEBUG 2016-01-13 15:35:33.159 [pool-4-thread-8] file req /files/web-narrow.css
+DEBUG 2016-01-13 15:35:33.160 [pool-4-thread-8] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-narrow.css
+DEBUG 2016-01-13 15:35:33.160 [pool-4-thread-7] input is sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream@39a7aa out sun.net.httpserver.PlaceholderOutputStream@10b73ad
+DEBUG 2016-01-13 15:35:33.161 [pool-4-thread-5] use def thumb images/thumbnail-video-256.png
+DEBUG 2016-01-13 15:35:33.161 [pool-4-thread-5] input is sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream@c8c610 out sun.net.httpserver.PlaceholderOutputStream@f12ea1
+DEBUG 2016-01-13 15:35:33.348 [pool-4-thread-11] file req /files/background-blank.jpg
+DEBUG 2016-01-13 15:35:33.349 [pool-4-thread-11] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/background-blank.jpg
+DEBUG 2016-01-13 15:35:33.352 [pool-4-thread-12] file req /files/menu-background-content.png
+DEBUG 2016-01-13 15:35:33.352 [pool-4-thread-12] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-background-content.png
+DEBUG 2016-01-13 15:35:33.357 [pool-4-thread-10] file req /files/menu-left-content.png
+DEBUG 2016-01-13 15:35:33.358 [pool-4-thread-10] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-left-content.png
+DEBUG 2016-01-13 15:35:33.360 [pool-4-thread-16] file req /files/search32.png
+DEBUG 2016-01-13 15:35:33.360 [pool-4-thread-16] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/search32.png
+DEBUG 2016-01-13 15:35:33.361 [pool-4-thread-14] file req /files/settings32.png
+DEBUG 2016-01-13 15:35:33.361 [pool-4-thread-14] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/settings32.png
+DEBUG 2016-01-13 15:35:33.362 [pool-4-thread-13] file req /files/bump/bump16-2.png
+DEBUG 2016-01-13 15:35:33.362 [pool-4-thread-13] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/bump16-2.png
+DEBUG 2016-01-13 15:35:33.384 [pool-4-thread-15] file req /files/bump/skin/add16.png
+DEBUG 2016-01-13 15:35:33.384 [pool-4-thread-15] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/skin/add16.png
+DEBUG 2016-01-13 15:36:02.312 [pool-4-thread-13] Got a browse request found id 0
+DEBUG 2016-01-13 15:36:02.316 [pool-4-thread-13] Write page <!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			// reload if we have been sent back here after a VVA
+			if (typeof window.refresh != 'undefined' && window.refresh) {
+				window.refresh = false;
+				window.location.reload();
+			}
+			// ensure the browser info cookie is set
+			if ((' ' + document.cookie).indexOf(' UMSINFO=') == -1) {
+				document.cookie = 'UMSINFO=platform=' + navigator.platform + '&width=' + screen.width + '&height=' + screen.height + '&isTouchDevice=' + (window.screenX == 0 && ('ontouchstart' in window || 'onmsgesturechange' in window)) + ';Path=/';
+			}
+		</script>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="/files/reset.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web-narrow.css" type="text/css" media="screen and (max-width: 1080px)">
+		<link rel="stylesheet" href="/files/web-wide.css" type="text/css" media="screen and (min-width: 1081px)">
+		<link rel="icon" href="/files/favicon.ico" type="image/x-icon">
+		<script src="/files/jquery.min.js"></script>
+		<script src="/files/jquery.ums.js"></script>
+		<script src="/bump/bump.js"></script>
+		<title>Universal Media Server</title>
+	</head>
+	<body id="ContentPage" class="browsePage">
+		<div id="Container" class="noHzScroll">
+			<div id="Menu">
+				<a href="/browse/0" id="HomeButton"></a>
+				<a href="/doc" id="DocButton" title="Documentation"></a>
+			</div>
+
+			<div id="FoldersContainer">
+				<ul id="Folders">
+					<li><a href="/browse/60" oncontextmenu="searchFun('/browse/60','Enter search string:');" title="Recently Played"><span>Recently Played</span></a></li>
+					<li><a href="/browse/61" oncontextmenu="searchFun('/browse/61','Enter search string:');" title="Music"><span>Music</span></a></li>
+				</ul>
+			</div>
+
+		</div>
+	</body>
+</html>
+
+DEBUG 2016-01-13 15:36:02.558 [pool-4-thread-15] file req /files/reset.css
+DEBUG 2016-01-13 15:36:02.559 [pool-4-thread-15] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/reset.css
+DEBUG 2016-01-13 15:36:02.568 [pool-4-thread-18] file req /files/web.css
+DEBUG 2016-01-13 15:36:02.569 [pool-4-thread-18] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web.css
+DEBUG 2016-01-13 15:36:02.574 [pool-4-thread-17] file req /files/web-wide.css
+DEBUG 2016-01-13 15:36:02.574 [pool-4-thread-17] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-wide.css
+DEBUG 2016-01-13 15:36:02.576 [pool-4-thread-19] file req /files/jquery.min.js
+DEBUG 2016-01-13 15:36:02.577 [pool-4-thread-19] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.min.js
+DEBUG 2016-01-13 15:36:02.585 [pool-4-thread-22] file req /files/jquery.ums.js
+DEBUG 2016-01-13 15:36:02.585 [pool-4-thread-22] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.ums.js
+DEBUG 2016-01-13 15:36:02.630 [pool-4-thread-20] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/bump.js
+DEBUG 2016-01-13 15:36:02.632 [pool-4-thread-20] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/skin/skin.js
+DEBUG 2016-01-13 15:36:02.633 [pool-4-thread-20] Received http player control request from /127.0.0.1: /bump/bump.js
+DEBUG 2016-01-13 15:36:02.644 [pool-4-thread-21] file req /files/web-narrow.css
+DEBUG 2016-01-13 15:36:02.645 [pool-4-thread-21] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-narrow.css
+DEBUG 2016-01-13 15:36:02.983 [pool-4-thread-23] file req /files/background-blank.jpg
+DEBUG 2016-01-13 15:36:02.985 [pool-4-thread-23] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/background-blank.jpg
+DEBUG 2016-01-13 15:36:02.988 [pool-4-thread-23] file req /files/menu-background-content.png
+DEBUG 2016-01-13 15:36:02.989 [pool-4-thread-23] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-background-content.png
+DEBUG 2016-01-13 15:36:02.998 [pool-4-thread-24] file req /files/menu-left-content.png
+DEBUG 2016-01-13 15:36:02.998 [pool-4-thread-1] file req /files/settings32.png
+DEBUG 2016-01-13 15:36:02.999 [pool-4-thread-1] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/settings32.png
+DEBUG 2016-01-13 15:36:02.999 [pool-4-thread-24] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-left-content.png
+DEBUG 2016-01-13 15:36:06.982 [pool-4-thread-28] Got a browse request found id 60
+DEBUG 2016-01-13 15:36:07.003 [pool-4-thread-28] Write page <!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			// reload if we have been sent back here after a VVA
+			if (typeof window.refresh != 'undefined' && window.refresh) {
+				window.refresh = false;
+				window.location.reload();
+			}
+			// ensure the browser info cookie is set
+			if ((' ' + document.cookie).indexOf(' UMSINFO=') == -1) {
+				document.cookie = 'UMSINFO=platform=' + navigator.platform + '&width=' + screen.width + '&height=' + screen.height + '&isTouchDevice=' + (window.screenX == 0 && ('ontouchstart' in window || 'onmsgesturechange' in window)) + ';Path=/';
+			}
+		</script>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="/files/reset.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web-narrow.css" type="text/css" media="screen and (max-width: 1080px)">
+		<link rel="stylesheet" href="/files/web-wide.css" type="text/css" media="screen and (min-width: 1081px)">
+		<link rel="icon" href="/files/favicon.ico" type="image/x-icon">
+		<script src="/files/jquery.min.js"></script>
+		<script src="/files/jquery.ums.js"></script>
+		<script src="/bump/bump.js"></script>
+		<title>Recently Played</title>
+	</head>
+	<body id="ContentPage" class="browsePage">
+		<div id="Container" class="noHzScroll">
+			<div id="Menu">
+				<a href="/browse/0" id="HomeButton"></a>
+				<form id="SearchForm" method="get">
+					<input type="text" id="SearchInput" name="str">
+					<input type="submit" id="SearchSubmit" title="Search" value="&nbsp;">
+				</form>
+				<a href="/doc" id="DocButton" title="Documentation"></a>
+			</div>
+
+			<div id="FoldersContainer" class="noFolders">
+				<ul id="Folders">
+				</ul>
+			</div>
+
+			<ul id="Media" class="noFolders">
+				<li>
+					<a href="#" onclick="umsAjax('/play/72', true);return false;" title="Clear"><img class="thumb" src="/thumb/72" alt="Clear"></a>
+					<span class="floatRight"></span>
+					<a href="#" onclick="umsAjax('/play/72', true);return false;" title="Clear"><span class="caption">Clear</span></a>
+				</li>
+				<li>
+					<a href="/play/73" title="Track 3"><img class="thumb" src="/thumb/73" alt="Track 3"></a>
+					<a class="bumpIcon" href="javascript:bump.start('//192.168.0.102:9001','/play/73','Track 3')" title="Play on another renderer"></a>
+<a class="playlist_del" href="#" onclick="umsAjax('/playlist/del/73', true);return false;" title="Remove from playlist"></a>
+					<a href="/play/73" title="Track 3"><span class="caption">Track 3</span></a>
+				</li>
+				<li>
+					<a href="/play/74" title="Track 2"><img class="thumb" src="/thumb/74" alt="Track 2"></a>
+					<a class="bumpIcon" href="javascript:bump.start('//192.168.0.102:9001','/play/74','Track 2')" title="Play on another renderer"></a>
+<a class="playlist_del" href="#" onclick="umsAjax('/playlist/del/74', true);return false;" title="Remove from playlist"></a>
+					<a href="/play/74" title="Track 2"><span class="caption">Track 2</span></a>
+				</li>
+				<li>
+					<a href="/play/75" title="01 All Creatures of Our God and King"><img class="thumb" src="/thumb/75" alt="01 All Creatures of Our God and King"></a>
+					<a class="bumpIcon" href="javascript:bump.start('//192.168.0.102:9001','/play/75','01 All Creatures of Our God and King')" title="Play on another renderer"></a>
+<a class="playlist_del" href="#" onclick="umsAjax('/playlist/del/75', true);return false;" title="Remove from playlist"></a>
+					<a href="/play/75" title="01 All Creatures of Our God and King"><span class="caption">01 All Creatures of Our God and King</span></a>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>
+
+DEBUG 2016-01-13 15:36:07.213 [pool-4-thread-30] file req /files/reset.css
+DEBUG 2016-01-13 15:36:07.214 [pool-4-thread-30] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/reset.css
+DEBUG 2016-01-13 15:36:07.216 [pool-4-thread-29] file req /files/web.css
+DEBUG 2016-01-13 15:36:07.217 [pool-4-thread-29] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web.css
+DEBUG 2016-01-13 15:36:07.221 [pool-4-thread-3] file req /files/web-wide.css
+DEBUG 2016-01-13 15:36:07.222 [pool-4-thread-3] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-wide.css
+DEBUG 2016-01-13 15:36:07.223 [pool-4-thread-4] file req /files/jquery.min.js
+DEBUG 2016-01-13 15:36:07.226 [pool-4-thread-4] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.min.js
+DEBUG 2016-01-13 15:36:07.231 [pool-4-thread-6] file req /files/jquery.ums.js
+DEBUG 2016-01-13 15:36:07.232 [pool-4-thread-6] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.ums.js
+DEBUG 2016-01-13 15:36:07.235 [pool-4-thread-9] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/bump.js
+DEBUG 2016-01-13 15:36:07.236 [pool-4-thread-9] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/skin/skin.js
+DEBUG 2016-01-13 15:36:07.237 [pool-4-thread-9] Received http player control request from /127.0.0.1: /bump/bump.js
+DEBUG 2016-01-13 15:36:07.239 [pool-4-thread-7] file req /files/web-narrow.css
+DEBUG 2016-01-13 15:36:07.240 [pool-4-thread-7] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-narrow.css
+DEBUG 2016-01-13 15:36:07.363 [pool-4-thread-5] use def thumb images/thumbnail-video-256.png
+DEBUG 2016-01-13 15:36:07.366 [pool-4-thread-5] input is sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream@7f6b7b out sun.net.httpserver.PlaceholderOutputStream@57cee2
+DEBUG 2016-01-13 15:36:07.366 [pool-4-thread-8] input is sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream@dc5f55 out sun.net.httpserver.PlaceholderOutputStream@c02661
+DEBUG 2016-01-13 15:36:07.368 [pool-4-thread-11] use def thumb images/thumbnail-video-256.png
+DEBUG 2016-01-13 15:36:07.369 [pool-4-thread-5] use def thumb images/thumbnail-video-256.png
+DEBUG 2016-01-13 15:36:07.369 [pool-4-thread-11] input is sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream@10d682 out sun.net.httpserver.PlaceholderOutputStream@1d38236
+DEBUG 2016-01-13 15:36:07.370 [pool-4-thread-5] input is sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream@16a117e out sun.net.httpserver.PlaceholderOutputStream@6b92db
+DEBUG 2016-01-13 15:36:07.556 [pool-4-thread-10] file req /files/background-blank.jpg
+DEBUG 2016-01-13 15:36:07.557 [pool-4-thread-10] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/background-blank.jpg
+DEBUG 2016-01-13 15:36:07.562 [pool-4-thread-16] file req /files/menu-background-content.png
+DEBUG 2016-01-13 15:36:07.564 [pool-4-thread-16] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-background-content.png
+DEBUG 2016-01-13 15:36:07.566 [pool-4-thread-14] file req /files/menu-left-content.png
+DEBUG 2016-01-13 15:36:07.566 [pool-4-thread-16] file req /files/search32.png
+DEBUG 2016-01-13 15:36:07.566 [pool-4-thread-14] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-left-content.png
+DEBUG 2016-01-13 15:36:07.567 [pool-4-thread-13] file req /files/settings32.png
+DEBUG 2016-01-13 15:36:07.567 [pool-4-thread-16] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/search32.png
+DEBUG 2016-01-13 15:36:07.567 [pool-4-thread-13] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/settings32.png
+DEBUG 2016-01-13 15:36:07.576 [pool-4-thread-18] file req /files/bump/bump16-2.png
+DEBUG 2016-01-13 15:36:07.577 [pool-4-thread-18] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/bump16-2.png
+DEBUG 2016-01-13 15:36:07.590 [pool-4-thread-17] file req /files/bump/skin/remove16.png
+DEBUG 2016-01-13 15:36:07.591 [pool-4-thread-17] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/skin/remove16.png
+DEBUG 2016-01-13 15:36:09.060 [pool-4-thread-22] got a play request /play/72
+DEBUG 2016-01-13 15:36:09.061 [pool-4-thread-22] make play page 72
+DEBUG 2016-01-13 15:36:09.062 [pool-4-thread-22] Setting web client ua: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36
+DEBUG 2016-01-13 15:36:09.062 [pool-4-thread-22] Setting Chrome browser info: platform:win32, screen:1366x768, isTouchDevice:false
+DEBUG 2016-01-13 15:36:09.063 [pool-4-thread-22] clearing playlist "Recently Played": 5 items
+DEBUG 2016-01-13 15:36:09.063 [pool-4-thread-22] GlobalIdRepo: removing id 72 - Clear
+DEBUG 2016-01-13 15:36:09.064 [pool-4-thread-22] GlobalIdRepo: removing id 73 - Track 3.mp3
+DEBUG 2016-01-13 15:36:09.064 [pool-4-thread-22] GlobalIdRepo: removing id 74 - Track 2.mp3
+DEBUG 2016-01-13 15:36:09.064 [pool-4-thread-22] GlobalIdRepo: removing id 75 - 01 All Creatures of Our God and King.mp3
+DEBUG 2016-01-13 15:36:09.064 [pool-4-thread-22] play page <html><head><script>window.refresh=true;history.back()</script></head></html>
+DEBUG 2016-01-13 15:36:09.075 [pool-4-thread-20] Got a browse request found id 60
+DEBUG 2016-01-13 15:36:09.076 [pool-4-thread-20] Write page <!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			// reload if we have been sent back here after a VVA
+			if (typeof window.refresh != 'undefined' && window.refresh) {
+				window.refresh = false;
+				window.location.reload();
+			}
+			// ensure the browser info cookie is set
+			if ((' ' + document.cookie).indexOf(' UMSINFO=') == -1) {
+				document.cookie = 'UMSINFO=platform=' + navigator.platform + '&width=' + screen.width + '&height=' + screen.height + '&isTouchDevice=' + (window.screenX == 0 && ('ontouchstart' in window || 'onmsgesturechange' in window)) + ';Path=/';
+			}
+		</script>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="/files/reset.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web-narrow.css" type="text/css" media="screen and (max-width: 1080px)">
+		<link rel="stylesheet" href="/files/web-wide.css" type="text/css" media="screen and (min-width: 1081px)">
+		<link rel="icon" href="/files/favicon.ico" type="image/x-icon">
+		<script src="/files/jquery.min.js"></script>
+		<script src="/files/jquery.ums.js"></script>
+		<script src="/bump/bump.js"></script>
+		<title>Recently Played</title>
+	</head>
+	<body id="ContentPage" class="browsePage">
+		<div id="Container" class="noHzScroll">
+			<div id="Menu">
+				<a href="/browse/0" id="HomeButton"></a>
+				<a href="/doc" id="DocButton" title="Documentation"></a>
+			</div>
+
+			<div id="FoldersContainer" class="noFolders">
+				<ul id="Folders">
+				</ul>
+			</div>
+
+		</div>
+	</body>
+</html>
+
+DEBUG 2016-01-13 15:36:09.308 [pool-4-thread-21] file req /files/reset.css
+DEBUG 2016-01-13 15:36:09.309 [pool-4-thread-21] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/reset.css
+DEBUG 2016-01-13 15:36:09.310 [pool-4-thread-25] file req /files/web.css
+DEBUG 2016-01-13 15:36:09.311 [pool-4-thread-25] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web.css
+DEBUG 2016-01-13 15:36:09.311 [pool-4-thread-23] file req /files/web-wide.css
+DEBUG 2016-01-13 15:36:09.311 [pool-4-thread-23] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-wide.css
+DEBUG 2016-01-13 15:36:09.317 [pool-4-thread-24] file req /files/jquery.min.js
+DEBUG 2016-01-13 15:36:09.318 [pool-4-thread-1] file req /files/jquery.ums.js
+DEBUG 2016-01-13 15:36:09.318 [pool-4-thread-24] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.min.js
+DEBUG 2016-01-13 15:36:09.319 [pool-4-thread-1] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.ums.js
+DEBUG 2016-01-13 15:36:09.321 [pool-4-thread-26] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/bump.js
+DEBUG 2016-01-13 15:36:09.322 [pool-4-thread-26] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/skin/skin.js
+DEBUG 2016-01-13 15:36:09.323 [pool-4-thread-26] Received http player control request from /127.0.0.1: /bump/bump.js
+DEBUG 2016-01-13 15:36:09.334 [pool-4-thread-27] file req /files/web-narrow.css
+DEBUG 2016-01-13 15:36:09.334 [pool-4-thread-27] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-narrow.css
+DEBUG 2016-01-13 15:36:09.606 [pool-4-thread-2] file req /files/background-blank.jpg
+DEBUG 2016-01-13 15:36:09.606 [pool-4-thread-2] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/background-blank.jpg
+DEBUG 2016-01-13 15:36:09.608 [pool-4-thread-2] file req /files/menu-background-content.png
+DEBUG 2016-01-13 15:36:09.609 [pool-4-thread-2] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-background-content.png
+DEBUG 2016-01-13 15:36:09.611 [pool-4-thread-30] file req /files/menu-left-content.png
+DEBUG 2016-01-13 15:36:09.611 [pool-4-thread-30] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-left-content.png
+DEBUG 2016-01-13 15:36:09.615 [pool-4-thread-29] file req /files/settings32.png
+DEBUG 2016-01-13 15:36:09.616 [pool-4-thread-29] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/settings32.png
+DEBUG 2016-01-13 15:36:10.675 [pool-4-thread-4] file req /files/ok32.png
+DEBUG 2016-01-13 15:36:10.676 [pool-4-thread-4] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/ok32.png
+DEBUG 2016-01-13 15:36:10.920 [pool-4-thread-6] Got a browse request found id 0
+DEBUG 2016-01-13 15:36:10.924 [pool-4-thread-6] Write page <!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			// reload if we have been sent back here after a VVA
+			if (typeof window.refresh != 'undefined' && window.refresh) {
+				window.refresh = false;
+				window.location.reload();
+			}
+			// ensure the browser info cookie is set
+			if ((' ' + document.cookie).indexOf(' UMSINFO=') == -1) {
+				document.cookie = 'UMSINFO=platform=' + navigator.platform + '&width=' + screen.width + '&height=' + screen.height + '&isTouchDevice=' + (window.screenX == 0 && ('ontouchstart' in window || 'onmsgesturechange' in window)) + ';Path=/';
+			}
+		</script>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="/files/reset.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web-narrow.css" type="text/css" media="screen and (max-width: 1080px)">
+		<link rel="stylesheet" href="/files/web-wide.css" type="text/css" media="screen and (min-width: 1081px)">
+		<link rel="icon" href="/files/favicon.ico" type="image/x-icon">
+		<script src="/files/jquery.min.js"></script>
+		<script src="/files/jquery.ums.js"></script>
+		<script src="/bump/bump.js"></script>
+		<title>Universal Media Server</title>
+	</head>
+	<body id="ContentPage" class="browsePage">
+		<div id="Container" class="noHzScroll">
+			<div id="Menu">
+				<a href="/browse/0" id="HomeButton"></a>
+				<a href="/doc" id="DocButton" title="Documentation"></a>
+			</div>
+
+			<div id="FoldersContainer">
+				<ul id="Folders">
+					<li><a href="/browse/60" oncontextmenu="searchFun('/browse/60','Enter search string:');" title="Recently Played"><span>Recently Played</span></a></li>
+					<li><a href="/browse/61" oncontextmenu="searchFun('/browse/61','Enter search string:');" title="Music"><span>Music</span></a></li>
+				</ul>
+			</div>
+
+		</div>
+	</body>
+</html>
+
+DEBUG 2016-01-13 15:36:11.122 [pool-4-thread-9] file req /files/reset.css
+DEBUG 2016-01-13 15:36:11.122 [pool-4-thread-9] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/reset.css
+DEBUG 2016-01-13 15:36:11.129 [pool-4-thread-7] file req /files/web.css
+DEBUG 2016-01-13 15:36:11.130 [pool-4-thread-7] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web.css
+DEBUG 2016-01-13 15:36:11.141 [pool-4-thread-12] file req /files/web-wide.css
+DEBUG 2016-01-13 15:36:11.142 [pool-4-thread-12] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-wide.css
+DEBUG 2016-01-13 15:36:11.149 [pool-4-thread-8] file req /files/jquery.min.js
+DEBUG 2016-01-13 15:36:11.149 [pool-4-thread-8] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.min.js
+DEBUG 2016-01-13 15:36:11.157 [pool-4-thread-11] file req /files/jquery.ums.js
+DEBUG 2016-01-13 15:36:11.158 [pool-4-thread-11] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.ums.js
+DEBUG 2016-01-13 15:36:11.162 [pool-4-thread-5] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/bump.js
+DEBUG 2016-01-13 15:36:11.163 [pool-4-thread-5] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/skin/skin.js
+DEBUG 2016-01-13 15:36:11.164 [pool-4-thread-5] Received http player control request from /127.0.0.1: /bump/bump.js
+DEBUG 2016-01-13 15:36:11.171 [pool-4-thread-10] file req /files/web-narrow.css
+DEBUG 2016-01-13 15:36:11.171 [pool-4-thread-10] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-narrow.css
+DEBUG 2016-01-13 15:36:11.436 [pool-4-thread-15] file req /files/background-blank.jpg
+DEBUG 2016-01-13 15:36:11.437 [pool-4-thread-15] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/background-blank.jpg
+DEBUG 2016-01-13 15:36:11.438 [pool-4-thread-14] file req /files/menu-background-content.png
+DEBUG 2016-01-13 15:36:11.438 [pool-4-thread-14] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-background-content.png
+DEBUG 2016-01-13 15:36:11.440 [pool-4-thread-15] file req /files/menu-left-content.png
+DEBUG 2016-01-13 15:36:11.441 [pool-4-thread-15] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-left-content.png
+DEBUG 2016-01-13 15:36:11.455 [pool-4-thread-15] file req /files/settings32.png
+DEBUG 2016-01-13 15:36:11.456 [pool-4-thread-15] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/settings32.png
+DEBUG 2016-01-13 15:36:13.989 [pool-4-thread-19] Got a browse request found id 61
+DEBUG 2016-01-13 15:36:13.996 [pool-4-thread-19] Write page <!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			// reload if we have been sent back here after a VVA
+			if (typeof window.refresh != 'undefined' && window.refresh) {
+				window.refresh = false;
+				window.location.reload();
+			}
+			// ensure the browser info cookie is set
+			if ((' ' + document.cookie).indexOf(' UMSINFO=') == -1) {
+				document.cookie = 'UMSINFO=platform=' + navigator.platform + '&width=' + screen.width + '&height=' + screen.height + '&isTouchDevice=' + (window.screenX == 0 && ('ontouchstart' in window || 'onmsgesturechange' in window)) + ';Path=/';
+			}
+		</script>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="/files/reset.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web-narrow.css" type="text/css" media="screen and (max-width: 1080px)">
+		<link rel="stylesheet" href="/files/web-wide.css" type="text/css" media="screen and (min-width: 1081px)">
+		<link rel="icon" href="/files/favicon.ico" type="image/x-icon">
+		<script src="/files/jquery.min.js"></script>
+		<script src="/files/jquery.ums.js"></script>
+		<script src="/bump/bump.js"></script>
+		<title>Music</title>
+	</head>
+	<body id="ContentPage" class="browsePage">
+		<div id="Container" class="noHzScroll">
+			<div id="Menu">
+				<a href="/browse/0" id="HomeButton"></a>
+				<a href="/doc" id="DocButton" title="Documentation"></a>
+			</div>
+
+			<div id="FoldersContainer">
+				<ul id="Folders">
+					<li><a href="/browse/66" oncontextmenu="searchFun('/browse/66','Enter search string:');" title="Album 1"><span>Album 1</span></a></li>
+					<li><a href="/browse/67" oncontextmenu="searchFun('/browse/67','Enter search string:');" title="Album 2"><span>Album 2</span></a></li>
+					<li><a href="/browse/68" oncontextmenu="searchFun('/browse/68','Enter search string:');" title="Album 3"><span>Album 3</span></a></li>
+				</ul>
+			</div>
+
+		</div>
+	</body>
+</html>
+
+DEBUG 2016-01-13 15:36:14.200 [pool-4-thread-22] file req /files/reset.css
+DEBUG 2016-01-13 15:36:14.200 [pool-4-thread-20] file req /files/web.css
+DEBUG 2016-01-13 15:36:14.200 [pool-4-thread-22] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/reset.css
+DEBUG 2016-01-13 15:36:14.201 [pool-4-thread-20] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web.css
+DEBUG 2016-01-13 15:36:14.207 [pool-4-thread-21] file req /files/web-wide.css
+DEBUG 2016-01-13 15:36:14.208 [pool-4-thread-21] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-wide.css
+DEBUG 2016-01-13 15:36:14.210 [pool-4-thread-23] file req /files/jquery.min.js
+DEBUG 2016-01-13 15:36:14.211 [pool-4-thread-23] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.min.js
+DEBUG 2016-01-13 15:36:14.214 [pool-4-thread-25] file req /files/jquery.ums.js
+DEBUG 2016-01-13 15:36:14.215 [pool-4-thread-25] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.ums.js
+DEBUG 2016-01-13 15:36:14.217 [pool-4-thread-24] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/bump.js
+DEBUG 2016-01-13 15:36:14.218 [pool-4-thread-24] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/skin/skin.js
+DEBUG 2016-01-13 15:36:14.219 [pool-4-thread-24] Received http player control request from /127.0.0.1: /bump/bump.js
+DEBUG 2016-01-13 15:36:14.221 [pool-4-thread-1] file req /files/web-narrow.css
+DEBUG 2016-01-13 15:36:14.222 [pool-4-thread-1] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-narrow.css
+DEBUG 2016-01-13 15:36:14.487 [pool-4-thread-26] file req /files/background-blank.jpg
+DEBUG 2016-01-13 15:36:14.487 [pool-4-thread-26] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/background-blank.jpg
+DEBUG 2016-01-13 15:36:14.489 [pool-4-thread-26] file req /files/menu-background-content.png
+DEBUG 2016-01-13 15:36:14.490 [pool-4-thread-26] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-background-content.png
+DEBUG 2016-01-13 15:36:14.490 [pool-4-thread-27] file req /files/menu-left-content.png
+DEBUG 2016-01-13 15:36:14.490 [pool-4-thread-27] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-left-content.png
+DEBUG 2016-01-13 15:36:14.491 [pool-4-thread-26] file req /files/settings32.png
+DEBUG 2016-01-13 15:36:14.492 [pool-4-thread-26] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/settings32.png
+DEBUG 2016-01-13 15:36:15.869 [pool-4-thread-29] Got a browse request found id 66
+DEBUG 2016-01-13 15:36:15.875 [pool-4-thread-29] Write page <!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			// reload if we have been sent back here after a VVA
+			if (typeof window.refresh != 'undefined' && window.refresh) {
+				window.refresh = false;
+				window.location.reload();
+			}
+			// ensure the browser info cookie is set
+			if ((' ' + document.cookie).indexOf(' UMSINFO=') == -1) {
+				document.cookie = 'UMSINFO=platform=' + navigator.platform + '&width=' + screen.width + '&height=' + screen.height + '&isTouchDevice=' + (window.screenX == 0 && ('ontouchstart' in window || 'onmsgesturechange' in window)) + ';Path=/';
+			}
+		</script>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="/files/reset.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web-narrow.css" type="text/css" media="screen and (max-width: 1080px)">
+		<link rel="stylesheet" href="/files/web-wide.css" type="text/css" media="screen and (min-width: 1081px)">
+		<link rel="icon" href="/files/favicon.ico" type="image/x-icon">
+		<script src="/files/jquery.min.js"></script>
+		<script src="/files/jquery.ums.js"></script>
+		<script src="/bump/bump.js"></script>
+		<title>Album 1</title>
+	</head>
+	<body id="ContentPage" class="browsePage">
+		<div id="Container" class="noHzScroll">
+			<div id="Menu">
+				<a href="/browse/0" id="HomeButton"></a>
+				<form id="SearchForm" method="get">
+					<input type="text" id="SearchInput" name="str">
+					<input type="submit" id="SearchSubmit" title="Search" value="&nbsp;">
+				</form>
+				<a href="/doc" id="DocButton" title="Documentation"></a>
+			</div>
+
+			<div id="FoldersContainer" class="noFolders">
+				<ul id="Folders">
+				</ul>
+			</div>
+
+			<ul id="Media" class="noFolders">
+				<li>
+					<a href="/play/69" title="Track 1"><img class="thumb" src="/thumb/69" alt="Track 1"></a>
+					<a class="bumpIcon" href="javascript:bump.start('//192.168.0.102:9001','/play/69','Track 1')" title="Play on another renderer"></a>
+<a class="playlist_add" href="#" onclick="umsAjax('/playlist/add/69', false);return false;" title="Add to playlist"></a>
+					<a href="/play/69" title="Track 1"><span class="caption">Track 1</span></a>
+				</li>
+				<li>
+					<a href="/play/70" title="Track 2"><img class="thumb" src="/thumb/70" alt="Track 2"></a>
+					<a class="bumpIcon" href="javascript:bump.start('//192.168.0.102:9001','/play/70','Track 2')" title="Play on another renderer"></a>
+<a class="playlist_add" href="#" onclick="umsAjax('/playlist/add/70', false);return false;" title="Add to playlist"></a>
+					<a href="/play/70" title="Track 2"><span class="caption">Track 2</span></a>
+				</li>
+				<li>
+					<a href="/play/71" title="Track 3"><img class="thumb" src="/thumb/71" alt="Track 3"></a>
+					<a class="bumpIcon" href="javascript:bump.start('//192.168.0.102:9001','/play/71','Track 3')" title="Play on another renderer"></a>
+<a class="playlist_add" href="#" onclick="umsAjax('/playlist/add/71', false);return false;" title="Add to playlist"></a>
+					<a href="/play/71" title="Track 3"><span class="caption">Track 3</span></a>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>
+
+DEBUG 2016-01-13 15:36:16.086 [pool-4-thread-3] file req /files/reset.css
+DEBUG 2016-01-13 15:36:16.087 [pool-4-thread-3] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/reset.css
+DEBUG 2016-01-13 15:36:16.089 [pool-4-thread-3] file req /files/web.css
+DEBUG 2016-01-13 15:36:16.089 [pool-4-thread-3] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web.css
+DEBUG 2016-01-13 15:36:16.095 [pool-4-thread-6] file req /files/web-wide.css
+DEBUG 2016-01-13 15:36:16.096 [pool-4-thread-6] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-wide.css
+DEBUG 2016-01-13 15:36:16.099 [pool-4-thread-9] file req /files/jquery.min.js
+DEBUG 2016-01-13 15:36:16.099 [pool-4-thread-9] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.min.js
+DEBUG 2016-01-13 15:36:16.102 [pool-4-thread-7] file req /files/jquery.ums.js
+DEBUG 2016-01-13 15:36:16.103 [pool-4-thread-7] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.ums.js
+DEBUG 2016-01-13 15:36:16.106 [pool-4-thread-12] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/bump.js
+DEBUG 2016-01-13 15:36:16.108 [pool-4-thread-12] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/skin/skin.js
+DEBUG 2016-01-13 15:36:16.108 [pool-4-thread-12] Received http player control request from /127.0.0.1: /bump/bump.js
+DEBUG 2016-01-13 15:36:16.115 [pool-4-thread-8] use def thumb images/thumbnail-video-256.png
+DEBUG 2016-01-13 15:36:16.117 [pool-4-thread-8] input is sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream@62da6a out sun.net.httpserver.PlaceholderOutputStream@1160069
+DEBUG 2016-01-13 15:36:16.235 [pool-4-thread-11] use def thumb images/thumbnail-video-256.png
+DEBUG 2016-01-13 15:36:16.235 [pool-4-thread-10] file req /files/web-narrow.css
+DEBUG 2016-01-13 15:36:16.236 [pool-4-thread-10] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-narrow.css
+DEBUG 2016-01-13 15:36:16.236 [pool-4-thread-11] input is sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream@15810b9 out sun.net.httpserver.PlaceholderOutputStream@3be796
+DEBUG 2016-01-13 15:36:16.237 [pool-4-thread-5] use def thumb images/thumbnail-video-256.png
+DEBUG 2016-01-13 15:36:16.238 [pool-4-thread-5] input is sun.net.www.protocol.jar.JarURLConnection$JarURLInputStream@1ed5923 out sun.net.httpserver.PlaceholderOutputStream@1a7b58
+DEBUG 2016-01-13 15:36:16.397 [pool-4-thread-16] file req /files/background-blank.jpg
+DEBUG 2016-01-13 15:36:16.398 [pool-4-thread-16] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/background-blank.jpg
+DEBUG 2016-01-13 15:36:16.399 [pool-4-thread-14] file req /files/menu-background-content.png
+DEBUG 2016-01-13 15:36:16.400 [pool-4-thread-14] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-background-content.png
+DEBUG 2016-01-13 15:36:16.400 [pool-4-thread-16] file req /files/menu-left-content.png
+DEBUG 2016-01-13 15:36:16.401 [pool-4-thread-16] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-left-content.png
+DEBUG 2016-01-13 15:36:16.410 [pool-4-thread-15] file req /files/search32.png
+DEBUG 2016-01-13 15:36:16.411 [pool-4-thread-15] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/search32.png
+DEBUG 2016-01-13 15:36:16.415 [pool-4-thread-15] file req /files/settings32.png
+DEBUG 2016-01-13 15:36:16.416 [pool-4-thread-15] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/settings32.png
+DEBUG 2016-01-13 15:36:16.417 [pool-4-thread-18] file req /files/bump/bump16-2.png
+DEBUG 2016-01-13 15:36:16.418 [pool-4-thread-18] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/bump16-2.png
+DEBUG 2016-01-13 15:36:16.440 [pool-4-thread-19] file req /files/bump/skin/add16.png
+DEBUG 2016-01-13 15:36:16.441 [pool-4-thread-19] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/skin/add16.png
+DEBUG 2016-01-13 15:36:23.327 [pool-4-thread-25] Got a browse request found id 61
+DEBUG 2016-01-13 15:36:23.334 [pool-4-thread-25] Write page <!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			// reload if we have been sent back here after a VVA
+			if (typeof window.refresh != 'undefined' && window.refresh) {
+				window.refresh = false;
+				window.location.reload();
+			}
+			// ensure the browser info cookie is set
+			if ((' ' + document.cookie).indexOf(' UMSINFO=') == -1) {
+				document.cookie = 'UMSINFO=platform=' + navigator.platform + '&width=' + screen.width + '&height=' + screen.height + '&isTouchDevice=' + (window.screenX == 0 && ('ontouchstart' in window || 'onmsgesturechange' in window)) + ';Path=/';
+			}
+		</script>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="/files/reset.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web-narrow.css" type="text/css" media="screen and (max-width: 1080px)">
+		<link rel="stylesheet" href="/files/web-wide.css" type="text/css" media="screen and (min-width: 1081px)">
+		<link rel="icon" href="/files/favicon.ico" type="image/x-icon">
+		<script src="/files/jquery.min.js"></script>
+		<script src="/files/jquery.ums.js"></script>
+		<script src="/bump/bump.js"></script>
+		<title>Music</title>
+	</head>
+	<body id="ContentPage" class="browsePage">
+		<div id="Container" class="noHzScroll">
+			<div id="Menu">
+				<a href="/browse/0" id="HomeButton"></a>
+				<a href="/doc" id="DocButton" title="Documentation"></a>
+			</div>
+
+			<div id="FoldersContainer">
+				<ul id="Folders">
+					<li><a href="/browse/66" oncontextmenu="searchFun('/browse/66','Enter search string:');" title="Album 1"><span>Album 1</span></a></li>
+					<li><a href="/browse/67" oncontextmenu="searchFun('/browse/67','Enter search string:');" title="Album 2"><span>Album 2</span></a></li>
+					<li><a href="/browse/68" oncontextmenu="searchFun('/browse/68','Enter search string:');" title="Album 3"><span>Album 3</span></a></li>
+				</ul>
+			</div>
+
+		</div>
+	</body>
+</html>
+
+DEBUG 2016-01-13 15:36:23.805 [pool-4-thread-1] file req /files/reset.css
+DEBUG 2016-01-13 15:36:23.805 [pool-4-thread-1] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/reset.css
+DEBUG 2016-01-13 15:36:23.808 [pool-4-thread-27] file req /files/web.css
+DEBUG 2016-01-13 15:36:23.809 [pool-4-thread-27] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web.css
+DEBUG 2016-01-13 15:36:23.811 [pool-4-thread-27] file req /files/web-wide.css
+DEBUG 2016-01-13 15:36:23.812 [pool-4-thread-27] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-wide.css
+DEBUG 2016-01-13 15:36:23.816 [pool-4-thread-2] file req /files/jquery.min.js
+DEBUG 2016-01-13 15:36:23.817 [pool-4-thread-2] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.min.js
+DEBUG 2016-01-13 15:36:23.821 [pool-4-thread-26] file req /files/jquery.ums.js
+DEBUG 2016-01-13 15:36:23.821 [pool-4-thread-26] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.ums.js
+DEBUG 2016-01-13 15:36:23.823 [pool-4-thread-30] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/bump.js
+DEBUG 2016-01-13 15:36:23.825 [pool-4-thread-30] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/skin/skin.js
+DEBUG 2016-01-13 15:36:23.826 [pool-4-thread-30] Received http player control request from /127.0.0.1: /bump/bump.js
+DEBUG 2016-01-13 15:36:25.049 [pool-4-thread-29] file req /files/web-narrow.css
+DEBUG 2016-01-13 15:36:25.050 [pool-4-thread-29] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-narrow.css
+DEBUG 2016-01-13 15:36:25.069 [pool-4-thread-4] file req /files/background-blank.jpg
+DEBUG 2016-01-13 15:36:25.070 [pool-4-thread-4] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/background-blank.jpg
+DEBUG 2016-01-13 15:36:25.071 [pool-4-thread-3] file req /files/menu-background-content.png
+DEBUG 2016-01-13 15:36:25.072 [pool-4-thread-3] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-background-content.png
+DEBUG 2016-01-13 15:36:25.075 [pool-4-thread-3] file req /files/menu-left-content.png
+DEBUG 2016-01-13 15:36:25.076 [pool-4-thread-3] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-left-content.png
+DEBUG 2016-01-13 15:36:25.082 [pool-4-thread-9] file req /files/settings32.png
+DEBUG 2016-01-13 15:36:25.083 [pool-4-thread-9] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/settings32.png
+DEBUG 2016-01-13 15:37:26.147 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 15:40:26.367 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 15:43:26.580 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 15:46:26.795 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 15:49:26.989 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 15:52:27.195 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 15:55:27.423 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 15:58:27.746 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 16:01:27.949 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 16:04:28.133 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 16:07:28.338 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 16:10:28.619 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 16:13:28.808 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 16:16:29.039 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 16:19:29.224 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 16:22:29.462 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 16:25:29.691 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 16:28:29.917 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 16:31:30.130 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 16:34:30.381 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 16:37:30.604 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 16:40:30.853 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 16:43:31.069 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 16:46:31.260 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 16:49:31.445 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 16:52:31.731 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 16:55:31.922 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 16:58:32.106 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 17:01:32.418 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-13 20:02:47.622 [cling-276] Subscription cancelled: RenderingControl on uuid:0e055bb3-af76-4dfd-aa5c-414d1d285b1c: DEVICE_WAS_REMOVED
+DEBUG 2016-01-13 20:02:47.624 [cling-277] NEWCS-PC is now offline.
+INFO  2016-01-13 20:02:50.709 [UPNPHelper] No IP filter specified, access granted to /192.168.2.102
+DEBUG 2016-01-13 20:02:55.601 [cling-276] Ignoring device: InternetGatewayDevice (RemoteDevice) Identity: (RemoteDeviceIdentity) UDN: uuid:060b7353-fca6-4070-85f4-1fbfb9add62c, Descriptor: http://192.168.2.1:1900/igd.xml, Root: true
+DEBUG 2016-01-13 20:02:55.601 [cling-276] Ignoring embedded device: urn:schemas-upnp-org:device:WANDevice:1 (RemoteDevice) Identity: (RemoteDeviceIdentity) UDN: uuid:254e9977-8964-49f3-b8d5-51acb7bd40fc, Descriptor: http://192.168.2.1:1900/igd.xml, Root: false
+DEBUG 2016-01-13 20:02:55.601 [cling-276] Ignoring embedded device: urn:schemas-wifialliance-org:device:WFADevice:1 (RemoteDevice) Identity: (RemoteDeviceIdentity) UDN: uuid:565aa949-67c1-4c0e-aa8f-f349e6f59311, Descriptor: http://192.168.2.1:1900/igd.xml, Root: false
+DEBUG 2016-01-14 06:58:51.068 [cling-276] Ignoring device: InternetGatewayDevice (RemoteDevice) Identity: (RemoteDeviceIdentity) UDN: uuid:060b7353-fca6-4070-85f4-1fbfb9add62c, Descriptor: http://192.168.2.1:1900/igd.xml, Root: true
+DEBUG 2016-01-14 06:58:51.069 [cling-276] Ignoring embedded device: urn:schemas-upnp-org:device:WANDevice:1 (RemoteDevice) Identity: (RemoteDeviceIdentity) UDN: uuid:254e9977-8964-49f3-b8d5-51acb7bd40fc, Descriptor: http://192.168.2.1:1900/igd.xml, Root: false
+DEBUG 2016-01-14 06:58:51.069 [cling-276] Ignoring embedded device: urn:schemas-wifialliance-org:device:WFADevice:1 (RemoteDevice) Identity: (RemoteDeviceIdentity) UDN: uuid:565aa949-67c1-4c0e-aa8f-f349e6f59311, Descriptor: http://192.168.2.1:1900/igd.xml, Root: false
+DEBUG 2016-01-14 06:59:53.332 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-14 06:59:53.453 [UPNP-AliveMessageSender] Error sending ALIVE message
+java.io.IOException: No usable network interface found for UPnP multicast
+	at net.pms.network.UPNPHelper.getNewMulticastSocket(UPNPHelper.java:248) ~[ums.jar:5.5.0]
+	at net.pms.network.UPNPHelper.sendAlive(UPNPHelper.java:192) ~[ums.jar:5.5.0]
+	at net.pms.network.UPNPHelper$1.run(UPNPHelper.java:367) [ums.jar:5.5.0]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_65]
+INFO  2016-01-14 07:00:38.813 [UPNPHelper] No IP filter specified, access granted to /192.168.2.107
+DEBUG 2016-01-14 07:02:53.453 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-14 07:02:53.554 [UPNP-AliveMessageSender] Error sending ALIVE message
+java.io.IOException: No usable network interface found for UPnP multicast
+	at net.pms.network.UPNPHelper.getNewMulticastSocket(UPNPHelper.java:248) ~[ums.jar:5.5.0]
+	at net.pms.network.UPNPHelper.sendAlive(UPNPHelper.java:192) ~[ums.jar:5.5.0]
+	at net.pms.network.UPNPHelper$1.run(UPNPHelper.java:367) [ums.jar:5.5.0]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_65]
+DEBUG 2016-01-14 07:05:53.557 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-14 07:05:53.657 [UPNP-AliveMessageSender] Error sending ALIVE message
+java.io.IOException: No usable network interface found for UPnP multicast
+	at net.pms.network.UPNPHelper.getNewMulticastSocket(UPNPHelper.java:248) ~[ums.jar:5.5.0]
+	at net.pms.network.UPNPHelper.sendAlive(UPNPHelper.java:192) ~[ums.jar:5.5.0]
+	at net.pms.network.UPNPHelper$1.run(UPNPHelper.java:367) [ums.jar:5.5.0]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_65]
+DEBUG 2016-01-14 07:08:53.668 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-14 07:08:53.800 [UPNP-AliveMessageSender] Error sending ALIVE message
+java.io.IOException: No usable network interface found for UPnP multicast
+	at net.pms.network.UPNPHelper.getNewMulticastSocket(UPNPHelper.java:248) ~[ums.jar:5.5.0]
+	at net.pms.network.UPNPHelper.sendAlive(UPNPHelper.java:192) ~[ums.jar:5.5.0]
+	at net.pms.network.UPNPHelper$1.run(UPNPHelper.java:367) [ums.jar:5.5.0]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_65]
+DEBUG 2016-01-14 07:10:25.096 [cling-309] Ignoring device: WFADevice (RemoteDevice) Identity: (RemoteDeviceIdentity) UDN: uuid:00000000-0000-1000-0000-c46e1f37ea96, Descriptor: http://192.168.2.1:49152/wps_device.xml, Root: true
+DEBUG 2016-01-14 07:11:07.516 [cling-309] Ignoring device: MediaServer (RemoteDevice) Identity: (RemoteDeviceIdentity) UDN: uuid:14f7f5bd-e297-4ca4-aa4c-71354be31e5e, Descriptor: http://192.168.2.107:61994/DeviceDescription.xml, Root: true
+DEBUG 2016-01-14 07:11:53.800 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-14 07:11:53.900 [UPNP-AliveMessageSender] Error sending ALIVE message
+java.io.IOException: No usable network interface found for UPnP multicast
+	at net.pms.network.UPNPHelper.getNewMulticastSocket(UPNPHelper.java:248) ~[ums.jar:5.5.0]
+	at net.pms.network.UPNPHelper.sendAlive(UPNPHelper.java:192) ~[ums.jar:5.5.0]
+	at net.pms.network.UPNPHelper$1.run(UPNPHelper.java:367) [ums.jar:5.5.0]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_65]
+DEBUG 2016-01-14 07:12:18.148 [pool-4-thread-28] root req /
+DEBUG 2016-01-14 07:12:18.151 [pool-4-thread-28] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/start.html
+DEBUG 2016-01-14 07:12:18.158 [pool-4-thread-28] Added file watch at C:\Users\Stephen\Downloads\ums-5.5.0\web: C:/Users/Stephen/Downloads/ums-5.5.0//web/start.html
+DEBUG 2016-01-14 07:12:18.312 [pool-4-thread-27] file req /files/reset.css
+DEBUG 2016-01-14 07:12:18.313 [pool-4-thread-2] file req /files/web.css
+DEBUG 2016-01-14 07:12:18.313 [pool-4-thread-27] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/reset.css
+DEBUG 2016-01-14 07:12:18.313 [pool-4-thread-2] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web.css
+DEBUG 2016-01-14 07:12:18.314 [pool-4-thread-26] file req /files/web-wide.css
+DEBUG 2016-01-14 07:12:18.314 [pool-4-thread-30] file req /files/web-narrow.css
+DEBUG 2016-01-14 07:12:18.315 [pool-4-thread-26] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-wide.css
+DEBUG 2016-01-14 07:12:18.315 [pool-4-thread-30] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-narrow.css
+DEBUG 2016-01-14 07:12:18.445 [pool-4-thread-29] file req /files/background.jpg
+DEBUG 2016-01-14 07:12:18.445 [pool-4-thread-4] file req /files/logo.png
+DEBUG 2016-01-14 07:12:18.446 [pool-4-thread-29] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/background.jpg
+DEBUG 2016-01-14 07:12:18.446 [pool-4-thread-4] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/logo.png
+DEBUG 2016-01-14 07:12:21.110 [pool-4-thread-6] Got a browse request found id 0
+DEBUG 2016-01-14 07:12:21.114 [pool-4-thread-6] Write page <!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			// reload if we have been sent back here after a VVA
+			if (typeof window.refresh != 'undefined' && window.refresh) {
+				window.refresh = false;
+				window.location.reload();
+			}
+			// ensure the browser info cookie is set
+			if ((' ' + document.cookie).indexOf(' UMSINFO=') == -1) {
+				document.cookie = 'UMSINFO=platform=' + navigator.platform + '&width=' + screen.width + '&height=' + screen.height + '&isTouchDevice=' + (window.screenX == 0 && ('ontouchstart' in window || 'onmsgesturechange' in window)) + ';Path=/';
+			}
+		</script>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="/files/reset.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="/files/web-narrow.css" type="text/css" media="screen and (max-width: 1080px)">
+		<link rel="stylesheet" href="/files/web-wide.css" type="text/css" media="screen and (min-width: 1081px)">
+		<link rel="icon" href="/files/favicon.ico" type="image/x-icon">
+		<script src="/files/jquery.min.js"></script>
+		<script src="/files/jquery.ums.js"></script>
+		<script src="/bump/bump.js"></script>
+		<title>Universal Media Server</title>
+	</head>
+	<body id="ContentPage" class="browsePage">
+		<div id="Container" class="noHzScroll">
+			<div id="Menu">
+				<a href="/browse/0" id="HomeButton"></a>
+				<a href="/doc" id="DocButton" title="Documentation"></a>
+			</div>
+
+			<div id="FoldersContainer">
+				<ul id="Folders">
+					<li><a href="/browse/60" oncontextmenu="searchFun('/browse/60','Enter search string:');" title="Recently Played"><span>Recently Played</span></a></li>
+					<li><a href="/browse/61" oncontextmenu="searchFun('/browse/61','Enter search string:');" title="Music"><span>Music</span></a></li>
+				</ul>
+			</div>
+
+		</div>
+	</body>
+</html>
+
+DEBUG 2016-01-14 07:12:21.249 [pool-4-thread-3] file req /files/reset.css
+DEBUG 2016-01-14 07:12:21.250 [pool-4-thread-3] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/reset.css
+DEBUG 2016-01-14 07:12:21.252 [pool-4-thread-9] file req /files/web.css
+DEBUG 2016-01-14 07:12:21.252 [pool-4-thread-3] file req /files/web-wide.css
+DEBUG 2016-01-14 07:12:21.252 [pool-4-thread-7] file req /files/jquery.ums.js
+DEBUG 2016-01-14 07:12:21.252 [pool-4-thread-9] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web.css
+DEBUG 2016-01-14 07:12:21.252 [pool-4-thread-3] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-wide.css
+DEBUG 2016-01-14 07:12:21.253 [pool-4-thread-7] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.ums.js
+DEBUG 2016-01-14 07:12:21.256 [pool-4-thread-8] file req /files/jquery.min.js
+DEBUG 2016-01-14 07:12:21.257 [pool-4-thread-8] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/jquery.min.js
+DEBUG 2016-01-14 07:12:21.258 [pool-4-thread-11] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/bump.js
+DEBUG 2016-01-14 07:12:21.274 [pool-4-thread-11] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/bump/skin/skin.js
+DEBUG 2016-01-14 07:12:21.280 [pool-4-thread-11] Received http player control request from /127.0.0.1: /bump/bump.js
+DEBUG 2016-01-14 07:12:21.382 [pool-4-thread-10] file req /files/web-narrow.css
+DEBUG 2016-01-14 07:12:21.382 [pool-4-thread-10] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/web-narrow.css
+DEBUG 2016-01-14 07:12:21.458 [pool-4-thread-5] file req /files/background-blank.jpg
+DEBUG 2016-01-14 07:12:21.459 [pool-4-thread-5] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/background-blank.jpg
+DEBUG 2016-01-14 07:12:21.459 [pool-4-thread-14] file req /files/menu-background-content.png
+DEBUG 2016-01-14 07:12:21.460 [pool-4-thread-14] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-background-content.png
+DEBUG 2016-01-14 07:12:21.460 [pool-4-thread-13] file req /files/menu-left-content.png
+DEBUG 2016-01-14 07:12:21.460 [pool-4-thread-16] file req /files/settings32.png
+DEBUG 2016-01-14 07:12:21.460 [pool-4-thread-13] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/menu-left-content.png
+DEBUG 2016-01-14 07:12:21.461 [pool-4-thread-16] Using resource: file:C:/Users/Stephen/Downloads/ums-5.5.0//web/settings32.png
+DEBUG 2016-01-14 07:14:53.900 [UPNP-AliveMessageSender] Sending ALIVE...
+DEBUG 2016-01-14 07:14:54.032 [UPNP-AliveMessageSender] Error sending ALIVE message
+java.io.IOException: No usable network interface found for UPnP multicast
+	at net.pms.network.UPNPHelper.getNewMulticastSocket(UPNPHelper.java:248) ~[ums.jar:5.5.0]
+	at net.pms.network.UPNPHelper.sendAlive(UPNPHelper.java:192) ~[ums.jar:5.5.0]
+	at net.pms.network.UPNPHelper$1.run(UPNPHelper.java:367) [ums.jar:5.5.0]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_65]
+DEBUG 2016-01-14 07:15:23.183 [UPNP-AliveMessageSender] Sending ALIVE...
+INFO  2016-01-14 07:15:23.183 [UMS Shutdown] Sending BYEBYE...
+DEBUG 2016-01-14 07:15:23.183 [Thread-198] Stopping UPNP Services...
+DEBUG 2016-01-14 07:15:23.333 [UPNP-AliveMessageSender] Error sending ALIVE message
+java.io.IOException: No usable network interface found for UPnP multicast
+	at net.pms.network.UPNPHelper.getNewMulticastSocket(UPNPHelper.java:248) ~[ums.jar:5.5.0]
+	at net.pms.network.UPNPHelper.sendAlive(UPNPHelper.java:192) ~[ums.jar:5.5.0]
+	at net.pms.network.UPNPHelper$1.run(UPNPHelper.java:367) [ums.jar:5.5.0]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_65]
+DEBUG 2016-01-14 07:15:23.333 [UMS Shutdown] Error sending BYEBYE message
+java.io.IOException: No usable network interface found for UPnP multicast
+	at net.pms.network.UPNPHelper.getNewMulticastSocket(UPNPHelper.java:248) ~[ums.jar:5.5.0]
+	at net.pms.network.UPNPHelper.sendByeBye(UPNPHelper.java:288) ~[ums.jar:5.5.0]
+	at net.pms.PMS$3.run(PMS.java:777) [ums.jar:5.5.0]
+DEBUG 2016-01-14 07:15:23.333 [UMS Shutdown] Forcing shutdown of all active processes
+INFO  2016-01-14 07:15:23.333 [UMS Shutdown] Stopping server on host 192.168.0.102 and port 5001...
+INFO  2016-01-14 07:15:23.834 [UMS Shutdown] Stopping Universal Media Server 5.5.0

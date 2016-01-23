@@ -1,0 +1,382 @@
+/* General */
+
+html {
+	height: 100%;
+}
+
+body {
+	background: url('/files/background.jpg');
+	font-family: "DejaVuSansCondensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #333;
+}
+
+body#ContentPage {
+	background: url('/files/background-blank.jpg');
+}
+
+body#ContentPage.browsePage {
+	min-height: 100%;
+}
+
+/* Scaffolding */
+
+#FrontPage #Container {
+	width: 700px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#ContentPage #Container {
+	position: relative;
+}
+
+#FrontPage #Menu {
+	position: relative;
+}
+
+#ContentPage.Doc {
+	margin: 0 auto;
+}
+
+#ContentPage.Doc #Menu {
+	position: relative;
+}
+
+#ContentPage.Doc #Container {
+	margin:2em;
+	max-width:40em;
+	font-size: 22px;
+	text-decoration: none;
+}
+
+#ContentPage.Doc ul {
+	margin: 0 0 0 1em;
+	list-style: disc inside none;
+}
+
+#ContentPage #Menu #HomeButton {
+	background: url('/files/menu-left-content.png');
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	background-size: contain;
+	width: 125px;
+	height: 93px;
+	display: block;
+}
+
+#ContentPage #Menu #LogButton {
+	background: url('/files/icon-log2.jpg');
+	background-size: 125px 93px;
+	width: 125px;
+	height: 93px;
+	position: absolute;
+	left: 130px;
+	top: 0;
+	background-repeat: no-repeat;
+	display: block;
+}
+
+
+#VideoContainer {
+	max-width: 720px;
+	margin: 100px auto 0 auto;
+}
+
+/* Menu */
+
+#Logo {
+	position: absolute;
+	left: 243px;
+	top: 29px;
+	background: url('/files/logo.png') !important;
+	width: 217px;
+	height: 220px !important;
+	display: block;
+}
+
+#FrontPage #Menu a h3 {
+	margin-top: 240px;
+	text-align: center;
+	font-family: Arial, Verdana, Tahoma, sans-serif;
+	color: #5a5a5a;
+	font-size: 22px;
+	text-decoration: none;
+}
+
+#FrontPage #Menu a {
+	text-decoration: none;
+}
+
+/* Content */
+
+ul li {
+	text-align: left;
+}
+
+ul li a {
+	text-decoration: none;
+}
+
+ul#Folders li a {
+	color: #aaa;
+	font-size: 14px;
+}
+
+ul#Folders li a:hover {
+	color: #fff !important;
+}
+
+ul#Folders li span {
+	display: block;
+	margin-bottom: 5px;
+}
+
+ul#Media li {
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+ul#Media .thumb {
+	max-width: 253px;
+	max-height: 142px;
+	height: 142px;
+	/* Note: intentionally omitting a specific width here so as to avoid distorting icons. */
+	width: auto;
+	float: left;
+	display:block;
+	margin : 0;	
+}
+
+ul#Media .caption {
+	display: block;
+	max-width: 205px;
+	height: 16px;
+	overflow: hidden;
+	float: left;
+	font-size: 12px;
+	color: #444;
+	margin : 0;
+}
+
+.playlist_add {
+	background: url('/files/bump/skin/add16.png') no-repeat;
+}
+
+.playlist_del {
+	background: url('/files/bump/skin/remove16.png') no-repeat;
+}
+
+.playlist_add, .playlist_del {
+	width: 16px;
+	height: 16px;
+	display: block;
+	float: right;
+	margin-right:1px;
+}
+
+ul#Media li:hover .caption {
+	color: #000 !important;
+}
+
+ul#Media .caption:hover {
+	text-decoration: underline;
+}
+
+.bumpIcon {
+	background: url('/files/bump/bump16-2.png') no-repeat;
+	width: 28px;
+	height: 16px;
+	display: block;
+	float: right;
+	clear: left;
+}
+
+.bumpIcon:hover {
+	background-position: 0 -16px;
+}
+
+.floatRight {
+	float: right;
+	clear: left;
+}
+
+#DownloadLink {
+	margin: 20px auto 0 auto;
+	background: url('/files/download.png');
+	display: block;
+	height: 48px;
+	width: 48px;
+}
+
+#DownloadLink:hover {
+	background-position: 0 -48px;
+}
+
+div#FoldersContainer.noFolders {
+	display: none !important;
+}
+
+#DocButton {
+	background: url('/files/settings32.png') no-repeat;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
+form#SearchForm {
+	z-index: 3;
+	position: absolute;
+	top: 10px;
+	right: 50px;
+}
+
+#SearchInput {
+	border-radius: 10px;
+	padding: 4px 28px 4px 9px;
+	border: solid 1px #ccc;
+	color: #666;
+	width: 160px;
+	position: absolute;
+	top: 3px;
+	right: 10px;
+}
+
+#SearchSubmit {
+	background: url('/files/search32.png') no-repeat;
+	position: absolute;
+	top: 3px;
+	right: 5px;
+}
+
+#SearchSubmit, #DocButton {
+	cursor: pointer;
+	border: none;
+	width: 32px;
+	height: 32px;
+	display: block;
+}
+
+#SearchSubmit:hover, #DocButton:hover {
+	background-position: 0 -32px;
+}
+
+.icondisabled {
+	opacity: 0.3;
+	cursor: default;
+}
+
+.webdisabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.webdisabled:hover {
+	text-decoration: none !important;
+}
+
+.noScroll {
+	overflow: hidden !important;
+}
+
+.noHzScroll {
+	overflow-x: hidden !important;
+}
+
+::cue {
+	color: #fff;
+	background: transparent;
+	text-shadow: black 0 0 0.2em;
+	font: 1.2em sans-serif;
+}
+
+#notices {
+	position: fixed;
+	z-index: 99999;
+	top: 100px;
+	right: 12px;
+}
+
+.notice {
+	display: table;
+	width: 300px;
+	min-height: 32px;
+	margin: 0 0 6px 0;
+	padding: 5px;
+	background-color: #3E84C1;
+	border: 1px;
+	border-radius: 3px;
+/*	box-shadow: 4px 4px 2px rgba(136,136,136,0.5);*/
+}
+
+.notice .msg {
+	padding: 0;
+	color: #fff;
+	font: normal 13px sans-serif;
+	font-weight: 500;
+	text-decoration: none;
+	text-align: left;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.notice .icon {
+	display:block;
+	width: 42px;
+	height: 32px;
+	margin: 0;
+	top: 5px;
+	float: left;
+}
+
+.notice .info {
+	background: url('/files/info32.png') no-repeat;
+}
+
+.notice .okay {
+	background: url('/files/ok32.png') no-repeat;
+}
+
+.notice .warn {
+	background: url('/files/warn32.png') no-repeat;
+}
+
+.notice .err {
+	background: url('/files/err32.png') no-repeat;
+}
+
+#ImageContainer {
+	position: relative;
+}
+
+#Image {
+	display: block;
+	margin: auto;
+}
+
+.imgfit {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.zoomin:hover {
+	cursor: -moz-zoom-in;
+	cursor: -webkit-zoom-in;
+	cursor: zoom-in;
+}
+
+.zoomout:hover {
+	cursor: -moz-zoom-out;
+	cursor: -webkit-zoom-out;
+	cursor: zoom-out;
+}
+
+#ImageToolbar {
+	display: block;
+	position: fixed;
+	bottom: 0;
+	z-index: 2147483647;
+	width:50%;
+	margin: 0;
+	left: 45%;
+}
