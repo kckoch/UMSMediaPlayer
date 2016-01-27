@@ -3,7 +3,7 @@
 # Script for executing application
 #
 # To Execute: 
-#     bash goclient
+#     bash goapp
 #
 
 echo Launching app...
