@@ -39,13 +39,7 @@ public class playPanel extends JPanel{
 			}
 			File local = new File("./"+mediaUrl+".mp3");
 				
-			if(local.exists() == false){
-				try {
-					local.createNewFile();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-			}
+			//local.createNewFile();
 				
 			URLConnection trackPull = null;
 			try {
@@ -98,7 +92,8 @@ public class playPanel extends JPanel{
 			//startup player media
 			try {
 				String filename = local.getName();
-				final Player player = Manager.createRealizedPlayer(new MediaLocator( new File(filename).toURI().toURL()));
+				final playerDetail players = new playerDetail(filename);
+				players.player = Manager.createRealizedPlayer(new MediaLocator( new File(filename).toURI().toURL()));
 				setElapse(new elapsedTime());
 				
 				JPanel pPanel = new JPanel();
@@ -119,7 +114,7 @@ public class playPanel extends JPanel{
 				
 				
 				
-				elapsedTime.elapsedString = "" + player.getMediaTime().getSeconds();
+				elapsedTime.elapsedString = "" + players.player.getMediaTime().getSeconds();
 				JTextField elapsedText = new JTextField();
 				elapsedText.setText(elapsedTime.elapsedString);
 				
@@ -135,7 +130,7 @@ public class playPanel extends JPanel{
 				};
 							
 				
-				String totalTime = "" + player.getDuration().getSeconds();
+				String totalTime = "" + players.player.getDuration().getSeconds();
 				JTextField totalText = new JTextField(totalTime);
 				totalText.setText(totalTime);
 				GroupLayout gl_pPanel = new GroupLayout(pPanel);
@@ -188,7 +183,7 @@ public class playPanel extends JPanel{
 				
 				ActionListener playListener = new ActionListener(){
 					public void actionPerformed(ActionEvent e){
-						playAction(player, time);
+						playAction(players.player, time);
 					}
 				};
 				
@@ -197,7 +192,7 @@ public class playPanel extends JPanel{
 				
 				ActionListener pauseListener = new ActionListener(){
 					public void actionPerformed(ActionEvent e){
-						pauseAction(player, time);
+						pauseAction(players.player, time);
 					}
 				};
 				
@@ -205,7 +200,7 @@ public class playPanel extends JPanel{
 				
 				ActionListener stopListener = new ActionListener(){
 					public void actionPerformed(ActionEvent e){
-						stopAction(player, time);
+						stopAction(players.player, time);
 					}
 				};
 				

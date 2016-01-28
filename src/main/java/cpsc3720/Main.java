@@ -112,7 +112,7 @@ public class Main extends JFrame {
 		btnSearch.setBounds(156, 31, 84, 15);
 		getContentPane().add(btnSearch);
 		
-		playPanel pPanel = new playPanel("", "");
+		playPanel pPanel = new playPanel(urlText.getText(), "0");
 		pPanel.setLocation(10, 234);
 		pPanel.setSize(230, 200);
 		getContentPane().add(pPanel);
@@ -133,13 +133,11 @@ public class Main extends JFrame {
 		}
 		String soapMsg = soapString.replace("{OBJECT_ID}", objectID);
 		
-		ArrayList<Object> items = (ArrayList<Object>) SOAP.getItems(soapMsg, urlText.getText());
+		ArrayList<Container> items = (ArrayList<Container>) SOAP.getItems(soapMsg, urlText.getText());
 		
-		for(Iterator<Object> i = items.iterator(); i.hasNext();)
+		for(int i = 0; i < items.size(); i++)
 		{
-			String[] next = (String[]) i.next();
-			
-			addElementToList(next[0], next[1], next[2]);
+			addElementToList(items.get(i).getTitle(), Integer.toString(items.get(i).getID()), urlText.getText());
 			
 		}
 	}
