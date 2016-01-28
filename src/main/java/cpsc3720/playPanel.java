@@ -7,18 +7,24 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
+import javax.media.Clock;
 import javax.media.Format;
 import javax.media.Manager;
 import javax.media.MediaLocator;
 import javax.media.Player;
 import javax.media.PlugInManager;
+import javax.media.Time;
 import javax.media.format.AudioFormat;
 import javax.swing.*;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 
 
-public class playPanel {
+public class playPanel extends JPanel{
 	
+	private elapsedTime elapse;
+
 	public playPanel(String mediaUrl, String trackTitle) throws IOException{
 		
 		
@@ -93,60 +99,120 @@ public class playPanel {
 			try {
 				String filename = local.getName();
 				final Player player = Manager.createRealizedPlayer(new MediaLocator( new File(filename).toURI().toURL()));
-				String elapsedTime = "0" ;
+				setElapse(new elapsedTime());
 				
 				JPanel pPanel = new JPanel();
 				
 				JTextArea urlText = new JTextArea(mediaUrl);
-				pPanel.add(urlText);
+				
+				
+				JTextArea trackText = new JTextArea(trackTitle);
 				
 				JButton playButt = new JButton("Play");
-				pPanel.add(playButt);
 				
 				
 				JButton pauseButt = new JButton("Pause");
-				pPanel.add(pauseButt);
 				
 				JButton stopButt = new JButton("Stop");
-				pPanel.add(stopButt);
 				
 				JSlider navSlider = new JSlider();
-				pPanel.add(navSlider);
 				
-				JTextArea trackText = new JTextArea(trackTitle);
-				pPanel.add(trackText);
 				
+				
+				elapsedTime.elapsedString = "" + player.getMediaTime().getSeconds();
 				JTextField elapsedText = new JTextField();
-				elapsedText.setText(elapsedTime);
-				pPanel.add(elapsedText);
+				elapsedText.setText(elapsedTime.elapsedString);
 				
+				ActionListener elapsedListener = new ActionListener(){
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						elapsedTime.setSeconds(elapsedTime.getSeconds() + 1);
+						elapsedTime.elapsedString = "" + elapsedTime.getSeconds(); 
+						
+					}
+					
+				};
+							
 				
 				String totalTime = "" + player.getDuration().getSeconds();
 				JTextField totalText = new JTextField(totalTime);
 				totalText.setText(totalTime);
-				pPanel.add(totalText);
+				GroupLayout gl_pPanel = new GroupLayout(pPanel);
+				gl_pPanel.setHorizontalGroup(
+					gl_pPanel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_pPanel.createSequentialGroup()
+							.addGroup(gl_pPanel.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_pPanel.createParallelGroup(Alignment.LEADING, false)
+									.addGroup(gl_pPanel.createSequentialGroup()
+										.addContainerGap()
+										.addComponent(navSlider, 0, 0, Short.MAX_VALUE))
+									.addGroup(gl_pPanel.createSequentialGroup()
+										.addComponent(playButt)
+										.addGap(18)
+										.addComponent(pauseButt)
+										.addGap(18)
+										.addComponent(stopButt))
+									.addComponent(urlText)
+									.addComponent(trackText))
+								.addGroup(gl_pPanel.createParallelGroup(Alignment.TRAILING, false)
+									.addComponent(totalText)
+									.addComponent(elapsedText, GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)))
+							.addContainerGap(338, Short.MAX_VALUE))
+				);
+				gl_pPanel.setVerticalGroup(
+					gl_pPanel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_pPanel.createSequentialGroup()
+							.addComponent(urlText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(trackText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(gl_pPanel.createParallelGroup(Alignment.BASELINE)
+								.addComponent(playButt)
+								.addComponent(pauseButt)
+								.addComponent(stopButt))
+							.addGap(18)
+							.addComponent(navSlider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(elapsedText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(totalText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addContainerGap(44, Short.MAX_VALUE))
+				);
+				pPanel.setLayout(gl_pPanel);
 				
+				final Timer time = new Timer(1000, elapsedListener);
+				time.setDelay(1000);
 				
-				totalText.setText(totalTime);
+				//ActionEvent e = new ActionEvent(e, size, totalTime);
 				
-				playButt.addActionListener(new ActionListener(){
+				ActionListener playListener = new ActionListener(){
 					public void actionPerformed(ActionEvent e){
-						playAction(player);
-						//player.getStopTime().getSeconds()
-						//player.start();
+						playAction(player, time);
 					}
-				});
+				};
+				
+				playButt.addActionListener(playListener);
 				
 				
-				
-				
-				pauseButt.addActionListener(new ActionListener(){
+				ActionListener pauseListener = new ActionListener(){
 					public void actionPerformed(ActionEvent e){
-						pauseAction(player);
-						//player.stop();
-						//player.getStopTime().getSeconds();
+						pauseAction(player, time);
 					}
-				});
+				};
+				
+				pauseButt.addActionListener(pauseListener);
+				
+				ActionListener stopListener = new ActionListener(){
+					public void actionPerformed(ActionEvent e){
+						stopAction(player, time);
+					}
+				};
+				
+				stopButt.addActionListener(stopListener);
+				
+				
+				
 				
 
 			} catch (Exception ex) {
@@ -154,12 +220,32 @@ public class playPanel {
 			}
 
 		}
-	public void playAction(Player player){
-		player.start();
+	public void playAction(Player player, Timer time){
+		if(player.getState() != Player.Started){	
+			player.syncStart(player.getTimeBase().getTime());
+			player.start();
+			player.setStopTime(new Time((long)(player.getDuration().getSeconds() - player.getMediaTime().getSeconds())));
+			time.start();
+		}
 	}
 	
-	public void pauseAction(Player player){
+	public void pauseAction(Player player, Timer time){
 		player.stop();
+		time.stop();
+	}
+	
+	public void stopAction(Player player, Timer time){
+		player.stop();
+		player.setStopTime(Clock.RESET);
+		time.stop();
+		time.restart();
+		
+	}
+	public elapsedTime getElapse() {
+		return elapse;
+	}
+	public void setElapse(elapsedTime elapse) {
+		this.elapse = elapse;
 	}
 		
 }

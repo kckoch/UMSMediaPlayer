@@ -1,4 +1,4 @@
-package cpsc3720.demo;
+package cpsc3720;
 
 
 import java.io.IOException;
