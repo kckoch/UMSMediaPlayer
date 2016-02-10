@@ -11,6 +11,9 @@ public class LoginGUI {
 	private static User user;
 	private static ArrayList<User> users;
 	
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public static JFrame init(User userIn) {
 		user = userIn;
 		
