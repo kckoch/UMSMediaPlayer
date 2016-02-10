@@ -20,14 +20,20 @@ public class LoginGUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel logo = logo();
-		JPanel accounts = listAccounts();
-		JPanel loginbutton = loginButton();
+		
+		JPanel middle = new JPanel(new BorderLayout());
+		middle.setBackground(Color.DARK_GRAY);
+		middle.add(BorderLayout.PAGE_START, listAccounts());
+		middle.add(BorderLayout.PAGE_END, loginButton());
+		
+		JPanel copyright = copyright();
 		
 		final JPanel windowPane = new JPanel(new BorderLayout());
+		windowPane.setBackground(Color.DARK_GRAY);
 		
-		windowPane.add(logo);
-		windowPane.add(accounts);
-		windowPane.add(BorderLayout.SOUTH, loginbutton);
+		windowPane.add(BorderLayout.PAGE_START, logo);
+		windowPane.add(BorderLayout.CENTER, middle);
+		windowPane.add(BorderLayout.PAGE_END, copyright);
 		
 		frame.setBackground(Color.DARK_GRAY);
 		frame.setContentPane(windowPane);
@@ -38,12 +44,13 @@ public class LoginGUI {
 		Font font = new Font("That's my jam!", Font.ITALIC, 50);
 		
 		JPanel logo = new JPanel(new GridBagLayout());
-		logo.setSize(500, 200);
+		logo.setSize(500, 300);
 		logo.setBackground(Color.DARK_GRAY);
 		JLabel thatsmyjam = new JLabel("That's my jam!");
-		thatsmyjam.setMinimumSize(new Dimension(500, 300));
+		thatsmyjam.setMaximumSize(new Dimension(500, 300));
 		thatsmyjam.setForeground(Color.WHITE);
 		thatsmyjam.setFont(font);
+		thatsmyjam.setBorder(new EmptyBorder(50, 0, 50, 0));
 		logo.add(thatsmyjam);
 		return logo;
 	}
@@ -60,9 +67,19 @@ public class LoginGUI {
 		panel.setSize(500, 150);
 		panel.setBackground(Color.DARK_GRAY);
 		JButton loginbutton = new JButton("Login!");
-		loginbutton.setMaximumSize(new Dimension(50, 25));
-		loginbutton.setBorder(new EmptyBorder(50, 225, 50, 225));
+		loginbutton.setSize(new Dimension(100, 50));
+		loginbutton.setBorder(new EmptyBorder(50, 200, 50, 200));
 		panel.add(loginbutton);
+		return panel;
+	}
+	
+	private static JPanel copyright() {
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.DARK_GRAY);
+		panel.setSize(500, 50);
+		JLabel label = new JLabel("\u00a9 Team 14");
+		label.setForeground(Color.WHITE);
+		panel.add(label);
 		return panel;
 	}
 }
