@@ -11,19 +11,20 @@ public class Main {
 	public static void main(String[] args) {
 		loggedout = false;
 		while(true) {
-			/*login = LoginGUI.init(user);
+			login = LoginGUI.init(user);
 			login.setVisible(true);
 			while(user == null) {
 				System.out.print("");
 			}
 			login.setVisible(false);
-			login.dispose();*/
+			login.dispose();
 			
+			/*
 			mainframe = MainFrame.init();
 			mainframe.setVisible(true);
 			while(!loggedout.booleanValue()) {
 				System.out.print("");
-			}
+			}*/
 		}
 	}
 

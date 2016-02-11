@@ -8,7 +8,9 @@ import javax.swing.border.*;
 
 public class LoginGUI {
 	private static JFrame frame;
+	private static JFrame pinFrame;
 	private static User user;
+	private static User tempUser;
 	private static ArrayList<User> users;
 	
 	/**
@@ -22,13 +24,19 @@ public class LoginGUI {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		//Gets the window set up
+		final JPanel windowPane = new JPanel();
+		windowPane.setBackground(Color.DARK_GRAY);
+		
 		//Logo panel
-		Font font = new Font("That's my jam!", Font.ITALIC, 50);
 		JPanel logo = new JPanel();
 		logo.setLocation(0, 0);
 		logo.setSize(500, 149);
 		logo.setBackground(Color.DARK_GRAY);
+		logo.setLayout(null);
+		windowPane.add(BorderLayout.PAGE_START, logo);
 		
+		//Start of the middle section
 		JPanel middle = new JPanel();
 		middle.setBounds(0, 184, 498, 357);
 		middle.setBackground(Color.DARK_GRAY);
@@ -38,14 +46,15 @@ public class LoginGUI {
 		loginbutton.setLocation(151, 311);
 		loginbutton.setSize(new Dimension(192, 34));
 		loginbutton.setBorder(null);
+		loginbutton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent d) {
+				
+			}
+		});
 		middle.setLayout(null);
 		middle.add(loginbutton);
 		
-		//Gets the window set up
-		final JPanel windowPane = new JPanel();
-		windowPane.setBackground(Color.DARK_GRAY);
-		windowPane.add(BorderLayout.PAGE_START, logo);
-		logo.setLayout(null);
 		
 		JLabel logoLabel = new JLabel("That's my jam!");
 		logoLabel.setMaximumSize(new Dimension(500, 300));
@@ -78,28 +87,29 @@ public class LoginGUI {
 		adminPic.addMouseListener(new MouseListener() {
 			public void mouseClicked(MouseEvent e) {
 				adminPic.setBackground(Color.WHITE);
+				tempUser = new User("Admin", true, 1234);
 			}
 
 			@Override
-			public void mouseEntered(MouseEvent arg0) {
+			public void mouseEntered(MouseEvent e) {
 				// TODO Auto-generated method stub
 				
 			}
 
 			@Override
-			public void mouseExited(MouseEvent arg0) {
+			public void mouseExited(MouseEvent e) {
 				// TODO Auto-generated method stub
 				
 			}
 
 			@Override
-			public void mousePressed(MouseEvent arg0) {
+			public void mousePressed(MouseEvent e) {
 				// TODO Auto-generated method stub
 				
 			}
 
 			@Override
-			public void mouseReleased(MouseEvent arg0) {
+			public void mouseReleased(MouseEvent e) {
 				// TODO Auto-generated method stub
 				
 			}
@@ -123,17 +133,13 @@ public class LoginGUI {
 		JButton addAccIcon = new JButton("");
 		addAccIcon.setBackground(Color.DARK_GRAY);
 		addAccIcon.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/person-icon.png")));
-		addAccIcon.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-			}
-		});
 		addAccIcon.setBounds(12, 12, 93, 93);
 		addAcc.add(addAccIcon);
 		
 		frame.setBackground(Color.DARK_GRAY);
 		frame.setContentPane(windowPane);
 		
+		//Copyright
 		JLabel copyright = new JLabel("© Team 14");
 		copyright.setForeground(Color.WHITE);
 		copyright.setBounds(204, 547, 86, 15);
