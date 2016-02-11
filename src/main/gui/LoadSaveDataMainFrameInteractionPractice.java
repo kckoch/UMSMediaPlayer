@@ -8,8 +8,8 @@ import org.eclipse.wb.swing.FocusTraversalOnArray;
 import java.awt.Component;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
-public class MainFrame {
+//This is for Chris and Genevieve to work with for the load save. This should not be used for the final product.
+public class LoadSaveDataMainFrameInteractionPractice {
 	private static JFrame frame;
 	private static JTextField txtSearch;
 	private static JTabbedPane library;
