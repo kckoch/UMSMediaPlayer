@@ -1,8 +1,8 @@
 package main.gui;
 
 import java.awt.*;
+import java.awt.event.*;
 import java.util.*;
-
 import javax.swing.*;
 import javax.swing.border.*;
 
@@ -41,40 +41,103 @@ public class LoginGUI {
 		middle.setLayout(null);
 		middle.add(loginbutton);
 		
+		//Gets the window set up
 		final JPanel windowPane = new JPanel();
 		windowPane.setBackground(Color.DARK_GRAY);
-		
 		windowPane.add(BorderLayout.PAGE_START, logo);
 		logo.setLayout(null);
 		
-		JLabel label_1 = new JLabel("That's my jam!");
-		label_1.setMaximumSize(new Dimension(500, 300));
-		label_1.setForeground(Color.WHITE);
-		label_1.setFont(new Font("Lobster Two", Font.ITALIC, 69));
-		label_1.setBorder(new EmptyBorder(50, 0, 50, 0));
-		label_1.setBounds(51, 12, 406, 159);
-		logo.add(label_1);
+		JLabel logoLabel = new JLabel("That's my jam!");
+		logoLabel.setMaximumSize(new Dimension(500, 300));
+		logoLabel.setForeground(Color.WHITE);
+		logoLabel.setFont(new Font("Lobster Two", Font.ITALIC, 69));
+		logoLabel.setBorder(new EmptyBorder(50, 0, 50, 0));
+		logoLabel.setBounds(51, 12, 406, 159);
+		logo.add(logoLabel);
 		windowPane.setLayout(null);
 		windowPane.add(middle);
 		
+		//The admin user panel
 		JPanel admin = new JPanel();
 		admin.setBackground(Color.DARK_GRAY);
-		admin.setBounds(0, 0, 131, 163);
+		admin.setBounds(22, 0, 117, 163);
 		middle.add(admin);
-		admin.setBorder(null);
 		admin.setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(12, 12, 107, 93);
-		admin.add(panel);
+		//The name
+		JLabel lblAdmin = new JLabel("Admin");
+		lblAdmin.setForeground(Color.WHITE);
+		lblAdmin.setBounds(35, 117, 49, 15);
+		admin.add(lblAdmin);
+		
+		//The icon/button
+		final JButton adminPic = new JButton("");
+		adminPic.setBackground(Color.DARK_GRAY);
+		adminPic.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/person-icon.png")));
+		adminPic.setBounds(12, 12, 93, 93);
+		adminPic.addMouseListener(new MouseListener() {
+			public void mouseClicked(MouseEvent e) {
+				adminPic.setBackground(Color.WHITE);
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		admin.add(adminPic);
+		
+		//The add account panel
+		JPanel addAcc = new JPanel();
+		addAcc.setBackground(Color.DARK_GRAY);
+		addAcc.setBounds(151, 0, 117, 163);
+		middle.add(addAcc);
+		addAcc.setLayout(null);
+		
+		//The add account label
+		JLabel lblAddAccount = new JLabel("Add Account");
+		lblAddAccount.setForeground(Color.WHITE);
+		lblAddAccount.setBounds(12, 117, 93, 15);
+		addAcc.add(lblAddAccount);
+		
+		//The icon/button
+		JButton addAccIcon = new JButton("");
+		addAccIcon.setBackground(Color.DARK_GRAY);
+		addAccIcon.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/person-icon.png")));
+		addAccIcon.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
+		addAccIcon.setBounds(12, 12, 93, 93);
+		addAcc.add(addAccIcon);
 		
 		frame.setBackground(Color.DARK_GRAY);
 		frame.setContentPane(windowPane);
 		
-		JLabel label = new JLabel("© Team 14");
-		label.setForeground(Color.WHITE);
-		label.setBounds(204, 547, 86, 15);
-		windowPane.add(label);
+		JLabel copyright = new JLabel("© Team 14");
+		copyright.setForeground(Color.WHITE);
+		copyright.setBounds(204, 547, 86, 15);
+		windowPane.add(copyright);
 		return frame;
 	}
 }
