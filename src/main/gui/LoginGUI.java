@@ -9,9 +9,11 @@ import javax.swing.border.*;
 public class LoginGUI {
 	private static JFrame frame;
 	private static JPanel pinFrame;
+	private static JPanel windowPane;
 	private static User user;
 	private static User tempUser;
 	private static ArrayList<User> users;
+	private static JPasswordField passwordField;
 	
 	/**
 	 * @wbp.parser.entryPoint
@@ -24,8 +26,9 @@ public class LoginGUI {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		/*
 		//Gets the window set up
-		final JPanel windowPane = new JPanel();
+		windowPane = new JPanel();
 		windowPane.setBackground(Color.DARK_GRAY);
 		
 		//Logo panel
@@ -146,7 +149,39 @@ public class LoginGUI {
 		JLabel copyright = new JLabel("© Team 14");
 		copyright.setForeground(Color.WHITE);
 		copyright.setBounds(204, 547, 86, 15);
-		windowPane.add(copyright);
+		windowPane.add(copyright);*/
+		
+		pinFrame = new JPanel();
+		pinFrame.setSize(500, 600);
+		pinFrame.setBackground(Color.DARK_GRAY);
+		
+		
+		frame.setContentPane(pinFrame);
+		pinFrame.setLayout(null);
+		
+		JButton backbutton = new JButton("Back");
+		backbutton.setBorder(null);
+		backbutton.setBackground(Color.DARK_GRAY);
+		backbutton.setForeground(Color.DARK_GRAY);
+		backbutton.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/left_round.png")));
+		backbutton.setBounds(35, 76, 75, 67);
+		pinFrame.add(backbutton);
+		
+		passwordField = new JPasswordField();
+		passwordField.setActionCommand("");
+		passwordField.setFont(new Font("Dialog", Font.PLAIN, 27));
+		passwordField.setEchoChar('*');
+		passwordField.setBounds(153, 231, 176, 39);
+		pinFrame.add(passwordField);
+		
+		JButton icon = new JButton("");
+		icon.setBorder(null);
+		icon.setActionCommand("");
+		icon.setBackground(Color.DARK_GRAY);
+		icon.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/person-icon.png")));
+		icon.setBounds(172, 79, 129, 140);
+		pinFrame.add(icon);
+		
 		return frame;
 	}
 	
@@ -154,6 +189,8 @@ public class LoginGUI {
 		JPanel login = new JPanel();
 		login.setSize(500, 600);
 		login.setBackground(Color.DARK_GRAY);
+		
+		
 		return login;
 	}
 }
