@@ -110,25 +110,21 @@ public class LoginGUI {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
 			}
 
 			@Override
 			public void mousePressed(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
 			}
 		});
 		admin.add(adminPic);
@@ -167,13 +163,15 @@ public class LoginGUI {
 	}
 	
 	private static JPanel pinFrame() {
+		//The new panel
 		JPanel pinpanel = new JPanel();
 		pinpanel.setSize(500, 600);
 		pinpanel.setBackground(Color.DARK_GRAY);
 		
 		pinpanel.setLayout(null);
 		
-		JButton backbutton = new JButton("Back");
+		//back button
+		JButton backbutton = new JButton();
 		backbutton.addActionListener(new ActionListener() {
 			@Override
 		    public void actionPerformed(ActionEvent e) {
@@ -182,11 +180,11 @@ public class LoginGUI {
 		});
 		backbutton.setBorder(null);
 		backbutton.setBackground(Color.DARK_GRAY);
-		backbutton.setForeground(Color.DARK_GRAY);
 		backbutton.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/left_round.png")));
 		backbutton.setBounds(35, 76, 75, 67);
 		pinpanel.add(backbutton);
 		
+		//password field
 		passwordField = new JPasswordField();
 		passwordField.setBorder(new EmptyBorder(10, 0, 0, 0));
 		passwordField.setActionCommand("");
@@ -196,14 +194,15 @@ public class LoginGUI {
 		passwordField.setBounds(152, 156, 176, 39);
 		pinpanel.add(passwordField);
 		
+		//person icon
 		JButton icon = new JButton();
 		icon.setBorder(null);
-		icon.setActionCommand("");
 		icon.setBackground(Color.DARK_GRAY);
 		icon.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/person-icon.png")));
 		icon.setBounds(176, 19, 129, 124);
 		pinpanel.add(icon);
 		
+		//num pad buttons
 		b1.addActionListener(new ActionListener(){
 	    	@Override
 		    public void actionPerformed(ActionEvent e) {
@@ -289,6 +288,7 @@ public class LoginGUI {
 		    }
 	    });
 		
+		//actual num pad
 		JPanel numPad = new JPanel();
 		numPad.setBackground(Color.DARK_GRAY);
 		numPad.setBorder(new EmptyBorder(15, 15, 15, 15));
@@ -309,10 +309,10 @@ public class LoginGUI {
 		numPad.add(b0);
 		numPad.add(bback);
 		
+		//login button: STILL NEEDS TO BE IMPLEMENTED
 		JButton Login = new JButton("Login");
 		Login.setBounds(188, 493, 117, 25);
 		pinpanel.add(Login);
-		
 		
 		return pinpanel;
 	}
