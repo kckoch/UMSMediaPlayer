@@ -76,6 +76,7 @@ public class LoginGUI {
 					@Override
 				    public void actionPerformed(ActionEvent e) {
 			    		frame.setContentPane(windowPane);
+			    		numberString = "";
 				    }
 				});
 				backbutton.setBorder(null);
@@ -183,8 +184,10 @@ public class LoginGUI {
 				bback.addActionListener(new ActionListener(){
 			    	@Override
 				    public void actionPerformed(ActionEvent e) {
-			    		numberString = numberString.substring(0, numberString.length()-1);
-			            passwordField.setText(numberString);
+			    		if(numberString != "") {
+			    			numberString = numberString.substring(0, numberString.length()-1);
+			    			passwordField.setText(numberString);
+			    		}
 				    }
 			    });
 				
@@ -218,6 +221,8 @@ public class LoginGUI {
 			    		if(tempUser.checkPassword(Integer.parseInt(passwordField.getText()))) {
 			    			tempUser.setLoggedin(true);
 			    			tempUser.setCorrect(true);
+			    			numberString = "";
+			    			passwordField.setText(null);
 			    		}
 				    }
 				});
