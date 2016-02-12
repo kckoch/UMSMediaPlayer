@@ -19,14 +19,13 @@ public class MainFrame {
 	private static JPanel playPanel;
 	private static JButton maximizeButton;
 	private static JPanel placeHolderForImage;
-	private static Boolean myLoggedOut;
+	private static JFrame playFrame;
 	
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	public static JFrame init(Boolean loggedOut) {
-		if(true/*user.getLoggedIn()*/){
-			myLoggedOut = loggedOut;
+	public static JFrame init(final User user) {
+		if(user.getLoggedin()){
 			frame = new JFrame("That's My JAM");
     		frame.setSize(500, 600);
 			frame.setLocationRelativeTo(null);
@@ -54,12 +53,11 @@ public class MainFrame {
 			
 			
 			JButton btnLogOut = new JButton("@");
-			btnLogOut.setBounds(413, 0, 71, 23);
+			btnLogOut.setBounds(413, 0, 71, 22);
 			listPane.add(btnLogOut);
 			btnLogOut.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e){
-					myLoggedOut = true;
-					//user.setLoggedIn(false);
+					user.setLoggedin(false);
 				}
 			});
 			
@@ -71,11 +69,11 @@ public class MainFrame {
 			txtSearch.setColumns(10);
 			
 			JButton btnSearch = new JButton("p");
-			btnSearch.setBounds(275, 0, 66, 23);
+			btnSearch.setBounds(275, 0, 66, 22);
 			listPane.add(btnSearch);
 		
 			JButton btnSettings = new JButton("{|}");
-			btnSettings.setBounds(341, 0, 72, 23);
+			btnSettings.setBounds(341, 0, 72, 22);
 			listPane.add(btnSettings);
 		
 			JTabbedPane mainTab = new JTabbedPane(JTabbedPane.TOP);
@@ -86,8 +84,11 @@ public class MainFrame {
 			libraryTable = new JTable(libraryModel);//where you put albums from the library
 			mainTab.addTab("Library", null, libraryTable, null);
 		
-			
-			
+			playFrame = new JFrame("That's My JAM");
+    		playFrame.setSize(500, 600);
+			playFrame.setLocationRelativeTo(null);
+			playFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			playFrame.getContentPane().setLayout(null);
 		
 			playPanel = new JPanel();
 			playPanel.setBounds(0, 247, 484, 314);
@@ -125,9 +126,15 @@ public class MainFrame {
 			totalText.setBounds(360, 146, 118, 20);
 			playPanel.add(totalText);
 		
-			maximizeButton = new JButton("Maximize");
-			maximizeButton.setBounds(0, 0, 91, 23);
+			maximizeButton = new JButton("^");
+			maximizeButton.setBounds(0, 0, 41, 23);
 			playPanel.add(maximizeButton);
+			maximizeButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e){
+					playFrame.setVisible(true);
+					frame.setVisible(false);
+				}
+			});
 		
 			JButton playButton = new JButton("Play");
 			playButton.setBounds(290, 197, 53, 23);
@@ -148,7 +155,75 @@ public class MainFrame {
 			JButton nextButton = new JButton(">>");
 			nextButton.setBounds(425, 197, 53, 23);
 			playPanel.add(nextButton);
-		    System.out.println("\nIm here");
+		    //System.out.println("\nIm here");
+			
+			JPanel playPanelBig = new JPanel();
+			playPanelBig.setBounds(0, 0, 484, 564);
+			playFrame.getContentPane().add(playPanelBig);
+			playPanelBig.setLayout(null);
+		
+			JPanel placeHolderForImageBig = new JPanel();
+			placeHolderForImageBig.setBounds(10, 79, 141, 141);
+			playPanelBig.add(placeHolderForImageBig);
+		
+			JRadioButton favoritesButtonBig = new JRadioButton("StarFavorites");
+			favoritesButtonBig.setBounds(337, 4, 141, 14);
+			playPanelBig.add(favoritesButtonBig);
+		
+			JLabel trackLabelBig = new JLabel("Track Title:");
+			trackLabelBig.setBounds(161, 75, 70, 23);
+			playPanelBig.add(trackLabelBig);
+		
+			JTextPane trackTitleTextBig = new JTextPane();
+			trackTitleTextBig.setText("This is the Track Title");
+			trackTitleTextBig.setBounds(231, 75, 247, 20);
+			playPanelBig.add(trackTitleTextBig);
+		
+			JSlider songSliderBig = new JSlider();
+			songSliderBig.setBounds(161, 109, 313, 26);
+			playPanelBig.add(songSliderBig);
+		
+			JTextPane elapsedTextBig = new JTextPane();
+			elapsedTextBig.setText("This is the elapsed time.");
+			elapsedTextBig.setBounds(171, 146, 128, 20);
+			playPanelBig.add(elapsedTextBig);
+		
+			JTextPane totalTextBig = new JTextPane();
+			totalTextBig.setText("This is the total time.");
+			totalTextBig.setBounds(360, 146, 118, 20);
+			playPanelBig.add(totalTextBig);
+		
+			JButton minimizeButton = new JButton("v");
+			minimizeButton.setBounds(0, 0, 41, 23);
+			playPanelBig.add(minimizeButton);
+			minimizeButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e){
+					frame.setVisible(true);
+					playFrame.setVisible(false);
+				}
+			});
+		
+			JButton playButtonBig = new JButton("Play");
+			playButtonBig.setBounds(290, 197, 53, 23);
+			playPanelBig.add(playButtonBig);
+		
+			JButton pauseButtonBig = new JButton("||");
+			pauseButtonBig.setBounds(227, 197, 53, 23);
+			playPanelBig.add(pauseButtonBig);
+			
+			JButton stopButtonBig = new JButton("Stop");
+			stopButtonBig.setBounds(356, 197, 55, 23);
+			playPanelBig.add(stopButtonBig);
+		
+			JButton previousButtonBig = new JButton("<<");
+			previousButtonBig.setBounds(164, 197, 53, 23);
+			playPanelBig.add(previousButtonBig);
+		
+			JButton nextButtonBig = new JButton(">>");
+			nextButtonBig.setBounds(425, 197, 53, 23);
+			playPanelBig.add(nextButtonBig);
+		    //System.out.println("\nIm here");
+			
 			return frame;
 		
 		}

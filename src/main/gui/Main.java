@@ -12,6 +12,7 @@ public class Main {
 	private static User user;
 	
 	public static void main(String[] args) {
+		user = new User("Admin", true, 1234);
 		while(true) {
 
 			System.out.println("\nMaking login screen!");
@@ -22,9 +23,9 @@ public class Main {
 			}
 			login.setVisible(false);
 			login.dispose();*/
+			user.setLoggedin(true);
 			
-			//users.get(0).setLoggedIn(true);
-			mainframe = MainFrame.init(user.getLoggedin());
+			mainframe = MainFrame.init(user);
 			mainframe.setVisible(true);
 			while(user.getLoggedin()) {
 				System.out.print("");
