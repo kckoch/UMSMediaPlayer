@@ -6,10 +6,8 @@ public class Main {
 	private static JFrame login;
 	private static JFrame mainframe;
 	private static User user;
-	private static Boolean loggedout;
 	
 	public static void main(String[] args) {
-		loggedout = false;
 		while(true) {
 			login = LoginGUI.init(user);
 			login.setVisible(true);
@@ -22,7 +20,7 @@ public class Main {
 			/*
 			mainframe = MainFrame.init();
 			mainframe.setVisible(true);
-			while(!loggedout.booleanValue()) {
+			while(user.getLoggedin()) {
 				System.out.print("");
 			}*/
 		}
