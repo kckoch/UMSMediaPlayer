@@ -9,12 +9,16 @@ import javax.swing.*;
 public class Main {
 	private static JFrame login;
 	private static JFrame mainframe;
-	static List <User> users;
+	private static Boolean loggedout;
+	private static User user;
+	//static List <User> users;
 	
 	public static void main(String[] args) {
-		users = new ArrayList <User>();
-		users.add(new User());
+		//users = new ArrayList <User>();
+		//users.add(new User());
+		loggedout = false;
 		while(true) {
+
 			System.out.println("\nMaking login screen!");
 			/*login = LoginGUI.init(user);
 			login.setVisible(true);
@@ -24,14 +28,15 @@ public class Main {
 			login.setVisible(false);
 			login.dispose();*/
 			
-			users.get(0).setLoggedIn(true);
-			mainframe = MainFrame.init(users.get(0));
+			//users.get(0).setLoggedIn(true);
+			mainframe = MainFrame.init(loggedout);
 			mainframe.setVisible(true);
-			while(users.get(0).getLoggedIn()) {
+			while(!loggedout.booleanValue()/*users.get(0).getLoggedIn()*/) {
 				System.out.println("\nIm 'in the mainframe while loop!");
 			}
 			mainframe.setVisible(false);
 			mainframe.dispose();
+
 		}
 	}
 

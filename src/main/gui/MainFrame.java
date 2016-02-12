@@ -19,12 +19,14 @@ public class MainFrame {
 	private static JPanel playPanel;
 	private static JButton maximizeButton;
 	private static JPanel placeHolderForImage;
+	private static Boolean myLoggedOut;
 	
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	public static JFrame init(final User user) {
-		if(user.getLoggedIn()){
+	public static JFrame init(Boolean loggedOut) {
+		if(true/*user.getLoggedIn()*/){
+			myLoggedOut = loggedOut;
 			frame = new JFrame("That's My JAM");
     		frame.setSize(500, 600);
 			frame.setLocationRelativeTo(null);
@@ -56,7 +58,8 @@ public class MainFrame {
 			listPane.add(btnLogOut);
 			btnLogOut.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e){
-					user.setLoggedIn(false);
+					myLoggedOut = true;
+					//user.setLoggedIn(false);
 				}
 			});
 			
