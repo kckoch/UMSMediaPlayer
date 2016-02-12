@@ -8,7 +8,7 @@ import javax.swing.border.*;
 
 public class LoginGUI {
 	private static JFrame frame;
-	private static JFrame pinFrame;
+	private static JPanel pinFrame;
 	private static User user;
 	private static User tempUser;
 	private static ArrayList<User> users;
@@ -49,13 +49,14 @@ public class LoginGUI {
 		loginbutton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent d) {
-				
+				pinFrame = pinFrame();
+				frame.setContentPane(pinFrame);
 			}
 		});
 		middle.setLayout(null);
 		middle.add(loginbutton);
 		
-		
+		//The logo label
 		JLabel logoLabel = new JLabel("That's my jam!");
 		logoLabel.setMaximumSize(new Dimension(500, 300));
 		logoLabel.setForeground(Color.WHITE);
@@ -81,13 +82,14 @@ public class LoginGUI {
 		
 		//The icon/button
 		final JButton adminPic = new JButton("");
+		adminPic.setBorder(null);
 		adminPic.setBackground(Color.DARK_GRAY);
 		adminPic.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/person-icon.png")));
 		adminPic.setBounds(12, 12, 93, 93);
 		adminPic.addMouseListener(new MouseListener() {
 			public void mouseClicked(MouseEvent e) {
 				adminPic.setBackground(Color.WHITE);
-				tempUser = new User("Admin", true, 1234);
+				tempUser = new User("Admin", true, 1234);	//WILL NEED TO FIX THIS!!!!!!
 			}
 
 			@Override
@@ -131,6 +133,7 @@ public class LoginGUI {
 		
 		//The icon/button
 		JButton addAccIcon = new JButton("");
+		addAccIcon.setBorder(null);
 		addAccIcon.setBackground(Color.DARK_GRAY);
 		addAccIcon.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/person-icon.png")));
 		addAccIcon.setBounds(12, 12, 93, 93);
@@ -145,5 +148,12 @@ public class LoginGUI {
 		copyright.setBounds(204, 547, 86, 15);
 		windowPane.add(copyright);
 		return frame;
+	}
+	
+	private static JPanel pinFrame() {
+		JPanel login = new JPanel();
+		login.setSize(500, 600);
+		login.setBackground(Color.DARK_GRAY);
+		return login;
 	}
 }
