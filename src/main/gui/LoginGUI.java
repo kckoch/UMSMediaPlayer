@@ -26,7 +26,7 @@ public class LoginGUI {
 	private static final JButton b9 = new JButton("9");
 	private static final JButton ba = new JButton("*");
 	private static final JButton b0 = new JButton("0");
-	private static final JButton bp = new JButton("#");
+	private static final JButton bback = new JButton("<-");
 	
 	/**
 	 * @wbp.parser.entryPoint
@@ -39,7 +39,6 @@ public class LoginGUI {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		/*
 		//Gets the window set up
 		windowPane = new JPanel();
 		windowPane.setBackground(Color.DARK_GRAY);
@@ -162,39 +161,48 @@ public class LoginGUI {
 		JLabel copyright = new JLabel("© Team 14");
 		copyright.setForeground(Color.WHITE);
 		copyright.setBounds(204, 547, 86, 15);
-		windowPane.add(copyright);*/
+		windowPane.add(copyright);
 		
-		pinFrame = new JPanel();
-		pinFrame.setSize(500, 600);
-		pinFrame.setBackground(Color.DARK_GRAY);
+		return frame;
+	}
+	
+	private static JPanel pinFrame() {
+		JPanel pinpanel = new JPanel();
+		pinpanel.setSize(500, 600);
+		pinpanel.setBackground(Color.DARK_GRAY);
 		
-		
-		frame.setContentPane(pinFrame);
-		pinFrame.setLayout(null);
+		pinpanel.setLayout(null);
 		
 		JButton backbutton = new JButton("Back");
+		backbutton.addActionListener(new ActionListener() {
+			@Override
+		    public void actionPerformed(ActionEvent e) {
+	    		frame.setContentPane(windowPane);
+		    }
+		});
 		backbutton.setBorder(null);
 		backbutton.setBackground(Color.DARK_GRAY);
 		backbutton.setForeground(Color.DARK_GRAY);
 		backbutton.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/left_round.png")));
 		backbutton.setBounds(35, 76, 75, 67);
-		pinFrame.add(backbutton);
+		pinpanel.add(backbutton);
 		
 		passwordField = new JPasswordField();
+		passwordField.setBorder(new EmptyBorder(10, 0, 0, 0));
 		passwordField.setActionCommand("");
 		passwordField.setHorizontalAlignment(SwingConstants.CENTER);
-		passwordField.setFont(new Font("Dialog", Font.PLAIN, 27));
+		passwordField.setFont(new Font("Dialog", Font.PLAIN, 40));
 		passwordField.setEchoChar('*');
-		passwordField.setBounds(148, 223, 176, 39);
-		pinFrame.add(passwordField);
+		passwordField.setBounds(152, 156, 176, 39);
+		pinpanel.add(passwordField);
 		
 		JButton icon = new JButton();
 		icon.setBorder(null);
 		icon.setActionCommand("");
 		icon.setBackground(Color.DARK_GRAY);
 		icon.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/person-icon.png")));
-		icon.setBounds(172, 95, 129, 124);
-		pinFrame.add(icon);
+		icon.setBounds(176, 19, 129, 124);
+		pinpanel.add(icon);
 		
 		b1.addActionListener(new ActionListener(){
 	    	@Override
@@ -273,17 +281,19 @@ public class LoginGUI {
 	            passwordField.setText(numberString);
 		    }
 	    });
-		bp.addActionListener(new ActionListener(){
+		bback.addActionListener(new ActionListener(){
 	    	@Override
 		    public void actionPerformed(ActionEvent e) {
-	    		numberString += "#";
+	    		numberString = numberString.substring(0, numberString.length()-1);
 	            passwordField.setText(numberString);
 		    }
 	    });
 		
 		JPanel numPad = new JPanel();
-		numPad.setBounds(117, 286, 231, 262);
-		pinFrame.add(numPad);
+		numPad.setBackground(Color.DARK_GRAY);
+		numPad.setBorder(new EmptyBorder(15, 15, 15, 15));
+		numPad.setBounds(127, 219, 231, 262);
+		pinpanel.add(numPad);
 		numPad.setLayout(new GridLayout(4,3));
 		
 		numPad.add(b1);
@@ -297,17 +307,13 @@ public class LoginGUI {
 		numPad.add(b9);
 		numPad.add(ba);
 		numPad.add(b0);
-		numPad.add(bp);
+		numPad.add(bback);
 		
-		return frame;
-	}
-	
-	private static JPanel pinFrame() {
-		JPanel login = new JPanel();
-		login.setSize(500, 600);
-		login.setBackground(Color.DARK_GRAY);
+		JButton Login = new JButton("Login");
+		Login.setBounds(188, 493, 117, 25);
+		pinpanel.add(Login);
 		
 		
-		return login;
+		return pinpanel;
 	}
 }
