@@ -8,11 +8,10 @@ import javax.swing.border.*;
 
 public class LoginGUI {
 	private static JFrame frame;
-	private static JPanel pinFrame;
+	private static JPanel pinpanel;
 	private static JPanel windowPane;
-	private static User user;
 	private static User tempUser;
-	private static ArrayList<User> users;
+	private static User user;
 	private static JPasswordField passwordField;
 	private static String numberString = "";
 	private static final JButton b1 = new JButton("1");
@@ -31,8 +30,7 @@ public class LoginGUI {
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	public static JFrame init(User userIn) {
-		user = userIn;
+	public static JFrame init(final ArrayList<User> users) {
 		
 		frame = new JFrame("Login");
     	frame.setSize(500, 600);
@@ -64,8 +62,167 @@ public class LoginGUI {
 		loginbutton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent d) {
-				pinFrame = pinFrame();
-				frame.setContentPane(pinFrame);
+				
+				//The new panel
+				JPanel pinpanel = new JPanel();
+				pinpanel.setSize(500, 600);
+				pinpanel.setBackground(Color.DARK_GRAY);
+				
+				pinpanel.setLayout(null);
+				
+				//back button
+				JButton backbutton = new JButton();
+				backbutton.addActionListener(new ActionListener() {
+					@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		frame.setContentPane(windowPane);
+				    }
+				});
+				backbutton.setBorder(null);
+				backbutton.setBackground(Color.DARK_GRAY);
+				backbutton.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/left_round.png")));
+				backbutton.setBounds(35, 76, 75, 67);
+				pinpanel.add(backbutton);
+				
+				//password field
+				passwordField = new JPasswordField();
+				passwordField.setBorder(new EmptyBorder(10, 0, 0, 0));
+				passwordField.setActionCommand("");
+				passwordField.setHorizontalAlignment(SwingConstants.CENTER);
+				passwordField.setFont(new Font("Dialog", Font.PLAIN, 40));
+				passwordField.setEchoChar('*');
+				passwordField.setBounds(152, 156, 176, 39);
+				pinpanel.add(passwordField);
+				
+				//person icon
+				JButton icon = new JButton();
+				icon.setBorder(null);
+				icon.setBackground(Color.DARK_GRAY);
+				icon.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/person-icon.png")));
+				icon.setBounds(176, 19, 129, 124);
+				pinpanel.add(icon);
+				
+				//num pad buttons
+				b1.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		numberString += "1";
+			            passwordField.setText(numberString);
+				    }
+			    });
+				b2.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		numberString += "2";
+			            passwordField.setText(numberString);
+				    }
+			    });
+				b3.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		numberString += "3";
+			            passwordField.setText(numberString);
+				    }
+			    });
+				b4.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		numberString += "4";
+			            passwordField.setText(numberString);
+				    }
+			    });
+				b5.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		numberString += "5";
+			            passwordField.setText(numberString);
+				    }
+			    });
+				b6.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		numberString += "6";
+			            passwordField.setText(numberString);
+				    }
+			    });
+				b7.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		numberString += "7";
+			            passwordField.setText(numberString);
+				    }
+			    });
+				b8.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		numberString += "8";
+			            passwordField.setText(numberString);
+				    }
+			    });
+				b9.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		numberString += "9";
+			            passwordField.setText(numberString);
+				    }
+			    });
+				b0.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		numberString += "0";
+			            passwordField.setText(numberString);
+				    }
+			    });
+				ba.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		numberString += "*";
+			            passwordField.setText(numberString);
+				    }
+			    });
+				bback.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		numberString = numberString.substring(0, numberString.length()-1);
+			            passwordField.setText(numberString);
+				    }
+			    });
+				
+				//actual num pad
+				JPanel numPad = new JPanel();
+				numPad.setBackground(Color.DARK_GRAY);
+				numPad.setBorder(new EmptyBorder(15, 15, 15, 15));
+				numPad.setBounds(127, 219, 231, 262);
+				pinpanel.add(numPad);
+				numPad.setLayout(new GridLayout(4,3));
+				
+				numPad.add(b1);
+				numPad.add(b2);
+				numPad.add(b3);
+				numPad.add(b4);
+				numPad.add(b5);
+				numPad.add(b6);
+				numPad.add(b7);
+				numPad.add(b8);
+				numPad.add(b9);
+				numPad.add(ba);
+				numPad.add(b0);
+				numPad.add(bback);
+				
+				//login button
+				JButton Login = new JButton("Login");
+				Login.setBounds(188, 493, 117, 25);
+				Login.addActionListener(new ActionListener() {
+					@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		if(tempUser.checkPassword(Integer.parseInt(passwordField.getText()))) {
+			    			tempUser.setLoggedin(true);
+			    			tempUser.setCorrect(true);
+			    		}
+				    }
+				});
+				pinpanel.add(Login);
+				frame.setContentPane(pinpanel);
 			}
 		});
 		middle.setLayout(null);
@@ -104,7 +261,7 @@ public class LoginGUI {
 		adminPic.addMouseListener(new MouseListener() {
 			public void mouseClicked(MouseEvent e) {
 				adminPic.setBackground(Color.WHITE);
-				tempUser = new User("Admin", true, 1234);	//WILL NEED TO FIX THIS!!!!!!
+				tempUser = users.get(0);
 			}
 
 			@Override
@@ -159,161 +316,8 @@ public class LoginGUI {
 		copyright.setBounds(204, 547, 86, 15);
 		windowPane.add(copyright);
 		
+		
+		
 		return frame;
-	}
-	
-	private static JPanel pinFrame() {
-		//The new panel
-		JPanel pinpanel = new JPanel();
-		pinpanel.setSize(500, 600);
-		pinpanel.setBackground(Color.DARK_GRAY);
-		
-		pinpanel.setLayout(null);
-		
-		//back button
-		JButton backbutton = new JButton();
-		backbutton.addActionListener(new ActionListener() {
-			@Override
-		    public void actionPerformed(ActionEvent e) {
-	    		frame.setContentPane(windowPane);
-		    }
-		});
-		backbutton.setBorder(null);
-		backbutton.setBackground(Color.DARK_GRAY);
-		backbutton.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/left_round.png")));
-		backbutton.setBounds(35, 76, 75, 67);
-		pinpanel.add(backbutton);
-		
-		//password field
-		passwordField = new JPasswordField();
-		passwordField.setBorder(new EmptyBorder(10, 0, 0, 0));
-		passwordField.setActionCommand("");
-		passwordField.setHorizontalAlignment(SwingConstants.CENTER);
-		passwordField.setFont(new Font("Dialog", Font.PLAIN, 40));
-		passwordField.setEchoChar('*');
-		passwordField.setBounds(152, 156, 176, 39);
-		pinpanel.add(passwordField);
-		
-		//person icon
-		JButton icon = new JButton();
-		icon.setBorder(null);
-		icon.setBackground(Color.DARK_GRAY);
-		icon.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/person-icon.png")));
-		icon.setBounds(176, 19, 129, 124);
-		pinpanel.add(icon);
-		
-		//num pad buttons
-		b1.addActionListener(new ActionListener(){
-	    	@Override
-		    public void actionPerformed(ActionEvent e) {
-	    		numberString += "1";
-	            passwordField.setText(numberString);
-		    }
-	    });
-		b2.addActionListener(new ActionListener(){
-	    	@Override
-		    public void actionPerformed(ActionEvent e) {
-	    		numberString += "2";
-	            passwordField.setText(numberString);
-		    }
-	    });
-		b3.addActionListener(new ActionListener(){
-	    	@Override
-		    public void actionPerformed(ActionEvent e) {
-	    		numberString += "3";
-	            passwordField.setText(numberString);
-		    }
-	    });
-		b4.addActionListener(new ActionListener(){
-	    	@Override
-		    public void actionPerformed(ActionEvent e) {
-	    		numberString += "4";
-	            passwordField.setText(numberString);
-		    }
-	    });
-		b5.addActionListener(new ActionListener(){
-	    	@Override
-		    public void actionPerformed(ActionEvent e) {
-	    		numberString += "5";
-	            passwordField.setText(numberString);
-		    }
-	    });
-		b6.addActionListener(new ActionListener(){
-	    	@Override
-		    public void actionPerformed(ActionEvent e) {
-	    		numberString += "6";
-	            passwordField.setText(numberString);
-		    }
-	    });
-		b7.addActionListener(new ActionListener(){
-	    	@Override
-		    public void actionPerformed(ActionEvent e) {
-	    		numberString += "7";
-	            passwordField.setText(numberString);
-		    }
-	    });
-		b8.addActionListener(new ActionListener(){
-	    	@Override
-		    public void actionPerformed(ActionEvent e) {
-	    		numberString += "8";
-	            passwordField.setText(numberString);
-		    }
-	    });
-		b9.addActionListener(new ActionListener(){
-	    	@Override
-		    public void actionPerformed(ActionEvent e) {
-	    		numberString += "9";
-	            passwordField.setText(numberString);
-		    }
-	    });
-		b0.addActionListener(new ActionListener(){
-	    	@Override
-		    public void actionPerformed(ActionEvent e) {
-	    		numberString += "0";
-	            passwordField.setText(numberString);
-		    }
-	    });
-		ba.addActionListener(new ActionListener(){
-	    	@Override
-		    public void actionPerformed(ActionEvent e) {
-	    		numberString += "*";
-	            passwordField.setText(numberString);
-		    }
-	    });
-		bback.addActionListener(new ActionListener(){
-	    	@Override
-		    public void actionPerformed(ActionEvent e) {
-	    		numberString = numberString.substring(0, numberString.length()-1);
-	            passwordField.setText(numberString);
-		    }
-	    });
-		
-		//actual num pad
-		JPanel numPad = new JPanel();
-		numPad.setBackground(Color.DARK_GRAY);
-		numPad.setBorder(new EmptyBorder(15, 15, 15, 15));
-		numPad.setBounds(127, 219, 231, 262);
-		pinpanel.add(numPad);
-		numPad.setLayout(new GridLayout(4,3));
-		
-		numPad.add(b1);
-		numPad.add(b2);
-		numPad.add(b3);
-		numPad.add(b4);
-		numPad.add(b5);
-		numPad.add(b6);
-		numPad.add(b7);
-		numPad.add(b8);
-		numPad.add(b9);
-		numPad.add(ba);
-		numPad.add(b0);
-		numPad.add(bback);
-		
-		//login button: STILL NEEDS TO BE IMPLEMENTED
-		JButton Login = new JButton("Login");
-		Login.setBounds(188, 493, 117, 25);
-		pinpanel.add(Login);
-		
-		return pinpanel;
 	}
 }

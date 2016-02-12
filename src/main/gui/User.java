@@ -8,6 +8,7 @@ public class User {
 	private boolean admin;			//if admin, will be true
 	private String name;
 	private boolean loggedin;
+	private boolean correct;
 	
 
 	public User(String name, boolean admin, int pin) {
@@ -23,5 +24,18 @@ public class User {
 	
 	public boolean getLoggedin() {
 		return loggedin;
+	}
+	
+	public boolean checkPassword(int password) {
+		System.out.println("In check password");
+		return setting.checkpin(password);
+	}
+	
+	public boolean getCorrect() {
+		return correct;
+	}
+	
+	public void setCorrect(boolean bool) {
+		correct = bool;
 	}
 }

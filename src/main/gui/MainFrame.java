@@ -24,9 +24,8 @@ public class MainFrame {
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	public static JFrame init(Boolean loggedOut) {
+	public static JFrame init(User user) {
 		if(true/*user.getLoggedIn()*/){
-			myLoggedOut = loggedOut;
 			frame = new JFrame("That's My JAM");
     		frame.setSize(500, 600);
 			frame.setLocationRelativeTo(null);
