@@ -58,7 +58,7 @@ public class MainFrame {
 		/*do the same thing for library row data;*/
 	
 		JTabbedPane mainTab = new JTabbedPane(JTabbedPane.TOP);
-		mainTab.setBackground(Color.WHITE);
+		mainTab.setBackground(Color.LIGHT_GRAY);
 		mainTab.setBounds(0, 12, 484, 369);
 		listPane.add(mainTab);
 		favoritesTable = new JTable(favoritesModel);//where you put albums from the favorites
