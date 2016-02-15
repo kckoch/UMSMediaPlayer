@@ -54,14 +54,12 @@ public class MainFrame {
 		listPane.setBounds(10, 0, 474, 381);
 		frame.getContentPane().add(listPane);
 		Vector sampleSong = new Vector();
+		sampleSong.addElement(user.getFavorites().get(0).tracks.get(0));
 		//sampleSong.
 
 		DefaultTableModel favoritesModel = new DefaultTableModel();
-		favoritesModel.addColumn("Track ID");
-		favoritesModel.addColumn("Title");
-		favoritesModel.addColumn("Artist");
-		favoritesModel.addColumn("Total Time");
-		//favoritesModel.addRow("0");
+		favoritesModel.addColumn("Song");
+		favoritesModel.addRow(sampleSong);
 	
 	
 		DefaultTableModel libraryModel = new DefaultTableModel();
@@ -118,15 +116,15 @@ public class MainFrame {
 		btnSearch.setBounds(120, 2, 32, 25);
 		searchPanel.add(btnSearch);
 		
-			JTabbedPane mainTab = new JTabbedPane(JTabbedPane.TOP);
-			mainTab.setBackground(Color.LIGHT_GRAY);
-			mainTab.setBounds(0, 12, 484, 369);
-			listPane.add(mainTab);
-			favoritesTable = new JTable(favoritesModel);//where you put albums from the favorites
-			favoritesTable.setBackground(Color.LIGHT_GRAY);
-			mainTab.addTab("Favorites", null, favoritesTable, null);
-			libraryTable = new JTable(libraryModel);//where you put albums from the library
-			mainTab.addTab("Library", null, libraryTable, null);
+		JTabbedPane mainTab = new JTabbedPane(JTabbedPane.TOP);
+		mainTab.setBackground(Color.LIGHT_GRAY);
+		mainTab.setBounds(0, 12, 484, 369);
+		listPane.add(mainTab);
+		favoritesTable = new JTable(favoritesModel);//where you put albums from the favorites
+		favoritesTable.setBackground(Color.LIGHT_GRAY);
+		mainTab.addTab("Favorites", null, favoritesTable, null);
+		libraryTable = new JTable(libraryModel);//where you put albums from the library
+		mainTab.addTab("Library", null, libraryTable, null);
 	
 		playFrame = new JFrame("That's My JAM");
 		playFrame.setSize(500, 600);

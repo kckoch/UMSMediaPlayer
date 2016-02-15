@@ -8,7 +8,7 @@ public class User {
 	private String name;
 	private boolean loggedin;
 	private boolean correct;
-	private List<Album> favorites;
+	private ArrayList<Album> favorites;
 	
 
 	public User(String name, boolean admin, int pin) {
@@ -16,6 +16,7 @@ public class User {
 		this.admin = admin;
 		setting = new Setting(pin);
 		loggedin = false;
+		favorites = new ArrayList<Album>();
 	}
 	
 	public void setLoggedin(boolean bool) {
@@ -38,4 +39,13 @@ public class User {
 	public void setCorrect(boolean bool) {
 		correct = bool;
 	}
+	
+	public List<Album> getFavorites(){
+		return favorites;
+	}
+	
+	public void addFavorites(Album album){
+		favorites.add(album);
+	}
+	
 }
