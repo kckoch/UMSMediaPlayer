@@ -11,7 +11,6 @@ public class LoginGUI {
 	private static JPanel pinpanel;
 	private static JPanel windowPane;
 	private static User tempUser;
-	private static User user;
 	private static JPasswordField passwordField;
 	private static String numberString = "";
 	private static final JButton b1 = new JButton("1");
@@ -59,10 +58,11 @@ public class LoginGUI {
 		loginbutton.setLocation(151, 311);
 		loginbutton.setSize(new Dimension(192, 34));
 		loginbutton.setBorder(null);
+		loginbutton.setBackground(new Color(99, 99, 99));
+		loginbutton.setForeground(Color.WHITE);
 		loginbutton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent d) {
-				
 				//The new panel
 				JPanel pinpanel = new JPanel();
 				pinpanel.setSize(500, 600);
@@ -76,6 +76,7 @@ public class LoginGUI {
 					@Override
 				    public void actionPerformed(ActionEvent e) {
 			    		frame.setContentPane(windowPane);
+			    		numberString = "";
 				    }
 				});
 				backbutton.setBorder(null);
@@ -110,6 +111,9 @@ public class LoginGUI {
 			            passwordField.setText(numberString);
 				    }
 			    });
+				b1.setBackground(new Color(99, 99, 99));
+				b1.setForeground(Color.WHITE);
+				b1.setBorder(new LineBorder(new Color(64, 64, 64), 2));
 				b2.addActionListener(new ActionListener(){
 			    	@Override
 				    public void actionPerformed(ActionEvent e) {
@@ -117,6 +121,9 @@ public class LoginGUI {
 			            passwordField.setText(numberString);
 				    }
 			    });
+				b2.setBackground(new Color(99, 99, 99));
+				b2.setForeground(Color.WHITE);
+				b2.setBorder(new LineBorder(Color.DARK_GRAY, 2));
 				b3.addActionListener(new ActionListener(){
 			    	@Override
 				    public void actionPerformed(ActionEvent e) {
@@ -124,6 +131,9 @@ public class LoginGUI {
 			            passwordField.setText(numberString);
 				    }
 			    });
+				b3.setBackground(new Color(99, 99, 99));
+				b3.setForeground(Color.WHITE);
+				b3.setBorder(new LineBorder(Color.DARK_GRAY, 2));
 				b4.addActionListener(new ActionListener(){
 			    	@Override
 				    public void actionPerformed(ActionEvent e) {
@@ -131,6 +141,9 @@ public class LoginGUI {
 			            passwordField.setText(numberString);
 				    }
 			    });
+				b4.setBackground(new Color(99, 99, 99));
+				b4.setForeground(Color.WHITE);
+				b4.setBorder(new LineBorder(Color.DARK_GRAY, 2));
 				b5.addActionListener(new ActionListener(){
 			    	@Override
 				    public void actionPerformed(ActionEvent e) {
@@ -138,6 +151,9 @@ public class LoginGUI {
 			            passwordField.setText(numberString);
 				    }
 			    });
+				b5.setBackground(new Color(99, 99, 99));
+				b5.setForeground(Color.WHITE);
+				b5.setBorder(new LineBorder(Color.DARK_GRAY, 2));
 				b6.addActionListener(new ActionListener(){
 			    	@Override
 				    public void actionPerformed(ActionEvent e) {
@@ -145,6 +161,9 @@ public class LoginGUI {
 			            passwordField.setText(numberString);
 				    }
 			    });
+				b6.setBackground(new Color(99, 99, 99));
+				b6.setForeground(Color.WHITE);
+				b6.setBorder(new LineBorder(Color.DARK_GRAY, 2));
 				b7.addActionListener(new ActionListener(){
 			    	@Override
 				    public void actionPerformed(ActionEvent e) {
@@ -152,6 +171,9 @@ public class LoginGUI {
 			            passwordField.setText(numberString);
 				    }
 			    });
+				b7.setBackground(new Color(99, 99, 99));
+				b7.setForeground(Color.WHITE);
+				b7.setBorder(new LineBorder(Color.DARK_GRAY, 2));
 				b8.addActionListener(new ActionListener(){
 			    	@Override
 				    public void actionPerformed(ActionEvent e) {
@@ -159,6 +181,9 @@ public class LoginGUI {
 			            passwordField.setText(numberString);
 				    }
 			    });
+				b8.setBackground(new Color(99, 99, 99));
+				b8.setForeground(Color.WHITE);
+				b8.setBorder(new LineBorder(Color.DARK_GRAY, 2));
 				b9.addActionListener(new ActionListener(){
 			    	@Override
 				    public void actionPerformed(ActionEvent e) {
@@ -166,6 +191,9 @@ public class LoginGUI {
 			            passwordField.setText(numberString);
 				    }
 			    });
+				b9.setBackground(new Color(99, 99, 99));
+				b9.setForeground(Color.WHITE);
+				b9.setBorder(new LineBorder(Color.DARK_GRAY, 2));
 				b0.addActionListener(new ActionListener(){
 			    	@Override
 				    public void actionPerformed(ActionEvent e) {
@@ -173,6 +201,9 @@ public class LoginGUI {
 			            passwordField.setText(numberString);
 				    }
 			    });
+				b0.setBackground(new Color(99, 99, 99));
+				b0.setForeground(Color.WHITE);
+				b0.setBorder(new LineBorder(Color.DARK_GRAY, 2));
 				ba.addActionListener(new ActionListener(){
 			    	@Override
 				    public void actionPerformed(ActionEvent e) {
@@ -180,13 +211,21 @@ public class LoginGUI {
 			            passwordField.setText(numberString);
 				    }
 			    });
+				ba.setBackground(new Color(99, 99, 99));
+				ba.setForeground(Color.WHITE);
+				ba.setBorder(new LineBorder(Color.DARK_GRAY, 2));
 				bback.addActionListener(new ActionListener(){
 			    	@Override
 				    public void actionPerformed(ActionEvent e) {
-			    		numberString = numberString.substring(0, numberString.length()-1);
-			            passwordField.setText(numberString);
+			    		if(numberString != "") {
+			    			numberString = numberString.substring(0, numberString.length()-1);
+			    			passwordField.setText(numberString);
+			    		}
 				    }
 			    });
+				bback.setBackground(new Color(99, 99, 99));
+				bback.setForeground(Color.WHITE);
+				bback.setBorder(new LineBorder(Color.DARK_GRAY, 2));
 				
 				//actual num pad
 				JPanel numPad = new JPanel();
@@ -211,6 +250,9 @@ public class LoginGUI {
 				
 				//login button
 				JButton Login = new JButton("Login");
+				Login.setForeground(Color.WHITE);
+				Login.setBorder(null);
+				Login.setBackground(new Color(99, 99, 99));
 				Login.setBounds(188, 493, 117, 25);
 				Login.addActionListener(new ActionListener() {
 					@Override
@@ -218,11 +260,14 @@ public class LoginGUI {
 			    		if(tempUser.checkPassword(Integer.parseInt(passwordField.getText()))) {
 			    			tempUser.setLoggedin(true);
 			    			tempUser.setCorrect(true);
+			    			numberString = "";
+			    			passwordField.setText(null);
 			    		}
 				    }
 				});
 				pinpanel.add(Login);
 				frame.setContentPane(pinpanel);
+				
 			}
 		});
 		middle.setLayout(null);
@@ -315,8 +360,6 @@ public class LoginGUI {
 		copyright.setForeground(Color.WHITE);
 		copyright.setBounds(204, 547, 86, 15);
 		windowPane.add(copyright);
-		
-		
 		
 		return frame;
 	}

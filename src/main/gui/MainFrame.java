@@ -10,9 +10,15 @@ import java.awt.event.ActionListener;
 import java.sql.Time;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
+
 import javax.swing.event.ChangeEvent;
-//import javax.swing.
 import javax.swing.event.ChangeListener;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Insets;
+import java.awt.Rectangle;
+import java.awt.ComponentOrientation;
+
 
 public class MainFrame {
 	private static JFrame frame;
@@ -36,14 +42,15 @@ public class MainFrame {
 	 */
 
 	public static JFrame init(final User user) {
-		frame = new JFrame("That's My JAM");
+		frame = new JFrame("That's My Jam!");
+		frame.getContentPane().setBackground(Color.DARK_GRAY);
 		frame.setSize(500, 600);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 	
 		JLayeredPane listPane = new JLayeredPane();
-		listPane.setBounds(0, 0, 484, 250);
+		listPane.setBounds(10, 0, 474, 381);
 		frame.getContentPane().add(listPane);
 		Vector sampleSong = new Vector();
 		//sampleSong.
@@ -62,39 +69,63 @@ public class MainFrame {
 		libraryModel.addColumn("Artist");
 		libraryModel.addColumn("Total Time");
 		/*do the same thing for library row data;*/
+	
+		JTabbedPane mainTab = new JTabbedPane(JTabbedPane.TOP);
+		mainTab.setBackground(Color.LIGHT_GRAY);
+		mainTab.setBounds(0, 12, 484, 369);
+		listPane.add(mainTab);
+		favoritesTable = new JTable(favoritesModel);//where you put albums from the favorites
+		favoritesTable.setBackground(Color.LIGHT_GRAY);
+		mainTab.addTab("Favorites", null, favoritesTable, null);
+		libraryTable = new JTable(libraryModel);//where you put albums from the library
+		mainTab.addTab("Library", null, libraryTable, null);
+			
+		JPanel buttonPanel = new JPanel();
+		buttonPanel.setBounds(12, 0, 457, 30);
+		listPane.add(buttonPanel);
+		buttonPanel.setBackground(Color.DARK_GRAY);
+		buttonPanel.setLayout(null);
+		
+		JButton btnSettings = new JButton("");
+		btnSettings.setBorder(null);
+		btnSettings.setBackground(Color.DARK_GRAY);
+		btnSettings.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/settingicon.png")));
+		btnSettings.setBounds(379, 5, 35, 25);
+		buttonPanel.add(btnSettings);
 		
 		
-		JButton btnLogOut = new JButton("@");
-		btnLogOut.setBounds(413, 0, 71, 22);
-		listPane.add(btnLogOut);
+		JButton btnLogOut = new JButton("");
+		btnLogOut.setBorder(null);
+		btnLogOut.setBackground(Color.DARK_GRAY);
+		btnLogOut.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/initlogout.png")));
+		btnLogOut.setBounds(416, 5, 46, 25);
 		btnLogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
 				user.setLoggedin(false);
 			}
 		});
+		buttonPanel.add(btnLogOut);
 		
+		JPanel searchPanel = new JPanel();
+		searchPanel.setBackground(Color.DARK_GRAY);
+		searchPanel.setBounds(228, 3, 176, 30);
+		buttonPanel.add(searchPanel);
+		searchPanel.setLayout(null);
+			
 	
 		txtSearch = new JTextField();
-		txtSearch.setBounds(136, 0, 143, 22);
-		listPane.add(txtSearch);
+		txtSearch.setBorder(null);
+		txtSearch.setBounds(12, 8, 114, 19);
+		searchPanel.add(txtSearch);
 		txtSearch.setText("Search");
 		txtSearch.setColumns(10);
 		
-		JButton btnSearch = new JButton("p");
-		btnSearch.setBounds(275, 0, 66, 22);
-		listPane.add(btnSearch);
-	
-		JButton btnSettings = new JButton("{|}");
-		btnSettings.setBounds(341, 0, 72, 22);
-		listPane.add(btnSettings);
-	
-		JTabbedPane mainTab = new JTabbedPane(JTabbedPane.TOP);
-		mainTab.setBounds(0, -1, 484, 250);
-		listPane.add(mainTab);
-		favoritesTable = new JTable(favoritesModel);//where you put albums from the favorites
-		mainTab.addTab("Favorites", null, favoritesTable, null);
-		libraryTable = new JTable(libraryModel);//where you put albums from the library
-		mainTab.addTab("Library", null, libraryTable, null);
+		JButton btnSearch = new JButton("");
+		btnSearch.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/searchicon.png")));
+		btnSearch.setBackground(Color.DARK_GRAY);
+		btnSearch.setBorder(null);
+		btnSearch.setBounds(120, 4, 32, 25);
+		searchPanel.add(btnSearch);
 	
 		playFrame = new JFrame("That's My JAM");
 		playFrame.setSize(500, 600);
@@ -103,29 +134,36 @@ public class MainFrame {
 		playFrame.getContentPane().setLayout(null);
 	
 		playPanel = new JPanel();
-		playPanel.setBounds(0, 247, 484, 314);
+		playPanel.setBackground(Color.GRAY);
+		playPanel.setBounds(10, 393, 476, 169);
 		frame.getContentPane().add(playPanel);
 		playPanel.setLayout(null);
 	
 		placeHolderForImage = new JPanel();
-		placeHolderForImage.setBounds(10, 79, 141, 141);
+		placeHolderForImage.setBounds(25, 38, 111, 111);
 		playPanel.add(placeHolderForImage);
 	
-		JRadioButton favoritesButton = new JRadioButton("StarFavorites");
-		favoritesButton.setBounds(337, 4, 141, 14);
+		JRadioButton favoritesButton = new JRadioButton("");
+		favoritesButton.setHorizontalTextPosition(SwingConstants.RIGHT);
+		favoritesButton.setSelectedIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/goldstar.png")));
+		favoritesButton.setBackground(Color.GRAY);
+		favoritesButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/blackstar.png")));
+		favoritesButton.setBounds(427, 8, 51, 23);
 		playPanel.add(favoritesButton);
 	
 		JLabel trackLabel = new JLabel("Track Title:");
-		trackLabel.setBounds(161, 75, 70, 23);
+		trackLabel.setBounds(165, 38, 70, 23);
 		playPanel.add(trackLabel);
 	
 		JTextPane trackTitleText = new JTextPane();
 		trackTitleText.setText("This is the Track Title");
-		trackTitleText.setBounds(231, 75, 247, 20);
+		trackTitleText.setBounds(231, 38, 247, 20);
 		playPanel.add(trackTitleText);
 	
 		final JSlider songSlider = new JSlider();
-		songSlider.setBounds(161, 109, 313, 26);
+		songSlider.setForeground(Color.WHITE);
+		songSlider.setBackground(Color.GRAY);
+		songSlider.setBounds(165, 62, 313, 26);
 		playPanel.add(songSlider);
 		
 	    elapsedTime = (total * songSlider.getValue() / 100);
@@ -147,13 +185,24 @@ public class MainFrame {
 		duration = "" + total;
 		JTextPane totalText = new JTextPane();
 		totalText.setText(duration);
-		totalText.setBounds(360, 146, 118, 20);
+		totalText.setBounds(360, 87, 118, 20);
 		playPanel.add(totalText);
 		
 		
 	
-		maximizeButton = new JButton("^");
-		maximizeButton.setBounds(0, 0, 41, 23);
+		maximizeButton = new JButton("");
+		maximizeButton.setPreferredSize(new Dimension(26, 16));
+		maximizeButton.setMinimumSize(new Dimension(26, 16));
+		maximizeButton.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		maximizeButton.setBounds(new Rectangle(0, 0, 26, 16));
+		maximizeButton.setMargin(new Insets(0, 0, 0, 0));
+		maximizeButton.setIconTextGap(0);
+		maximizeButton.setHorizontalTextPosition(SwingConstants.LEFT);
+		maximizeButton.setBorder(null);
+		maximizeButton.setMaximumSize(new Dimension(26, 16));
+		maximizeButton.setBackground(Color.GRAY);
+		maximizeButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/superuparrow.png")));
+		maximizeButton.setBounds(8, 8, 45, 23);
 		playPanel.add(maximizeButton);
 		maximizeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
@@ -163,23 +212,23 @@ public class MainFrame {
 		});
 	
 		JButton playButton = new JButton("Play");
-		playButton.setBounds(290, 197, 53, 23);
+		playButton.setBounds(296, 119, 53, 23);
 		playPanel.add(playButton);
 	
 		JButton pauseButton = new JButton("||");
-		pauseButton.setBounds(227, 197, 53, 23);
+		pauseButton.setBounds(231, 119, 53, 23);
 		playPanel.add(pauseButton);
 		
 		JButton stopButton = new JButton("Stop");
-		stopButton.setBounds(356, 197, 53, 23);
+		stopButton.setBounds(360, 119, 55, 23);
 		playPanel.add(stopButton);
 	
 		JButton previousButton = new JButton("<<");
-		previousButton.setBounds(164, 197, 53, 23);
+		previousButton.setBounds(164, 119, 53, 23);
 		playPanel.add(previousButton);
 	
 		JButton nextButton = new JButton(">>");
-		nextButton.setBounds(425, 197, 53, 23);
+		nextButton.setBounds(425, 119, 53, 23);
 		playPanel.add(nextButton);
 	    //System.out.println("\nIm here");
 		
