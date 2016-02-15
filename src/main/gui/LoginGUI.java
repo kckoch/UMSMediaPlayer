@@ -24,7 +24,7 @@ public class LoginGUI {
 	private static final JButton b9 = new JButton("9");
 	private static final JButton ba = new JButton("*");
 	private static final JButton b0 = new JButton("0");
-	private static final JButton bback = new JButton("<-");
+	private static final JButton bback = new JButton("");
 	
 	/**
 	 * @wbp.parser.entryPoint
@@ -223,6 +223,7 @@ public class LoginGUI {
 			    		}
 				    }
 			    });
+				bback.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/back button.png")));
 				bback.setBackground(new Color(99, 99, 99));
 				bback.setForeground(Color.WHITE);
 				bback.setBorder(new LineBorder(Color.DARK_GRAY, 2));
@@ -274,12 +275,13 @@ public class LoginGUI {
 		middle.add(loginbutton);
 		
 		//The logo label
-		JLabel logoLabel = new JLabel("That's my jam!");
+		JLabel logoLabel = new JLabel("");
+		logoLabel.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/logo.png")));
 		logoLabel.setMaximumSize(new Dimension(500, 300));
 		logoLabel.setForeground(Color.WHITE);
 		logoLabel.setFont(new Font("Lobster Two", Font.ITALIC, 69));
-		logoLabel.setBorder(new EmptyBorder(50, 0, 50, 0));
-		logoLabel.setBounds(51, 12, 406, 159);
+		logoLabel.setBorder(null);
+		logoLabel.setBounds(10, 12, 447, 159);
 		logo.add(logoLabel);
 		windowPane.setLayout(null);
 		windowPane.add(middle);
