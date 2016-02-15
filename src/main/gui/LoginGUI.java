@@ -99,7 +99,7 @@ public class LoginGUI {
 				JButton icon = new JButton();
 				icon.setBorder(null);
 				icon.setBackground(Color.DARK_GRAY);
-				icon.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/person-icon.png")));
+				icon.setIcon(tempUser.getSetting().getIcon());
 				icon.setBounds(176, 19, 129, 124);
 				pinpanel.add(icon);
 				
@@ -223,7 +223,7 @@ public class LoginGUI {
 			    		}
 				    }
 			    });
-				bback.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/back button.png")));
+				bback.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/back_button_3.png")));
 				bback.setBackground(new Color(99, 99, 99));
 				bback.setForeground(Color.WHITE);
 				bback.setBorder(new LineBorder(Color.DARK_GRAY, 2));
@@ -278,8 +278,6 @@ public class LoginGUI {
 		JLabel logoLabel = new JLabel("");
 		logoLabel.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/logo.png")));
 		logoLabel.setMaximumSize(new Dimension(500, 300));
-		logoLabel.setForeground(Color.WHITE);
-		logoLabel.setFont(new Font("Lobster Two", Font.ITALIC, 69));
 		logoLabel.setBorder(null);
 		logoLabel.setBounds(10, 12, 447, 159);
 		logo.add(logoLabel);
@@ -303,7 +301,7 @@ public class LoginGUI {
 		final JButton adminPic = new JButton("");
 		adminPic.setBorder(null);
 		adminPic.setBackground(Color.DARK_GRAY);
-		adminPic.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/person-icon.png")));
+		adminPic.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/panda_orange_2.png")));
 		adminPic.setBounds(12, 12, 93, 93);
 		adminPic.addMouseListener(new MouseListener() {
 			public void mouseClicked(MouseEvent e) {
@@ -350,7 +348,7 @@ public class LoginGUI {
 		JButton addAccIcon = new JButton("");
 		addAccIcon.setBorder(null);
 		addAccIcon.setBackground(Color.DARK_GRAY);
-		addAccIcon.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/person-icon.png")));
+		addAccIcon.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/panda_blue_2.png")));
 		addAccIcon.setBounds(12, 12, 93, 93);
 		addAcc.add(addAccIcon);
 		

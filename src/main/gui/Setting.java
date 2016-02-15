@@ -2,9 +2,11 @@ package main.gui;
 
 import java.awt.*;
 
+import javax.swing.ImageIcon;
+
 public class Setting {
 	private int PIN;
-	private int profilePicID; 
+	private ImageIcon profilePic; 
 	private int configureN; //only admin can modify
 	private String serverURL; //only admin can modify
 	
@@ -17,5 +19,13 @@ public class Setting {
 			return true;
 		else
 			return false;
+	}
+	
+	public void setIcon(ImageIcon icon) {
+		this.profilePic = icon;
+	}
+	
+	public ImageIcon getIcon() {
+		return profilePic;
 	}
 }

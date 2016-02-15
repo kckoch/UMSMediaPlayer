@@ -48,4 +48,8 @@ public class User {
 		favorites.add(album);
 	}
 	
+	public Setting getSetting() {
+		return setting;
+	}
+	
 }

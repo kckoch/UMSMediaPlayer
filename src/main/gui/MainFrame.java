@@ -125,6 +125,7 @@ public class MainFrame {
 		favoritesTable.setBackground(Color.LIGHT_GRAY);
 		mainTab.addTab("Favorites", null, favoritesTable, null);
 		libraryTable = new JTable(libraryModel);//where you put albums from the library
+		libraryTable.setBackground(Color.LIGHT_GRAY);
 		mainTab.addTab("Library", null, libraryTable, null);
 		
 		/*favoritesTable.addMouseListener(new MouseAdapter(){
@@ -148,7 +149,7 @@ public class MainFrame {
 		playPanel.setLayout(null);
 	
 		placeHolderForImage = new JPanel();
-		placeHolderForImage.setBounds(25, 38, 111, 111);
+		placeHolderForImage.setBounds(8, 38, 111, 111);
 		playPanel.add(placeHolderForImage);
 	
 		JRadioButton favoritesButton = new JRadioButton("");
@@ -160,25 +161,29 @@ public class MainFrame {
 		playPanel.add(favoritesButton);
 	
 		JLabel trackLabel = new JLabel("Track Title:");
-		trackLabel.setBounds(165, 38, 70, 23);
+		trackLabel.setForeground(Color.WHITE);
+		trackLabel.setBounds(129, 35, 70, 23);
 		playPanel.add(trackLabel);
 	
 		JTextPane trackTitleText = new JTextPane();
 		trackTitleText.setText("This is the Track Title");
-		trackTitleText.setBounds(231, 38, 247, 20);
+		trackTitleText.setBounds(191, 38, 158, 20);
 		playPanel.add(trackTitleText);
 	
 		final JSlider songSlider = new JSlider();
 		songSlider.setForeground(Color.WHITE);
 		songSlider.setBackground(Color.GRAY);
-		songSlider.setBounds(165, 62, 313, 26);
+		songSlider.setBounds(129, 62, 313, 26);
 		playPanel.add(songSlider);
 		
 	    elapsedTime = (total * songSlider.getValue() / 100);
 	    elapsed = "" + elapsedTime;
 		final JTextPane elapsedText = new JTextPane();
+		elapsedText.setForeground(Color.WHITE);
+		elapsedText.setBorder(null);
+		elapsedText.setBackground(Color.GRAY);
 		elapsedText.setText(elapsed);
-		elapsedText.setBounds(165, 87, 128, 20);
+		elapsedText.setBounds(129, 87, 38, 20);
 		playPanel.add(elapsedText);
 		
 		songSlider.addChangeListener(new ChangeListener() {
@@ -192,8 +197,10 @@ public class MainFrame {
 	
 		duration = "" + total;
 		JTextPane totalText = new JTextPane();
+		totalText.setBackground(Color.GRAY);
+		totalText.setForeground(Color.WHITE);
 		totalText.setText(duration);
-		totalText.setBounds(360, 87, 118, 20);
+		totalText.setBounds(411, 87, 38, 20);
 		playPanel.add(totalText);
 		
 		
@@ -220,23 +227,23 @@ public class MainFrame {
 		});
 	
 		JButton playButton = new JButton("Play");
-		playButton.setBounds(296, 119, 53, 23);
+		playButton.setBounds(272, 119, 53, 23);
 		playPanel.add(playButton);
 	
 		JButton pauseButton = new JButton("||");
-		pauseButton.setBounds(231, 119, 53, 23);
+		pauseButton.setBounds(209, 119, 53, 23);
 		playPanel.add(pauseButton);
 		
 		JButton stopButton = new JButton("Stop");
-		stopButton.setBounds(360, 119, 55, 23);
+		stopButton.setBounds(335, 119, 55, 23);
 		playPanel.add(stopButton);
 	
 		JButton previousButton = new JButton("<<");
-		previousButton.setBounds(164, 119, 53, 23);
+		previousButton.setBounds(146, 119, 53, 23);
 		playPanel.add(previousButton);
 	
 		JButton nextButton = new JButton(">>");
-		nextButton.setBounds(425, 119, 53, 23);
+		nextButton.setBounds(400, 118, 53, 23);
 		playPanel.add(nextButton);
 	    //System.out.println("\nIm here");
 		
