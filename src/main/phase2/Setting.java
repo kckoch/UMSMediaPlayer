@@ -1,10 +1,9 @@
-package main.phase2;
+package src.main.phase2;
 
 public class Setting {
-	//were saving and loading are implemented
-	int PIN;
-	int profilePicID; 
-	int configureN; //only admin can modify
-	String serverURL; //only admin can modify
-
+	private int PIN;
+	private int profilePicID; 
+	private int configureN; //only admin can modify
+	private String serverURL; //only admin can modify
+	
 }
