@@ -29,6 +29,8 @@ public class Main {
 					user = users.get(i);
 				}
 			}
+			logged = false;
+			user.setCorrect(false);
 			login.setVisible(false);
 			login.dispose();
 			

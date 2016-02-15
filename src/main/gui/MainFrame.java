@@ -7,7 +7,12 @@ import java.awt.BorderLayout;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 import java.awt.Component;
 import java.awt.event.ActionListener;
+import java.sql.Time;
+import java.util.Vector;
 import java.awt.event.ActionEvent;
+import javax.swing.event.ChangeEvent;
+//import javax.swing.
+import javax.swing.event.ChangeListener;
 
 public class MainFrame {
 	private static JFrame frame;
@@ -20,6 +25,11 @@ public class MainFrame {
 	private static JButton maximizeButton;
 	private static JPanel placeHolderForImage;
 	private static JFrame playFrame;
+	private static String duration;
+	private static String elapsed;
+	private static int total = 300;
+	private static int elapsedTime;
+	private static Time timer;
 	
 	/**
 	 * @wbp.parser.entryPoint
@@ -35,13 +45,15 @@ public class MainFrame {
 		JLayeredPane listPane = new JLayeredPane();
 		listPane.setBounds(0, 0, 484, 250);
 		frame.getContentPane().add(listPane);
+		Vector sampleSong = new Vector();
+		//sampleSong.
 
 		DefaultTableModel favoritesModel = new DefaultTableModel();
 		favoritesModel.addColumn("Track ID");
 		favoritesModel.addColumn("Title");
 		favoritesModel.addColumn("Artist");
 		favoritesModel.addColumn("Total Time");
-		/*favoritesModel.addRow(rowData);this is where you would add the data for each track*/
+		//favoritesModel.addRow("0");
 	
 	
 		DefaultTableModel libraryModel = new DefaultTableModel();
@@ -112,19 +124,33 @@ public class MainFrame {
 		trackTitleText.setBounds(231, 75, 247, 20);
 		playPanel.add(trackTitleText);
 	
-		JSlider songSlider = new JSlider();
+		final JSlider songSlider = new JSlider();
 		songSlider.setBounds(161, 109, 313, 26);
 		playPanel.add(songSlider);
-	
-		JTextPane elapsedText = new JTextPane();
-		elapsedText.setText("This is the elapsed time.");
+		
+	    elapsedTime = (total * songSlider.getValue() / 100);
+	    elapsed = "" + elapsedTime;
+		final JTextPane elapsedText = new JTextPane();
+		elapsedText.setText(elapsed);
 		elapsedText.setBounds(171, 146, 128, 20);
 		playPanel.add(elapsedText);
+		
+		songSlider.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e){
+				//System.out.println("song slider: " + songSlider.getValue());
+				elapsedTime = (total * songSlider.getValue() / 100);
+			    elapsed = "" + elapsedTime;
+			    elapsedText.setText(elapsed);
+			}
+		});
 	
+		duration = "" + total;
 		JTextPane totalText = new JTextPane();
-		totalText.setText("This is the total time.");
+		totalText.setText(duration);
 		totalText.setBounds(360, 146, 118, 20);
 		playPanel.add(totalText);
+		
+		
 	
 		maximizeButton = new JButton("^");
 		maximizeButton.setBounds(0, 0, 41, 23);
@@ -145,7 +171,7 @@ public class MainFrame {
 		playPanel.add(pauseButton);
 		
 		JButton stopButton = new JButton("Stop");
-		stopButton.setBounds(356, 197, 55, 23);
+		stopButton.setBounds(356, 197, 53, 23);
 		playPanel.add(stopButton);
 	
 		JButton previousButton = new JButton("<<");
