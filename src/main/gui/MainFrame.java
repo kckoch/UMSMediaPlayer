@@ -5,8 +5,12 @@ import javax.swing.table.DefaultTableModel;
 
 import java.awt.BorderLayout;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
+
+import com.sun.glass.events.MouseEvent;
+
 import java.awt.Component;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.sql.Time;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
@@ -63,11 +67,8 @@ public class MainFrame {
 	
 	
 		DefaultTableModel libraryModel = new DefaultTableModel();
-		libraryModel.addColumn("Track ID");
-		libraryModel.addColumn("Title");
-		libraryModel.addColumn("Artist");
-		libraryModel.addColumn("Total Time");
-		/*do the same thing for library row data;*/
+		libraryModel.addColumn("Song");
+		libraryModel.addRow(sampleSong);
 		
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setBounds(204, 0, 260, 30);
@@ -125,6 +126,14 @@ public class MainFrame {
 		mainTab.addTab("Favorites", null, favoritesTable, null);
 		libraryTable = new JTable(libraryModel);//where you put albums from the library
 		mainTab.addTab("Library", null, libraryTable, null);
+		
+		/*favoritesTable.addMouseListener(new MouseAdapter(){
+			public void mouseClicked(MouseEvent evnt) {
+				if(this.getClick() == 1){
+					getPropertyFromRow((String)(t_property.getValueAt(favoritesTable.getSelectedRow(),0)));
+				}
+			}
+		});*/
 	
 		playFrame = new JFrame("That's My JAM");
 		playFrame.setSize(500, 600);
