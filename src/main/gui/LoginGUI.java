@@ -356,7 +356,7 @@ public class LoginGUI {
 		frame.setContentPane(windowPane);
 		
 		//Copyright
-		JLabel copyright = new JLabel("Â© Team 14");
+		JLabel copyright = new JLabel("© Team 14");
 		copyright.setForeground(Color.WHITE);
 		copyright.setBounds(204, 547, 86, 15);
 		windowPane.add(copyright);

@@ -43,6 +43,7 @@ public class MainFrame {
 
 	public static JFrame init(final User user) {
 		frame = new JFrame("That's My Jam!");
+		frame.setResizable(false);
 		frame.getContentPane().setBackground(Color.DARK_GRAY);
 		frame.setSize(500, 600);
 		frame.setLocationRelativeTo(null);
@@ -69,19 +70,9 @@ public class MainFrame {
 		libraryModel.addColumn("Artist");
 		libraryModel.addColumn("Total Time");
 		/*do the same thing for library row data;*/
-	
-		JTabbedPane mainTab = new JTabbedPane(JTabbedPane.TOP);
-		mainTab.setBackground(Color.LIGHT_GRAY);
-		mainTab.setBounds(0, 12, 484, 369);
-		listPane.add(mainTab);
-		favoritesTable = new JTable(favoritesModel);//where you put albums from the favorites
-		favoritesTable.setBackground(Color.LIGHT_GRAY);
-		mainTab.addTab("Favorites", null, favoritesTable, null);
-		libraryTable = new JTable(libraryModel);//where you put albums from the library
-		mainTab.addTab("Library", null, libraryTable, null);
-			
+		
 		JPanel buttonPanel = new JPanel();
-		buttonPanel.setBounds(12, 0, 457, 30);
+		buttonPanel.setBounds(204, 0, 260, 30);
 		listPane.add(buttonPanel);
 		buttonPanel.setBackground(Color.DARK_GRAY);
 		buttonPanel.setLayout(null);
@@ -90,7 +81,7 @@ public class MainFrame {
 		btnSettings.setBorder(null);
 		btnSettings.setBackground(Color.DARK_GRAY);
 		btnSettings.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/settingicon.png")));
-		btnSettings.setBounds(379, 5, 35, 25);
+		btnSettings.setBounds(195, 3, 35, 25);
 		buttonPanel.add(btnSettings);
 		
 		
@@ -98,7 +89,7 @@ public class MainFrame {
 		btnLogOut.setBorder(null);
 		btnLogOut.setBackground(Color.DARK_GRAY);
 		btnLogOut.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/initlogout.png")));
-		btnLogOut.setBounds(416, 5, 46, 25);
+		btnLogOut.setBounds(220, 3, 46, 25);
 		btnLogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
 				user.setLoggedin(false);
@@ -108,14 +99,14 @@ public class MainFrame {
 		
 		JPanel searchPanel = new JPanel();
 		searchPanel.setBackground(Color.DARK_GRAY);
-		searchPanel.setBounds(228, 3, 176, 30);
+		searchPanel.setBounds(45, 3, 158, 30);
 		buttonPanel.add(searchPanel);
 		searchPanel.setLayout(null);
-			
+		
 	
 		txtSearch = new JTextField();
 		txtSearch.setBorder(null);
-		txtSearch.setBounds(12, 8, 114, 19);
+		txtSearch.setBounds(12, 3, 114, 19);
 		searchPanel.add(txtSearch);
 		txtSearch.setText("Search");
 		txtSearch.setColumns(10);
@@ -124,8 +115,18 @@ public class MainFrame {
 		btnSearch.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/searchicon.png")));
 		btnSearch.setBackground(Color.DARK_GRAY);
 		btnSearch.setBorder(null);
-		btnSearch.setBounds(120, 4, 32, 25);
+		btnSearch.setBounds(120, 2, 32, 25);
 		searchPanel.add(btnSearch);
+		
+			JTabbedPane mainTab = new JTabbedPane(JTabbedPane.TOP);
+			mainTab.setBackground(Color.LIGHT_GRAY);
+			mainTab.setBounds(0, 12, 484, 369);
+			listPane.add(mainTab);
+			favoritesTable = new JTable(favoritesModel);//where you put albums from the favorites
+			favoritesTable.setBackground(Color.LIGHT_GRAY);
+			mainTab.addTab("Favorites", null, favoritesTable, null);
+			libraryTable = new JTable(libraryModel);//where you put albums from the library
+			mainTab.addTab("Library", null, libraryTable, null);
 	
 		playFrame = new JFrame("That's My JAM");
 		playFrame.setSize(500, 600);
@@ -170,7 +171,7 @@ public class MainFrame {
 	    elapsed = "" + elapsedTime;
 		final JTextPane elapsedText = new JTextPane();
 		elapsedText.setText(elapsed);
-		elapsedText.setBounds(171, 146, 128, 20);
+		elapsedText.setBounds(165, 87, 128, 20);
 		playPanel.add(elapsedText);
 		
 		songSlider.addChangeListener(new ChangeListener() {
