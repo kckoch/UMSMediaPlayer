@@ -4,11 +4,11 @@ import java.util.*;
 
 public class User {
 	private Setting setting;
-	private List<Object> favorites;
 	private boolean admin;			//if admin, will be true
 	private String name;
 	private boolean loggedin;
 	private boolean correct;
+	private List<Album> favorites;
 	
 
 	public User(String name, boolean admin, int pin) {
