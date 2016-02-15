@@ -1,4 +1,4 @@
-package phase2;
+package main.phase2;
 
 public class Setting {
 	//were saving and loading are implemented

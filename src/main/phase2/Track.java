@@ -1,4 +1,4 @@
-package phase2;
+package main.phase2;
 
 import java.sql.Time;
 
