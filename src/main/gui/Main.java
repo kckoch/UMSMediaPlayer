@@ -46,7 +46,7 @@ public class Main {
 		users.get(0).addFavorites(album7);
 		users.get(0).addFavorites(album8);
 		users.get(0).addFavorites(album9);
-		users.get(0).getSetting().setIcon(new ImageIcon(Main.class.getResource("/main/gui/panda_orange_2.png")));
+		users.get(0).getSetting().setIcon("/main/gui/panda_orange_2.png");
 		boolean logged = false;
 		while(true) {
 			login = LoginGUI.init(users);

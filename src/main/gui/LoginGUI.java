@@ -100,7 +100,7 @@ public class LoginGUI {
 				JButton icon = new JButton();
 				icon.setBorder(null);
 				icon.setBackground(Color.DARK_GRAY);
-				icon.setIcon(tempUser.getSetting().getIcon());
+				icon.setIcon(new ImageIcon(LoginGUI.class.getResource(tempUser.getSetting().getIcon())));
 				icon.setBounds(176, 19, 129, 124);
 				pinpanel.add(icon);
 				
@@ -302,7 +302,7 @@ public class LoginGUI {
 		final JButton adminPic = new JButton("");
 		adminPic.setBorder(null);
 		adminPic.setBackground(Color.DARK_GRAY);
-		adminPic.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/panda_orange_2.png")));
+		adminPic.setIcon(new ImageIcon(LoginGUI.class.getResource(users.get(0).getSetting().getIcon())));
 		adminPic.setBounds(12, 12, 93, 93);
 		adminPic.addMouseListener(new MouseListener() {
 			public void mouseClicked(MouseEvent e) {
