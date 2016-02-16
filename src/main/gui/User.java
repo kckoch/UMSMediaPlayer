@@ -51,4 +51,8 @@ public class User {
 		return setting;
 	}
 	
+	public String getName() {
+		return name;
+	}
+	
 }
