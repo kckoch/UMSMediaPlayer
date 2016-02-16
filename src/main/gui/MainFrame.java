@@ -6,7 +6,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.BorderLayout;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 
-import com.sun.glass.events.MouseEvent;
+//import com.sun.glass.events.MouseEvent;
 
 import java.awt.Component;
 import java.awt.event.ActionListener;
@@ -26,6 +26,7 @@ import java.awt.ComponentOrientation;
 
 public class MainFrame {
 	private static JFrame frame;
+	private static JPanel mainPanel;
 	private static JTextField txtSearch;
 	private static JTabbedPane library;
 	private static JScrollPane libraryList;
@@ -47,19 +48,27 @@ public class MainFrame {
 
 	public static JFrame init(final User user) {
 		frame = new JFrame("That's My Jam!");
+		frame.setBackground(Color.DARK_GRAY);
 		frame.setResizable(false);
 		frame.getContentPane().setBackground(Color.DARK_GRAY);
 		frame.setSize(500, 600);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+		mainPanel = new JPanel();
+		mainPanel.setOpaque(false);
+		mainPanel.setMaximumSize(new Dimension(500, 600));
+		mainPanel.setName("");
+		mainPanel.setBorder(null);
 	
 		JLayeredPane listPane = new JLayeredPane();
+		listPane.setOpaque(true);
+		listPane.setBorder(null);
+		listPane.setBackground(Color.DARK_GRAY);
 		listPane.setBounds(10, 0, 474, 381);
-		frame.getContentPane().add(listPane);
 		Vector sampleSong = new Vector();
 		sampleSong.addElement(user.getFavorites().get(0).tracks.get(0));
-		//sampleSong.
 
 		DefaultTableModel favoritesModel = new DefaultTableModel();
 		favoritesModel.addColumn("Song");
@@ -83,7 +92,7 @@ public class MainFrame {
 		btnSettings.setBounds(195, 3, 35, 25);
 		btnSettings.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.setContentPane(SettingGUI.init());
+				frame.setContentPane(SettingGUI.init(mainPanel, frame));
 			}
 		});
 		buttonPanel.add(btnSettings);
@@ -102,6 +111,7 @@ public class MainFrame {
 		buttonPanel.add(btnLogOut);
 		
 		JPanel searchPanel = new JPanel();
+		searchPanel.setBorder(null);
 		searchPanel.setBackground(Color.DARK_GRAY);
 		searchPanel.setBounds(45, 3, 158, 30);
 		buttonPanel.add(searchPanel);
@@ -119,7 +129,7 @@ public class MainFrame {
 		btnSearch.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/searchicon.png")));
 		btnSearch.setBackground(Color.DARK_GRAY);
 		btnSearch.setBorder(null);
-		btnSearch.setBounds(120, 2, 32, 25);
+		btnSearch.setBounds(127, 2, 25, 25);
 		searchPanel.add(btnSearch);
 		
 		JTabbedPane mainTab = new JTabbedPane(JTabbedPane.TOP);
@@ -150,7 +160,6 @@ public class MainFrame {
 		playPanel = new JPanel();
 		playPanel.setBackground(Color.GRAY);
 		playPanel.setBounds(10, 393, 476, 169);
-		frame.getContentPane().add(playPanel);
 		playPanel.setLayout(null);
 	
 		placeHolderForImage = new JPanel();
@@ -193,7 +202,6 @@ public class MainFrame {
 		
 		songSlider.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e){
-				//System.out.println("song slider: " + songSlider.getValue());
 				elapsedTime = (total * songSlider.getValue() / 100);
 			    elapsed = "" + elapsedTime;
 			    elapsedText.setText(elapsed);
@@ -263,7 +271,6 @@ public class MainFrame {
 		nextButton.setActionCommand("");
 		nextButton.setBounds(400, 108, 35, 35);
 		playPanel.add(nextButton);
-	    //System.out.println("\nIm here");
 		
 		JPanel playPanelBig = new JPanel();
 		playPanelBig.setBounds(0, 0, 484, 564);
@@ -330,7 +337,11 @@ public class MainFrame {
 		JButton nextButtonBig = new JButton(">>");
 		nextButtonBig.setBounds(425, 197, 53, 23);
 		playPanelBig.add(nextButtonBig);
-	    //System.out.println("\nIm here");
+		mainPanel.setLayout(null);
+
+		mainPanel.add(listPane);
+		mainPanel.add(playPanel);
+		frame.setContentPane(mainPanel);
 		
 		return frame;
 		
