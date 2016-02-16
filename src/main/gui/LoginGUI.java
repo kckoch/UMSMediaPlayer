@@ -33,6 +33,7 @@ public class LoginGUI {
 		
 		frame = new JFrame("Login");
     	frame.setSize(500, 600);
+    	frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		

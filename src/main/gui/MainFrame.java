@@ -81,6 +81,11 @@ public class MainFrame {
 		btnSettings.setBackground(Color.DARK_GRAY);
 		btnSettings.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/settingicon.png")));
 		btnSettings.setBounds(195, 3, 35, 25);
+		btnSettings.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setContentPane(SettingGUI.init());
+			}
+		});
 		buttonPanel.add(btnSettings);
 		
 		
@@ -88,7 +93,7 @@ public class MainFrame {
 		btnLogOut.setBorder(null);
 		btnLogOut.setBackground(Color.DARK_GRAY);
 		btnLogOut.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/initlogout.png")));
-		btnLogOut.setBounds(220, 3, 46, 25);
+		btnLogOut.setBounds(231, 3, 35, 25);
 		btnLogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
 				user.setLoggedin(false);
@@ -154,9 +159,9 @@ public class MainFrame {
 	
 		JRadioButton favoritesButton = new JRadioButton("");
 		favoritesButton.setHorizontalTextPosition(SwingConstants.RIGHT);
-		favoritesButton.setSelectedIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/goldstar.png")));
+		favoritesButton.setSelectedIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/gold_star.png")));
 		favoritesButton.setBackground(Color.GRAY);
-		favoritesButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/blackstar.png")));
+		favoritesButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/white_star.png")));
 		favoritesButton.setBounds(427, 8, 51, 23);
 		playPanel.add(favoritesButton);
 	
@@ -167,7 +172,7 @@ public class MainFrame {
 	
 		JTextPane trackTitleText = new JTextPane();
 		trackTitleText.setText("This is the Track Title");
-		trackTitleText.setBounds(191, 38, 158, 20);
+		trackTitleText.setBounds(203, 38, 158, 20);
 		playPanel.add(trackTitleText);
 	
 		final JSlider songSlider = new JSlider();
@@ -226,24 +231,37 @@ public class MainFrame {
 			}
 		});
 	
-		JButton playButton = new JButton("Play");
-		playButton.setBounds(272, 119, 53, 23);
+		JButton playButton = new JButton("");
+		playButton.setBackground(Color.GRAY);
+		playButton.setBorder(null);
+		playButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/play_button.png")));
+		playButton.setBounds(270, 99, 50, 50);
 		playPanel.add(playButton);
 	
-		JButton pauseButton = new JButton("||");
-		pauseButton.setBounds(209, 119, 53, 23);
+		JButton pauseButton = new JButton("");
+		pauseButton.setBorder(null);
+		pauseButton.setBackground(Color.GRAY);
+		pauseButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/pause_button.png")));
+		pauseButton.setBounds(209, 109, 38, 33);
 		playPanel.add(pauseButton);
 		
 		JButton stopButton = new JButton("Stop");
-		stopButton.setBounds(335, 119, 55, 23);
+		stopButton.setBounds(335, 109, 38, 33);
 		playPanel.add(stopButton);
 	
-		JButton previousButton = new JButton("<<");
-		previousButton.setBounds(146, 119, 53, 23);
+		JButton previousButton = new JButton("");
+		previousButton.setBackground(Color.GRAY);
+		previousButton.setBorder(null);
+		previousButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/skipbackwards_button.png")));
+		previousButton.setBounds(146, 109, 38, 33);
 		playPanel.add(previousButton);
 	
-		JButton nextButton = new JButton(">>");
-		nextButton.setBounds(400, 118, 53, 23);
+		JButton nextButton = new JButton("");
+		nextButton.setBackground(Color.GRAY);
+		nextButton.setBorder(null);
+		nextButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/skipforward_button.png")));
+		nextButton.setActionCommand("");
+		nextButton.setBounds(400, 108, 35, 35);
 		playPanel.add(nextButton);
 	    //System.out.println("\nIm here");
 		

@@ -1,4 +1,4 @@
-package src.main.phase2;
+package main.phase2;
 
 import java.util.List;
 

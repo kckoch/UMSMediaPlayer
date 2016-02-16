@@ -28,7 +28,6 @@ public class User {
 	}
 	
 	public boolean checkPassword(int password) {
-		System.out.println("In check password");
 		return setting.checkpin(password);
 	}
 	
