@@ -151,19 +151,19 @@ public class MainFrame {
 		buttonPanel.setBackground(Color.DARK_GRAY);
 		buttonPanel.setLayout(null);
 		
-		
-		JButton btnSettings = new JButton("");
-		btnSettings.setBorder(null);
-		btnSettings.setBackground(Color.DARK_GRAY);
-		btnSettings.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/settingicon.png")));
-		btnSettings.setBounds(195, 3, 35, 25);
-		btnSettings.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frame.setContentPane(SettingGUI.init(mainPanel, frame, user));
-			}
-		});
-		buttonPanel.add(btnSettings);
-		
+		if(user.getAdmin()) {
+			JButton btnSettings = new JButton("");
+			btnSettings.setBorder(null);
+			btnSettings.setBackground(Color.DARK_GRAY);
+			btnSettings.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/settingicon.png")));
+			btnSettings.setBounds(195, 3, 35, 25);
+			btnSettings.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					frame.setContentPane(SettingGUI.init(mainPanel, frame, user));
+				}
+			});
+			buttonPanel.add(btnSettings);
+		}
 		
 		JButton btnLogOut = new JButton("");
 		btnLogOut.setBorder(null);

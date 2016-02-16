@@ -55,4 +55,8 @@ public class User {
 		return name;
 	}
 	
+	public boolean getAdmin() {
+		return admin;
+	}
+	
 }

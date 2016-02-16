@@ -10,6 +10,7 @@ import java.awt.Dimension;
 
 public class SettingGUI {
 	private static JPanel mainPanel = new JPanel();
+	private static JTextField servURL;
 	
 	/**
 	 * @wbp.parser.entryPoint
@@ -102,7 +103,7 @@ public class SettingGUI {
 		JPanel accPanel = new JPanel();
 		accPanel.setBorder(null);
 		accPanel.setBackground(Color.DARK_GRAY);
-		accPanel.setBounds(10, 231, 478, 358);
+		accPanel.setBounds(10, 371, 478, 218);
 		mainPanel.add(accPanel);
 		accPanel.setLayout(null);
 		
@@ -157,6 +158,41 @@ public class SettingGUI {
 		btnManageRestrictions.setBackground(Color.GRAY);
 		btnManageRestrictions.setBounds(261, 46, 138, 25);
 		exPanel.add(btnManageRestrictions);
+		
+		JPanel servPanel = new JPanel();
+		servPanel.setBackground(Color.DARK_GRAY);
+		servPanel.setBounds(10, 227, 478, 133);
+		mainPanel.add(servPanel);
+		servPanel.setLayout(null);
+		
+		JLabel lblServer = new JLabel("Server");
+		lblServer.setHorizontalAlignment(SwingConstants.CENTER);
+		lblServer.setFont(new Font("Dialog", Font.BOLD, 26));
+		lblServer.setForeground(Color.WHITE);
+		lblServer.setBackground(Color.DARK_GRAY);
+		lblServer.setBounds(0, 0, 115, 39);
+		servPanel.add(lblServer);
+		
+		servURL = new JTextField();
+		servURL.setBounds(22, 52, 205, 28);
+		servPanel.add(servURL);
+		servURL.setColumns(10);
+		
+		JButton btnChangeServerUrl = new JButton("Change Server URL");
+		btnChangeServerUrl.setForeground(Color.WHITE);
+		btnChangeServerUrl.setFont(new Font("Dialog", Font.BOLD, 13));
+		btnChangeServerUrl.setBorder(null);
+		btnChangeServerUrl.setBackground(Color.GRAY);
+		btnChangeServerUrl.setBounds(243, 53, 138, 25);
+		servPanel.add(btnChangeServerUrl);
+		
+		JButton btnManageRestrictionLevels = new JButton("Manage Restriction Levels");
+		btnManageRestrictionLevels.setForeground(Color.WHITE);
+		btnManageRestrictionLevels.setFont(new Font("Dialog", Font.BOLD, 13));
+		btnManageRestrictionLevels.setBorder(null);
+		btnManageRestrictionLevels.setBackground(Color.GRAY);
+		btnManageRestrictionLevels.setBounds(22, 99, 205, 25);
+		servPanel.add(btnManageRestrictionLevels);
 		
 		return mainPanel;
 	}
