@@ -19,18 +19,18 @@ public class SettingGUI {
 		mainPanel.setLayout(null);
 		frame.setContentPane(mainPanel);
 		
-		JPanel panel = new JPanel();
-		panel.setBorder(null);
-		panel.setBackground(Color.DARK_GRAY);
-		panel.setBounds(0, 11, 488, 57);
-		mainPanel.add(panel);
-		panel.setLayout(null);
+		JPanel menupanel = new JPanel();
+		menupanel.setBorder(null);
+		menupanel.setBackground(Color.DARK_GRAY);
+		menupanel.setBounds(0, 11, 488, 57);
+		mainPanel.add(menupanel);
+		menupanel.setLayout(null);
 		
 		//setting logo
 		JLabel lblSettings = new JLabel("");
 		lblSettings.setBorder(null);
 		lblSettings.setBounds(75, 5, 146, 51);
-		panel.add(lblSettings);
+		menupanel.add(lblSettings);
 		lblSettings.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/settinglogo.png")));
 		lblSettings.setForeground(Color.WHITE);
 		lblSettings.setBackground(Color.DARK_GRAY);
@@ -38,7 +38,7 @@ public class SettingGUI {
 		//gear icon
 		JLabel gearIcon = new JLabel("");
 		gearIcon.setBounds(25, 0, 45, 45);
-		panel.add(gearIcon);
+		menupanel.add(gearIcon);
 		gearIcon.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/big_setting.png")));
 		gearIcon.setRequestFocusEnabled(false);
 		gearIcon.setBackground(Color.DARK_GRAY);
@@ -46,8 +46,8 @@ public class SettingGUI {
 		
 		//exit button
 		JButton exitButton = new JButton("");
-		exitButton.setBounds(438, 0, 50, 50);
-		panel.add(exitButton);
+		exitButton.setBounds(446, 15, 30, 30);
+		menupanel.add(exitButton);
 		exitButton.setBorder(null);
 		exitButton.setBackground(Color.DARK_GRAY);
 		exitButton.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/x_icon.png")));
@@ -59,17 +59,17 @@ public class SettingGUI {
 		});
 		
 		//current account panel, will be visible to any account type
-		JPanel accPanel = new JPanel();
-		accPanel.setBorder(null);
-		accPanel.setBackground(Color.DARK_GRAY);
-		accPanel.setBounds(12, 71, 476, 173);
-		mainPanel.add(accPanel);
-		accPanel.setLayout(null);
+		JPanel userPanel = new JPanel();
+		userPanel.setBorder(null);
+		userPanel.setBackground(Color.DARK_GRAY);
+		userPanel.setBounds(12, 71, 476, 149);
+		mainPanel.add(userPanel);
+		userPanel.setLayout(null);
 		
 		JLabel usericon = new JLabel("");
 		usericon.setBackground(Color.DARK_GRAY);
 		usericon.setBounds(12, 36, 93, 93);
-		accPanel.add(usericon);
+		userPanel.add(usericon);
 		usericon.setIcon(user.getSetting().getIcon());
 		
 		JLabel username = new JLabel("");
@@ -78,7 +78,7 @@ public class SettingGUI {
 		username.setBackground(Color.DARK_GRAY);
 		username.setText(user.getName());
 		username.setBounds(123, 36, 93, 25);
-		accPanel.add(username);
+		userPanel.add(username);
 		
 		JButton btnChangePin = new JButton("Change Pin");
 		btnChangePin.setFont(new Font("Droid Sans", Font.BOLD, 13));
@@ -86,7 +86,7 @@ public class SettingGUI {
 		btnChangePin.setForeground(Color.WHITE);
 		btnChangePin.setBackground(Color.GRAY);
 		btnChangePin.setBounds(123, 63, 138, 25);
-		accPanel.add(btnChangePin);
+		userPanel.add(btnChangePin);
 		
 		JButton btnChangeProfilePic = new JButton("Change Profile Pic");
 		btnChangeProfilePic.setFont(new Font("Droid Sans", Font.BOLD, 13));
@@ -94,7 +94,16 @@ public class SettingGUI {
 		btnChangeProfilePic.setForeground(Color.WHITE);
 		btnChangeProfilePic.setBackground(Color.GRAY);
 		btnChangeProfilePic.setBounds(123, 100, 138, 25);
-		accPanel.add(btnChangeProfilePic);
+		userPanel.add(btnChangeProfilePic);
+		
+		JScrollPane accPanel = new JScrollPane();
+		accPanel.setOpaque(false);
+		accPanel.setForeground(Color.DARK_GRAY);
+		accPanel.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		accPanel.setBorder(null);
+		accPanel.setBackground(Color.DARK_GRAY);
+		accPanel.setBounds(12, 232, 476, 344);
+		mainPanel.add(accPanel);
 		
 		return mainPanel;
 	}

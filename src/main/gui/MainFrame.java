@@ -250,10 +250,13 @@ public class MainFrame {
 		pauseButton.setBorder(null);
 		pauseButton.setBackground(Color.GRAY);
 		pauseButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/pause_button.png")));
-		pauseButton.setBounds(209, 109, 38, 33);
+		pauseButton.setBounds(209, 109, 35, 35);
 		playPanel.add(pauseButton);
 		
-		JButton stopButton = new JButton("Stop");
+		JButton stopButton = new JButton("");
+		stopButton.setBorder(null);
+		stopButton.setBackground(Color.GRAY);
+		stopButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/stop_button.png")));
 		stopButton.setBounds(335, 109, 38, 33);
 		playPanel.add(stopButton);
 	
@@ -261,7 +264,7 @@ public class MainFrame {
 		previousButton.setBackground(Color.GRAY);
 		previousButton.setBorder(null);
 		previousButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/skipbackwards_button.png")));
-		previousButton.setBounds(146, 109, 38, 33);
+		previousButton.setBounds(146, 109, 35, 35);
 		playPanel.add(previousButton);
 	
 		JButton nextButton = new JButton("");
