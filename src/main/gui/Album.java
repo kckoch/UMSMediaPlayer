@@ -22,5 +22,8 @@ public class Album {
 		mediaURL = albumURL;
 	}
 
+	public void setObjectId(int id){
+		objectId = id;
+	}
 	
 }

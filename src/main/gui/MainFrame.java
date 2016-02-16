@@ -2,6 +2,7 @@ package main.gui;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 import java.awt.BorderLayout;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
@@ -67,23 +68,89 @@ public class MainFrame {
 		listPane.setBorder(null);
 		listPane.setBackground(Color.DARK_GRAY);
 		listPane.setBounds(10, 0, 474, 381);
-		Vector sampleSong = new Vector();
-		sampleSong.addElement(user.getFavorites().get(0).tracks.get(0));
+		Vector sampleAlbumLabels = new Vector();
+		sampleAlbumLabels.addElement("Album Name");
+		sampleAlbumLabels.addElement("Object ID");
+		sampleAlbumLabels.addElement("Album Media URL");
+		Vector sampleAlbum0 = new Vector();
+		sampleAlbum0.addElement(user.getFavorites().get(0).name);
+		sampleAlbum0.addElement(user.getFavorites().get(0).objectId);
+		sampleAlbum0.addElement(user.getFavorites().get(0).mediaURL);
+		Vector sampleAlbum1 = new Vector();
+		sampleAlbum1.addElement(user.getFavorites().get(1).name);
+		sampleAlbum1.addElement(user.getFavorites().get(1).objectId);
+		sampleAlbum1.addElement(user.getFavorites().get(1).mediaURL);
+		Vector sampleAlbum2 = new Vector();
+		sampleAlbum2.addElement(user.getFavorites().get(2).name);
+		sampleAlbum2.addElement(user.getFavorites().get(2).objectId);
+		sampleAlbum2.addElement(user.getFavorites().get(2).mediaURL);
+		Vector sampleAlbum3 = new Vector();
+		sampleAlbum3.addElement(user.getFavorites().get(3).name);
+		sampleAlbum3.addElement(user.getFavorites().get(3).objectId);
+		sampleAlbum3.addElement(user.getFavorites().get(3).mediaURL);
+		Vector sampleAlbum4 = new Vector();
+		sampleAlbum4.addElement(user.getFavorites().get(4).name);
+		sampleAlbum4.addElement(user.getFavorites().get(4).objectId);
+		sampleAlbum4.addElement(user.getFavorites().get(4).mediaURL);
+		Vector sampleAlbum5 = new Vector();
+		sampleAlbum5.addElement(user.getFavorites().get(5).name);
+		sampleAlbum5.addElement(user.getFavorites().get(5).objectId);
+		sampleAlbum5.addElement(user.getFavorites().get(5).mediaURL);
+		Vector sampleAlbum6 = new Vector();
+		sampleAlbum6.addElement(user.getFavorites().get(6).name);
+		sampleAlbum6.addElement(user.getFavorites().get(6).objectId);
+		sampleAlbum6.addElement(user.getFavorites().get(6).mediaURL);
+		Vector sampleAlbum7 = new Vector();
+		sampleAlbum7.addElement(user.getFavorites().get(7).name);
+		sampleAlbum7.addElement(user.getFavorites().get(7).objectId);
+		sampleAlbum7.addElement(user.getFavorites().get(7).mediaURL);
+		Vector sampleAlbum8 = new Vector();
+		sampleAlbum8.addElement(user.getFavorites().get(8).name);
+		sampleAlbum8.addElement(user.getFavorites().get(8).objectId);
+		sampleAlbum8.addElement(user.getFavorites().get(8).mediaURL);
+		Vector sampleAlbum9 = new Vector();
+		sampleAlbum9.addElement(user.getFavorites().get(9).name);
+		sampleAlbum9.addElement(user.getFavorites().get(9).objectId);
+		sampleAlbum9.addElement(user.getFavorites().get(9).mediaURL);
 
 		DefaultTableModel favoritesModel = new DefaultTableModel();
-		favoritesModel.addColumn("Song");
-		favoritesModel.addRow(sampleSong);
+		favoritesModel.addColumn("Album Name");
+		favoritesModel.addColumn("Object ID");
+		favoritesModel.addColumn("Album Media URL");
+		favoritesModel.addRow(sampleAlbum0);
+		favoritesModel.addRow(sampleAlbum1);
+		favoritesModel.addRow(sampleAlbum2);
+		favoritesModel.addRow(sampleAlbum3);
+		favoritesModel.addRow(sampleAlbum4);
+		favoritesModel.addRow(sampleAlbum5);
+		favoritesModel.addRow(sampleAlbum6);
+		favoritesModel.addRow(sampleAlbum7);
+		favoritesModel.addRow(sampleAlbum8);
+		favoritesModel.addRow(sampleAlbum9);
 	
 	
 		DefaultTableModel libraryModel = new DefaultTableModel();
-		libraryModel.addColumn("Song");
-		libraryModel.addRow(sampleSong);
+		libraryModel.addColumn("Album Name");
+		libraryModel.addColumn("Object ID");
+		libraryModel.addColumn("Album Media URL");
+		libraryModel.addRow(sampleAlbumLabels);
+		libraryModel.addRow(sampleAlbum0);
+		libraryModel.addRow(sampleAlbum1);
+		libraryModel.addRow(sampleAlbum2);
+		libraryModel.addRow(sampleAlbum3);
+		libraryModel.addRow(sampleAlbum4);
+		libraryModel.addRow(sampleAlbum5);
+		libraryModel.addRow(sampleAlbum6);
+		libraryModel.addRow(sampleAlbum7);
+		libraryModel.addRow(sampleAlbum8);
+		libraryModel.addRow(sampleAlbum9);
 		
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setBounds(204, 0, 260, 30);
 		listPane.add(buttonPanel);
 		buttonPanel.setBackground(Color.DARK_GRAY);
 		buttonPanel.setLayout(null);
+		
 		
 		JButton btnSettings = new JButton("");
 		btnSettings.setBorder(null);
@@ -132,6 +199,9 @@ public class MainFrame {
 		btnSearch.setBounds(127, 2, 25, 25);
 		searchPanel.add(btnSearch);
 		
+		/*JTableHeader albumsFavorite = new JTableHeader();
+		albumsFavorite.setTable(favoritesTable);
+	    albumsFavorite.setColumnModel(favoritesModel);*/
 		JTabbedPane mainTab = new JTabbedPane(JTabbedPane.TOP);
 		mainTab.setBackground(Color.LIGHT_GRAY);
 		mainTab.setBounds(0, 12, 484, 369);
