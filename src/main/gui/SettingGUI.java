@@ -73,7 +73,7 @@ public class SettingGUI {
 		usericon.setBackground(Color.DARK_GRAY);
 		usericon.setBounds(12, 36, 93, 93);
 		userPanel.add(usericon);
-		usericon.setIcon(user.getSetting().getIcon());
+		usericon.setIcon(new ImageIcon(LoginGUI.class.getResource(user.getSetting().getIcon())));
 		
 		JLabel username = new JLabel("");
 		username.setFont(new Font("Dialog", Font.BOLD, 21));

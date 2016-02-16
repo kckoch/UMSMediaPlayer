@@ -19,7 +19,7 @@ public class Main {
 		users = new ArrayList<User>();
 		users.add(new User("Admin", true, 1234));
 		users.get(0).addFavorites(album);
-		users.get(0).getSetting().setIcon(new ImageIcon(Main.class.getResource("/main/gui/panda_orange_2.png")));
+		users.get(0).getSetting().setIcon("/main/gui/panda_orange_2.png");
 		boolean logged = false;
 		while(true) {
 			login = LoginGUI.init(users);
