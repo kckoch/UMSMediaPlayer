@@ -345,7 +345,7 @@ public class LoginGUI {
 		lblAddAccount.setBounds(12, 117, 93, 15);
 		addAcc.add(lblAddAccount);
 		
-		//The icon/button
+		//The icon button
 		JButton addAccIcon = new JButton("");
 		addAccIcon.setBorder(null);
 		addAccIcon.setBackground(Color.DARK_GRAY);

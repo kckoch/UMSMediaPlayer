@@ -66,22 +66,23 @@ public class SettingGUI {
 		JPanel userPanel = new JPanel();
 		userPanel.setBorder(null);
 		userPanel.setBackground(Color.DARK_GRAY);
-		userPanel.setBounds(12, 71, 476, 149);
+		userPanel.setBounds(12, 71, 476, 99);
 		mainPanel.add(userPanel);
 		userPanel.setLayout(null);
 		
-		JLabel usericon = new JLabel("");
+		JLabel usericon = new JLabel();
 		usericon.setBackground(Color.DARK_GRAY);
-		usericon.setBounds(12, 36, 93, 93);
+		usericon.setBounds(12, 21, 50, 50);
 		userPanel.add(usericon);
-		usericon.setIcon(new ImageIcon(LoginGUI.class.getResource(user.getSetting().getIcon())));
+		//usericon.setIcon(new ImageIcon(LoginGUI.class.getResource(user.getSetting().getIcon())));
+		usericon.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/panda_orange_2_small.png")));
 		
 		JLabel username = new JLabel("");
-		username.setFont(new Font("Dialog", Font.BOLD, 21));
+		username.setFont(new Font("Dialog", Font.BOLD, 18));
 		username.setForeground(Color.WHITE);
 		username.setBackground(Color.DARK_GRAY);
 		username.setText(user.getName());
-		username.setBounds(123, 21, 118, 40);
+		username.setBounds(99, 10, 81, 25);
 		userPanel.add(username);
 		
 		JButton btnChangePin = new JButton("Change Pin");
@@ -89,7 +90,7 @@ public class SettingGUI {
 		btnChangePin.setBorder(null);
 		btnChangePin.setForeground(Color.WHITE);
 		btnChangePin.setBackground(Color.GRAY);
-		btnChangePin.setBounds(123, 63, 138, 25);
+		btnChangePin.setBounds(99, 36, 138, 25);
 		userPanel.add(btnChangePin);
 		
 		JButton btnChangeProfilePic = new JButton("Change Profile Pic");
@@ -97,20 +98,21 @@ public class SettingGUI {
 		btnChangeProfilePic.setBorder(null);
 		btnChangeProfilePic.setForeground(Color.WHITE);
 		btnChangeProfilePic.setBackground(Color.GRAY);
-		btnChangeProfilePic.setBounds(123, 100, 138, 25);
+		btnChangeProfilePic.setBounds(99, 67, 138, 25);
 		userPanel.add(btnChangeProfilePic);
 		
 		JPanel accPanel = new JPanel();
 		accPanel.setBorder(null);
 		accPanel.setBackground(Color.DARK_GRAY);
-		accPanel.setBounds(10, 371, 478, 218);
+		accPanel.setBounds(10, 290, 478, 299);
 		mainPanel.add(accPanel);
 		accPanel.setLayout(null);
 		
-		JLabel lblUsers = new JLabel("Users");
+		JLabel lblUsers = new JLabel("");
+		lblUsers.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/user.png")));
 		lblUsers.setHorizontalAlignment(SwingConstants.CENTER);
 		lblUsers.setForeground(Color.WHITE);
-		lblUsers.setFont(new Font("Dialog", Font.BOLD, 26));
+		lblUsers.setFont(new Font("Lobster Two", Font.BOLD, 30));
 		lblUsers.setBackground(Color.DARK_GRAY);
 		lblUsers.setBounds(0, 0, 110, 34);
 		accPanel.add(lblUsers);
@@ -161,37 +163,38 @@ public class SettingGUI {
 		
 		JPanel servPanel = new JPanel();
 		servPanel.setBackground(Color.DARK_GRAY);
-		servPanel.setBounds(10, 227, 478, 133);
+		servPanel.setBounds(12, 170, 478, 119);
 		mainPanel.add(servPanel);
 		servPanel.setLayout(null);
 		
-		JLabel lblServer = new JLabel("Server");
+		JLabel lblServer = new JLabel("");
+		lblServer.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/server.png")));
 		lblServer.setHorizontalAlignment(SwingConstants.CENTER);
-		lblServer.setFont(new Font("Dialog", Font.BOLD, 26));
+		lblServer.setFont(new Font("Lobster Two", Font.BOLD, 30));
 		lblServer.setForeground(Color.WHITE);
 		lblServer.setBackground(Color.DARK_GRAY);
 		lblServer.setBounds(0, 0, 115, 39);
 		servPanel.add(lblServer);
 		
 		servURL = new JTextField();
-		servURL.setBounds(22, 52, 205, 28);
+		servURL.setBounds(22, 51, 205, 27);
 		servPanel.add(servURL);
 		servURL.setColumns(10);
 		
 		JButton btnChangeServerUrl = new JButton("Change Server URL");
 		btnChangeServerUrl.setForeground(Color.WHITE);
-		btnChangeServerUrl.setFont(new Font("Dialog", Font.BOLD, 13));
+		btnChangeServerUrl.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnChangeServerUrl.setBorder(null);
 		btnChangeServerUrl.setBackground(Color.GRAY);
-		btnChangeServerUrl.setBounds(243, 53, 138, 25);
+		btnChangeServerUrl.setBounds(243, 52, 138, 26);
 		servPanel.add(btnChangeServerUrl);
 		
 		JButton btnManageRestrictionLevels = new JButton("Manage Restriction Levels");
 		btnManageRestrictionLevels.setForeground(Color.WHITE);
-		btnManageRestrictionLevels.setFont(new Font("Dialog", Font.BOLD, 13));
+		btnManageRestrictionLevels.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnManageRestrictionLevels.setBorder(null);
 		btnManageRestrictionLevels.setBackground(Color.GRAY);
-		btnManageRestrictionLevels.setBounds(22, 99, 205, 25);
+		btnManageRestrictionLevels.setBounds(22, 83, 205, 25);
 		servPanel.add(btnManageRestrictionLevels);
 		
 		return mainPanel;
