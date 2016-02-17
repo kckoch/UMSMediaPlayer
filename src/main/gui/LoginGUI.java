@@ -8,7 +8,6 @@ import javax.swing.border.*;
 
 public class LoginGUI {
 	private static JFrame frame;
-	private static JPanel pinpanel;
 	private static JPanel windowPane;
 	private static User tempUser;
 	private static JPasswordField passwordField;
@@ -257,6 +256,7 @@ public class LoginGUI {
 				Login.setBackground(new Color(99, 99, 99));
 				Login.setBounds(188, 493, 117, 25);
 				Login.addActionListener(new ActionListener() {
+					@SuppressWarnings("deprecation")
 					@Override
 				    public void actionPerformed(ActionEvent e) {
 			    		if(tempUser.checkPassword(Integer.parseInt(passwordField.getText()))) {

@@ -7,4 +7,4 @@
 #
 
 echo Launching app...
-java -jar build/libs/upnpmediademo-all.jar
+bash gradlew run

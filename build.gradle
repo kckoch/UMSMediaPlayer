@@ -3,8 +3,7 @@ apply plugin: 'application'
 apply plugin: 'eclipse'
 apply plugin: 'jacoco'
 
-
-mainClassName = "main.gui.Main"
+mainClassName = 'main.gui.Main'
 
 // Ensure Java 1.7 compatibility
 sourceCompatibility = 1.7
