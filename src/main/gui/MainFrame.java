@@ -271,14 +271,6 @@ public class MainFrame {
 		elapsedText.setText(elapsed);
 		elapsedText.setBounds(129, 87, 38, 20);
 		playPanel.add(elapsedText);
-		
-		songSlider.addChangeListener(new ChangeListener() {
-			public void stateChanged(ChangeEvent e){
-				elapsedTime = (total * songSlider.getValue() / 100);
-			    elapsed = "" + elapsedTime;
-			    elapsedText.setText(elapsed);
-			}
-		});
 	
 		duration = "" + total;
 		JTextPane totalText = new JTextPane();
@@ -367,11 +359,11 @@ public class MainFrame {
 		trackTitleTextBig.setBounds(231, 75, 247, 20);
 		playPanelBig.add(trackTitleTextBig);
 	
-		JSlider songSliderBig = new JSlider();
+		final JSlider songSliderBig = new JSlider();
 		songSliderBig.setBounds(161, 109, 313, 26);
 		playPanelBig.add(songSliderBig);
 	
-		JTextPane elapsedTextBig = new JTextPane();
+		final JTextPane elapsedTextBig = new JTextPane();
 		elapsedTextBig.setText("This is the elapsed time.");
 		elapsedTextBig.setBounds(171, 146, 128, 20);
 		playPanelBig.add(elapsedTextBig);
@@ -415,6 +407,26 @@ public class MainFrame {
 		mainPanel.add(listPane);
 		mainPanel.add(playPanel);
 		frame.setContentPane(mainPanel);
+		
+		songSlider.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e){
+				elapsedTime = (total * songSlider.getValue() / 100);
+			    elapsed = "" + elapsedTime;
+			    elapsedText.setText(elapsed);
+			    elapsedTextBig.setText(elapsed);
+			    songSliderBig.setValue(songSlider.getValue());
+			}
+		});
+		
+		songSliderBig.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e){
+				elapsedTime = (total * songSliderBig.getValue() / 100);
+			    elapsed = "" + elapsedTime;
+			    elapsedText.setText(elapsed);
+			    elapsedTextBig.setText(elapsed);
+			    songSlider.setValue(songSliderBig.getValue());
+			}
+		});
 		
 		return frame;
 		
