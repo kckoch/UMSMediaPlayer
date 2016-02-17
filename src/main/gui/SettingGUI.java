@@ -13,10 +13,15 @@ public class SettingGUI {
 	private static JPanel mainPanel = new JPanel();
 	private static JPanel changePicPanel = new JPanel();
 	private static JPanel restrictPanel = new JPanel();
+	private static JPanel addUserPanel = new JPanel();
 	private static JTextField servURL;
 	private static JPasswordField passwordField;
 	private static JPasswordField passwordField_1;
+	private static JPasswordField passwordField_2;
 	private static JTextField textField;
+	private static JTextField txtTempUser;
+	private static JTextField textField2;
+	private static JTextField txtTempUser2;
 	
 	/**
 	 * @wbp.parser.entryPoint
@@ -86,12 +91,9 @@ public class SettingGUI {
 		
 		
 		//current admin name
-		JLabel username = new JLabel("");
-		username.setFont(new Font("Dialog", Font.BOLD, 18));
-		username.setForeground(Color.WHITE);
-		username.setBackground(Color.DARK_GRAY);
+		JTextField username = new JTextField();
 		username.setText(user.getName());
-		username.setBounds(96, 0, 81, 25);
+		username.setBounds(96, 0, 81, 23);
 		userPanel.add(username);
 		
 		//button to confirm change pin for admin
@@ -100,7 +102,7 @@ public class SettingGUI {
 		btnChangePin.setBorder(null);
 		btnChangePin.setForeground(Color.WHITE);
 		btnChangePin.setBackground(Color.GRAY);
-		btnChangePin.setBounds(187, 21, 93, 25);
+		btnChangePin.setBounds(183, 24, 93, 25);
 		userPanel.add(btnChangePin);
 		
 		
@@ -261,8 +263,14 @@ public class SettingGUI {
 		//admin change pin field
 		passwordField = new JPasswordField();
 		passwordField.setEchoChar('*');
-		passwordField.setBounds(96, 24, 76, 22);
+		passwordField.setBounds(96, 24, 81, 22);
 		userPanel.add(passwordField);
+		
+		JButton chngName = new JButton("Change Name");
+		chngName.setForeground(Color.WHITE);
+		chngName.setBackground(Color.GRAY);
+		chngName.setBounds(183, 0, 99, 23);
+		userPanel.add(chngName);
 		
 		//the other accounts panel
 		JPanel accPanel = new JPanel();
@@ -287,31 +295,23 @@ public class SettingGUI {
 		exIcon.setBounds(10, 3, 93, 93);
 		exPanel.add(exIcon);
 		
-		//example user name
-		JLabel lblTempUser = new JLabel("Temp User");
-		lblTempUser.setBackground(Color.DARK_GRAY);
-		lblTempUser.setForeground(Color.WHITE);
-		lblTempUser.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblTempUser.setBounds(116, 3, 103, 32);
-		exPanel.add(lblTempUser);
-		
 		//example user change pin
-		JButton button = new JButton("Change Pin");
-		button.setForeground(Color.WHITE);
-		button.setFont(new Font("Dialog", Font.PLAIN, 11));
-		button.setBorder(null);
-		button.setBackground(Color.GRAY);
-		button.setBounds(205, 32, 93, 25);
-		exPanel.add(button);
+		JButton chngPin = new JButton("Change Pin");
+		chngPin.setForeground(Color.WHITE);
+		chngPin.setFont(new Font("Dialog", Font.PLAIN, 11));
+		chngPin.setBorder(null);
+		chngPin.setBackground(Color.GRAY);
+		chngPin.setBounds(205, 30, 93, 25);
+		exPanel.add(chngPin);
 		
 		//example user change profile pic button
-		JButton button_1 = new JButton("Change Profile Pic");
-		button_1.setForeground(Color.WHITE);
-		button_1.setFont(new Font("Dialog", Font.PLAIN, 11));
-		button_1.setBorder(null);
-		button_1.setBackground(Color.GRAY);
-		button_1.setBounds(113, 68, 138, 25);
-		exPanel.add(button_1);
+		JButton chngPic = new JButton("Change Profile Pic");
+		chngPic.setForeground(Color.WHITE);
+		chngPic.setFont(new Font("Dialog", Font.PLAIN, 11));
+		chngPic.setBorder(null);
+		chngPic.setBackground(Color.GRAY);
+		chngPic.setBounds(113, 68, 138, 25);
+		exPanel.add(chngPic);
 		
 		//example user manage restrictions
 		JButton btnManageRestrictions = new JButton("Manage Restrictions");
@@ -325,8 +325,29 @@ public class SettingGUI {
 		//example user change pin
 		passwordField_1 = new JPasswordField();
 		passwordField_1.setEchoChar('*');
-		passwordField_1.setBounds(113, 35, 76, 22);
+		passwordField_1.setBounds(113, 32, 86, 22);
 		exPanel.add(passwordField_1);
+		
+		//example user name
+		txtTempUser = new JTextField();
+		txtTempUser.setText("Temp User");
+		txtTempUser.setBounds(113, 4, 86, 20);
+		exPanel.add(txtTempUser);
+		txtTempUser.setColumns(10);
+		
+		//example user change name button
+		JButton changeName = new JButton("Change Name");
+		changeName.setForeground(Color.WHITE);
+		changeName.setBackground(Color.GRAY);
+		changeName.setBounds(205, 3, 99, 23);
+		exPanel.add(changeName);
+		
+		JButton deleteacc = new JButton("");
+		deleteacc.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/red_x_icon.png")));
+		deleteacc.setBorder(null);
+		deleteacc.setBackground(Color.DARK_GRAY);
+		deleteacc.setBounds(428, 3, 30, 30);
+		exPanel.add(deleteacc);
 		
 		//users label
 		JLabel lblUsers = new JLabel("");
@@ -335,6 +356,27 @@ public class SettingGUI {
 		accPanel.add(lblUsers);
 		lblUsers.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/user.png")));
 		lblUsers.setBackground(Color.DARK_GRAY);
+		
+		//new user panel
+		addUserPanel.setBackground(Color.DARK_GRAY);
+		addUserPanel.setBounds(10, 157, 458, 101);
+		accPanel.add(addUserPanel);
+		addUserPanel.setLayout(null);
+		
+		//add user button
+		JButton btnAddUser = new JButton("Add User");
+		btnAddUser.setForeground(Color.WHITE);
+		btnAddUser.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnAddUser.setBackground(Color.GRAY);
+		btnAddUser.setBorder(null);
+		btnAddUser.setBounds(142, 28, 156, 42);
+		btnAddUser.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//
+			}
+		});
+		addUserPanel.add(btnAddUser);
 		
 		//admin panel server panel
 		JPanel servPanel = new JPanel();

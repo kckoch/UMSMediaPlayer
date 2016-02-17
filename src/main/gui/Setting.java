@@ -6,7 +6,7 @@ import javax.swing.ImageIcon;
 
 public class Setting {
 	private int PIN;
-	private String profilePic; 
+	private String profilePicPath; 
 	private int configureN; //only admin can modify
 	private String serverURL; //only admin can modify
 	
@@ -22,10 +22,10 @@ public class Setting {
 	}
 	
 	public void setIcon(String icon) {
-		this.profilePic = icon;
+		this.profilePicPath = icon;
 	}
 	
 	public String getIcon() {
-		return profilePic;
+		return profilePicPath;
 	}
 }
