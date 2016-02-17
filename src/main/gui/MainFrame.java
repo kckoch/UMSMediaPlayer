@@ -1,5 +1,6 @@
 package main.gui;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
@@ -35,7 +36,7 @@ public class MainFrame {
 	private static JTable libraryTable;
 	private static JPanel playPanel;
 	private static JButton maximizeButton;
-	private static JPanel placeHolderForImage;
+	private static JLabel placeHolderForImage;
 	private static JFrame playFrame;
 	private static String duration;
 	private static String elapsed;
@@ -112,7 +113,7 @@ public class MainFrame {
 		sampleAlbum9.addElement(user.getFavorites().get(9).name);
 		sampleAlbum9.addElement(user.getFavorites().get(9).objectId);
 		sampleAlbum9.addElement(user.getFavorites().get(9).mediaURL);
-
+		
 		DefaultTableModel favoritesModel = new DefaultTableModel();
 		favoritesModel.addColumn("Album Name");
 		favoritesModel.addColumn("Object ID");
@@ -127,13 +128,13 @@ public class MainFrame {
 		favoritesModel.addRow(sampleAlbum7);
 		favoritesModel.addRow(sampleAlbum8);
 		favoritesModel.addRow(sampleAlbum9);
+		
 	
 	
 		DefaultTableModel libraryModel = new DefaultTableModel();
 		libraryModel.addColumn("Album Name");
 		libraryModel.addColumn("Object ID");
 		libraryModel.addColumn("Album Media URL");
-		libraryModel.addRow(sampleAlbumLabels);
 		libraryModel.addRow(sampleAlbum0);
 		libraryModel.addRow(sampleAlbum1);
 		libraryModel.addRow(sampleAlbum2);
@@ -200,19 +201,19 @@ public class MainFrame {
 		btnSearch.setBounds(127, 2, 25, 25);
 		searchPanel.add(btnSearch);
 		
-		/*JTableHeader albumsFavorite = new JTableHeader();
-		albumsFavorite.setTable(favoritesTable);
-	    albumsFavorite.setColumnModel(favoritesModel);*/
 		JTabbedPane mainTab = new JTabbedPane(JTabbedPane.TOP);
 		mainTab.setBackground(Color.LIGHT_GRAY);
 		mainTab.setBounds(0, 12, 484, 369);
 		listPane.add(mainTab);
 		favoritesTable = new JTable(favoritesModel);//where you put albums from the favorites
 		favoritesTable.setBackground(Color.LIGHT_GRAY);
-		mainTab.addTab("Favorites", null, favoritesTable, null);
+		JScrollPane favoritesScroll = new JScrollPane(favoritesTable);
+		mainTab.addTab("Favorites", null, favoritesScroll, null);
 		libraryTable = new JTable(libraryModel);//where you put albums from the library
 		libraryTable.setBackground(Color.LIGHT_GRAY);
-		mainTab.addTab("Library", null, libraryTable, null);
+		JScrollPane libraryScroll = new JScrollPane(libraryTable);
+		mainTab.addTab("Library", null, libraryScroll, null);
+		
 		
 		/*favoritesTable.addMouseListener(new MouseAdapter(){
 			public void mouseClicked(MouseEvent evnt) {
@@ -233,7 +234,7 @@ public class MainFrame {
 		playPanel.setBounds(10, 393, 476, 169);
 		playPanel.setLayout(null);
 	
-		placeHolderForImage = new JPanel();
+		placeHolderForImage = new JLabel(new ImageIcon(MainFrame.class.getResource(user.getFavorites().get(0).getAlbumArt())));
 		placeHolderForImage.setBounds(8, 38, 111, 111);
 		playPanel.add(placeHolderForImage);
 	

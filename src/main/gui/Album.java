@@ -9,6 +9,7 @@ public class Album {
 	ArrayList<Track> tracks;
 	int objectId;
 	String mediaURL;
+	private static String AlbumArt;
 	
 	public Album (String newName, ArrayList<Track> songs, String albumURL){
 		name = newName;
@@ -20,6 +21,15 @@ public class Album {
 		}
 		objectId = 0;
 		mediaURL = albumURL;
+		AlbumArt = "/main/gui/note.png";
+	}
+	
+	public String getAlbumArt(){
+		return AlbumArt;
+	}
+	
+	public void setAlbumArt(String newArt){
+		AlbumArt = newArt;
 	}
 
 	public void setObjectId(int id){
