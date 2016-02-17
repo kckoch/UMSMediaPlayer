@@ -159,7 +159,8 @@ public class MainFrame {
 			btnSettings.setBounds(195, 3, 35, 25);
 			btnSettings.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					frame.setContentPane(SettingGUI.init(mainPanel, frame, user));
+					SettingGUI.init(mainPanel, frame, user);
+					//frame.setContentPane(SettingGUI.init(mainPanel, frame, user));
 				}
 			});
 			buttonPanel.add(btnSettings);
