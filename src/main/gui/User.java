@@ -28,7 +28,6 @@ public class User {
 	}
 	
 	public boolean checkPassword(int password) {
-		System.out.println("In check password");
 		return setting.checkpin(password);
 	}
 	
@@ -50,6 +49,14 @@ public class User {
 	
 	public Setting getSetting() {
 		return setting;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public boolean getAdmin() {
+		return admin;
 	}
 	
 }

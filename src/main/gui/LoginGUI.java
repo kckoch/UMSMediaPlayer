@@ -33,6 +33,7 @@ public class LoginGUI {
 		
 		frame = new JFrame("Login");
     	frame.setSize(500, 600);
+    	frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -99,7 +100,7 @@ public class LoginGUI {
 				JButton icon = new JButton();
 				icon.setBorder(null);
 				icon.setBackground(Color.DARK_GRAY);
-				icon.setIcon(tempUser.getSetting().getIcon());
+				icon.setIcon(new ImageIcon(LoginGUI.class.getResource(tempUser.getSetting().getIcon())));
 				icon.setBounds(176, 19, 129, 124);
 				pinpanel.add(icon);
 				
@@ -301,7 +302,7 @@ public class LoginGUI {
 		final JButton adminPic = new JButton("");
 		adminPic.setBorder(null);
 		adminPic.setBackground(Color.DARK_GRAY);
-		adminPic.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/panda_orange_2.png")));
+		adminPic.setIcon(new ImageIcon(LoginGUI.class.getResource(users.get(0).getSetting().getIcon())));
 		adminPic.setBounds(12, 12, 93, 93);
 		adminPic.addMouseListener(new MouseListener() {
 			public void mouseClicked(MouseEvent e) {
@@ -356,7 +357,11 @@ public class LoginGUI {
 		frame.setContentPane(windowPane);
 		
 		//Copyright
-		JLabel copyright = new JLabel("© Team 14");
+		String copy = "\u00A9 Team 14";
+		JLabel copyright = new JLabel();
+		copyright.setText(copy);
+		copyright.setBackground(Color.DARK_GRAY);
+		copyright.setOpaque(true);
 		copyright.setForeground(Color.WHITE);
 		copyright.setBounds(204, 547, 86, 15);
 		windowPane.add(copyright);
