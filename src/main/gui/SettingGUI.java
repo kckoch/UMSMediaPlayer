@@ -7,19 +7,21 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 
 public class SettingGUI {
 	private static JPanel mainPanel = new JPanel();
 	private static JPanel changePicPanel = new JPanel();
+	private static JPanel restrictPanel = new JPanel();
 	private static JTextField servURL;
 	private static JPasswordField passwordField;
 	private static JPasswordField passwordField_1;
+	private static JTextField textField;
 	
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	public static void init(final JPanel mainPanelIn, final JFrame frame, final User user) {
-		
+	public static void init(final JPanel mainPanelIn, final JFrame frame, final User user, final JTable table) {
 		mainPanel.setPreferredSize(new Dimension(500, 600));
 		mainPanel.setMaximumSize(new Dimension(500, 600));
 		mainPanel.setBackground(Color.DARK_GRAY);
@@ -94,7 +96,7 @@ public class SettingGUI {
 		
 		//button to confirm change pin for admin
 		JButton btnChangePin = new JButton("Change Pin");
-		btnChangePin.setFont(new Font("Droid Sans", Font.BOLD, 13));
+		btnChangePin.setFont(new Font("Dialog", Font.PLAIN, 11));
 		btnChangePin.setBorder(null);
 		btnChangePin.setForeground(Color.WHITE);
 		btnChangePin.setBackground(Color.GRAY);
@@ -104,7 +106,7 @@ public class SettingGUI {
 		
 		//button to confirm change pic for admin
 		JButton btnChangeProfilePic = new JButton("Change Profile Pic");
-		btnChangeProfilePic.setFont(new Font("Droid Sans", Font.BOLD, 13));
+		btnChangeProfilePic.setFont(new Font("Dialog", Font.PLAIN, 11));
 		btnChangeProfilePic.setBorder(null);
 		btnChangeProfilePic.setForeground(Color.WHITE);
 		btnChangeProfilePic.setBackground(Color.GRAY);
@@ -240,7 +242,7 @@ public class SettingGUI {
 				changePicPanel.add(confirm);
 				
 				JButton cancel = new JButton("Cancel");
-				cancel.setForeground(Color.RED);
+				cancel.setForeground(UIManager.getColor("OptionPane.errorDialog.border.background"));
 				cancel.setFont(new Font("Tahoma", Font.PLAIN, 21));
 				cancel.setBorder(null);
 				cancel.setBackground(Color.GRAY);
@@ -296,7 +298,7 @@ public class SettingGUI {
 		//example user change pin
 		JButton button = new JButton("Change Pin");
 		button.setForeground(Color.WHITE);
-		button.setFont(new Font("Dialog", Font.BOLD, 13));
+		button.setFont(new Font("Dialog", Font.PLAIN, 11));
 		button.setBorder(null);
 		button.setBackground(Color.GRAY);
 		button.setBounds(205, 32, 93, 25);
@@ -305,7 +307,7 @@ public class SettingGUI {
 		//example user change profile pic button
 		JButton button_1 = new JButton("Change Profile Pic");
 		button_1.setForeground(Color.WHITE);
-		button_1.setFont(new Font("Dialog", Font.BOLD, 13));
+		button_1.setFont(new Font("Dialog", Font.PLAIN, 11));
 		button_1.setBorder(null);
 		button_1.setBackground(Color.GRAY);
 		button_1.setBounds(113, 68, 138, 25);
@@ -313,7 +315,7 @@ public class SettingGUI {
 		
 		//example user manage restrictions
 		JButton btnManageRestrictions = new JButton("Manage Restrictions");
-		btnManageRestrictions.setFont(new Font("Dialog", Font.BOLD, 13));
+		btnManageRestrictions.setFont(new Font("Dialog", Font.PLAIN, 11));
 		btnManageRestrictions.setForeground(Color.WHITE);
 		btnManageRestrictions.setBorder(null);
 		btnManageRestrictions.setBackground(Color.GRAY);
@@ -360,7 +362,7 @@ public class SettingGUI {
 		//confirm server url change button
 		JButton btnChangeServerUrl = new JButton("Change Server URL");
 		btnChangeServerUrl.setForeground(Color.WHITE);
-		btnChangeServerUrl.setFont(new Font("Dialog", Font.BOLD, 11));
+		btnChangeServerUrl.setFont(new Font("Dialog", Font.PLAIN, 11));
 		btnChangeServerUrl.setBorder(null);
 		btnChangeServerUrl.setBackground(Color.GRAY);
 		btnChangeServerUrl.setBounds(237, 33, 138, 26);
@@ -369,12 +371,66 @@ public class SettingGUI {
 		//admin total manage restriction
 		JButton btnManageRestrictionLevels = new JButton("Manage Restriction Levels");
 		btnManageRestrictionLevels.setForeground(Color.WHITE);
-		btnManageRestrictionLevels.setFont(new Font("Dialog", Font.BOLD, 11));
+		btnManageRestrictionLevels.setFont(new Font("Dialog", Font.PLAIN, 11));
 		btnManageRestrictionLevels.setBorder(null);
 		btnManageRestrictionLevels.setBackground(Color.GRAY);
 		btnManageRestrictionLevels.setBounds(22, 72, 205, 25);
+		btnManageRestrictionLevels.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				restrictPanel.setBackground(Color.DARK_GRAY);
+				restrictPanel.setSize(500, 600);
+				restrictPanel.setLayout(null);
+				frame.setContentPane(restrictPanel);
+				
+				JScrollPane scrollPane = new JScrollPane();
+				scrollPane.setBackground(Color.DARK_GRAY);
+				scrollPane.setViewportBorder(null);
+				scrollPane.setBorder(null);
+				scrollPane.setBounds(8, 47, 484, 369);
+				scrollPane.add(table);
+				restrictPanel.add(scrollPane);
+				
+				JLabel lblSelectAnAlbum = new JLabel("Select an album:");
+				lblSelectAnAlbum.setForeground(Color.WHITE);
+				lblSelectAnAlbum.setFont(new Font("Dialog", Font.BOLD, 18));
+				lblSelectAnAlbum.setBackground(Color.DARK_GRAY);
+				lblSelectAnAlbum.setBounds(8, 12, 341, 23);
+				restrictPanel.add(lblSelectAnAlbum);
+				
+				JLabel lblSetRestrictionLevel = new JLabel("Set Restriction Level:");
+				lblSetRestrictionLevel.setForeground(Color.WHITE);
+				lblSetRestrictionLevel.setFont(new Font("Dialog", Font.BOLD, 18));
+				lblSetRestrictionLevel.setBackground(Color.DARK_GRAY);
+				lblSetRestrictionLevel.setBounds(8, 428, 318, 23);
+				restrictPanel.add(lblSetRestrictionLevel);
+				
+				JButton btnConfirm = new JButton("Confirm");
+				btnConfirm.setBorder(null);
+				btnConfirm.setForeground(Color.WHITE);
+				btnConfirm.setBackground(Color.GRAY);
+				btnConfirm.setBounds(12, 542, 117, 25);
+				restrictPanel.add(btnConfirm);
+				
+				textField = new JTextField();
+				textField.setBounds(354, 431, 114, 19);
+				restrictPanel.add(textField);
+				textField.setColumns(10);
+				
+				JButton btnCancel = new JButton("Cancel");
+				btnCancel.setForeground(UIManager.getColor("OptionPane.errorDialog.border.background"));
+				btnCancel.setBorder(null);
+				btnCancel.setBackground(Color.GRAY);
+				btnCancel.setBounds(371, 542, 117, 25);
+				btnCancel.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent arg0) {
+						frame.setContentPane(mainPanel);
+					}
+				});
+				restrictPanel.add(btnCancel);
+			}
+		});
 		servPanel.add(btnManageRestrictionLevels);
-		
-		//return mainPanel;
 	}
 }

@@ -11,6 +11,9 @@ public class Main {
 	private static ArrayList<User> users;
 	private static ArrayList<Track> tracks;
 	
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public static void main(String[] args) {
 		Track sampleTrack = new Track(300, "Track 1", "Track 1 URL");
 		tracks = new ArrayList<Track>();

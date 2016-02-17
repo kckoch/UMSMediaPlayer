@@ -159,7 +159,7 @@ public class MainFrame {
 			btnSettings.setBounds(195, 3, 35, 25);
 			btnSettings.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					SettingGUI.init(mainPanel, frame, user);
+					SettingGUI.init(mainPanel, frame, user, libraryTable);
 					//frame.setContentPane(SettingGUI.init(mainPanel, frame, user));
 				}
 			});
@@ -286,8 +286,6 @@ public class MainFrame {
 		totalText.setText(duration);
 		totalText.setBounds(411, 87, 38, 20);
 		playPanel.add(totalText);
-		
-		
 	
 		maximizeButton = new JButton("");
 		maximizeButton.setPreferredSize(new Dimension(26, 16));
