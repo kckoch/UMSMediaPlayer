@@ -10,24 +10,24 @@ import org.w3c.dom.NodeList;
 
 public class Main {
 	public static void main(String[] args) {
-		// Empty settings to store values in
-		Settings theSettings = new Settings(0, null, 0, null);
+		// Empty Setting to store values in
+		Setting theSetting = new Setting(0, null, 0, null);
 
 		// Load testing
-		theSettings.loadXML("file.xml");
-		if (theSettings.getPIN() == 7)
+		theSetting.loadXML("file.xml");
+		if (theSetting.getPIN() == 7)
 			System.out.println("1 Correct");
-		if (theSettings.getprofilePicPath().equals("pathname"))
+		if (theSetting.getprofilePicPath().equals("pathname"))
 			System.out.println("2 Correct");
-		if (theSettings.getconfigureN() == 11)
+		if (theSetting.getconfigureN() == 11)
 			System.out.println("3 Correct");
-		if (theSettings.getserverURL().equals("stuff"))
+		if (theSetting.getserverURL().equals("stuff"))
 			System.out.println("4 Correct");
 
 
 		// Save testing
-		theSettings = new Settings(8, "test1", 9, "test2");
-		theSettings.saveXML("file.xml");
+		theSetting = new Setting(8, "test1", 9, "test2");
+		theSetting.saveXML("file.xml");
 		
 		try {
 			File inputFile = new File("file.xml");

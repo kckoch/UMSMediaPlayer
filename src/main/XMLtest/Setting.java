@@ -13,12 +13,12 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class Settings {
+public class Setting {
 
 	int PIN, configureN;
 	String profilePicPath, serverURL;
 
-	Settings(int _PIN, String _profilePicPath, int _configureN, String _serverURL) {
+	Setting(int _PIN, String _profilePicPath, int _configureN, String _serverURL) {
 		this.PIN = _PIN;
 		this.profilePicPath = _profilePicPath;
 		this.configureN = _configureN;
