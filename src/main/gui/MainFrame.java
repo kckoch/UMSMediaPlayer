@@ -338,42 +338,44 @@ public class MainFrame {
 		playPanel.add(nextButton);
 		
 		JPanel playPanelBig = new JPanel();
-		playPanelBig.setBounds(0, 0, 484, 564);
+		playPanelBig.setBorder(null);
+		playPanelBig.setBackground(Color.DARK_GRAY);
+		playPanelBig.setBounds(0, 0, 500, 600);
 		playFrame.getContentPane().add(playPanelBig);
 		playPanelBig.setLayout(null);
 	
 		JPanel placeHolderForImageBig = new JPanel();
-		placeHolderForImageBig.setBounds(10, 79, 141, 141);
+		placeHolderForImageBig.setBounds(156, 85, 154, 155);
 		playPanelBig.add(placeHolderForImageBig);
 	
-		JRadioButton favoritesButtonBig = new JRadioButton("StarFavorites");
-		favoritesButtonBig.setBounds(337, 4, 141, 14);
+		JRadioButton favoritesButtonBig = new JRadioButton("");
+		favoritesButtonBig.setSelectedIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/gold_star.png")));
+		favoritesButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/white_star.png")));
+		favoritesButtonBig.setBackground(Color.DARK_GRAY);
+		favoritesButtonBig.setBounds(441, 0, 31, 31);
 		playPanelBig.add(favoritesButtonBig);
 	
-		JLabel trackLabelBig = new JLabel("Track Title:");
-		trackLabelBig.setBounds(161, 75, 70, 23);
-		playPanelBig.add(trackLabelBig);
-	
-		JTextPane trackTitleTextBig = new JTextPane();
-		trackTitleTextBig.setText("This is the Track Title");
-		trackTitleTextBig.setBounds(231, 75, 247, 20);
-		playPanelBig.add(trackTitleTextBig);
-	
 		final JSlider songSliderBig = new JSlider();
-		songSliderBig.setBounds(161, 109, 313, 26);
+		songSliderBig.setBounds(77, 295, 313, 39);
 		playPanelBig.add(songSliderBig);
 	
 		final JTextPane elapsedTextBig = new JTextPane();
-		elapsedTextBig.setText("This is the elapsed time.");
-		elapsedTextBig.setBounds(171, 146, 128, 20);
+		elapsedTextBig.setText(elapsed);
+		elapsedTextBig.setBackground(Color.DARK_GRAY);
+		elapsedTextBig.setForeground(Color.WHITE);
+		elapsedTextBig.setBounds(55, 346, 128, 20);
 		playPanelBig.add(elapsedTextBig);
 	
 		JTextPane totalTextBig = new JTextPane();
-		totalTextBig.setText("This is the total time.");
-		totalTextBig.setBounds(360, 146, 118, 20);
+		totalTextBig.setText(duration);
+		totalTextBig.setBackground(Color.DARK_GRAY);
+		totalTextBig.setForeground(Color.WHITE);
+		totalTextBig.setBounds(348, 346, 118, 20);
 		playPanelBig.add(totalTextBig);
 	
-		JButton minimizeButton = new JButton("v");
+		JButton minimizeButton = new JButton("");
+		minimizeButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/downarrow.png")));
+		minimizeButton.setBackground(Color.DARK_GRAY);
 		minimizeButton.setBounds(0, 0, 41, 23);
 		playPanelBig.add(minimizeButton);
 		minimizeButton.addActionListener(new ActionListener() {
@@ -383,31 +385,53 @@ public class MainFrame {
 			}
 		});
 	
-		JButton playButtonBig = new JButton("Play");
-		playButtonBig.setBounds(290, 197, 53, 23);
+		JButton playButtonBig = new JButton("");
+		playButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/play_button_big.png")));
+		playButtonBig.setBackground(Color.DARK_GRAY);
+		playButtonBig.setBorder(null);
+		playButtonBig.setBounds(195, 398, 71, 72);
 		playPanelBig.add(playButtonBig);
 	
-		JButton pauseButtonBig = new JButton("||");
-		pauseButtonBig.setBounds(227, 197, 53, 23);
+		JButton pauseButtonBig = new JButton("");
+		pauseButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/pause_button_big.png")));
+		pauseButtonBig.setBackground(Color.DARK_GRAY);
+		pauseButtonBig.setBorder(null);
+		pauseButtonBig.setBounds(130, 407, 53, 51);
 		playPanelBig.add(pauseButtonBig);
 		
-		JButton stopButtonBig = new JButton("Stop");
-		stopButtonBig.setBounds(356, 197, 55, 23);
+		JButton stopButtonBig = new JButton("");
+		stopButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/stop_button_big.png")));
+		stopButtonBig.setBackground(Color.DARK_GRAY);
+		stopButtonBig.setBorder(null);
+		stopButtonBig.setBounds(278, 407, 53, 51);
 		playPanelBig.add(stopButtonBig);
 	
-		JButton previousButtonBig = new JButton("<<");
-		previousButtonBig.setBounds(164, 197, 53, 23);
+		JButton previousButtonBig = new JButton("");
+		previousButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/skipbackwards_button_big.png")));
+		previousButtonBig.setBackground(Color.DARK_GRAY);
+		previousButtonBig.setBorder(null);
+		previousButtonBig.setBounds(55, 407, 53, 51);
 		playPanelBig.add(previousButtonBig);
 	
-		JButton nextButtonBig = new JButton(">>");
-		nextButtonBig.setBounds(425, 197, 53, 23);
+		JButton nextButtonBig = new JButton("");
+		nextButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/skipforward_button_big.png")));
+		nextButtonBig.setBackground(Color.DARK_GRAY);
+		nextButtonBig.setBorder(null);
+		nextButtonBig.setBounds(353, 407, 53, 51);
 		playPanelBig.add(nextButtonBig);
+		
+		JLabel lblTrackTitle = new JLabel("Track Title");
+		lblTrackTitle.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTrackTitle.setForeground(Color.WHITE);
+		lblTrackTitle.setBounds(123, 252, 223, 31);
+		playPanelBig.add(lblTrackTitle);
 		mainPanel.setLayout(null);
-
+		
 		mainPanel.add(listPane);
 		mainPanel.add(playPanel);
 		frame.setContentPane(mainPanel);
 		
+		songSliderBig.setBackground(Color.DARK_GRAY);
 		songSlider.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e){
 				elapsedTime = (total * songSlider.getValue() / 100);
@@ -429,6 +453,5 @@ public class MainFrame {
 		});
 		
 		return frame;
-		
 	}
 }
