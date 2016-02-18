@@ -42,7 +42,7 @@ public class SaveUnitTest {
 		assertTrue(checkSetting.getPIN() == setting1);
 		assertTrue(checkSetting.getprofilePicPath().equals(setting2));
 		assertTrue(checkSetting.getconfigureN() == setting3);
-		assertTrue(checkSetting.getserverURL().equals(setting4));
+		assertTrue(checkSetting.serverURL().equals(setting4));
 
 	}
 	

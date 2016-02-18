@@ -32,7 +32,7 @@ public class LoadUnitTest {
 		assertTrue(testSetting.getPIN() == setting1);
 		assertTrue(testSetting.getprofilePicPath().equals(setting2));
 		assertTrue(testSetting.getconfigureN() == setting3);
-		assertTrue(testSetting.getserverURL().equals(setting4));
+		assertTrue(testSetting.getprofilePicPath().equals(setting4));
 	}
 
 }
