@@ -16,13 +16,13 @@ public class Main {
 
 		// Load testing
 		theSetting.loadXML("file.xml");
-		if (theSetting.getPIN() == 7)
+		if (theSetting.getPIN() == 8)
 			System.out.println("1 Correct");
-		if (theSetting.getprofilePicPath().equals("pathname"))
+		if (theSetting.getprofilePicPath().equals("test1"))
 			System.out.println("2 Correct");
-		if (theSetting.getconfigureN() == 11)
+		if (theSetting.getconfigureN() == 9)
 			System.out.println("3 Correct");
-		if (theSetting.getserverURL().equals("stuff"))
+		if (theSetting.getserverURL().equals("test2"))
 			System.out.println("4 Correct");
 
 
