@@ -1,19 +1,12 @@
 package main.gui;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 
-import java.awt.BorderLayout;
-import org.eclipse.wb.swing.FocusTraversalOnArray;
 
 //import com.sun.glass.events.MouseEvent;
 
-import java.awt.Component;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.sql.Time;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
 
@@ -30,8 +23,6 @@ public class MainFrame {
 	private static JFrame frame;
 	private static JPanel mainPanel;
 	private static JTextField txtSearch;
-	private static JTabbedPane library;
-	private static JScrollPane libraryList;
 	private static JTable favoritesTable;
 	private static JTable libraryTable;
 	private static JPanel playPanel;
@@ -42,12 +33,11 @@ public class MainFrame {
 	private static String elapsed;
 	private static int total = 300;
 	private static int elapsedTime;
-	private static Time timer;
-	
 	/**
 	 * @wbp.parser.entryPoint
 	 */
 
+	@SuppressWarnings("rawtypes")
 	public static JFrame init(final User user) {
 		frame = new JFrame("That's My Jam!");
 		frame.setBackground(Color.DARK_GRAY);
@@ -69,52 +59,53 @@ public class MainFrame {
 		listPane.setBorder(null);
 		listPane.setBackground(Color.DARK_GRAY);
 		listPane.setBounds(10, 0, 474, 381);
-		Vector sampleAlbumLabels = new Vector();
+		//vectors for all the album datas to be put into the favorites and library lists
+		Vector<String> sampleAlbumLabels = new Vector<String>();
 		sampleAlbumLabels.addElement("Album Name");
 		sampleAlbumLabels.addElement("Object ID");
 		sampleAlbumLabels.addElement("Album Media URL");
-		Vector sampleAlbum0 = new Vector();
+		Vector<Comparable> sampleAlbum0 = new Vector<Comparable>();
 		sampleAlbum0.addElement(user.getFavorites().get(0).name);
 		sampleAlbum0.addElement(user.getFavorites().get(0).objectId);
 		sampleAlbum0.addElement(user.getFavorites().get(0).mediaURL);
-		Vector sampleAlbum1 = new Vector();
+		Vector<Comparable> sampleAlbum1 = new Vector<Comparable>();
 		sampleAlbum1.addElement(user.getFavorites().get(1).name);
 		sampleAlbum1.addElement(user.getFavorites().get(1).objectId);
 		sampleAlbum1.addElement(user.getFavorites().get(1).mediaURL);
-		Vector sampleAlbum2 = new Vector();
+		Vector<Comparable> sampleAlbum2 = new Vector<Comparable>();
 		sampleAlbum2.addElement(user.getFavorites().get(2).name);
 		sampleAlbum2.addElement(user.getFavorites().get(2).objectId);
 		sampleAlbum2.addElement(user.getFavorites().get(2).mediaURL);
-		Vector sampleAlbum3 = new Vector();
+		Vector<Comparable> sampleAlbum3 = new Vector<Comparable>();
 		sampleAlbum3.addElement(user.getFavorites().get(3).name);
 		sampleAlbum3.addElement(user.getFavorites().get(3).objectId);
 		sampleAlbum3.addElement(user.getFavorites().get(3).mediaURL);
-		Vector sampleAlbum4 = new Vector();
+		Vector<Comparable> sampleAlbum4 = new Vector<Comparable>();
 		sampleAlbum4.addElement(user.getFavorites().get(4).name);
 		sampleAlbum4.addElement(user.getFavorites().get(4).objectId);
 		sampleAlbum4.addElement(user.getFavorites().get(4).mediaURL);
-		Vector sampleAlbum5 = new Vector();
+		Vector<Comparable> sampleAlbum5 = new Vector<Comparable>();
 		sampleAlbum5.addElement(user.getFavorites().get(5).name);
 		sampleAlbum5.addElement(user.getFavorites().get(5).objectId);
 		sampleAlbum5.addElement(user.getFavorites().get(5).mediaURL);
-		Vector sampleAlbum6 = new Vector();
+		Vector<Comparable> sampleAlbum6 = new Vector<Comparable>();
 		sampleAlbum6.addElement(user.getFavorites().get(6).name);
 		sampleAlbum6.addElement(user.getFavorites().get(6).objectId);
 		sampleAlbum6.addElement(user.getFavorites().get(6).mediaURL);
-		Vector sampleAlbum7 = new Vector();
+		Vector<Comparable> sampleAlbum7 = new Vector<Comparable>();
 		sampleAlbum7.addElement(user.getFavorites().get(7).name);
 		sampleAlbum7.addElement(user.getFavorites().get(7).objectId);
 		sampleAlbum7.addElement(user.getFavorites().get(7).mediaURL);
-		Vector sampleAlbum8 = new Vector();
+		Vector<Comparable> sampleAlbum8 = new Vector<Comparable>();
 		sampleAlbum8.addElement(user.getFavorites().get(8).name);
 		sampleAlbum8.addElement(user.getFavorites().get(8).objectId);
 		sampleAlbum8.addElement(user.getFavorites().get(8).mediaURL);
-		Vector sampleAlbum9 = new Vector();
+		Vector<Comparable> sampleAlbum9 = new Vector<Comparable>();
 		sampleAlbum9.addElement(user.getFavorites().get(9).name);
 		sampleAlbum9.addElement(user.getFavorites().get(9).objectId);
 		sampleAlbum9.addElement(user.getFavorites().get(9).mediaURL);
 		
-		DefaultTableModel favoritesModel = new DefaultTableModel();
+		DefaultTableModel favoritesModel = new DefaultTableModel();// favorites list data
 		favoritesModel.addColumn("Album Name");
 		favoritesModel.addColumn("Object ID");
 		favoritesModel.addColumn("Album Media URL");
@@ -131,7 +122,7 @@ public class MainFrame {
 		
 	
 	
-		DefaultTableModel libraryModel = new DefaultTableModel();
+		DefaultTableModel libraryModel = new DefaultTableModel();// library list data
 		libraryModel.addColumn("Album Name");
 		libraryModel.addColumn("Object ID");
 		libraryModel.addColumn("Album Media URL");
@@ -152,7 +143,7 @@ public class MainFrame {
 		buttonPanel.setBackground(Color.DARK_GRAY);
 		buttonPanel.setLayout(null);
 		
-		if(user.getAdmin()) {
+		if(user.getAdmin()) {//settings button only available to an admin
 			JButton btnSettings = new JButton("");
 			btnSettings.setBorder(null);
 			btnSettings.setBackground(Color.DARK_GRAY);
@@ -167,7 +158,7 @@ public class MainFrame {
 			buttonPanel.add(btnSettings);
 		}
 		
-		JButton btnLogOut = new JButton("");
+		JButton btnLogOut = new JButton("");// logout button
 		btnLogOut.setBorder(null);
 		btnLogOut.setBackground(Color.DARK_GRAY);
 		btnLogOut.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/initlogout.png")));
@@ -187,14 +178,14 @@ public class MainFrame {
 		searchPanel.setLayout(null);
 		
 	
-		txtSearch = new JTextField();
+		txtSearch = new JTextField();// search text field
 		txtSearch.setBorder(null);
 		txtSearch.setBounds(12, 3, 114, 19);
 		searchPanel.add(txtSearch);
 		txtSearch.setText("Search");
 		txtSearch.setColumns(10);
 		
-		JButton btnSearch = new JButton("");
+		JButton btnSearch = new JButton("");// search button
 		btnSearch.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/searchicon.png")));
 		btnSearch.setBackground(Color.DARK_GRAY);
 		btnSearch.setBorder(null);
@@ -205,11 +196,11 @@ public class MainFrame {
 		mainTab.setBackground(Color.LIGHT_GRAY);
 		mainTab.setBounds(0, 12, 484, 369);
 		listPane.add(mainTab);
-		favoritesTable = new JTable(favoritesModel);//where you put albums from the favorites
+		favoritesTable = new JTable(favoritesModel);//where you put albums from the favorites, default tab for favorites
 		favoritesTable.setBackground(Color.LIGHT_GRAY);
 		JScrollPane favoritesScroll = new JScrollPane(favoritesTable);
 		mainTab.addTab("Favorites", null, favoritesScroll, null);
-		libraryTable = new JTable(libraryModel);//where you put albums from the library
+		libraryTable = new JTable(libraryModel);//where you put albums from library, tab for library
 		libraryTable.setBackground(Color.LIGHT_GRAY);
 		JScrollPane libraryScroll = new JScrollPane(libraryTable);
 		mainTab.addTab("Library", null, libraryScroll, null);
@@ -223,6 +214,7 @@ public class MainFrame {
 			}
 		});*/
 	
+		//play panel
 		playFrame = new JFrame("That's My JAM");
 		playFrame.setSize(500, 600);
 		playFrame.setLocationRelativeTo(null);
@@ -234,18 +226,19 @@ public class MainFrame {
 		playPanel.setBounds(10, 393, 476, 169);
 		playPanel.setLayout(null);
 	
-		placeHolderForImage = new JLabel(new ImageIcon(MainFrame.class.getResource(user.getFavorites().get(0).getAlbumArt())));
+		placeHolderForImage = new JLabel(new ImageIcon(MainFrame.class.getResource(user.getFavorites().get(0).getAlbumArt())));// album art
 		placeHolderForImage.setBounds(8, 38, 111, 111);
 		playPanel.add(placeHolderForImage);
 	
-		JRadioButton favoritesButton = new JRadioButton("");
+		final JRadioButton favoritesButton = new JRadioButton("");// button to mark album for favorites
 		favoritesButton.setHorizontalTextPosition(SwingConstants.RIGHT);
 		favoritesButton.setSelectedIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/gold_star.png")));
 		favoritesButton.setBackground(Color.GRAY);
 		favoritesButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/white_star.png")));
 		favoritesButton.setBounds(427, 8, 51, 23);
 		playPanel.add(favoritesButton);
-	
+		
+		//track title
 		JLabel trackLabel = new JLabel("Track Title:");
 		trackLabel.setForeground(Color.WHITE);
 		trackLabel.setBounds(129, 35, 70, 23);
@@ -256,13 +249,13 @@ public class MainFrame {
 		trackTitleText.setBounds(203, 38, 158, 20);
 		playPanel.add(trackTitleText);
 	
-		final JSlider songSlider = new JSlider();
+		final JSlider songSlider = new JSlider();//slider
 		songSlider.setForeground(Color.WHITE);
 		songSlider.setBackground(Color.GRAY);
 		songSlider.setBounds(129, 62, 313, 26);
 		playPanel.add(songSlider);
 		
-	    elapsedTime = (total * songSlider.getValue() / 100);
+	    elapsedTime = (total * songSlider.getValue() / 100);//elapsed time
 	    elapsed = "" + elapsedTime;
 		final JTextPane elapsedText = new JTextPane();
 		elapsedText.setForeground(Color.WHITE);
@@ -272,7 +265,7 @@ public class MainFrame {
 		elapsedText.setBounds(129, 87, 38, 20);
 		playPanel.add(elapsedText);
 	
-		duration = "" + total;
+		duration = "" + total;//total time
 		JTextPane totalText = new JTextPane();
 		totalText.setBackground(Color.GRAY);
 		totalText.setForeground(Color.WHITE);
@@ -280,7 +273,7 @@ public class MainFrame {
 		totalText.setBounds(411, 87, 38, 20);
 		playPanel.add(totalText);
 	
-		maximizeButton = new JButton("");
+		maximizeButton = new JButton("");//maximize button
 		maximizeButton.setPreferredSize(new Dimension(26, 16));
 		maximizeButton.setMinimumSize(new Dimension(26, 16));
 		maximizeButton.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
@@ -294,42 +287,42 @@ public class MainFrame {
 		maximizeButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/superuparrow.png")));
 		maximizeButton.setBounds(8, 8, 45, 23);
 		playPanel.add(maximizeButton);
-		maximizeButton.addActionListener(new ActionListener() {
+		maximizeButton.addActionListener(new ActionListener() {//change to full screen play panel
 			public void actionPerformed(ActionEvent e){
 				playFrame.setVisible(true);
 				frame.setVisible(false);
 			}
 		});
 	
-		JButton playButton = new JButton("");
+		JButton playButton = new JButton("");//play button
 		playButton.setBackground(Color.GRAY);
 		playButton.setBorder(null);
 		playButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/play_button.png")));
 		playButton.setBounds(270, 99, 50, 50);
 		playPanel.add(playButton);
 	
-		JButton pauseButton = new JButton("");
+		JButton pauseButton = new JButton("");//pause button
 		pauseButton.setBorder(null);
 		pauseButton.setBackground(Color.GRAY);
 		pauseButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/pause_button.png")));
 		pauseButton.setBounds(209, 109, 35, 35);
 		playPanel.add(pauseButton);
 		
-		JButton stopButton = new JButton("");
+		JButton stopButton = new JButton("");//stop button
 		stopButton.setBorder(null);
 		stopButton.setBackground(Color.GRAY);
 		stopButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/stop_button.png")));
 		stopButton.setBounds(335, 109, 38, 33);
 		playPanel.add(stopButton);
 	
-		JButton previousButton = new JButton("");
+		JButton previousButton = new JButton("");//previous button
 		previousButton.setBackground(Color.GRAY);
 		previousButton.setBorder(null);
 		previousButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/skipbackwards_button.png")));
 		previousButton.setBounds(146, 109, 35, 35);
 		playPanel.add(previousButton);
 	
-		JButton nextButton = new JButton("");
+		JButton nextButton = new JButton("");//next button
 		nextButton.setBackground(Color.GRAY);
 		nextButton.setBorder(null);
 		nextButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/skipforward_button.png")));
@@ -337,6 +330,7 @@ public class MainFrame {
 		nextButton.setBounds(400, 108, 35, 35);
 		playPanel.add(nextButton);
 		
+		//maximize screen play panel has same buttons, labels, and sliders as smaller play panel
 		JPanel playPanelBig = new JPanel();
 		playPanelBig.setBorder(null);
 		playPanelBig.setBackground(Color.DARK_GRAY);
@@ -344,11 +338,11 @@ public class MainFrame {
 		playFrame.getContentPane().add(playPanelBig);
 		playPanelBig.setLayout(null);
 	
-		JPanel placeHolderForImageBig = new JPanel();
+		JLabel placeHolderForImageBig = new JLabel(new ImageIcon(MainFrame.class.getResource(user.getFavorites().get(0).getAlbumArt())));// album art
 		placeHolderForImageBig.setBounds(156, 85, 154, 155);
 		playPanelBig.add(placeHolderForImageBig);
 	
-		JRadioButton favoritesButtonBig = new JRadioButton("");
+		final JRadioButton favoritesButtonBig = new JRadioButton("");
 		favoritesButtonBig.setSelectedIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/gold_star.png")));
 		favoritesButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/white_star.png")));
 		favoritesButtonBig.setBackground(Color.DARK_GRAY);
@@ -373,12 +367,12 @@ public class MainFrame {
 		totalTextBig.setBounds(348, 346, 118, 20);
 		playPanelBig.add(totalTextBig);
 	
-		JButton minimizeButton = new JButton("");
+		JButton minimizeButton = new JButton("");//minimize play panel
 		minimizeButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/downarrow.png")));
 		minimizeButton.setBackground(Color.DARK_GRAY);
 		minimizeButton.setBounds(0, 0, 41, 23);
 		playPanelBig.add(minimizeButton);
-		minimizeButton.addActionListener(new ActionListener() {
+		minimizeButton.addActionListener(new ActionListener() {//switch to play panel sharing screen with favorites and library lists
 			public void actionPerformed(ActionEvent e){
 				frame.setVisible(true);
 				playFrame.setVisible(false);
@@ -431,6 +425,7 @@ public class MainFrame {
 		mainPanel.add(playPanel);
 		frame.setContentPane(mainPanel);
 		
+		//links the sliders and elapsed time text together
 		songSliderBig.setBackground(Color.DARK_GRAY);
 		songSlider.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e){

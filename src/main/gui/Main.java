@@ -15,6 +15,7 @@ public class Main {
 	 * @wbp.parser.entryPoint
 	 */
 	public static void main(String[] args) {
+		//initialize and declare sample tracks and albums for the admin user to use as an example
 		Track sampleTrack = new Track(300, "Track 1", "Track 1 URL");
 		tracks = new ArrayList<Track>();
 		tracks.add(sampleTrack);
@@ -37,6 +38,7 @@ public class Main {
 		album8.setObjectId(8);
 		Album album9 = new Album("Test Album 9", tracks, "Test Album 9 URL");
 		album9.setObjectId(9);
+		//initialize admin account info and list of albums
 		users = new ArrayList<User>();
 		users.add(new User("Admin", true, 1234));
 		users.get(0).addFavorites(album0);
@@ -51,33 +53,31 @@ public class Main {
 		users.get(0).addFavorites(album9);
 		users.get(0).getSetting().setIcon("/main/gui/panda_orange_2.png");
 		boolean logged = false;
-		while(true) {
-			login = LoginGUI.init(users);
+		while(true) {//loop forever
+			login = LoginGUI.init(users);//login screen
 			login.setVisible(true);
 			while(!logged) {
-				for(int i = 0; i< users.size(); i++){
-					if(users.get(i).getCorrect())
+				for(int i = 0; i< users.size(); i++){//determines if entered pin is correct for chosen profile
+					if(users.get(i).getCorrect()) {
+						user = users.get(i);
 						logged = true;
+					}
 				}
 				System.out.print("");
-			}
-			for(int i = 0; i < users.size(); i++) {
-				if(users.get(i).getCorrect()) {
-					user = users.get(i);
-				}
 			}
 			logged = false;
 			user.setCorrect(false);
 			login.setVisible(false);
 			login.dispose();
 			
-			mainframe = MainFrame.init(user);
+			mainframe = MainFrame.init(user);//displays the main screen
 			mainframe.setVisible(true);
-			while(user.getLoggedin()) {
+			while(user.getLoggedin()) {//loops until user logs out
 				System.out.print("");
 			}
 			mainframe.setVisible(false);
 			mainframe.dispose();
+			//returns to login screen
 		}
 	}
 
