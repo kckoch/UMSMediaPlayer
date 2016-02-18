@@ -15,7 +15,7 @@ import org.w3c.dom.NodeList;
 
 public class SaveUnitTest {
 	
-	protected Setting testSetting;
+	protected Setting testSetting, checkSetting;
 	int setting1, setting3;
 	String setting2, setting4;
 	String saveFilePath;
@@ -27,6 +27,7 @@ public class SaveUnitTest {
 		setting3 = 25;
 		setting4 = "MORETEST";
 		testSetting = new Setting(setting1, setting2, setting3, setting4);
+		checkSetting = new Setting(0, null, 0, null);
 		saveFilePath = "testSave.xml";
 	}
 	
@@ -36,6 +37,13 @@ public class SaveUnitTest {
 		
 		testSetting.saveXML(saveFilePath);
 		
+		checkSetting.loadXML(saveFilePath);
+		
+		assert(checkSetting.getPIN() == setting1);
+		assert(checkSetting.getprofilePicPath().equals(setting2));
+		assert(checkSetting.getconfigureN() == setting3);
+		assert(checkSetting.getprofilePicPath().equals(setting4));
+		/*
 		try {
 			File inputFile = new File(saveFilePath);
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -61,6 +69,7 @@ public class SaveUnitTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		*/
 	}
 	
 	
