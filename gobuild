@@ -9,7 +9,7 @@
 echo Launching build...
 
 #if bash gradlew -testname=1 clean build jacocoTestReport
-if bash gradlew clean build jacocoTestReport
+if bash gradlew Main clean build jacocoTestReport
 then
   echo Build complete. Test reports are available in build/reports. Launching firefox...
   firefox build/reports/tests/index.html build/reports/jacoco/test/html/index.html &
