@@ -1,5 +1,5 @@
 
-package test;
+
 
 import static org.junit.Assert.*;
 
@@ -29,10 +29,10 @@ public class LoadUnitTest {
 		
 		testSetting.loadXML(loadFilePath);
 		
-		assert(testSetting.getPIN() == setting1);
-		assert(testSetting.getprofilePicPath().equals(setting2));
-		assert(testSetting.getconfigureN() == setting3);
-		assert(testSetting.getprofilePicPath().equals(setting4));
+		assertTrue(testSetting.getPIN() == setting1);
+		assertTrue(testSetting.getprofilePicPath().equals(setting2));
+		assertTrue(testSetting.getconfigureN() == setting3);
+		assertTrue(testSetting.getprofilePicPath().equals(setting4));
 	}
 
 }

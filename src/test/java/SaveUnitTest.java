@@ -1,4 +1,4 @@
-package test;
+
 
 import static org.junit.Assert.*;
 
@@ -39,10 +39,10 @@ public class SaveUnitTest {
 		
 		checkSetting.loadXML(saveFilePath);
 		
-		assert(checkSetting.getPIN() == setting1);
-		assert(checkSetting.getprofilePicPath().equals(setting2));
-		assert(checkSetting.getconfigureN() == setting3);
-		assert(checkSetting.getprofilePicPath().equals(setting4));
+		assertTrue(checkSetting.getPIN() == setting1);
+		assertTrue(checkSetting.getprofilePicPath().equals(setting2));
+		assertTrue(checkSetting.getconfigureN() == setting3);
+		assertTrue(checkSetting.getprofilePicPath().equals(setting4));
 		/*
 		try {
 			File inputFile = new File(saveFilePath);
