@@ -52,12 +52,6 @@ public class Setting {
 		users.add(newUser)
 	}
 	
-	
-	
-	
-	
-	
-	
 
 	void loadXML(String inputFileName) {
 		// Read in XML file (Load)
@@ -71,7 +65,7 @@ public class Setting {
 			Document doc = dBuilder.parse(inputFile);
 			doc.getDocumentElement().normalize();
 
-			System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
+			//System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
 
 			
 			// Implement User-loading here.
