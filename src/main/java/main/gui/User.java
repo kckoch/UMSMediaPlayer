@@ -6,15 +6,18 @@ public class User {
 	//private Setting setting;
 	private boolean admin;			//if admin, will be true
 	private String name;
+	private int PIN;
+	private int filterN;
 	private boolean loggedin;
 	private boolean correct;
 	private ArrayList<Album> favorites;
 	
 
-	public User(String name, boolean admin, int pin) {
+	public User(String name, boolean admin, int pin, int filterValue) {
 		this.name = name;
 		this.admin = admin;
-		setting = new Setting(pin);
+		PIN = pin;
+		filterN = filterValue; 
 		loggedin = false;
 		favorites = new ArrayList<Album>();
 	}
@@ -28,7 +31,12 @@ public class User {
 	}
 	
 	public boolean checkPassword(int password) {
-		return setting.checkpin(password);
+		if( PIN==password)
+		{
+			return true;
+		}
+		else return false;
+		//return setting.checkpin(password);
 	}
 	
 	public boolean getCorrect() {
@@ -37,6 +45,10 @@ public class User {
 	
 	public void setCorrect(boolean bool) {
 		correct = bool;
+	}
+	
+	public void setFilterN(int filterValue){
+		filterN = filterValue;
 	}
 	
 	public List<Album> getFavorites(){
@@ -59,4 +71,7 @@ public class User {
 		return admin;
 	}
 	
+	public int getFilterN(){
+		return filterN;
+	}
 }
