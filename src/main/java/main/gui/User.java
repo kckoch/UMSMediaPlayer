@@ -3,7 +3,7 @@ package main.gui;
 import java.util.*;
 
 public class User {
-	private Setting setting;
+	//private Setting setting;
 	private boolean admin;			//if admin, will be true
 	private String name;
 	private boolean loggedin;
