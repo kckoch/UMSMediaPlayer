@@ -60,55 +60,29 @@ public class MainFrame {
 		listPane.setBackground(Color.DARK_GRAY);
 		listPane.setBounds(10, 0, 474, 381);
 		//vectors for all the album datas to be put into the favorites and library lists
-		Vector<String> sampleAlbumLabels = new Vector<String>();
-		sampleAlbumLabels.addElement("Album Name");
-		sampleAlbumLabels.addElement("Object ID");
-		sampleAlbumLabels.addElement("Album Media URL");
 		Vector<Comparable> sampleAlbum0 = new Vector<Comparable>();
 		sampleAlbum0.addElement(user.getFavorites().get(0).name);
-		sampleAlbum0.addElement(user.getFavorites().get(0).objectId);
-		sampleAlbum0.addElement(user.getFavorites().get(0).mediaURL);
 		Vector<Comparable> sampleAlbum1 = new Vector<Comparable>();
 		sampleAlbum1.addElement(user.getFavorites().get(1).name);
-		sampleAlbum1.addElement(user.getFavorites().get(1).objectId);
-		sampleAlbum1.addElement(user.getFavorites().get(1).mediaURL);
 		Vector<Comparable> sampleAlbum2 = new Vector<Comparable>();
 		sampleAlbum2.addElement(user.getFavorites().get(2).name);
-		sampleAlbum2.addElement(user.getFavorites().get(2).objectId);
-		sampleAlbum2.addElement(user.getFavorites().get(2).mediaURL);
 		Vector<Comparable> sampleAlbum3 = new Vector<Comparable>();
 		sampleAlbum3.addElement(user.getFavorites().get(3).name);
-		sampleAlbum3.addElement(user.getFavorites().get(3).objectId);
-		sampleAlbum3.addElement(user.getFavorites().get(3).mediaURL);
 		Vector<Comparable> sampleAlbum4 = new Vector<Comparable>();
 		sampleAlbum4.addElement(user.getFavorites().get(4).name);
-		sampleAlbum4.addElement(user.getFavorites().get(4).objectId);
-		sampleAlbum4.addElement(user.getFavorites().get(4).mediaURL);
 		Vector<Comparable> sampleAlbum5 = new Vector<Comparable>();
 		sampleAlbum5.addElement(user.getFavorites().get(5).name);
-		sampleAlbum5.addElement(user.getFavorites().get(5).objectId);
-		sampleAlbum5.addElement(user.getFavorites().get(5).mediaURL);
 		Vector<Comparable> sampleAlbum6 = new Vector<Comparable>();
 		sampleAlbum6.addElement(user.getFavorites().get(6).name);
-		sampleAlbum6.addElement(user.getFavorites().get(6).objectId);
-		sampleAlbum6.addElement(user.getFavorites().get(6).mediaURL);
 		Vector<Comparable> sampleAlbum7 = new Vector<Comparable>();
 		sampleAlbum7.addElement(user.getFavorites().get(7).name);
-		sampleAlbum7.addElement(user.getFavorites().get(7).objectId);
-		sampleAlbum7.addElement(user.getFavorites().get(7).mediaURL);
 		Vector<Comparable> sampleAlbum8 = new Vector<Comparable>();
 		sampleAlbum8.addElement(user.getFavorites().get(8).name);
-		sampleAlbum8.addElement(user.getFavorites().get(8).objectId);
-		sampleAlbum8.addElement(user.getFavorites().get(8).mediaURL);
 		Vector<Comparable> sampleAlbum9 = new Vector<Comparable>();
 		sampleAlbum9.addElement(user.getFavorites().get(9).name);
-		sampleAlbum9.addElement(user.getFavorites().get(9).objectId);
-		sampleAlbum9.addElement(user.getFavorites().get(9).mediaURL);
 		
 		DefaultTableModel favoritesModel = new DefaultTableModel();// favorites list data
 		favoritesModel.addColumn("Album Name");
-		favoritesModel.addColumn("Object ID");
-		favoritesModel.addColumn("Album Media URL");
 		favoritesModel.addRow(sampleAlbum0);
 		favoritesModel.addRow(sampleAlbum1);
 		favoritesModel.addRow(sampleAlbum2);
@@ -124,8 +98,6 @@ public class MainFrame {
 	
 		DefaultTableModel libraryModel = new DefaultTableModel();// library list data
 		libraryModel.addColumn("Album Name");
-		libraryModel.addColumn("Object ID");
-		libraryModel.addColumn("Album Media URL");
 		libraryModel.addRow(sampleAlbum0);
 		libraryModel.addRow(sampleAlbum1);
 		libraryModel.addRow(sampleAlbum2);
@@ -256,7 +228,15 @@ public class MainFrame {
 		playPanel.add(songSlider);
 		
 	    elapsedTime = (total * songSlider.getValue() / 100);//elapsed time
-	    elapsed = "" + elapsedTime;
+	    if(elapsedTime%60 < 10){
+			
+			elapsed = elapsedTime/60 + ":0" + elapsedTime%60;
+		
+		}else{
+		
+			elapsed = elapsedTime/60 + ":" + elapsedTime%60;
+		
+		}
 		final JTextPane elapsedText = new JTextPane();
 		elapsedText.setForeground(Color.WHITE);
 		elapsedText.setBorder(null);
@@ -265,7 +245,16 @@ public class MainFrame {
 		elapsedText.setBounds(129, 87, 38, 20);
 		playPanel.add(elapsedText);
 	
-		duration = "" + total;//total time
+		//total time
+		if(total%60 < 10){
+			
+			duration = total/60 + ":0" + total%60;
+		
+		}else{
+		
+			duration = total/60 + ":" + total%60;
+		
+		}
 		JTextPane totalText = new JTextPane();
 		totalText.setBackground(Color.GRAY);
 		totalText.setForeground(Color.WHITE);
@@ -430,7 +419,15 @@ public class MainFrame {
 		songSlider.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e){
 				elapsedTime = (total * songSlider.getValue() / 100);
-			    elapsed = "" + elapsedTime;
+				if(elapsedTime%60 < 10){
+					
+					elapsed = elapsedTime/60 + ":0" + elapsedTime%60;
+				
+				}else{
+				
+					elapsed = elapsedTime/60 + ":" + elapsedTime%60;
+				
+				}
 			    elapsedText.setText(elapsed);
 			    elapsedTextBig.setText(elapsed);
 			    songSliderBig.setValue(songSlider.getValue());
@@ -440,7 +437,15 @@ public class MainFrame {
 		songSliderBig.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e){
 				elapsedTime = (total * songSliderBig.getValue() / 100);
-			    elapsed = "" + elapsedTime;
+				if(elapsedTime%60 < 10){
+					
+					elapsed = elapsedTime/60 + ":0" + elapsedTime%60;
+				
+				}else{
+				
+					elapsed = elapsedTime/60 + ":" + elapsedTime%60;
+				
+				}
 			    elapsedText.setText(elapsed);
 			    elapsedTextBig.setText(elapsed);
 			    songSlider.setValue(songSliderBig.getValue());
