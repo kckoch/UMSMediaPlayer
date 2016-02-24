@@ -283,7 +283,7 @@ public class MainFrame {
 			}
 		});
 	
-		JButton playButton = new JButton("");//play button
+		final JButton playButton = new JButton("");//play button/ pause button
 		playButton.setBackground(Color.GRAY);
 		playButton.setBorder(null);
 		playButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/play_button.png")));
@@ -449,6 +449,13 @@ public class MainFrame {
 			    elapsedText.setText(elapsed);
 			    elapsedTextBig.setText(elapsed);
 			    songSlider.setValue(songSliderBig.getValue());
+			}
+			
+		});
+		
+		playButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e){
+				
 			}
 		});
 		
