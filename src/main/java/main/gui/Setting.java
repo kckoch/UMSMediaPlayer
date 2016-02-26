@@ -1,4 +1,4 @@
-package main.gui;
+package main.java.main.gui;
 
 import java.awt.*;
 import java.io.File;
@@ -53,8 +53,8 @@ public class Setting {
 		users.add(newUser);
 	}
 	
-
-	void loadXML(String inputFileName) {
+//THIS is broken--this needs to be fixed
+	/*void loadXML(String inputFileName) {
 		// Read in XML file (Load)
 		try {
 			// Designate input file
@@ -64,6 +64,7 @@ public class Setting {
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			// Parse input file
 			Document doc = dBuilder.parse(inputFile);
+
 			doc.getDocumentElement().normalize();
 
 			//System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
@@ -90,7 +91,7 @@ public class Setting {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 
 	void saveXML(String outputFileName) {
 		// Output XML file (Save)
