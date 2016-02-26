@@ -1,4 +1,4 @@
-package main.java.main.gui;
+package main.gui;
 
 import java.util.List;
 
