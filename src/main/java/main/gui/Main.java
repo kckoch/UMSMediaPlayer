@@ -40,7 +40,7 @@ public class Main {
 		album9.setObjectId(9);
 		//initialize admin account info and list of albums
 		users = new ArrayList<User>();
-		users.add(new User("Admin", true, 1234));
+		users.add(new User("Admin", true, 1234, 0));
 		users.get(0).addFavorites(album0);
 		users.get(0).addFavorites(album1);
 		users.get(0).addFavorites(album2);
@@ -51,7 +51,7 @@ public class Main {
 		users.get(0).addFavorites(album7);
 		users.get(0).addFavorites(album8);
 		users.get(0).addFavorites(album9);
-		users.get(0).getSetting().setIcon("/main/gui/panda_orange_2.png");
+		users.get(0).setIcon("/main/gui/panda_orange_2.png");
 		boolean logged = false;
 		while(true) {//loop forever
 			login = LoginGUI.init(users);//login screen

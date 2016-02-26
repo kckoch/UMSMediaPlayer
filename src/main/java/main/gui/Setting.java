@@ -2,6 +2,7 @@ package main.gui;
 
 import java.awt.*;
 import java.io.File;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.xml.parsers.DocumentBuilder;
@@ -28,7 +29,7 @@ public class Setting {
 		configureN = _configureN;
 		serverURL = _serverURL;
 		users = new ArrayList<User>();
-		users.add(new User(admin, true, 9999))
+		users.add(new User("admin", true, 9999, 0));
 	}
 
 	public int getconfigureN() {
@@ -49,7 +50,7 @@ public class Setting {
 	
 	public void addUser(User newUser)
 	{
-		users.add(newUser)
+		users.add(newUser);
 	}
 	
 

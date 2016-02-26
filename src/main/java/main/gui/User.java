@@ -10,6 +10,7 @@ public class User {
 	private int filterN;
 	private boolean loggedin;
 	private boolean correct;
+	private String iconpath;
 	private ArrayList<Album> favorites;
 	
 
@@ -59,10 +60,6 @@ public class User {
 		favorites.add(album);
 	}
 	
-	public Setting getSetting() {
-		return setting;
-	}
-	
 	public String getName() {
 		return name;
 	}
@@ -73,5 +70,13 @@ public class User {
 	
 	public int getFilterN(){
 		return filterN;
+	}
+	
+	public void setIcon(String path) {
+		iconpath = path;
+	}
+	
+	public String getIcon() {
+		return iconpath;
 	}
 }
