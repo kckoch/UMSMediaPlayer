@@ -1,5 +1,7 @@
 package main.gui;
 
+import javax.media.CannotRealizeException;
+import javax.media.NoPlayerException;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -7,11 +9,15 @@ import javax.swing.table.DefaultTableModel;
 //import com.sun.glass.events.MouseEvent;
 
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
 
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Insets;
@@ -59,55 +65,59 @@ public class MainFrame {
 		listPane.setBorder(null);
 		listPane.setBackground(Color.DARK_GRAY);
 		listPane.setBounds(10, 0, 474, 381);
-		//vectors for all the album datas to be put into the favorites and library lists
-		Vector<Comparable> sampleAlbum0 = new Vector<Comparable>();
-		sampleAlbum0.addElement(user.getFavorites().get(0).name);
-		Vector<Comparable> sampleAlbum1 = new Vector<Comparable>();
-		sampleAlbum1.addElement(user.getFavorites().get(1).name);
-		Vector<Comparable> sampleAlbum2 = new Vector<Comparable>();
-		sampleAlbum2.addElement(user.getFavorites().get(2).name);
-		Vector<Comparable> sampleAlbum3 = new Vector<Comparable>();
-		sampleAlbum3.addElement(user.getFavorites().get(3).name);
-		Vector<Comparable> sampleAlbum4 = new Vector<Comparable>();
-		sampleAlbum4.addElement(user.getFavorites().get(4).name);
-		Vector<Comparable> sampleAlbum5 = new Vector<Comparable>();
-		sampleAlbum5.addElement(user.getFavorites().get(5).name);
-		Vector<Comparable> sampleAlbum6 = new Vector<Comparable>();
-		sampleAlbum6.addElement(user.getFavorites().get(6).name);
-		Vector<Comparable> sampleAlbum7 = new Vector<Comparable>();
-		sampleAlbum7.addElement(user.getFavorites().get(7).name);
-		Vector<Comparable> sampleAlbum8 = new Vector<Comparable>();
-		sampleAlbum8.addElement(user.getFavorites().get(8).name);
-		Vector<Comparable> sampleAlbum9 = new Vector<Comparable>();
-		sampleAlbum9.addElement(user.getFavorites().get(9).name);
+		//vectors for all the album data to be put into the favorites and library lists
+		Vector<Comparable> albumA = new Vector<Comparable>();
+		albumA.addElement(user.getFavorites().get(0).name);
+		/*Vector<Comparable> albumB = new Vector<Comparable>();
+		albumB.addElement(user.getFavorites().get(1).name);
+		Vector<Comparable> albumC = new Vector<Comparable>();
+		albumC.addElement(user.getFavorites().get(2).name);*/
+		Vector<Comparable> trackA = new Vector<Comparable>();
+		trackA.addElement(user.getFavorites().get(0).tracks.get(0).title);
+		trackA.addElement(user.getFavorites().get(0).tracks.get(0).totalTime);
 		
-		DefaultTableModel favoritesModel = new DefaultTableModel();// favorites list data
-		favoritesModel.addColumn("Album Name");
-		favoritesModel.addRow(sampleAlbum0);
-		favoritesModel.addRow(sampleAlbum1);
-		favoritesModel.addRow(sampleAlbum2);
-		favoritesModel.addRow(sampleAlbum3);
-		favoritesModel.addRow(sampleAlbum4);
-		favoritesModel.addRow(sampleAlbum5);
-		favoritesModel.addRow(sampleAlbum6);
-		favoritesModel.addRow(sampleAlbum7);
-		favoritesModel.addRow(sampleAlbum8);
-		favoritesModel.addRow(sampleAlbum9);
+		final DefaultTableModel favoritesModelAlbums = new DefaultTableModel() {
+			
+			public boolean isCellEditable(int row, int column){
+		      
+				return false;
+			
+			};
+			
+		};// favorites list data
+		favoritesModelAlbums.addColumn("Album Name");
+		favoritesModelAlbums.addRow(albumA);
+		/*favoritesModel.addRow(albumB);
+		favoritesModel.addRow(albumC);*/
 		
-	
-	
-		DefaultTableModel libraryModel = new DefaultTableModel();// library list data
+		final DefaultTableModel favoritesModelTracks = new DefaultTableModel() {
+			
+			public boolean isCellEditable(int row, int column){
+		      
+				return false;
+			
+			};
+			
+		};// favorites list data
+		favoritesModelTracks.addColumn("Track Title");
+		favoritesModelTracks.addColumn("Track Duration");
+		favoritesModelTracks.addRow(trackA);
+		/*favoritesModel.addRow(albumB);
+		favoritesModel.addRow(albumC);*/
+		
+		DefaultTableModel libraryModel = new DefaultTableModel(){
+			
+			public boolean isCellEditable(int row, int column){
+		      
+				return false;
+			
+			};
+			
+		};// library list data
 		libraryModel.addColumn("Album Name");
-		libraryModel.addRow(sampleAlbum0);
-		libraryModel.addRow(sampleAlbum1);
-		libraryModel.addRow(sampleAlbum2);
-		libraryModel.addRow(sampleAlbum3);
-		libraryModel.addRow(sampleAlbum4);
-		libraryModel.addRow(sampleAlbum5);
-		libraryModel.addRow(sampleAlbum6);
-		libraryModel.addRow(sampleAlbum7);
-		libraryModel.addRow(sampleAlbum8);
-		libraryModel.addRow(sampleAlbum9);
+		libraryModel.addRow(albumA);
+		/*libraryModel.addRow(albumB);
+		libraryModel.addRow(albumC);*/
 		
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setBounds(204, 0, 260, 30);
@@ -168,12 +178,17 @@ public class MainFrame {
 		mainTab.setBackground(Color.LIGHT_GRAY);
 		mainTab.setBounds(0, 12, 484, 369);
 		listPane.add(mainTab);
-		favoritesTable = new JTable(favoritesModel);//where you put albums from the favorites, default tab for favorites
+		favoritesTable = new JTable(favoritesModelAlbums);//where you put albums from the favorites, default tab for favorites
 		favoritesTable.setBackground(Color.LIGHT_GRAY);
+		favoritesTable.setRowSelectionAllowed(true);
+		favoritesTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		ListSelectionModel favoritesSelectionModel = favoritesTable.getSelectionModel();
 		JScrollPane favoritesScroll = new JScrollPane(favoritesTable);
 		mainTab.addTab("Favorites", null, favoritesScroll, null);
 		libraryTable = new JTable(libraryModel);//where you put albums from library, tab for library
 		libraryTable.setBackground(Color.LIGHT_GRAY);
+		libraryTable.setRowSelectionAllowed(true);
+		libraryTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		JScrollPane libraryScroll = new JScrollPane(libraryTable);
 		mainTab.addTab("Library", null, libraryScroll, null);
 		
@@ -453,9 +468,32 @@ public class MainFrame {
 			
 		});
 		
+		final PlayTrackController playTrackCntl = new PlayTrackController();
+		
+		final BrowseFavoritesController browseFavCntl = new BrowseFavoritesController(favoritesTable, user);
+		
+		favoritesSelectionModel.addListSelectionListener(new ListSelectionListener(){
+			
+			public void valueChanged(ListSelectionEvent e){
+				
+				browseFavCntl.setSelectedAlbum();
+				favoritesTable.setModel(favoritesModelTracks);
+			}
+			
+		});
+		
 		playButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
-				
+				if(playTrackCntl.playerStat == playerStatus.STOPPED){
+					try {
+						playTrackCntl.startTrack(user.getFavorites().get(0).tracks.get(0));
+					} catch (NoPlayerException | CannotRealizeException | IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}else{
+					playTrackCntl.playTrack();
+				}
 			}
 		});
 		
