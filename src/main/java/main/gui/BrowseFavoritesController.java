@@ -16,17 +16,25 @@ public class BrowseFavoritesController {
 		user = newUser;
 	}
 	
-	public void setSelectedAlbum(){
-		
+	public int setSelectedObject(int objectCheck){
 		int rowIndex = favoritesTable.getSelectedRow();
+		if(objectCheck == 0){
+			setSelectedAlbum(rowIndex);
+		}
+		if(objectCheck == 1){
+			setSelectedTrack(rowIndex);
+		}
+		return rowIndex;
+	}
+	
+	public void setSelectedAlbum(int row){
 		int i;
 		for(i = 0; i < user.getFavorites().size(); i++){
-			if(favoritesTable.getModel().getValueAt(rowIndex, 0) == user.getFavorites().get(i).name){
+			if(favoritesTable.getModel().getValueAt(row, 0) == user.getFavorites().get(i).name){
 				selectedAlbum = user.getFavorites().get(i);
 				break;
 			}
 		}
-		
 	}
 	
 	public Album getSelectedAlbum(){
@@ -35,11 +43,19 @@ public class BrowseFavoritesController {
 		
 	}
 	
-	public void setSelectedTrack(Track newTrack){
-		
-		selectedTrack = newTrack;
-		
+	public void setSelectedTrack(int row){
+		 
+		int i;
+		for(i = 0; i < selectedAlbum.tracks.size(); i++){
+			
+			if(favoritesTable.getModel().getValueAt(row, 0) == selectedAlbum.tracks.get(i)){
+					selectedTrack = selectedAlbum.tracks.get(i);
+					break;
+			}
+				
+		}
 	}
+		
 	
 	public Track getSelectedTrack(){
 		

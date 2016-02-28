@@ -39,6 +39,9 @@ public class MainFrame {
 	private static String elapsed;
 	private static int total = 300;
 	private static int elapsedTime;
+	private static DefaultTableModel notDisplayed;
+	private static DefaultTableModel displayed;
+	private static int favsAlbumsOrTracks = 0;
 	/**
 	 * @wbp.parser.entryPoint
 	 */
@@ -68,13 +71,13 @@ public class MainFrame {
 		//vectors for all the album data to be put into the favorites and library lists
 		Vector<Comparable> albumA = new Vector<Comparable>();
 		albumA.addElement(user.getFavorites().get(0).name);
-		/*Vector<Comparable> albumB = new Vector<Comparable>();
+		Vector<Comparable> albumB = new Vector<Comparable>();
 		albumB.addElement(user.getFavorites().get(1).name);
 		Vector<Comparable> albumC = new Vector<Comparable>();
-		albumC.addElement(user.getFavorites().get(2).name);*/
-		Vector<Comparable> trackA = new Vector<Comparable>();
-		trackA.addElement(user.getFavorites().get(0).tracks.get(0).title);
-		trackA.addElement(user.getFavorites().get(0).tracks.get(0).totalTime);
+		albumC.addElement(user.getFavorites().get(2).name);
+		Vector<Comparable> back = new Vector<Comparable>();
+		back.addElement("Back");
+		
 		
 		final DefaultTableModel favoritesModelAlbums = new DefaultTableModel() {
 			
@@ -87,8 +90,10 @@ public class MainFrame {
 		};// favorites list data
 		favoritesModelAlbums.addColumn("Album Name");
 		favoritesModelAlbums.addRow(albumA);
-		/*favoritesModel.addRow(albumB);
-		favoritesModel.addRow(albumC);*/
+		favoritesModelAlbums.addRow(albumB);
+		favoritesModelAlbums.addRow(albumC);
+		
+		displayed = favoritesModelAlbums;
 		
 		final DefaultTableModel favoritesModelTracks = new DefaultTableModel() {
 			
@@ -99,11 +104,11 @@ public class MainFrame {
 			};
 			
 		};// favorites list data
-		favoritesModelTracks.addColumn("Track Title");
-		favoritesModelTracks.addColumn("Track Duration");
-		favoritesModelTracks.addRow(trackA);
-		/*favoritesModel.addRow(albumB);
-		favoritesModel.addRow(albumC);*/
+		favoritesModelTracks.addColumn("Title");
+		favoritesModelTracks.addColumn("Duration");
+		favoritesModelTracks.addColumn("Artist");
+		favoritesModelTracks.addRow(back);
+		notDisplayed = favoritesModelTracks;
 		
 		DefaultTableModel libraryModel = new DefaultTableModel(){
 			
@@ -476,8 +481,37 @@ public class MainFrame {
 			
 			public void valueChanged(ListSelectionEvent e){
 				
-				browseFavCntl.setSelectedAlbum();
-				favoritesTable.setModel(favoritesModelTracks);
+				if(favoritesTable.getSelectedRow() >= 0){
+				
+					if(favsAlbumsOrTracks == 1 && favoritesTable.getSelectedRow() == 0){
+						favoritesTable.setModel(notDisplayed);
+						notDisplayed = displayed;
+						displayed = (DefaultTableModel) favoritesTable.getModel();
+						int i;
+						for(i = browseFavCntl.selectedAlbum.tracks.size(); i > 0; i--){
+							notDisplayed.removeRow(i);
+						}
+						favsAlbumsOrTracks++;
+						favsAlbumsOrTracks = favsAlbumsOrTracks%2;
+					}else{
+						int row = browseFavCntl.setSelectedObject(favsAlbumsOrTracks);
+						if(favsAlbumsOrTracks == 0){
+							int i;
+							for(i = 0; i < user.getFavorites().get(row).tracks.size(); i++){
+								Vector<Comparable> newTrack = new Vector<Comparable>();
+								newTrack.addElement(user.getFavorites().get(row).tracks.get(i).title);
+								newTrack.addElement(user.getFavorites().get(row).tracks.get(i).totalTime);
+								newTrack.addElement(user.getFavorites().get(row).tracks.get(i).artist);
+								notDisplayed.addRow(newTrack);
+							}
+							favoritesTable.setModel(notDisplayed);
+							notDisplayed = displayed;
+							displayed = (DefaultTableModel) favoritesTable.getModel();
+							favsAlbumsOrTracks++;
+							favsAlbumsOrTracks = favsAlbumsOrTracks%2;
+						}
+					}
+				}
 			}
 			
 		});
