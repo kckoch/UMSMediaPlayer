@@ -10,14 +10,13 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 
 public class SettingGUI {
-	private static JPanel mainPanel = new JPanel();
+	private static JScrollPane mainPanel = new JScrollPane();
 	private static JPanel changePicPanel = new JPanel();
 	private static JPanel restrictPanel = new JPanel();
 	private static JPanel addUserPanel = new JPanel();
 	private static JTextField servURL;
 	private static JPasswordField passwordField;
 	private static JPasswordField passwordField_1;
-	private static JPasswordField passwordField_2;
 	private static JTextField textField;
 	private static JTextField txtTempUser;
 	private static JTextField textField2;

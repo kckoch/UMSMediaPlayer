@@ -332,27 +332,6 @@ public class LoginGUI {
 		});
 		admin.add(adminPic);
 		
-		//The add account panel
-		JPanel addAcc = new JPanel();
-		addAcc.setBackground(Color.DARK_GRAY);
-		addAcc.setBounds(151, 0, 117, 163);
-		middle.add(addAcc);
-		addAcc.setLayout(null);
-		
-		//The add account label
-		JLabel lblAddAccount = new JLabel("Add Account");
-		lblAddAccount.setForeground(Color.WHITE);
-		lblAddAccount.setBounds(12, 117, 93, 15);
-		addAcc.add(lblAddAccount);
-		
-		//The icon button
-		JButton addAccIcon = new JButton("");
-		addAccIcon.setBorder(null);
-		addAccIcon.setBackground(Color.DARK_GRAY);
-		addAccIcon.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/panda_blue_2.png")));
-		addAccIcon.setBounds(12, 12, 93, 93);
-		addAcc.add(addAccIcon);
-		
 		frame.setBackground(Color.DARK_GRAY);
 		frame.setContentPane(windowPane);
 		

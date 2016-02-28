@@ -489,7 +489,7 @@ public class MainFrame {
 						playTrackCntl.startTrack(user.getFavorites().get(0).tracks.get(0));
 					} catch (NoPlayerException | CannotRealizeException | IOException e1) {
 						// TODO Auto-generated catch block
-						e1.printStackTrace();
+						e.printStackTrace();
 					}
 				}else{
 					playTrackCntl.playTrack();
