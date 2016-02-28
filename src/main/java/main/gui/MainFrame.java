@@ -9,6 +9,8 @@ import javax.swing.table.DefaultTableModel;
 //import com.sun.glass.events.MouseEvent;
 
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.io.IOException;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
@@ -42,6 +44,7 @@ public class MainFrame {
 	private static DefaultTableModel notDisplayed;
 	private static DefaultTableModel displayed;
 	private static int favsAlbumsOrTracks = 0;
+	
 	/**
 	 * @wbp.parser.entryPoint
 	 */
@@ -124,7 +127,7 @@ public class MainFrame {
 		/*libraryModel.addRow(albumB);
 		libraryModel.addRow(albumC);*/
 		
-		JPanel buttonPanel = new JPanel();
+		final JPanel buttonPanel = new JPanel();
 		buttonPanel.setBounds(204, 0, 260, 30);
 		listPane.add(buttonPanel);
 		buttonPanel.setBackground(Color.DARK_GRAY);
@@ -179,6 +182,10 @@ public class MainFrame {
 		btnSearch.setBounds(127, 2, 25, 25);
 		searchPanel.add(btnSearch);
 		
+		final JButton removeFavsBut = new JButton("TRASH");
+		removeFavsBut.setBounds(-14, 3, 70, 23);
+		buttonPanel.add(removeFavsBut);
+		
 		JTabbedPane mainTab = new JTabbedPane(JTabbedPane.TOP);
 		mainTab.setBackground(Color.LIGHT_GRAY);
 		mainTab.setBounds(0, 12, 484, 369);
@@ -197,6 +204,20 @@ public class MainFrame {
 		JScrollPane libraryScroll = new JScrollPane(libraryTable);
 		mainTab.addTab("Library", null, libraryScroll, null);
 		
+		libraryScroll.addFocusListener(new FocusListener(){
+			public void focusGained(FocusEvent e) {
+		        buttonPanel.remove(removeFavsBut);
+		    }
+
+		    public void focusLost(FocusEvent e) {
+		    	buttonPanel.add(removeFavsBut);
+		    }
+		});
+		if(mainTab.getSelectedComponent() == favoritesScroll){
+			removeFavsBut.setVisible(true);
+		}else{
+			removeFavsBut.setVisible(false);
+		}
 		
 		/*favoritesTable.addMouseListener(new MouseAdapter(){
 			public void mouseClicked(MouseEvent evnt) {
@@ -476,6 +497,45 @@ public class MainFrame {
 		final PlayTrackController playTrackCntl = new PlayTrackController();
 		
 		final BrowseFavoritesController browseFavCntl = new BrowseFavoritesController(favoritesTable, user);
+		
+		removeFavsBut.addActionListener(new ActionListener() {//remove album from favorites
+			
+			public void actionPerformed(ActionEvent e){
+				
+				if(browseFavCntl.selectedAlbum != null){
+					
+					int i;
+					for(i = 0; i < user.getFavorites().size(); i++){
+						
+						if(browseFavCntl.selectedAlbum == user.getFavorites().get(i)){
+							
+							if(favsAlbumsOrTracks == 1){
+								notDisplayed.removeRow(i);
+								favoritesTable.setModel(notDisplayed);
+								notDisplayed = displayed;
+								displayed = (DefaultTableModel) favoritesTable.getModel();
+								int j;
+								for(j = browseFavCntl.selectedAlbum.tracks.size(); j > 0; j--){
+									notDisplayed.removeRow(j);
+								}
+								favsAlbumsOrTracks++;
+								favsAlbumsOrTracks = favsAlbumsOrTracks%2;
+							}else if(favsAlbumsOrTracks == 0){
+								displayed.removeRow(i);
+							}
+							user.getFavorites().remove(i);
+							browseFavCntl.selectedAlbum = null;
+							break;
+							
+						}
+						
+					}
+					
+				}
+				
+			}
+			
+		});
 		
 		favoritesSelectionModel.addListSelectionListener(new ListSelectionListener(){
 			
