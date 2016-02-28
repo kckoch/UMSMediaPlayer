@@ -4,15 +4,15 @@ package main.gui;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import javax.media.CannotRealizeException;
+/*import javax.media.CannotRealizeException;
 import javax.media.Manager;
 import javax.media.NoPlayerException;
-import javax.media.Player;
+import javax.media.Player;*/
 
 
 public class PlayTrackController {
 	
-	Track track;
+	/*Track track;
 	int currentTime;
 	Player trackPlayer;
 	playerStatus playerStat;
@@ -81,6 +81,6 @@ public class PlayTrackController {
 	
 	public void pickPoint(){
 		
-	}
+	}*/
 	
 }

@@ -1,7 +1,7 @@
 package main.gui;
 
-import javax.media.CannotRealizeException;
-import javax.media.NoPlayerException;
+//import javax.media.CannotRealizeException;
+//import javax.media.NoPlayerException;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -398,7 +398,7 @@ public class MainFrame {
 		playPanelBig.add(totalTextBig);
 	
 		JButton minimizeButton = new JButton("");//minimize play panel
-		minimizeButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/downarrow.png")));
+		minimizeButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/resources/main/gui/downarrow.png")));
 		minimizeButton.setBackground(Color.DARK_GRAY);
 		minimizeButton.setBounds(0, 0, 41, 23);
 		playPanelBig.add(minimizeButton);
@@ -410,35 +410,35 @@ public class MainFrame {
 		});
 	
 		JButton playButtonBig = new JButton("");
-		playButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/play_button_big.png")));
+		playButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/resources/main/gui/play_button_big.png")));
 		playButtonBig.setBackground(Color.DARK_GRAY);
 		playButtonBig.setBorder(null);
 		playButtonBig.setBounds(195, 398, 71, 72);
 		playPanelBig.add(playButtonBig);
 	
 		JButton pauseButtonBig = new JButton("");
-		pauseButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/pause_button_big.png")));
+		pauseButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/resources/main/gui/pause_button_big.png")));
 		pauseButtonBig.setBackground(Color.DARK_GRAY);
 		pauseButtonBig.setBorder(null);
 		pauseButtonBig.setBounds(130, 407, 53, 51);
 		playPanelBig.add(pauseButtonBig);
 		
 		JButton stopButtonBig = new JButton("");
-		stopButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/stop_button_big.png")));
+		stopButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/resources/main/gui/stop_button_big.png")));
 		stopButtonBig.setBackground(Color.DARK_GRAY);
 		stopButtonBig.setBorder(null);
 		stopButtonBig.setBounds(278, 407, 53, 51);
 		playPanelBig.add(stopButtonBig);
 	
 		JButton previousButtonBig = new JButton("");
-		previousButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/skipbackwards_button_big.png")));
+		previousButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/resources/main/gui/skipbackwards_button_big.png")));
 		previousButtonBig.setBackground(Color.DARK_GRAY);
 		previousButtonBig.setBorder(null);
 		previousButtonBig.setBounds(55, 407, 53, 51);
 		playPanelBig.add(previousButtonBig);
 	
 		JButton nextButtonBig = new JButton("");
-		nextButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/skipforward_button_big.png")));
+		nextButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/resources/main/gui/skipforward_button_big.png")));
 		nextButtonBig.setBackground(Color.DARK_GRAY);
 		nextButtonBig.setBorder(null);
 		nextButtonBig.setBounds(353, 407, 53, 51);
@@ -576,7 +576,7 @@ public class MainFrame {
 			
 		});
 		
-		playButton.addActionListener(new ActionListener() {
+		/*playButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
 				if(playTrackCntl.playerStat == playerStatus.STOPPED){
 					try {
@@ -589,7 +589,7 @@ public class MainFrame {
 					playTrackCntl.playTrack();
 				}
 			}
-		});
+		});*/
 		
 		return frame;
 	}
