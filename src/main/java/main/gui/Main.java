@@ -53,12 +53,12 @@ public class Main {
 		
 		users.add(new User("Child 1", false, 1111, 1));
 		users.get(1).addFavorites(albumA);
-		users.get(1).setIcon("/main/gui/giraffe_orange.png");
+		users.get(1).setIcon("/main/gui/giraffe_green.png");
 		
 		users.add(new User("Child 2", false, 2222, 3));
-		users.get(1).addFavorites(albumA);
-		users.get(1).addFavorites(albumB);
-		users.get(1).setIcon("/main/gui/smile_blue.png");
+		users.get(2).addFavorites(albumA);
+		users.get(2).addFavorites(albumB);
+		users.get(2).setIcon("/main/gui/smile_blue.png");
 
 		boolean logged = false;
 		while(true) {//loop forever

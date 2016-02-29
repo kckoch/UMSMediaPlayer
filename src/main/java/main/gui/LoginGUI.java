@@ -303,7 +303,7 @@ public class LoginGUI {
 	}
 	
 	private static JPanel userPanel(final User user) {
-		//The admin user panel
+		//The user panel
 		JPanel panel = new JPanel();
 		panel.setPreferredSize(new Dimension(115, 140));
 		panel.setMinimumSize(new Dimension(100, 150));
