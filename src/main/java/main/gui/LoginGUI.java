@@ -50,13 +50,41 @@ public class LoginGUI {
 		
 		//Start of the middle section
 		JPanel middle = new JPanel();
-		middle.setBounds(0, 184, 498, 357);
+		middle.setBounds(0, 184, 498, 307);
 		middle.setBackground(Color.DARK_GRAY);
+		
+		//The logo label
+		JLabel logoLabel = new JLabel("");
+		logoLabel.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/logo.png")));
+		logoLabel.setMaximumSize(new Dimension(500, 300));
+		logoLabel.setBorder(null);
+		logoLabel.setBounds(10, 12, 447, 159);
+		logo.add(logoLabel);
+		windowPane.setLayout(null);
+		windowPane.add(middle);
+		middle.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
+		
+		for(int i = 0; i < users.size(); i++) {
+			middle.add(userPanel(users.get(i)));
+		}
+		
+		frame.setBackground(Color.DARK_GRAY);
+		frame.setContentPane(windowPane);
+		
+		//Copyright
+		String copy = "\u00A9 Team 14";
+		JLabel copyright = new JLabel();
+		copyright.setText(copy);
+		copyright.setBackground(Color.DARK_GRAY);
+		copyright.setOpaque(true);
+		copyright.setForeground(Color.WHITE);
+		copyright.setBounds(204, 547, 86, 15);
+		windowPane.add(copyright);
 		
 		//login button
 		JButton loginbutton = new JButton("Login!");
-		loginbutton.setLocation(151, 311);
-		loginbutton.setSize(new Dimension(192, 34));
+		loginbutton.setBounds(134, 502, 192, 34);
+		windowPane.add(loginbutton);
 		loginbutton.setBorder(null);
 		loginbutton.setBackground(new Color(99, 99, 99));
 		loginbutton.setForeground(Color.WHITE);
@@ -272,42 +300,35 @@ public class LoginGUI {
 				
 			}
 		});
-		middle.setLayout(null);
-		middle.add(loginbutton);
 		
-		//The logo label
-		JLabel logoLabel = new JLabel("");
-		logoLabel.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/logo.png")));
-		logoLabel.setMaximumSize(new Dimension(500, 300));
-		logoLabel.setBorder(null);
-		logoLabel.setBounds(10, 12, 447, 159);
-		logo.add(logoLabel);
-		windowPane.setLayout(null);
-		windowPane.add(middle);
-		
+		return frame;
+	}
+	
+	private static JPanel userPanel(final User user) {
 		//The admin user panel
-		JPanel admin = new JPanel();
-		admin.setBackground(Color.DARK_GRAY);
-		admin.setBounds(22, 0, 117, 163);
-		middle.add(admin);
-		admin.setLayout(null);
+		JPanel panel = new JPanel();
+		panel.setPreferredSize(new Dimension(115, 140));
+		panel.setMinimumSize(new Dimension(100, 150));
+		panel.setMaximumSize(new Dimension(100, 150));
+		panel.setBackground(Color.DARK_GRAY);
+		panel.setLayout(null);
 		
 		//The name
-		JLabel lblAdmin = new JLabel("Admin");
-		lblAdmin.setForeground(Color.WHITE);
-		lblAdmin.setBounds(35, 117, 49, 15);
-		admin.add(lblAdmin);
+		JLabel lbl = new JLabel(user.getName());
+		lbl.setForeground(Color.WHITE);
+		lbl.setBounds(35, 117, 49, 15);
+		panel.add(lbl);
 		
 		//The icon/button
-		final JButton adminPic = new JButton("");
-		adminPic.setBorder(null);
-		adminPic.setBackground(Color.DARK_GRAY);
-		adminPic.setIcon(new ImageIcon(LoginGUI.class.getResource(users.get(0).getIcon())));
-		adminPic.setBounds(12, 12, 93, 93);
-		adminPic.addMouseListener(new MouseListener() {
+		final JButton pic = new JButton();
+		pic.setBorder(null);
+		pic.setBackground(Color.DARK_GRAY);
+		pic.setIcon(new ImageIcon(LoginGUI.class.getResource(user.getIcon())));
+		pic.setBounds(12, 12, 93, 93);
+		pic.addMouseListener(new MouseListener() {
 			public void mouseClicked(MouseEvent e) {
-				adminPic.setBackground(Color.WHITE);
-				tempUser = users.get(0);
+				pic.setBackground(Color.WHITE);
+				tempUser = user;
 			}
 
 			@Override
@@ -330,42 +351,7 @@ public class LoginGUI {
 				// TODO Auto-generated method stub
 			}
 		});
-		admin.add(adminPic);
-		
-		//The add account panel
-		JPanel addAcc = new JPanel();
-		addAcc.setBackground(Color.DARK_GRAY);
-		addAcc.setBounds(151, 0, 117, 163);
-		middle.add(addAcc);
-		addAcc.setLayout(null);
-		
-		//The add account label
-		JLabel lblAddAccount = new JLabel("Add Account");
-		lblAddAccount.setForeground(Color.WHITE);
-		lblAddAccount.setBounds(12, 117, 93, 15);
-		addAcc.add(lblAddAccount);
-		
-		//The icon button
-		JButton addAccIcon = new JButton("");
-		addAccIcon.setBorder(null);
-		addAccIcon.setBackground(Color.DARK_GRAY);
-		addAccIcon.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/panda_blue_2.png")));
-		addAccIcon.setBounds(12, 12, 93, 93);
-		addAcc.add(addAccIcon);
-		
-		frame.setBackground(Color.DARK_GRAY);
-		frame.setContentPane(windowPane);
-		
-		//Copyright
-		String copy = "\u00A9 Team 14";
-		JLabel copyright = new JLabel();
-		copyright.setText(copy);
-		copyright.setBackground(Color.DARK_GRAY);
-		copyright.setOpaque(true);
-		copyright.setForeground(Color.WHITE);
-		copyright.setBounds(204, 547, 86, 15);
-		windowPane.add(copyright);
-		
-		return frame;
+		panel.add(pic);
+		return panel;
 	}
 }

@@ -53,7 +53,7 @@ public class Setting {
 		users.add(newUser);
 	}
 	
-
+/*
 	void loadXML(String inputFileName) {
 		// Read in XML file (Load)
 		try {
@@ -91,7 +91,7 @@ public class Setting {
 			e.printStackTrace();
 		}
 	}
-
+*/
 	void saveXML(String outputFileName) {
 		// Output XML file (Save)
 		try {

@@ -8,6 +8,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Rectangle;
+import java.awt.GridLayout;
 
 public class SettingGUI {
 	private static JPanel mainPanel = new JPanel();
@@ -17,11 +21,12 @@ public class SettingGUI {
 	private static JTextField servURL;
 	private static JPasswordField passwordField;
 	private static JPasswordField passwordField_1;
-	private static JPasswordField passwordField_2;
 	private static JTextField textField;
 	private static JTextField txtTempUser;
 	private static JTextField textField2;
 	private static JTextField txtTempUser2;
+	private static JPasswordField passwordField_2;
+	private static JTextField textField_1;
 	
 	/**
 	 * @wbp.parser.entryPoint
@@ -267,116 +272,11 @@ public class SettingGUI {
 		userPanel.add(passwordField);
 		
 		JButton chngName = new JButton("Change Name");
+		chngName.setFont(new Font("Dialog", Font.PLAIN, 11));
 		chngName.setForeground(Color.WHITE);
 		chngName.setBackground(Color.GRAY);
-		chngName.setBounds(183, 0, 99, 23);
+		chngName.setBounds(183, 0, 114, 23);
 		userPanel.add(chngName);
-		
-		//the other accounts panel
-		JPanel accPanel = new JPanel();
-		accPanel.setBorder(null);
-		accPanel.setBackground(Color.DARK_GRAY);
-		accPanel.setBounds(10, 280, 478, 309);
-		mainPanel.add(accPanel);
-		accPanel.setLayout(null);
-		
-		//example panel
-		JPanel exPanel = new JPanel();
-		exPanel.setBorder(null);
-		exPanel.setBackground(Color.DARK_GRAY);
-		exPanel.setBounds(10, 45, 458, 101);
-		accPanel.add(exPanel);
-		exPanel.setLayout(null);
-		
-		//example icon
-		JLabel exIcon = new JLabel();
-		exIcon.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/giraffe_blue.png")));
-		exIcon.setBorder(null);
-		exIcon.setBounds(10, 3, 93, 93);
-		exPanel.add(exIcon);
-		
-		//example user change pin
-		JButton chngPin = new JButton("Change Pin");
-		chngPin.setForeground(Color.WHITE);
-		chngPin.setFont(new Font("Dialog", Font.PLAIN, 11));
-		chngPin.setBorder(null);
-		chngPin.setBackground(Color.GRAY);
-		chngPin.setBounds(205, 30, 93, 25);
-		exPanel.add(chngPin);
-		
-		//example user change profile pic button
-		JButton chngPic = new JButton("Change Profile Pic");
-		chngPic.setForeground(Color.WHITE);
-		chngPic.setFont(new Font("Dialog", Font.PLAIN, 11));
-		chngPic.setBorder(null);
-		chngPic.setBackground(Color.GRAY);
-		chngPic.setBounds(113, 68, 138, 25);
-		exPanel.add(chngPic);
-		
-		//example user manage restrictions
-		JButton btnManageRestrictions = new JButton("Manage Restrictions");
-		btnManageRestrictions.setFont(new Font("Dialog", Font.PLAIN, 11));
-		btnManageRestrictions.setForeground(Color.WHITE);
-		btnManageRestrictions.setBorder(null);
-		btnManageRestrictions.setBackground(Color.GRAY);
-		btnManageRestrictions.setBounds(261, 68, 138, 25);
-		exPanel.add(btnManageRestrictions);
-		
-		//example user change pin
-		passwordField_1 = new JPasswordField();
-		passwordField_1.setEchoChar('*');
-		passwordField_1.setBounds(113, 32, 86, 22);
-		exPanel.add(passwordField_1);
-		
-		//example user name
-		txtTempUser = new JTextField();
-		txtTempUser.setText("Temp User");
-		txtTempUser.setBounds(113, 4, 86, 20);
-		exPanel.add(txtTempUser);
-		txtTempUser.setColumns(10);
-		
-		//example user change name button
-		JButton changeName = new JButton("Change Name");
-		changeName.setForeground(Color.WHITE);
-		changeName.setBackground(Color.GRAY);
-		changeName.setBounds(205, 3, 99, 23);
-		exPanel.add(changeName);
-		
-		JButton deleteacc = new JButton("");
-		deleteacc.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/red_x_icon.png")));
-		deleteacc.setBorder(null);
-		deleteacc.setBackground(Color.DARK_GRAY);
-		deleteacc.setBounds(428, 3, 30, 30);
-		exPanel.add(deleteacc);
-		
-		//users label
-		JLabel lblUsers = new JLabel("");
-		lblUsers.setHorizontalAlignment(SwingConstants.CENTER);
-		lblUsers.setBounds(0, 0, 110, 34);
-		accPanel.add(lblUsers);
-		lblUsers.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/user.png")));
-		lblUsers.setBackground(Color.DARK_GRAY);
-		
-		//new user panel
-		addUserPanel.setBackground(Color.DARK_GRAY);
-		addUserPanel.setBounds(10, 157, 458, 101);
-		accPanel.add(addUserPanel);
-		addUserPanel.setLayout(null);
-		
-		//add user button
-		JButton btnAddUser = new JButton("Add User");
-		btnAddUser.setForeground(Color.WHITE);
-		btnAddUser.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnAddUser.setBackground(Color.GRAY);
-		btnAddUser.setBorder(null);
-		btnAddUser.setBounds(142, 28, 156, 42);
-		btnAddUser.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				//
-			}
-		});
-		addUserPanel.add(btnAddUser);
 		
 		//admin panel server panel
 		JPanel servPanel = new JPanel();
@@ -387,10 +287,8 @@ public class SettingGUI {
 		
 		//server logo
 		JLabel lblServer = new JLabel("");
-		lblServer.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/server.png")));
+		lblServer.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/resources/main/gui/server.png")));
 		lblServer.setHorizontalAlignment(SwingConstants.CENTER);
-		lblServer.setFont(new Font("Lobster Two", Font.BOLD, 30));
-		lblServer.setForeground(Color.WHITE);
 		lblServer.setBackground(Color.DARK_GRAY);
 		lblServer.setBounds(0, 0, 115, 39);
 		servPanel.add(lblServer);
@@ -474,5 +372,195 @@ public class SettingGUI {
 			}
 		});
 		servPanel.add(btnManageRestrictionLevels);
+		
+		
+		//users label
+		JLabel lblUsers = new JLabel("");
+		lblUsers.setBounds(32, 281, 100, 30);
+		mainPanel.add(lblUsers);
+		lblUsers.setOpaque(true);
+		lblUsers.setPreferredSize(new Dimension(450, 30));
+		lblUsers.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/user.png")));
+		lblUsers.setBackground(Color.DARK_GRAY);
+		
+		//the other accounts panel
+		JPanel scrollpanel = new JPanel();
+		scrollpanel.setBackground(Color.DARK_GRAY);
+		scrollpanel.setAutoscrolls(true);
+		scrollpanel.setLayout(new BoxLayout(scrollpanel, BoxLayout.Y_AXIS));
+		
+		JScrollPane accPanel = new JScrollPane(scrollpanel);
+		accPanel.setViewportBorder(null);
+		accPanel.setVerifyInputWhenFocusTarget(false);
+		accPanel.setOpaque(false);
+		accPanel.setForeground(Color.DARK_GRAY);
+		accPanel.setBorder(null);
+		accPanel.setBackground(Color.DARK_GRAY);
+		accPanel.setBounds(10, 315, 478, 285);
+		accPanel.getVerticalScrollBar().setUnitIncrement(100);
+		mainPanel.add(accPanel);
+		
+		//example panel
+		JPanel exPanel = new JPanel();
+		exPanel.setMinimumSize(new Dimension(460, 120));
+		exPanel.setMaximumSize(new Dimension(460, 120));
+		exPanel.setPreferredSize(new Dimension(460, 120));
+		exPanel.setSize(new Dimension(460, 120));
+		scrollpanel.add(exPanel);
+		exPanel.setBorder(null);
+		exPanel.setBackground(Color.DARK_GRAY);
+		exPanel.setLayout(null);
+		
+		//example icon
+		JLabel exIcon = new JLabel();
+		exIcon.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/giraffe_blue.png")));
+		exIcon.setBorder(null);
+		exIcon.setBounds(10, 3, 93, 93);
+		exPanel.add(exIcon);
+		
+		//example user change pin
+		JButton chngPin = new JButton("Change Pin");
+		chngPin.setForeground(Color.WHITE);
+		chngPin.setFont(new Font("Dialog", Font.PLAIN, 11));
+		chngPin.setBorder(null);
+		chngPin.setBackground(Color.GRAY);
+		chngPin.setBounds(205, 30, 93, 25);
+		exPanel.add(chngPin);
+		
+		//example user change profile pic button
+		JButton chngPic = new JButton("Change Profile Pic");
+		chngPic.setForeground(Color.WHITE);
+		chngPic.setFont(new Font("Dialog", Font.PLAIN, 11));
+		chngPic.setBorder(null);
+		chngPic.setBackground(Color.GRAY);
+		chngPic.setBounds(113, 68, 138, 25);
+		exPanel.add(chngPic);
+		
+		//example user manage restrictions
+		JButton btnManageRestrictions = new JButton("Manage Restrictions");
+		btnManageRestrictions.setFont(new Font("Dialog", Font.PLAIN, 11));
+		btnManageRestrictions.setForeground(Color.WHITE);
+		btnManageRestrictions.setBorder(null);
+		btnManageRestrictions.setBackground(Color.GRAY);
+		btnManageRestrictions.setBounds(261, 68, 138, 25);
+		exPanel.add(btnManageRestrictions);
+		
+		//example user change pin
+		passwordField_1 = new JPasswordField();
+		passwordField_1.setEchoChar('*');
+		passwordField_1.setBounds(113, 32, 86, 22);
+		exPanel.add(passwordField_1);
+		
+		//example user name
+		txtTempUser = new JTextField();
+		txtTempUser.setText("Temp User");
+		txtTempUser.setBounds(113, 4, 86, 20);
+		exPanel.add(txtTempUser);
+		txtTempUser.setColumns(10);
+		
+		//example user change name button
+		JButton changeName = new JButton("Change Name");
+		changeName.setFont(new Font("Dialog", Font.PLAIN, 11));
+		changeName.setForeground(Color.WHITE);
+		changeName.setBackground(Color.GRAY);
+		changeName.setBounds(205, 3, 119, 23);
+		exPanel.add(changeName);
+		
+		JButton deleteacc = new JButton("");
+		deleteacc.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/resources/main/gui/red_x_icon.png")));
+		deleteacc.setBorder(null);
+		deleteacc.setBackground(Color.DARK_GRAY);
+		deleteacc.setBounds(428, 3, 30, 30);
+		exPanel.add(deleteacc);
+		scrollpanel.add(exPanel);
+		
+		JPanel exPanel2 = new JPanel();
+		exPanel2.setLayout(null);
+		exPanel2.setSize(new Dimension(460, 120));
+		exPanel2.setPreferredSize(new Dimension(460, 120));
+		exPanel2.setMinimumSize(new Dimension(460, 120));
+		exPanel2.setMaximumSize(new Dimension(460, 120));
+		exPanel2.setBorder(null);
+		exPanel2.setBackground(Color.DARK_GRAY);
+		scrollpanel.add(exPanel2);
+		
+		JLabel label = new JLabel();
+		label.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/resources/main/gui/smile_green.png")));
+		label.setBorder(null);
+		label.setBounds(10, 3, 93, 93);
+		exPanel2.add(label);
+		
+		JButton button = new JButton("Change Pin");
+		button.setForeground(Color.WHITE);
+		button.setFont(new Font("Dialog", Font.PLAIN, 11));
+		button.setBorder(null);
+		button.setBackground(Color.GRAY);
+		button.setBounds(205, 30, 93, 25);
+		exPanel2.add(button);
+		
+		JButton button_1 = new JButton("Change Profile Pic");
+		button_1.setForeground(Color.WHITE);
+		button_1.setFont(new Font("Dialog", Font.PLAIN, 11));
+		button_1.setBorder(null);
+		button_1.setBackground(Color.GRAY);
+		button_1.setBounds(113, 68, 138, 25);
+		exPanel2.add(button_1);
+		
+		JButton button_2 = new JButton("Manage Restrictions");
+		button_2.setForeground(Color.WHITE);
+		button_2.setFont(new Font("Dialog", Font.PLAIN, 11));
+		button_2.setBorder(null);
+		button_2.setBackground(Color.GRAY);
+		button_2.setBounds(261, 68, 138, 25);
+		exPanel2.add(button_2);
+		
+		passwordField_2 = new JPasswordField();
+		passwordField_2.setEchoChar('*');
+		passwordField_2.setBounds(113, 32, 86, 22);
+		exPanel2.add(passwordField_2);
+		
+		textField_1 = new JTextField();
+		textField_1.setText("Temp User");
+		textField_1.setColumns(10);
+		textField_1.setBounds(113, 4, 86, 20);
+		exPanel2.add(textField_1);
+		
+		JButton button_3 = new JButton("Change Name");
+		button_3.setForeground(Color.WHITE);
+		button_3.setFont(new Font("Dialog", Font.PLAIN, 11));
+		button_3.setBackground(Color.GRAY);
+		button_3.setBounds(205, 3, 119, 23);
+		exPanel2.add(button_3);
+		
+		JButton button_4 = new JButton("");
+		button_4.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/resources/main/gui/red_x_icon.png")));
+		button_4.setBorder(null);
+		button_4.setBackground(Color.DARK_GRAY);
+		button_4.setBounds(428, 3, 30, 30);
+		exPanel2.add(button_4);
+		addUserPanel.setMaximumSize(new Dimension(460, 75));
+		addUserPanel.setMinimumSize(new Dimension(460, 75));
+		addUserPanel.setSize(new Dimension(460, 75));
+		addUserPanel.setPreferredSize(new Dimension(460, 75));
+		
+		//new user panel
+		addUserPanel.setBackground(Color.DARK_GRAY);
+		addUserPanel.setLayout(null);
+		
+		//add user button
+		JButton btnAddUser = new JButton("Add User");
+		btnAddUser.setForeground(Color.WHITE);
+		btnAddUser.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnAddUser.setBackground(Color.GRAY);
+		btnAddUser.setBorder(null);
+		btnAddUser.setBounds(146, 12, 156, 42);
+		btnAddUser.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//
+			}
+		});
+		addUserPanel.add(btnAddUser);
+		scrollpanel.add(addUserPanel);
 	}
 }
