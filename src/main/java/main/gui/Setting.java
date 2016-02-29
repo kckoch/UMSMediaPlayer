@@ -54,7 +54,7 @@ public class Setting {
 	}
 	
 //THIS is broken--this needs to be fixed
-	/*void loadXML(String inputFileName) {
+/*	void loadXML(String inputFileName) {
 		// Read in XML file (Load)
 		try {
 			// Designate input file
