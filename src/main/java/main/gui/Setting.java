@@ -53,8 +53,10 @@ public class Setting {
 		users.add(newUser);
 	}
 	
-/*
-	void loadXML(String inputFileName) {
+
+//THIS is broken--this needs to be fixed
+/*	void loadXML(String inputFileName) {
+>>>>>>> 6d23f0c1762855297a752661db88990a339993fe
 		// Read in XML file (Load)
 		try {
 			// Designate input file

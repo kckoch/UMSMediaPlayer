@@ -287,11 +287,9 @@ public class LoginGUI {
 					@SuppressWarnings("deprecation")
 					@Override
 				    public void actionPerformed(ActionEvent e) {
-			    		if(tempUser.checkPassword(Integer.parseInt(passwordField.getText()))) {
-			    			tempUser.setLoggedin(true);
-			    			tempUser.setCorrect(true);
-			    			numberString = "";
-			    			passwordField.setText(null);
+						AuthenticateUserController auth = new AuthenticateUserController(tempUser);
+			    		if(!auth.authenticate(passwordField.getText())) {
+			    			passwordField.setForeground(UIManager.getColor("OptionPane.errorDialog.border.background"));
 			    		}
 				    }
 				});
