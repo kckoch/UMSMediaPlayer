@@ -474,6 +474,7 @@ public class SettingGUI {
 		exPanel.add(deleteacc);
 		scrollpanel.add(exPanel);
 		
+		//start of the second example panel
 		JPanel exPanel2 = new JPanel();
 		exPanel2.setLayout(null);
 		exPanel2.setSize(new Dimension(460, 120));
