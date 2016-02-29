@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
@@ -31,7 +32,7 @@ public class SettingGUI {
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	public static void init(final JPanel mainPanelIn, final JFrame frame, final User user, final JTable table) {
+	public static void init(final JPanel mainPanelIn, final JFrame frame, final User user, final JTable table, final ArrayList<User> users) {
 		mainPanel.setPreferredSize(new Dimension(500, 600));
 		mainPanel.setMaximumSize(new Dimension(500, 600));
 		mainPanel.setBackground(Color.DARK_GRAY);

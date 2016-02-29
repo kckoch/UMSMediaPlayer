@@ -78,7 +78,7 @@ public class Main {
 			login.setVisible(false);
 			login.dispose();
 			
-			mainframe = MainFrame.init(user);//displays the main screen
+			mainframe = MainFrame.init(user, users);//displays the main screen
 			mainframe.setVisible(true);
 			while(user.getLoggedin()) {//loops until user logs out
 				System.out.print("");
