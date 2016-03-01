@@ -46,9 +46,6 @@ public class Main {
 		users = new ArrayList<User>();
 
 		users.add(new User("Admin", true, 9999, 0));
-		users.get(0).addFavorites(albumA);
-		users.get(0).addFavorites(albumB);
-		users.get(0).addFavorites(albumC);
 		users.get(0).setIcon("/main/gui/panda_orange_2.png");
 		
 		users.add(new User("Child 1", false, 1111, 1));
