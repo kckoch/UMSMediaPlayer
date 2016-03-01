@@ -7,7 +7,7 @@ public class User {
 	private boolean admin;			//if admin, will be true
 	private String name;
 	private int PIN;
-	private int filterN;
+	private int filter;
 	private boolean loggedin;
 	private boolean correct;
 	private String iconpath;
@@ -18,7 +18,7 @@ public class User {
 		this.name = name;
 		this.admin = admin;
 		PIN = pin;
-		filterN = filterValue; 
+		filter = filterValue; 
 		loggedin = false;
 		favorites = new ArrayList<Album>();
 	}
@@ -48,8 +48,8 @@ public class User {
 		correct = bool;
 	}
 	
-	public void setFilterN(int filterValue){
-		filterN = filterValue;
+	public void setFilter(int filterValue){
+		filter = filterValue;
 	}
 	
 	public List<Album> getFavorites(){
@@ -68,8 +68,8 @@ public class User {
 		return admin;
 	}
 	
-	public int getFilterN(){
-		return filterN;
+	public int getFilter(){
+		return filter;
 	}
 	
 	public void setIcon(String path) {

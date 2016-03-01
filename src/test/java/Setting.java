@@ -1,10 +1,6 @@
-package main.gui;
 
-import java.awt.*;
 import java.io.File;
-import java.util.ArrayList;
 
-import javax.swing.ImageIcon;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Transformer;
@@ -19,17 +15,31 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class Setting {
-	//private int PIN;
-	//private String profilePicPath;
-	private int configureN; //only admin can modify
-	private String serverURL; //only admin can modify
-	private ArrayList<User> users;
-	
-	public Setting(int _configureN, String _serverURL) {
-		configureN = _configureN;
-		serverURL = _serverURL;
-		users = new ArrayList<User>();
-		users.add(new User("admin", true, 9999, 0));
+
+	int PIN, configureN;
+	String profilePicPath, serverURL;
+
+	Setting(int _PIN, String _profilePicPath, int _configureN, String _serverURL) {
+		this.PIN = _PIN;
+		this.profilePicPath = _profilePicPath;
+		this.configureN = _configureN;
+		this.serverURL = _serverURL;
+	}
+
+	public int getPIN() {
+		return PIN;
+	}
+
+	public void setPIN(int PIN) {
+		this.PIN = PIN;
+	}
+
+	public String getprofilePicPath() {
+		return profilePicPath;
+	}
+
+	public void setprofilePicPath(String profilePicPath) {
+		this.profilePicPath = profilePicPath;
 	}
 
 	public int getconfigureN() {
@@ -47,15 +57,8 @@ public class Setting {
 	public void setserverURL(String serverURL) {
 		this.serverURL = serverURL;
 	}
-	
-	public void addUser(User newUser)
-	{
-		users.add(newUser);
-	}
-	
 
-//THIS is broken--this needs to be fixed
-/*	void loadXML(String inputFileName) {
+	void loadXML(String inputFileName) {
 		// Read in XML file (Load)
 		try {
 			// Designate input file
@@ -67,11 +70,23 @@ public class Setting {
 			Document doc = dBuilder.parse(inputFile);
 			doc.getDocumentElement().normalize();
 
-			//System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
+			System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
 
-			
-			// Implement User-loading here.
-			
+			NodeList nList = doc.getElementsByTagName("PIN");
+			Node nNode = nList.item(0);
+//			System.out.print("\n" + nNode.getNodeName());
+			Element eElement = (Element) nNode;
+//			System.out.println(": " + eElement.getAttribute("val"));
+			// Sets value of PIN from XML data
+			this.setPIN(Integer.parseInt(eElement.getAttribute("val")));
+
+			nList = doc.getElementsByTagName("profilePicPath");
+			nNode = nList.item(0);
+//			System.out.print("\n" + nNode.getNodeName());
+			eElement = (Element) nNode;
+//			System.out.println(": " + eElement.getAttribute("val"));
+			// Sets value of profilePicPath from XML data
+			this.setprofilePicPath(eElement.getAttribute("val"));
 
 			nList = doc.getElementsByTagName("configureN");
 			nNode = nList.item(0);
@@ -92,7 +107,7 @@ public class Setting {
 			e.printStackTrace();
 		}
 	}
-*/
+
 	void saveXML(String outputFileName) {
 		// Output XML file (Save)
 		try {
@@ -104,9 +119,21 @@ public class Setting {
 			Element rootElement = doc.createElement("Settings");
 			doc.appendChild(rootElement);
 
-			
-			// Implement User-saving here.
-			
+			// PIN Element
+			Element uno = doc.createElement("PIN");
+			rootElement.appendChild(uno);
+			// Attribute
+			Attr attr1 = doc.createAttribute("val");
+			attr1.setValue("" + this.getPIN());
+			uno.setAttributeNode(attr1);
+
+			// Profile Pic ID Element
+			Element dos = doc.createElement("profilePicPath");
+			rootElement.appendChild(dos);
+			// Attribute
+			Attr attr2 = doc.createAttribute("val");
+			attr2.setValue(this.getprofilePicPath());
+			dos.setAttributeNode(attr2);
 
 			// Configure N Element
 			Element tres = doc.createElement("configureN");
@@ -139,4 +166,5 @@ public class Setting {
 			e.printStackTrace();
 		}
 	}
+
 }

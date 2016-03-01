@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
@@ -31,7 +32,7 @@ public class SettingGUI {
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	public static void init(final JPanel mainPanelIn, final JFrame frame, final User user, final JTable table) {
+	public static void init(final JPanel mainPanelIn, final JFrame frame, final User user, final JTable table, final ArrayList<User> users) {
 		mainPanel.setPreferredSize(new Dimension(500, 600));
 		mainPanel.setMaximumSize(new Dimension(500, 600));
 		mainPanel.setBackground(Color.DARK_GRAY);
@@ -107,7 +108,7 @@ public class SettingGUI {
 		btnChangePin.setBorder(null);
 		btnChangePin.setForeground(Color.WHITE);
 		btnChangePin.setBackground(Color.GRAY);
-		btnChangePin.setBounds(183, 24, 93, 25);
+		btnChangePin.setBounds(183, 24, 114, 25);
 		userPanel.add(btnChangePin);
 		
 		
@@ -402,10 +403,10 @@ public class SettingGUI {
 		
 		//example panel
 		JPanel exPanel = new JPanel();
-		exPanel.setMinimumSize(new Dimension(460, 120));
-		exPanel.setMaximumSize(new Dimension(460, 120));
-		exPanel.setPreferredSize(new Dimension(460, 120));
-		exPanel.setSize(new Dimension(460, 120));
+		exPanel.setMinimumSize(new Dimension(460, 25));
+		exPanel.setMaximumSize(new Dimension(460, 125));
+		exPanel.setPreferredSize(new Dimension(460, 125));
+		exPanel.setSize(new Dimension(460, 125));
 		scrollpanel.add(exPanel);
 		exPanel.setBorder(null);
 		exPanel.setBackground(Color.DARK_GRAY);
@@ -424,7 +425,7 @@ public class SettingGUI {
 		chngPin.setFont(new Font("Dialog", Font.PLAIN, 11));
 		chngPin.setBorder(null);
 		chngPin.setBackground(Color.GRAY);
-		chngPin.setBounds(205, 30, 93, 25);
+		chngPin.setBounds(205, 30, 119, 25);
 		exPanel.add(chngPin);
 		
 		//example user change profile pic button
@@ -433,7 +434,7 @@ public class SettingGUI {
 		chngPic.setFont(new Font("Dialog", Font.PLAIN, 11));
 		chngPic.setBorder(null);
 		chngPic.setBackground(Color.GRAY);
-		chngPic.setBounds(113, 68, 138, 25);
+		chngPic.setBounds(113, 85, 138, 25);
 		exPanel.add(chngPic);
 		
 		//example user manage restrictions
@@ -442,7 +443,7 @@ public class SettingGUI {
 		btnManageRestrictions.setForeground(Color.WHITE);
 		btnManageRestrictions.setBorder(null);
 		btnManageRestrictions.setBackground(Color.GRAY);
-		btnManageRestrictions.setBounds(261, 68, 138, 25);
+		btnManageRestrictions.setBounds(261, 85, 138, 25);
 		exPanel.add(btnManageRestrictions);
 		
 		//example user change pin
@@ -474,6 +475,22 @@ public class SettingGUI {
 		exPanel.add(deleteacc);
 		scrollpanel.add(exPanel);
 		
+		JRadioButton userRadio = new JRadioButton("User");
+		userRadio.setSelected(true);
+		userRadio.setBackground(Color.DARK_GRAY);
+		userRadio.setBorder(null);
+		userRadio.setForeground(Color.WHITE);
+		userRadio.setBounds(111, 58, 56, 20);
+		exPanel.add(userRadio);
+		
+		JRadioButton rdbtnAdmin = new JRadioButton("Admin");
+		rdbtnAdmin.setBorder(null);
+		rdbtnAdmin.setBackground(Color.DARK_GRAY);
+		rdbtnAdmin.setForeground(Color.WHITE);
+		rdbtnAdmin.setBounds(173, 58, 56, 23);
+		exPanel.add(rdbtnAdmin);
+		
+		//start of the second example panel
 		JPanel exPanel2 = new JPanel();
 		exPanel2.setLayout(null);
 		exPanel2.setSize(new Dimension(460, 120));
@@ -495,7 +512,7 @@ public class SettingGUI {
 		button.setFont(new Font("Dialog", Font.PLAIN, 11));
 		button.setBorder(null);
 		button.setBackground(Color.GRAY);
-		button.setBounds(205, 30, 93, 25);
+		button.setBounds(205, 30, 119, 25);
 		exPanel2.add(button);
 		
 		JButton button_1 = new JButton("Change Profile Pic");

@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
 
@@ -52,7 +53,7 @@ public class MainFrame {
 	 */
 
 	@SuppressWarnings("rawtypes")
-	public static JFrame init(final User user) {
+	public static JFrame init(final User user, final ArrayList<User> users) {
 		frame = new JFrame("That's My Jam!");
 		frame.setBackground(Color.DARK_GRAY);
 		frame.setResizable(false);
@@ -143,7 +144,7 @@ public class MainFrame {
 			btnSettings.setBounds(195, 3, 35, 25);
 			btnSettings.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					SettingGUI.init(mainPanel, frame, user, libraryTable);
+					SettingGUI.init(mainPanel, frame, user, libraryTable, users);
 					//frame.setContentPane(SettingGUI.init(mainPanel, frame, user));
 				}
 			});
