@@ -1,7 +1,7 @@
 package main.gui;
 
 import java.io.IOException;
-import java.util.StringTokenizer;
+import java.util.*;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -10,7 +10,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class SOAP {
-
+    private static ArrayList<Container> list = new ArrayList<Container>();
 	static String SOAP = "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>"+
 "<s:Envelope s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"" +
 "	xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">" +
@@ -47,6 +47,10 @@ public class SOAP {
 		if (response.code() == 200) {
 			String resultStr = response.body().string();
 			processResults(resultStr);
+            System.out.println("///////-------out------/////////////");
+            for(int i = 0; i < list.size(); i++) {
+                System.out.println(list.get(i).getId() + "\t" + list.get(i).getName());
+            }
 		} else {
 			System.err.println("Response code: " + response.code());
 			System.err.println("Response: " + response.message());
@@ -61,36 +65,31 @@ public class SOAP {
 		final String TITLE_START = "<dc:title>";
 		final String TITLE_END = "</dc:title>";
 		int id = 0;
+        int idStartIndex = 0;
+        int idEndIndex = 0;
+        int titleStartIndex = 0;
+        int titleEndIndex = 0;
 		String title = "";
 		int startIndex = soapResponse.indexOf(START_TAG) + START_TAG.length();
 		int endIndex = soapResponse.indexOf(END_TAG);
 		String resultStr = soapResponse.substring(startIndex, endIndex);
 		resultStr = resultStr.replace("&lt;", "<").replace("&gt;",">");
-		
-		StringTokenizer token = new StringTokenizer(resultStr, "<");
-		String tok = token.nextToken();
-		
-		while(token.hasMoreTokens()) {
-			if(tok.substring(0, 13).compareTo("container id=") == 0) {
-				id = Integer.parseInt(tok.substring(ID_START.length(), ID_START.length() + 2));
-			} 
-			if(tok.substring(0, 9).compareTo("dc:title>") == 0) {
-				title = tok.substring(TITLE_START.length()-1);
-			}
-			System.out.println(id + "\t" + title);
-			tok = token.nextToken();
-			/*
-			int idStartIndex = resultStr.indexOf(ID_START) + ID_START.length() + 1;
-			int idEndIndex = idStartIndex + 2;
-			int id = Integer.parseInt(resultStr.substring(idStartIndex, idEndIndex));
+	    
+		while(resultStr.length() > 0) {
+
+			idStartIndex = resultStr.indexOf(ID_START) + ID_START.length() + 1;
+			idEndIndex = idStartIndex + 2;
+			id = Integer.parseInt(resultStr.substring(idStartIndex, idEndIndex));
 			
-			int titleStartIndex = resultStr.indexOf(TITLE_START) + TITLE_START.length();
-			int titleEndIndex = resultStr.indexOf(TITLE_END);
-			String title = resultStr.substring(titleStartIndex, titleEndIndex);
-			
-			resultStr = resultStr.substring(titleEndIndex);
-			System.out.println("\n\n\n"+ resultStr.indexOf(ID_START) + ID_START.length() + 1);*/
-			
+			titleStartIndex = resultStr.indexOf(TITLE_START) + TITLE_START.length();
+			titleEndIndex = resultStr.indexOf(TITLE_END);
+			title = resultStr.substring(titleStartIndex, titleEndIndex);
+
+            resultStr = resultStr.substring(titleEndIndex + 50);
+            if(resultStr.indexOf(ID_START) < 0)
+                resultStr = "";
+            list.add(new Container(id, title));
 		}
+        return;
 	}
 }
