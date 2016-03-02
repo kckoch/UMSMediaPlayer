@@ -28,8 +28,6 @@ public class SOAP {
 
 	public static void sendRequest(String objID) throws IOException{
 		String objectId = objID;
-		
-		System.err.println("Sending request for container ID: " + objectId);
 
 		String soapMsg = SOAP.replace("{OBJECT_ID}", objectId);
 
@@ -47,10 +45,6 @@ public class SOAP {
 		if (response.code() == 200) {
 			String resultStr = response.body().string();
 			processResults(resultStr);
-            System.out.println("///////-------out------/////////////");
-            for(int i = 0; i < list.size(); i++) {
-                System.out.println(list.get(i).getId() + "\t" + list.get(i).getName());
-            }
 		} else {
 			System.err.println("Response code: " + response.code());
 			System.err.println("Response: " + response.message());
