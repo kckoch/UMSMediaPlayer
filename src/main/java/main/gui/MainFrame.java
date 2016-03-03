@@ -37,7 +37,6 @@ public class MainFrame {
 	private static JTable favoritesTable;
 	private static JTable libraryTable;
 	private static JPanel playPanel;
-	//private static JButton maximizeButton;
 	private static JLabel placeHolderForImage;
 	private static JFrame playFrame;
 	private static String duration;
@@ -47,6 +46,7 @@ public class MainFrame {
 	private static DefaultTableModel notDisplayed;
 	private static DefaultTableModel displayed;
 	private static int favsAlbumsOrTracks = 0;
+	private static DefaultTableModel libraryModel;
 	
 	/**
 	 * @wbp.parser.entryPoint
@@ -109,7 +109,7 @@ public class MainFrame {
 		favoritesModelTracks.addRow(back);
 		notDisplayed = favoritesModelTracks;
 		
-		DefaultTableModel libraryModel = new DefaultTableModel(){
+		libraryModel = new DefaultTableModel(){
 			public boolean isCellEditable(int row, int column){
 				return false;
 			};
@@ -120,10 +120,7 @@ public class MainFrame {
 		}  catch(Exception e) {
 			//
 		}
-		ArrayList<Container> list  = SOAP.getList();
-		for(int k = 0; k < list.size(); k++) {
-			System.out.println(list.get(k).getName());
-		}
+		final ArrayList<Container> list  = SOAP.getList();
 		
 		libraryModel.addColumn("ID");
 		libraryModel.addColumn("Title");
@@ -345,13 +342,9 @@ public class MainFrame {
 			public void stateChanged(ChangeEvent e){
 				elapsedTime = (total * songSlider.getValue() / 100);
 				if(elapsedTime%60 < 10){
-					
 					elapsed = elapsedTime/60 + ":0" + elapsedTime%60;
-				
 				}else{
-				
 					elapsed = elapsedTime/60 + ":" + elapsedTime%60;
-				
 				}
 			    elapsedText.setText(elapsed);
 			    //elapsedTextBig.setText(elapsed);
@@ -398,7 +391,23 @@ public class MainFrame {
 		librarySelectionModel.addListSelectionListener(new ListSelectionListener() {
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
-				
+				int row = libraryTable.getSelectedRow();
+				String id = Integer.toString((int)libraryModel.getValueAt(row, 0));
+				try {
+					SOAP.sendRequest(id);
+				} catch (Exception x) {
+					//
+				}
+				//list = SOAP.getList();
+				libraryModel = new DefaultTableModel();
+				libraryModel.addColumn("ID");
+				libraryModel.addColumn("Title");
+				for(int j = 0; j < list.size(); j++) {
+					Vector<Comparable> temp = new Vector<Comparable> ();
+					temp.addElement(list.get(j).getId());
+					temp.addElement(list.get(j).getName());
+					libraryModel.addRow(temp);
+				}
 			}
 			
 		});
