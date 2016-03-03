@@ -20,6 +20,8 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -35,7 +37,6 @@ public class MainFrame {
 	private static JTable favoritesTable;
 	private static JTable libraryTable;
 	private static JPanel playPanel;
-	//private static JButton maximizeButton;
 	private static JLabel placeHolderForImage;
 	private static JFrame playFrame;
 	private static String duration;
@@ -48,6 +49,7 @@ public class MainFrame {
 	private static JPanel buttonPanel;
 	private static JButton removeFavsBut;
 	private static JTextPane trackTitleText;
+	private static DefaultTableModel libraryModel;
 	
 	/**
 	 * @wbp.parser.entryPoint
@@ -100,13 +102,9 @@ public class MainFrame {
 		displayed = favoritesModelAlbums;
 		
 		final DefaultTableModel favoritesModelTracks = new DefaultTableModel() {
-			
 			public boolean isCellEditable(int row, int column){
-		      
 				return false;
-			
 			};
-			
 		};// favorites list data
 		favoritesModelTracks.addColumn("Title");
 		favoritesModelTracks.addColumn("Duration");
@@ -114,19 +112,27 @@ public class MainFrame {
 		favoritesModelTracks.addRow(back);
 		notDisplayed = favoritesModelTracks;
 		
-		DefaultTableModel libraryModel = new DefaultTableModel(){
-			
+		libraryModel = new DefaultTableModel(){
 			public boolean isCellEditable(int row, int column){
-		      
 				return false;
-			
 			};
-			
 		};// library list data
-		libraryModel.addColumn("Album Name");
-		//libraryModel.addRow(newAlbum);
-		/*libraryModel.addRow(albumB);
-		libraryModel.addRow(albumC);*/
+		
+		try {
+			SOAP.sendRequest("0");
+		}  catch(Exception e) {
+			//
+		}
+		final ArrayList<Container> list  = SOAP.getList();
+		
+		libraryModel.addColumn("ID");
+		libraryModel.addColumn("Title");
+		for(int j = 0; j < list.size(); j++) {
+			Vector<Comparable> temp = new Vector<Comparable> ();
+			temp.addElement(list.get(j).getId());
+			temp.addElement(list.get(j).getName());
+			libraryModel.addRow(temp);
+		}
 		
 		buttonPanel = new JPanel();
 		buttonPanel.setBounds(204, 0, 260, 30);
@@ -202,6 +208,7 @@ public class MainFrame {
 		libraryTable.setBackground(Color.LIGHT_GRAY);
 		libraryTable.setRowSelectionAllowed(true);
 		libraryTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		ListSelectionModel librarySelectionModel = libraryTable.getSelectionModel();
 		JScrollPane libraryScroll = new JScrollPane(libraryTable);
 		mainTab.addTab("Library", null, libraryScroll, null);
 		
@@ -221,14 +228,6 @@ public class MainFrame {
 		}else{
 			removeFavsBut.setVisible(false);
 		}
-		
-		/*favoritesTable.addMouseListener(new MouseAdapter(){
-			public void mouseClicked(MouseEvent evnt) {
-				if(this.getClick() == 1){
-					getPropertyFromRow((String)(t_property.getValueAt(favoritesTable.getSelectedRow(),0)));
-				}
-			}
-		});*/
 	
 		//play panel
 		playFrame = new JFrame("That's My JAM");
@@ -274,13 +273,9 @@ public class MainFrame {
 		
 	    elapsedTime = (total * songSlider.getValue() / 100);//elapsed time
 	    if(elapsedTime%60 < 10){
-			
 			elapsed = elapsedTime/60 + ":0" + elapsedTime%60;
-		
 		}else{
-		
 			elapsed = elapsedTime/60 + ":" + elapsedTime%60;
-		
 		}
 		final JTextPane elapsedText = new JTextPane();
 		elapsedText.setForeground(Color.WHITE);
@@ -292,13 +287,9 @@ public class MainFrame {
 	
 		//total time
 		if(total%60 < 10){
-			
 			duration = total/60 + ":0" + total%60;
-		
 		}else{
-		
 			duration = total/60 + ":" + total%60;
-		
 		}
 		final JTextPane totalText = new JTextPane();
 		totalText.setBackground(Color.GRAY);
@@ -306,27 +297,6 @@ public class MainFrame {
 		totalText.setText(duration);
 		totalText.setBounds(411, 87, 38, 20);
 		playPanel.add(totalText);
-	
-		/*maximizeButton = new JButton("");//maximize button
-		maximizeButton.setPreferredSize(new Dimension(26, 16));
-		maximizeButton.setMinimumSize(new Dimension(26, 16));
-		maximizeButton.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-		maximizeButton.setBounds(new Rectangle(0, 0, 26, 16));
-		maximizeButton.setMargin(new Insets(0, 0, 0, 0));
-		maximizeButton.setIconTextGap(0);
-		maximizeButton.setHorizontalTextPosition(SwingConstants.LEFT);
-		maximizeButton.setBorder(null);
-		maximizeButton.setMaximumSize(new Dimension(26, 16));
-		maximizeButton.setBackground(Color.GRAY);
-		maximizeButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/superuparrow.png")));
-		maximizeButton.setBounds(8, 8, 45, 23);
-		playPanel.add(maximizeButton);
-		maximizeButton.addActionListener(new ActionListener() {//change to full screen play panel
-			public void actionPerformed(ActionEvent e){
-				playFrame.setVisible(true);
-				frame.setVisible(false);
-			}
-		});*/
 	
 		final JButton playButton = new JButton("");//play button/ pause button
 		playButton.setBackground(Color.GRAY);
@@ -364,95 +334,6 @@ public class MainFrame {
 		nextButton.setBounds(400, 108, 35, 35);
 		playPanel.add(nextButton);
 		
-		/*//maximize screen play panel has same buttons, labels, and sliders as smaller play panel
-		JPanel playPanelBig = new JPanel();
-		playPanelBig.setBorder(null);
-		playPanelBig.setBackground(Color.DARK_GRAY);
-		playPanelBig.setBounds(0, 0, 500, 600);
-		playFrame.getContentPane().add(playPanelBig);
-		playPanelBig.setLayout(null);
-	
-		JLabel placeHolderForImageBig = new JLabel(new ImageIcon(MainFrame.class.getResource(user.getFavorites().get(0).getAlbumArt())));// album art
-		placeHolderForImageBig.setBounds(156, 85, 154, 155);
-		playPanelBig.add(placeHolderForImageBig);
-	
-		final JRadioButton favoritesButtonBig = new JRadioButton("");
-		favoritesButtonBig.setSelectedIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/gold_star.png")));
-		favoritesButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/white_star.png")));
-		favoritesButtonBig.setBackground(Color.DARK_GRAY);
-		favoritesButtonBig.setBounds(441, 0, 31, 31);
-		playPanelBig.add(favoritesButtonBig);
-	
-		final JSlider songSliderBig = new JSlider();
-		songSliderBig.setBounds(77, 295, 313, 39);
-		playPanelBig.add(songSliderBig);
-	
-		final JTextPane elapsedTextBig = new JTextPane();
-		elapsedTextBig.setText(elapsed);
-		elapsedTextBig.setBackground(Color.DARK_GRAY);
-		elapsedTextBig.setForeground(Color.WHITE);
-		elapsedTextBig.setBounds(55, 346, 128, 20);
-		playPanelBig.add(elapsedTextBig);
-	
-		JTextPane totalTextBig = new JTextPane();
-		totalTextBig.setText(duration);
-		totalTextBig.setBackground(Color.DARK_GRAY);
-		totalTextBig.setForeground(Color.WHITE);
-		totalTextBig.setBounds(348, 346, 118, 20);
-		playPanelBig.add(totalTextBig);
-	
-		JButton minimizeButton = new JButton("");//minimize play panel
-		minimizeButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/downarrow.png")));
-		minimizeButton.setBackground(Color.DARK_GRAY);
-		minimizeButton.setBounds(0, 0, 41, 23);
-		playPanelBig.add(minimizeButton);
-		minimizeButton.addActionListener(new ActionListener() {//switch to play panel sharing screen with favorites and library lists
-			public void actionPerformed(ActionEvent e){
-				frame.setVisible(true);
-				playFrame.setVisible(false);
-			}
-		});
-	
-		JButton playButtonBig = new JButton("");
-		playButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/play_button_big.png")));
-		playButtonBig.setBackground(Color.DARK_GRAY);
-		playButtonBig.setBorder(null);
-		playButtonBig.setBounds(195, 398, 71, 72);
-		playPanelBig.add(playButtonBig);
-	
-		JButton pauseButtonBig = new JButton("");
-		pauseButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/pause_button_big.png")));
-		pauseButtonBig.setBackground(Color.DARK_GRAY);
-		pauseButtonBig.setBorder(null);
-		pauseButtonBig.setBounds(130, 407, 53, 51);
-		playPanelBig.add(pauseButtonBig);
-		
-		JButton stopButtonBig = new JButton("");
-		stopButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/stop_button_big.png")));
-		stopButtonBig.setBackground(Color.DARK_GRAY);
-		stopButtonBig.setBorder(null);
-		stopButtonBig.setBounds(278, 407, 53, 51);
-		playPanelBig.add(stopButtonBig);
-	
-		JButton previousButtonBig = new JButton("");
-		previousButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/skipbackwards_button_big.png")));
-		previousButtonBig.setBackground(Color.DARK_GRAY);
-		previousButtonBig.setBorder(null);
-		previousButtonBig.setBounds(55, 407, 53, 51);
-		playPanelBig.add(previousButtonBig);
-	
-		JButton nextButtonBig = new JButton("");
-		nextButtonBig.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/skipforward_button_big.png")));
-		nextButtonBig.setBackground(Color.DARK_GRAY);
-		nextButtonBig.setBorder(null);
-		nextButtonBig.setBounds(353, 407, 53, 51);
-		playPanelBig.add(nextButtonBig);
-		
-		JLabel lblTrackTitle = new JLabel("Track Title");
-		lblTrackTitle.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTrackTitle.setForeground(Color.WHITE);
-		lblTrackTitle.setBounds(123, 252, 223, 31);
-		playPanelBig.add(lblTrackTitle);*/
 		mainPanel.setLayout(null);
 
 		mainPanel.add(listPane);
@@ -465,13 +346,9 @@ public class MainFrame {
 			public void stateChanged(ChangeEvent e){
 				elapsedTime = (total * songSlider.getValue() / 100);
 				if(elapsedTime%60 < 10){
-					
 					elapsed = elapsedTime/60 + ":0" + elapsedTime%60;
-				
 				}else{
-				
 					elapsed = elapsedTime/60 + ":" + elapsedTime%60;
-				
 				}
 			    elapsedText.setText(elapsed);
 			    //elapsedTextBig.setText(elapsed);
@@ -479,31 +356,12 @@ public class MainFrame {
 			}
 		});
 		
-		/*songSliderBig.addChangeListener(new ChangeListener() {
-			public void stateChanged(ChangeEvent e){
-				elapsedTime = (total * songSliderBig.getValue() / 100);
-				if(elapsedTime%60 < 10){
-					
-					elapsed = elapsedTime/60 + ":0" + elapsedTime%60;
-				
-				}else{
-				
-					elapsed = elapsedTime/60 + ":" + elapsedTime%60;
-				
-				}
-			    elapsedText.setText(elapsed);
-			    elapsedTextBig.setText(elapsed);
-			    songSlider.setValue(songSliderBig.getValue());
-			}
-			
-		});*/
-		
 		final PlayTrackController playTrackCntl = new PlayTrackController();
 		
 		final BrowseFavoritesController browseFavCntl = new BrowseFavoritesController(favoritesTable, user);
+		final BrowseServerController servCntl = new BrowseServerController(libraryTable);
 		
 		removeFavsBut.addActionListener(new ActionListener() {//remove album from favorites
-			
 			public void actionPerformed(ActionEvent e){
 				
 				if(favsAlbumsOrTracks== 1){
@@ -517,15 +375,35 @@ public class MainFrame {
 					browseFavCntl.removeFavorites(favsAlbumsOrTracks, displayed, notDisplayed, users);
 				}
 			}
+		});
+
+		librarySelectionModel.addListSelectionListener(new ListSelectionListener() {
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				int row = libraryTable.getSelectedRow();
+				String id = Integer.toString((int)libraryModel.getValueAt(row, 0));
+				try {
+					SOAP.sendRequest(id);
+				} catch (Exception x) {
+					//
+				}
+				//list = SOAP.getList();
+				libraryModel = new DefaultTableModel();
+				libraryModel.addColumn("ID");
+				libraryModel.addColumn("Title");
+				for(int j = 0; j < list.size(); j++) {
+					Vector<Comparable> temp = new Vector<Comparable> ();
+					temp.addElement(list.get(j).getId());
+					temp.addElement(list.get(j).getName());
+					libraryModel.addRow(temp);
+				}
+			}
 			
 		});
 		
 		favoritesSelectionModel.addListSelectionListener(new ListSelectionListener(){
-			
 			public void valueChanged(ListSelectionEvent e){
-				
 				if(favoritesTable.getSelectedRow() >= 0){
-				
 					if(favsAlbumsOrTracks == 1 && favoritesTable.getSelectedRow() == 0){
 						browseFavCntl.setSelectedObject(favoritesTable, favsAlbumsOrTracks, notDisplayed, displayed);
 						notDisplayed = displayed;

@@ -2,6 +2,7 @@ package main.gui;
 
 import java.util.*;
 
+
 public class User {
 	//private Setting setting;
 	private boolean admin;			//if admin, will be true
@@ -12,6 +13,7 @@ public class User {
 	private boolean correct;
 	private String iconpath;
 	private ArrayList<Album> favorites;
+	private ArrayList<Integer> favoritesIDs;
 	
 
 	public User(String name, boolean admin, int pin, int filterValue) {
@@ -21,6 +23,7 @@ public class User {
 		filter = filterValue; 
 		loggedin = false;
 		favorites = new ArrayList<Album>();
+		favoritesIDs = new ArrayList<Integer>();
 	}
 	
 	public void setLoggedin(boolean bool) {
@@ -48,18 +51,6 @@ public class User {
 		correct = bool;
 	}
 	
-	public void setFilter(int filterValue){
-		filter = filterValue;
-	}
-	
-	public List<Album> getFavorites(){
-		return favorites;
-	}
-	
-	public void addFavorites(Album album){
-		favorites.add(album);
-	}
-	
 	public String getName() {
 		return name;
 	}
@@ -68,8 +59,16 @@ public class User {
 		return admin;
 	}
 	
+	public int getPIN() {
+		return PIN;
+	}
+
 	public int getFilter(){
 		return filter;
+	}
+	
+	public void setFilter(int filterValue){
+		filter = filterValue;
 	}
 	
 	public void setIcon(String path) {
@@ -78,5 +77,18 @@ public class User {
 	
 	public String getIcon() {
 		return iconpath;
+	}
+	
+	public List<Album> getFavorites() {
+		return favorites;
+	}
+	
+	public List<Integer> getFavoritesIDs() {
+		return favoritesIDs;
+	}
+	
+	public void addFavorites(Album album) {
+		favorites.add(album);
+		favoritesIDs.add(album.getObjectId());
 	}
 }
