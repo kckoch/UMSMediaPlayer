@@ -90,4 +90,8 @@ public class SOAP {
 	static ArrayList<Container> getList() {
 		return list;
 	}
+	
+	static void clearList() {
+		list = new ArrayList<Container> ();
+	}
 }

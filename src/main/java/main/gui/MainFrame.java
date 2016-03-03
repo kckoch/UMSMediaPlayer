@@ -47,6 +47,7 @@ public class MainFrame {
 	private static DefaultTableModel displayed;
 	private static int favsAlbumsOrTracks = 0;
 	private static DefaultTableModel libraryModel;
+	private static ArrayList<Container> list;
 	
 	/**
 	 * @wbp.parser.entryPoint
@@ -120,13 +121,11 @@ public class MainFrame {
 		}  catch(Exception e) {
 			//
 		}
-		final ArrayList<Container> list  = SOAP.getList();
+		 list  = SOAP.getList();
 		
-		libraryModel.addColumn("ID");
 		libraryModel.addColumn("Title");
 		for(int j = 0; j < list.size(); j++) {
 			Vector<Comparable> temp = new Vector<Comparable> ();
-			temp.addElement(list.get(j).getId());
 			temp.addElement(list.get(j).getName());
 			libraryModel.addRow(temp);
 		}
@@ -392,22 +391,32 @@ public class MainFrame {
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				int row = libraryTable.getSelectedRow();
-				String id = Integer.toString((int)libraryModel.getValueAt(row, 0));
+				String tempstr = (String)libraryModel.getValueAt(row, 0);
+				String id = "";
+				for(int m = 0; m < list.size(); m++) {
+					if(tempstr.compareTo(list.get(m).getName()) == 0) {
+						id = Integer.toString(list.get(m).getId());
+						m = list.size();
+					}
+				}
 				try {
+					SOAP.clearList();
 					SOAP.sendRequest(id);
 				} catch (Exception x) {
 					//
 				}
 				//list = SOAP.getList();
 				libraryModel = new DefaultTableModel();
-				libraryModel.addColumn("ID");
+				list = SOAP.getList();
 				libraryModel.addColumn("Title");
 				for(int j = 0; j < list.size(); j++) {
+					System.out.println(list.get(j).getId() + "\t" + list.get(j).getName());
 					Vector<Comparable> temp = new Vector<Comparable> ();
-					temp.addElement(list.get(j).getId());
 					temp.addElement(list.get(j).getName());
 					libraryModel.addRow(temp);
 				}
+				libraryTable.setModel(libraryModel);
+				libraryTable.repaint();
 			}
 			
 		});
