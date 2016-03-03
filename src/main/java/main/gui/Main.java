@@ -18,7 +18,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		//initialize and declare sample tracks and albums for the admin user to use as an example
-		/*
+		
 		Track track0 = new Track(30, "Allegro ma non troppo", System.getProperty("user.dir") + "/audio/Album A/Track 1.mp3", "European Archive");
 		Track track1 = new Track(30, "Larghetto", System.getProperty("user.dir") + "/audio/Album A/Track 2.mp3", "European Archive");
 		Track track2 = new Track(31, "Rondo (Allegro)", System.getProperty("user.dir") + "/audio/Album A/Track 3.mp3", "European Archive");
@@ -83,11 +83,6 @@ public class Main {
 			mainframe.setVisible(false);
 			mainframe.dispose();
 			//returns to login screen
-		}*/
-		try {
-			SOAP.sendRequest("0");
-		}  catch(Exception e) {
-			//
 		}
 	}
 		
