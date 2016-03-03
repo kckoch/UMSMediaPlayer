@@ -36,4 +36,8 @@ public class Album {
 		objectId = id;
 	}
 	
+	public int getObjectId()
+	{
+		return objectId;
+	}
 }
