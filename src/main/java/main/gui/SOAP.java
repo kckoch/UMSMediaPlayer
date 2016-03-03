@@ -86,4 +86,8 @@ public class SOAP {
 		}
         return;
 	}
+	
+	static ArrayList<Container> getList() {
+		return list;
+	}
 }
