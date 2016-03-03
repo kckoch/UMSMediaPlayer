@@ -1,5 +1,6 @@
 package main.gui;
 
+//Authenticate User checks the pin number provided after the user selects a profile
 public class AuthenticateUserController {
 	
 	private User testUser;
@@ -12,6 +13,7 @@ public class AuthenticateUserController {
 		this.testUser = user;
 	}
 	
+	//checks the pin number against the one stored
 	public boolean authenticate(String str) {
 		int pin = Integer.parseInt(str);
 		if(testUser.checkPassword(pin)) {
