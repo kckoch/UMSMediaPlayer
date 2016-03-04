@@ -49,7 +49,7 @@ public class MainFrame {
 	private static JPanel buttonPanel;
 	private static JButton removeFavsBut;
 	private static JTextPane trackTitleText;
-	private static DefaultTableModel libraryModel;
+	private static LibraryModel libraryModel;
 	private static ArrayList<Container> list;
 	
 	/**
@@ -113,25 +113,23 @@ public class MainFrame {
 		favoritesModelTracks.addRow(back);
 		notDisplayed = favoritesModelTracks;
 		
-		libraryModel = new DefaultTableModel(){
-			public boolean isCellEditable(int row, int column){
-				return false;
-			};
-		};// library list data
-		
 		try {
 			SOAP.sendRequest("0");
 		}  catch(Exception e) {
 			//
 		}
-		 list  = SOAP.getList();
-		
-		libraryModel.addColumn("Title");
-		for(int j = 0; j < list.size(); j++) {
-			Vector<Comparable> temp = new Vector<Comparable> ();
-			temp.addElement(list.get(j).getName());
-			libraryModel.addRow(temp);
+		list  = SOAP.getList();
+		for(int u = 0; u < list.size(); u++) {
+			System.out.println(list.get(u).getId() + "\t" + list.get(u).getName());
 		}
+		
+		libraryModel = new LibraryModel(list);
+		libraryTable = new JTable(libraryModel);//where you put albums from library, tab for library
+		libraryTable.setBackground(Color.LIGHT_GRAY);
+		libraryTable.setRowSelectionAllowed(true);
+		libraryTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		ListSelectionModel librarySelectionModel = libraryTable.getSelectionModel();
+		libraryModel.fireTableDataChanged();
 		
 		buttonPanel = new JPanel();
 		buttonPanel.setBounds(204, 0, 260, 30);
@@ -203,11 +201,7 @@ public class MainFrame {
 		ListSelectionModel favoritesSelectionModel = favoritesTable.getSelectionModel();
 		JScrollPane favoritesScroll = new JScrollPane(favoritesTable);
 		mainTab.addTab("Favorites", null, favoritesScroll, null);
-		libraryTable = new JTable(libraryModel);//where you put albums from library, tab for library
-		libraryTable.setBackground(Color.LIGHT_GRAY);
-		libraryTable.setRowSelectionAllowed(true);
-		libraryTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		ListSelectionModel librarySelectionModel = libraryTable.getSelectionModel();
+		
 		JScrollPane libraryScroll = new JScrollPane(libraryTable);
 		mainTab.addTab("Library", null, libraryScroll, null);
 		
@@ -379,35 +373,32 @@ public class MainFrame {
 		librarySelectionModel.addListSelectionListener(new ListSelectionListener() {
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
+				/*if (e.getValueIsAdjusting()) 
+					return;*/
 				int row = libraryTable.getSelectedRow();
 				String tempstr = (String)libraryModel.getValueAt(row, 0);
 				String id = "";
-				for(int m = 0; m < list.size(); m++) {
-					if(tempstr.compareTo(list.get(m).getName()) == 0) {
-						id = Integer.toString(list.get(m).getId());
-						m = list.size();
+				for(int p = 0; p < list.size(); p++){
+					if(list.get(p).getName().compareTo(tempstr) == 0) {
+						id = Integer.toString(list.get(p).getId());
+						System.out.println(id);
 					}
 				}
 				try {
-					SOAP.clearList();
 					SOAP.sendRequest(id);
+					list = SOAP.getList();
 				} catch (Exception x) {
 					//
 				}
-				//list = SOAP.getList();
-				libraryModel = new DefaultTableModel();
-				list = SOAP.getList();
-				libraryModel.addColumn("Title");
+				libraryModel = new LibraryModel(list);
 				for(int j = 0; j < list.size(); j++) {
 					System.out.println(list.get(j).getId() + "\t" + list.get(j).getName());
-					Vector<Comparable> temp = new Vector<Comparable> ();
-					temp.addElement(list.get(j).getName());
-					libraryModel.addRow(temp);
 				}
-				libraryTable.setModel(libraryModel);
-				libraryTable.repaint();
+				if (e.getValueIsAdjusting()) 
+					return;
+				libraryModel.fireTableDataChanged();
 			}
-			
+
 		});
 		
 		favoritesSelectionModel.addListSelectionListener(new ListSelectionListener(){
@@ -436,28 +427,19 @@ public class MainFrame {
 							total = (int) playTrackCntl.track.totalTime;
 							elapsedTime = (total * songSlider.getValue() / 100);//elapsed time
 						    if(elapsedTime%60 < 10){
-								
 								elapsed = elapsedTime/60 + ":0" + elapsedTime%60;
-							
 							}else{
-							
-								elapsed = elapsedTime/60 + ":" + elapsedTime%60;
-							
+								elapsed = elapsedTime/60 + ":" + elapsedTime%60;						
 							}
 							elapsedText.setText(elapsed);
 						
 							//total time
-							if(total%60 < 10){
-								
+							if(total%60 < 10){	
 								duration = total/60 + ":0" + total%60;
-							
 							}else{
-							
 								duration = total/60 + ":" + total%60;
-							
 							}
 							totalText.setText(duration);
-							
 						}
 					}
 				}
