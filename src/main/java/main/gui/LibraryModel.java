@@ -20,6 +20,11 @@ public class LibraryModel extends AbstractTableModel {
 	public int getRowCount() {
 		return myData.size();
 	}
+	
+	@Override
+    public String getColumnName(int column) {
+        return columnHeaders[column];
+    }
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {

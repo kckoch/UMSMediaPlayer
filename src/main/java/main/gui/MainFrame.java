@@ -52,6 +52,7 @@ public class MainFrame {
 	private static JTextPane trackTitleText;
 	private static LibraryModel libraryModel;
 	private static ArrayList<Container> list;
+	private static ListSelectionModel librarySelectionModel;
 	
 	/**
 	 * @wbp.parser.entryPoint
@@ -124,7 +125,7 @@ public class MainFrame {
 		libraryTable.setBackground(Color.LIGHT_GRAY);
 		libraryTable.setRowSelectionAllowed(true);
 		libraryTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		ListSelectionModel librarySelectionModel = libraryTable.getSelectionModel();
+		librarySelectionModel = libraryTable.getSelectionModel();
 		libraryModel.fireTableDataChanged();
 		
 		buttonPanel = new JPanel();
@@ -369,29 +370,32 @@ public class MainFrame {
 		librarySelectionModel.addListSelectionListener(new ListSelectionListener() {
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
-				if (e.getValueIsAdjusting()) 
-					return;
-				int row = libraryTable.getSelectedRow();
-				String tempstr = (String)libraryModel.getValueAt(row, 0);
-				String id = "";
-				for(int p = 0; p < list.size(); p++){
-					if(list.get(p).getName().compareTo(tempstr) == 0) {
-						id = Integer.toString(list.get(p).getId());
-						System.out.println(id);
+				if (!e.getValueIsAdjusting()) {
+					System.out.println("in listener");
+					System.out.flush();
+					int row = libraryTable.getSelectedRow();
+					String tempstr = (String)libraryModel.getValueAt(row, 0);
+					String id = "";
+					for(int p = 0; p < list.size(); p++){
+						if(list.get(p).getName().compareTo(tempstr) == 0) {
+							id = Integer.toString(list.get(p).getId());
+							p = list.size();
+						}
 					}
+					try {
+						SOAP.sendRequest(id);
+					} catch (Exception x) {
+						//
+					}
+					libraryModel = new LibraryModel(SOAP.getList());
+					for(int j = 0; j < SOAP.getList().size(); j++) {
+						System.out.println(SOAP.getList().get(j).getId() + "\t" + SOAP.getList().get(j).getName());
+						System.out.flush();
+					}
+					libraryModel.fireTableDataChanged();
+					libraryTable.repaint();
+					libraryTable.clearSelection();
 				}
-				try {
-					SOAP.sendRequest(id);
-					list = SOAP.getList();
-				} catch (Exception x) {
-					//
-				}
-				libraryModel = new LibraryModel(list);
-				for(int j = 0; j < list.size(); j++) {
-					System.out.println(list.get(j).getId() + "\t" + list.get(j).getName());
-				}
-				libraryModel.fireTableDataChanged();
-				libraryTable.repaint();
 			}
 		});
 		
