@@ -36,6 +36,7 @@ public class MainFrame {
 	private static JTextField txtSearch;
 	private static JTable favoritesTable;
 	private static JTable libraryTable;
+	private static JScrollPane libraryPanel;
 	private static JPanel playPanel;
 	private static JLabel placeHolderForImage;
 	private static JFrame playFrame;
@@ -82,13 +83,9 @@ public class MainFrame {
 		Vector<Comparable> back = new Vector<Comparable>();
 		back.addElement("Back");
 		
-		
 		final DefaultTableModel favoritesModelAlbums = new DefaultTableModel() {
-			
 			public boolean isCellEditable(int row, int column){
-		      
 				return false;
-			
 			};
 			
 		};// favorites list data
@@ -112,7 +109,7 @@ public class MainFrame {
 		favoritesModelTracks.addColumn("Artist");
 		favoritesModelTracks.addRow(back);
 		notDisplayed = favoritesModelTracks;
-		
+
 		try {
 			SOAP.sendRequest("0");
 		}  catch(Exception e) {
@@ -122,7 +119,6 @@ public class MainFrame {
 		for(int u = 0; u < list.size(); u++) {
 			System.out.println(list.get(u).getId() + "\t" + list.get(u).getName());
 		}
-		
 		libraryModel = new LibraryModel(list);
 		libraryTable = new JTable(libraryModel);//where you put albums from library, tab for library
 		libraryTable.setBackground(Color.LIGHT_GRAY);
@@ -373,8 +369,8 @@ public class MainFrame {
 		librarySelectionModel.addListSelectionListener(new ListSelectionListener() {
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
-				/*if (e.getValueIsAdjusting()) 
-					return;*/
+				if (e.getValueIsAdjusting()) 
+					return;
 				int row = libraryTable.getSelectedRow();
 				String tempstr = (String)libraryModel.getValueAt(row, 0);
 				String id = "";
@@ -394,11 +390,9 @@ public class MainFrame {
 				for(int j = 0; j < list.size(); j++) {
 					System.out.println(list.get(j).getId() + "\t" + list.get(j).getName());
 				}
-				if (e.getValueIsAdjusting()) 
-					return;
 				libraryModel.fireTableDataChanged();
+				libraryTable.repaint();
 			}
-
 		});
 		
 		favoritesSelectionModel.addListSelectionListener(new ListSelectionListener(){
