@@ -109,6 +109,14 @@ public class SettingGUI {
 		btnChangePin.setForeground(Color.WHITE);
 		btnChangePin.setBackground(Color.GRAY);
 		btnChangePin.setBounds(183, 24, 114, 25);
+		btnChangePin.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				settings.getUser(0).setPIN(Integer.parseInt(passwordField.getText()));
+				settings.saveXML("saveData.xml");
+			}
+		});
 		userPanel.add(btnChangePin);
 		
 		
@@ -426,6 +434,14 @@ public class SettingGUI {
 		chngPin.setBorder(null);
 		chngPin.setBackground(Color.GRAY);
 		chngPin.setBounds(205, 30, 119, 25);
+		chngPin.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				settings.getUser(0).setPIN(Integer.parseInt(passwordField_1.getText()));
+				settings.saveXML("saveData.xml");
+			}
+		});
 		exPanel.add(chngPin);
 		
 		//example user change profile pic button
@@ -513,6 +529,14 @@ public class SettingGUI {
 		button.setBorder(null);
 		button.setBackground(Color.GRAY);
 		button.setBounds(205, 30, 119, 25);
+		button.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				settings.getUser(0).setPIN(Integer.parseInt(passwordField_2.getText()));
+				settings.saveXML("saveData.xml");
+			}
+		});
 		exPanel2.add(button);
 		
 		JButton button_1 = new JButton("Change Profile Pic");

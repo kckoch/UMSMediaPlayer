@@ -62,6 +62,10 @@ public class User {
 		return PIN;
 	}
 	
+	public void setPIN(int PIN) {
+		this.PIN = PIN;
+	}
+	
 	public int getFilter() {
 		return filter;
 	}

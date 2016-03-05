@@ -53,6 +53,16 @@ public class Setting {
 		users.add(newUser);
 	}
 	
+	public User getUser(int n)
+	{
+		return users.get(n);
+	}
+	
+	public ArrayList<User> getUsers()
+	{
+		return users;
+	}
+	
 // Loads in XML save data
 	void loadXML(String inputFileName) {
 		// Read in XML file (Load)
@@ -98,6 +108,7 @@ public class Setting {
 							Boolean.parseBoolean(eElement.getElementsByTagName("admin").item(0).getTextContent()),
 							Integer.parseInt(eElement.getElementsByTagName("PIN").item(0).getTextContent()),
 							Integer.parseInt(eElement.getElementsByTagName("filter").item(0).getTextContent()));
+					newUser.setIcon(eElement.getElementsByTagName("icon").item(0).getTextContent());
 
 					nAlbums = eElement.getElementsByTagName("album");
 					for (int temp1 = 0; temp1 < nAlbums.getLength(); temp1++) {
@@ -185,6 +196,9 @@ public class Setting {
 				xmluser.appendChild(elem);
 				elem = doc.createElement("filter");
 				elem.appendChild(doc.createTextNode("" + tempUser.getFilter()));
+				xmluser.appendChild(elem);
+				elem = doc.createElement("icon");
+				elem.appendChild(doc.createTextNode("" + tempUser.getIcon()));
 				xmluser.appendChild(elem);
 				for(Album tempAlbum : tempUser.getFavorites())
 				{
