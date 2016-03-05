@@ -1,10 +1,13 @@
 package main.gui;
 
 import javax.media.CannotRealizeException;
+import javax.media.ControllerEvent;
+import javax.media.ControllerListener;
 import javax.media.NoPlayerException;
+import javax.media.Player;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-
+import javax.swing.Timer;
 
 //import com.sun.glass.events.MouseEvent;
 
@@ -16,6 +19,8 @@ import java.util.ArrayList;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
 
+import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
@@ -50,6 +55,8 @@ public class MainFrame {
 	private static JPanel buttonPanel;
 	private static JButton removeFavsBut;
 	private static JTextPane trackTitleText;
+	private static Timer timer;
+	private static JTextField trackArtistText;
 	private static LibraryModel libraryModel;
 	private static ArrayList<Container> list;
 	private static ListSelectionModel librarySelectionModel;
@@ -68,6 +75,8 @@ public class MainFrame {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		timer = new Timer(0, null);
+		
 		
 		mainPanel = new JPanel();
 		mainPanel.setOpaque(false);
@@ -205,11 +214,13 @@ public class MainFrame {
 		libraryScroll.addFocusListener(new FocusListener(){
 			public void focusGained(FocusEvent e) {
 		        buttonPanel.remove(removeFavsBut);
+		        buttonPanel.revalidate();
 		        buttonPanel.repaint();
 		    }
 
 		    public void focusLost(FocusEvent e) {
 		    	buttonPanel.add(removeFavsBut);
+		    	buttonPanel.revalidate();
 		    	buttonPanel.repaint();
 		    }
 		});
@@ -235,24 +246,16 @@ public class MainFrame {
 		placeHolderForImage.setBounds(8, 38, 111, 111);
 		playPanel.add(placeHolderForImage);
 	
-		/*final JRadioButton favoritesButton = new JRadioButton("");// button to mark album for favorites
-		favoritesButton.setHorizontalTextPosition(SwingConstants.RIGHT);
-		favoritesButton.setSelectedIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/gold_star.png")));
-		favoritesButton.setBackground(Color.GRAY);
-		favoritesButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/white_star.png")));
-		favoritesButton.setBounds(427, 8, 51, 23);
-		playPanel.add(favoritesButton);*/
-		
-		//track title
-		JLabel trackLabel = new JLabel("Track Title:");
-		trackLabel.setForeground(Color.WHITE);
-		trackLabel.setBounds(129, 35, 70, 23);
-		playPanel.add(trackLabel);
-	
 		trackTitleText = new JTextPane();
-		trackTitleText.setText("This is the Track Title");
-		trackTitleText.setBounds(203, 38, 158, 20);
+		trackTitleText.setText("Title");
+		trackTitleText.setBounds(129, 38, 111, 20);
 		playPanel.add(trackTitleText);
+		
+		trackArtistText = new JTextField();
+		trackArtistText.setText("Artist");
+		trackArtistText.setBounds(250, 38, 111, 20);
+		playPanel.add(trackArtistText);
+		trackArtistText.setColumns(10);
 	
 		final JSlider songSlider = new JSlider();//slider
 		songSlider.setForeground(Color.WHITE);
@@ -292,37 +295,15 @@ public class MainFrame {
 		playButton.setBackground(Color.GRAY);
 		playButton.setBorder(null);
 		playButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/play_button.png")));
-		playButton.setBounds(270, 99, 50, 50);
+		playButton.setBounds(176, 99, 50, 50);
 		playPanel.add(playButton);
-	
-		JButton pauseButton = new JButton("");//pause button
-		pauseButton.setBorder(null);
-		pauseButton.setBackground(Color.GRAY);
-		pauseButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/pause_button.png")));
-		pauseButton.setBounds(209, 109, 35, 35);
-		playPanel.add(pauseButton);
 		
 		JButton stopButton = new JButton("");//stop button
 		stopButton.setBorder(null);
 		stopButton.setBackground(Color.GRAY);
 		stopButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/stop_button.png")));
-		stopButton.setBounds(335, 109, 38, 33);
+		stopButton.setBounds(236, 109, 38, 33);
 		playPanel.add(stopButton);
-	
-		JButton previousButton = new JButton("");//previous button
-		previousButton.setBackground(Color.GRAY);
-		previousButton.setBorder(null);
-		previousButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/skipbackwards_button.png")));
-		previousButton.setBounds(146, 109, 35, 35);
-		playPanel.add(previousButton);
-	
-		JButton nextButton = new JButton("");//next button
-		nextButton.setBackground(Color.GRAY);
-		nextButton.setBorder(null);
-		nextButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/skipforward_button.png")));
-		nextButton.setActionCommand("");
-		nextButton.setBounds(400, 108, 35, 35);
-		playPanel.add(nextButton);
 		
 		mainPanel.setLayout(null);
 
@@ -330,23 +311,9 @@ public class MainFrame {
 		mainPanel.add(playPanel);
 		frame.setContentPane(mainPanel);
 		
-		//links the sliders and elapsed time text together
-		//songSliderBig.setBackground(Color.DARK_GRAY);
-		songSlider.addChangeListener(new ChangeListener() {
-			public void stateChanged(ChangeEvent e){
-				elapsedTime = (total * songSlider.getValue() / 100);
-				if(elapsedTime%60 < 10){
-					elapsed = elapsedTime/60 + ":0" + elapsedTime%60;
-				}else{
-					elapsed = elapsedTime/60 + ":" + elapsedTime%60;
-				}
-			    elapsedText.setText(elapsed);
-			    //elapsedTextBig.setText(elapsed);
-			    //songSliderBig.setValue(songSlider.getValue());
-			}
-		});
+		final PlayTrackController playTrackCntl = new PlayTrackController(songSlider);
 		
-		final PlayTrackController playTrackCntl = new PlayTrackController();
+		
 		
 		final BrowseFavoritesController browseFavCntl = new BrowseFavoritesController(favoritesTable, user);
 		final BrowseServerController servCntl = new BrowseServerController(libraryTable);
@@ -451,16 +418,73 @@ public class MainFrame {
 			public void actionPerformed(ActionEvent e){
 				if(playTrackCntl.playerStat == playerStatus.STOPPED){
 					try {
-						playTrackCntl.startTrack(browseFavCntl.selectedTrack);
+						timer.restart();
+						playTrackCntl.startTrack();
+						playButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/pause_button.png")));
 					} catch (NoPlayerException | CannotRealizeException | IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-				}else{
+				}else if(playTrackCntl.playerStat == playerStatus.PAUSED){
+					timer.start();
 					playTrackCntl.playTrack();
+					playButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/pause_button.png")));
+				}else if(playTrackCntl.playerStat == playerStatus.PLAYING){
+					timer.stop();
+					playTrackCntl.pauseTrack();
+					playButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/play_button.png")));
 				}
 			}
 		});
+		
+	
+		stopButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e){
+				if(playTrackCntl.playerStat == playerStatus.PLAYING){
+					timer.stop();
+					playTrackCntl.stopTrack();
+					playButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/play_button.png")));
+				}else if(playTrackCntl.playerStat == playerStatus.PAUSED){
+					timer.stop();
+					playTrackCntl.stopTrack();
+					playButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/play_button.png")));
+				}else if(playTrackCntl.playerStat == playerStatus.STOPPED){
+					timer.stop();
+					playTrackCntl.stopTrack();
+					playButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/play_button.png")));
+				}
+			}
+		});
+		
+		
+		//links the sliders and elapsed time text together
+		
+		timer.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				if(playTrackCntl.playerStat == playerStatus.PLAYING){
+					songSlider.setValue((int) (playTrackCntl.trackPlayer.getMediaTime().getSeconds()/playTrackCntl.trackPlayer.getDuration().getSeconds()*100));
+					elapsedTime = (total * songSlider.getValue() / 100);
+					if(elapsedTime%60 < 10){
+						elapsed = elapsedTime/60 + ":0" + elapsedTime%60;
+					}else{
+						elapsed = elapsedTime/60 + ":" + elapsedTime%60;
+					}
+					elapsedText.setText(elapsed);
+				}if(playTrackCntl.trackPlayer.getMediaTime() == playTrackCntl.trackPlayer.getDuration()){
+					playTrackCntl.playerStat = playerStatus.PLAYING;
+					songSlider.setValue(0);
+					elapsedTime = (total * songSlider.getValue() / 100);
+					if(elapsedTime%60 < 10){
+						elapsed = elapsedTime/60 + ":0" + elapsedTime%60;
+					}else{
+						elapsed = elapsedTime/60 + ":" + elapsedTime%60;
+					}
+					elapsedText.setText(elapsed);
+				}
+			}
+		});
+		
+
 		
 		return frame;
 	}
