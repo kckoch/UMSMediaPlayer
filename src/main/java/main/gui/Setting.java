@@ -54,8 +54,8 @@ public class Setting {
 	}
 	
 
-//THIS is broken--this needs to be fixed
-/*	void loadXML(String inputFileName) {
+	// Inputs current save data from XML file (Load function)
+	void loadXML(String inputFileName) {
 		// Read in XML file (Load)
 		try {
 			// Designate input file
@@ -65,12 +65,43 @@ public class Setting {
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			// Parse input file
 			Document doc = dBuilder.parse(inputFile);
+
 			doc.getDocumentElement().normalize();
 
 			//System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
 
+			Node nNode;
+			Node nNode2;
+			Element eElement;
 			
 			// Implement User-loading here.
+			NodeList nList = doc.getElementsByTagName("user");
+			for (int temp = 0; temp < nList.getLength(); temp++) {
+				nNode = nList.item(temp);
+				//System.out.println("\nCurrent Element :" + nNode.getNodeName());
+				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+					User newUser;
+					
+					eElement = (Element) nNode;
+
+					newUser = new User(eElement.getAttribute("name"),
+							Boolean.parseBoolean(eElement.getElementsByTagName("admin").item(0).getTextContent()),
+							Integer.parseInt(eElement.getElementsByTagName("PIN").item(0).getTextContent()),
+							Integer.parseInt(eElement.getElementsByTagName("filter").item(0).getTextContent()));
+
+					NodeList nList2 = doc.getElementsByTagName("favoriteAlbumID");
+					for (int temp2 = 0; temp2 < nList.getLength(); temp2++) {
+						nNode2 = nList2.item(temp2);
+						if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+							eElement = (Element) nNode;
+//							newUser.addFavorites();
+						}
+						
+					}
+					
+					users.add(newUser);
+				}
+			}
 			
 
 			nList = doc.getElementsByTagName("configureN");
@@ -92,9 +123,9 @@ public class Setting {
 			e.printStackTrace();
 		}
 	}
-*/
+
+	// Outputs current save data to XML file (Save function)
 	void saveXML(String outputFileName) {
-		// Output XML file (Save)
 		try {
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -103,26 +134,51 @@ public class Setting {
 			Document doc = docBuilder.newDocument();
 			Element rootElement = doc.createElement("Settings");
 			doc.appendChild(rootElement);
-
+			
+			Element elem;
+			Attr attr;
 			
 			// Implement User-saving here.
+			Element xmluser;
+			for(User tempUser : users) {
+				xmluser = doc.createElement("user");
+				rootElement.appendChild(xmluser);
+				attr = doc.createAttribute("name");
+				attr.setValue("" + tempUser.getName());
+				xmluser.setAttributeNode(attr);
+				
+				elem = doc.createElement("admin");
+				elem.appendChild(doc.createTextNode("" + tempUser.getAdmin()));
+				xmluser.appendChild(elem);
+				elem = doc.createElement("PIN");
+				elem.appendChild(doc.createTextNode("" + tempUser.getPIN()));
+				xmluser.appendChild(elem);
+				elem = doc.createElement("filter");
+				elem.appendChild(doc.createTextNode("" + tempUser.getFilter()));
+				xmluser.appendChild(elem);
+				for(Integer tempID : tempUser.getFavoritesIDs())
+				{
+					elem = doc.createElement("favoriteAlbumID");
+					elem.appendChild(doc.createTextNode("" + tempID));
+					xmluser.appendChild(elem);
+				}
+			}
 			
-
 			// Configure N Element
-			Element tres = doc.createElement("configureN");
-			rootElement.appendChild(tres);
+			Element xmlconfigureN = doc.createElement("configureN");
+			rootElement.appendChild(xmlconfigureN);
 			// Attribute
-			Attr attr3 = doc.createAttribute("val");
-			attr3.setValue("" + this.getconfigureN());
-			tres.setAttributeNode(attr3);
+			attr = doc.createAttribute("val");
+			attr.setValue("" + this.getconfigureN());
+			xmlconfigureN.setAttributeNode(attr);
 
 			// Server URL Element
-			Element cuatro = doc.createElement("serverURL");
-			rootElement.appendChild(cuatro);
+			Element xmlserverURL = doc.createElement("serverURL");
+			rootElement.appendChild(xmlserverURL);
 			// Attribute
-			Attr attr4 = doc.createAttribute("val");
-			attr4.setValue(this.getserverURL());
-			cuatro.setAttributeNode(attr4);
+			attr = doc.createAttribute("val");
+			attr.setValue(this.getserverURL());
+			xmlserverURL.setAttributeNode(attr);
 
 			// write the content into xml file
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();

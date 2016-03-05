@@ -26,7 +26,7 @@ public class PlayTrackController {
 		playerStat = playerStatus.STOPPED;
 	}
 	
-	public void startTrack(Track newTrack) throws NoPlayerException, CannotRealizeException, MalformedURLException, IOException{
+	public void startTrack(Track newTrack)throws NoPlayerException, CannotRealizeException, MalformedURLException, IOException{
 		track = newTrack;
 		currentTime = 0;
 		File trackFile = new File(track.MediaURL);
