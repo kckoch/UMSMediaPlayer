@@ -29,7 +29,7 @@ public class Setting {
 		configureN = _configureN;
 		serverURL = _serverURL;
 		users = new ArrayList<User>();
-		users.add(new User("admin", true, 9999, 0));
+		//users.add(new User("admin", true, 9999, 0));
 	}
 
 	public int getconfigureN() {
@@ -51,6 +51,21 @@ public class Setting {
 	public void addUser(User newUser)
 	{
 		users.add(newUser);
+	}
+	
+	public User getUser(int unum)
+	{
+		return users.get(unum);
+	}
+	
+	public ArrayList<User> getAllUsers()
+	{
+		return users;
+	}
+	
+	public int getTotalUsers()
+	{
+		return users.size();
 	}
 	
 
