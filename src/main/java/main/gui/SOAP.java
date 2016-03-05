@@ -25,7 +25,7 @@ public class SOAP {
 "		</u:Browse>" +
 "	</s:Body>" +
 "</s:Envelope>";
-
+	
 	public static void sendRequest(String objID) throws IOException{
 		String objectId = objID;
 
@@ -43,6 +43,7 @@ public class SOAP {
 		Response response = client.newCall(request).execute();
 		
 		if (response.code() == 200) {
+			list.clear();
 			String resultStr = response.body().string();
 			processResults(resultStr);
 		} else {

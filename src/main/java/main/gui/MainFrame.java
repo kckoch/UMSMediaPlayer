@@ -41,6 +41,7 @@ public class MainFrame {
 	private static JTextField txtSearch;
 	private static JTable favoritesTable;
 	private static JTable libraryTable;
+	private static JScrollPane libraryPanel;
 	private static JPanel playPanel;
 	private static JLabel placeHolderForImage;
 	private static JFrame playFrame;
@@ -54,9 +55,11 @@ public class MainFrame {
 	private static JPanel buttonPanel;
 	private static JButton removeFavsBut;
 	private static JTextPane trackTitleText;
-	private static DefaultTableModel libraryModel;
 	private static Timer timer;
 	private static JTextField trackArtistText;
+	private static LibraryModel libraryModel;
+	private static ArrayList<Container> list;
+	private static ListSelectionModel librarySelectionModel;
 	
 	/**
 	 * @wbp.parser.entryPoint
@@ -90,13 +93,9 @@ public class MainFrame {
 		Vector<Comparable> back = new Vector<Comparable>();
 		back.addElement("Back");
 		
-		
 		final DefaultTableModel favoritesModelAlbums = new DefaultTableModel() {
-			
 			public boolean isCellEditable(int row, int column){
-		      
 				return false;
-			
 			};
 			
 		};// favorites list data
@@ -120,28 +119,23 @@ public class MainFrame {
 		favoritesModelTracks.addColumn("Artist");
 		favoritesModelTracks.addRow(back);
 		notDisplayed = favoritesModelTracks;
-		
-		libraryModel = new DefaultTableModel(){
-			public boolean isCellEditable(int row, int column){
-				return false;
-			};
-		};// library list data
-		
+
 		try {
 			SOAP.sendRequest("0");
 		}  catch(Exception e) {
 			//
 		}
-		final ArrayList<Container> list  = SOAP.getList();
-		
-		libraryModel.addColumn("ID");
-		libraryModel.addColumn("Title");
-		for(int j = 0; j < list.size(); j++) {
-			Vector<Comparable> temp = new Vector<Comparable> ();
-			temp.addElement(list.get(j).getId());
-			temp.addElement(list.get(j).getName());
-			libraryModel.addRow(temp);
+		list  = SOAP.getList();
+		for(int u = 0; u < list.size(); u++) {
+			System.out.println(list.get(u).getId() + "\t" + list.get(u).getName());
 		}
+		libraryModel = new LibraryModel(list);
+		libraryTable = new JTable(libraryModel);//where you put albums from library, tab for library
+		libraryTable.setBackground(Color.LIGHT_GRAY);
+		libraryTable.setRowSelectionAllowed(true);
+		libraryTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		librarySelectionModel = libraryTable.getSelectionModel();
+		libraryModel.fireTableDataChanged();
 		
 		buttonPanel = new JPanel();
 		buttonPanel.setBounds(204, 0, 260, 30);
@@ -213,11 +207,7 @@ public class MainFrame {
 		ListSelectionModel favoritesSelectionModel = favoritesTable.getSelectionModel();
 		JScrollPane favoritesScroll = new JScrollPane(favoritesTable);
 		mainTab.addTab("Favorites", null, favoritesScroll, null);
-		libraryTable = new JTable(libraryModel);//where you put albums from library, tab for library
-		libraryTable.setBackground(Color.LIGHT_GRAY);
-		libraryTable.setRowSelectionAllowed(true);
-		libraryTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		ListSelectionModel librarySelectionModel = libraryTable.getSelectionModel();
+		
 		JScrollPane libraryScroll = new JScrollPane(libraryTable);
 		mainTab.addTab("Library", null, libraryScroll, null);
 		
@@ -347,25 +337,33 @@ public class MainFrame {
 		librarySelectionModel.addListSelectionListener(new ListSelectionListener() {
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
-				int row = libraryTable.getSelectedRow();
-				String id = Integer.toString((int)libraryModel.getValueAt(row, 0));
-				try {
-					SOAP.sendRequest(id);
-				} catch (Exception x) {
-					//
-				}
-				//list = SOAP.getList();
-				libraryModel = new DefaultTableModel();
-				libraryModel.addColumn("ID");
-				libraryModel.addColumn("Title");
-				for(int j = 0; j < list.size(); j++) {
-					Vector<Comparable> temp = new Vector<Comparable> ();
-					temp.addElement(list.get(j).getId());
-					temp.addElement(list.get(j).getName());
-					libraryModel.addRow(temp);
+				if (!e.getValueIsAdjusting()) {
+					System.out.println("in listener");
+					System.out.flush();
+					int row = libraryTable.getSelectedRow();
+					String tempstr = (String)libraryModel.getValueAt(row, 0);
+					String id = "";
+					for(int p = 0; p < list.size(); p++){
+						if(list.get(p).getName().compareTo(tempstr) == 0) {
+							id = Integer.toString(list.get(p).getId());
+							p = list.size();
+						}
+					}
+					try {
+						SOAP.sendRequest(id);
+					} catch (Exception x) {
+						//
+					}
+					libraryModel = new LibraryModel(SOAP.getList());
+					for(int j = 0; j < SOAP.getList().size(); j++) {
+						System.out.println(SOAP.getList().get(j).getId() + "\t" + SOAP.getList().get(j).getName());
+						System.out.flush();
+					}
+					libraryModel.fireTableDataChanged();
+					libraryTable.repaint();
+					libraryTable.clearSelection();
 				}
 			}
-			
 		});
 		
 		favoritesSelectionModel.addListSelectionListener(new ListSelectionListener(){
@@ -394,28 +392,19 @@ public class MainFrame {
 							total = (int) playTrackCntl.track.totalTime;
 							elapsedTime = (total * songSlider.getValue() / 100);//elapsed time
 						    if(elapsedTime%60 < 10){
-								
 								elapsed = elapsedTime/60 + ":0" + elapsedTime%60;
-							
 							}else{
-							
-								elapsed = elapsedTime/60 + ":" + elapsedTime%60;
-							
+								elapsed = elapsedTime/60 + ":" + elapsedTime%60;						
 							}
 							elapsedText.setText(elapsed);
 						
 							//total time
-							if(total%60 < 10){
-								
+							if(total%60 < 10){	
 								duration = total/60 + ":0" + total%60;
-							
 							}else{
-							
 								duration = total/60 + ":" + total%60;
-							
 							}
 							totalText.setText(duration);
-							
 						}
 					}
 				}
