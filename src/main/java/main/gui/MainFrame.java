@@ -67,7 +67,7 @@ public class MainFrame {
 
 	//The Main Frame layout and view
 	@SuppressWarnings("rawtypes")
-	public static JFrame init(final User user, final ArrayList<User> users) {
+	public static JFrame init(final User user, final ArrayList<User> users, final Setting settings) {
 		frame = new JFrame("That's My Jam!");
 		frame.setBackground(Color.DARK_GRAY);
 		frame.setResizable(false);
@@ -152,7 +152,7 @@ public class MainFrame {
 			btnSettings.setBounds(195, 3, 35, 25);
 			btnSettings.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					SettingGUI.init(mainPanel, frame, user, libraryTable, users);
+					SettingGUI.init(mainPanel, frame, user, libraryTable, users, settings);
 					//frame.setContentPane(SettingGUI.init(mainPanel, frame, user));
 				}
 			});

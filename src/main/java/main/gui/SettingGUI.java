@@ -32,7 +32,7 @@ public class SettingGUI {
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	public static void init(final JPanel mainPanelIn, final JFrame frame, final User user, final JTable table, final ArrayList<User> users) {
+	public static void init(final JPanel mainPanelIn, final JFrame frame, final User user, final JTable table, final ArrayList<User> users, final Setting settings) {
 		mainPanel.setPreferredSize(new Dimension(500, 600));
 		mainPanel.setMaximumSize(new Dimension(500, 600));
 		mainPanel.setBackground(Color.DARK_GRAY);
@@ -109,6 +109,14 @@ public class SettingGUI {
 		btnChangePin.setForeground(Color.WHITE);
 		btnChangePin.setBackground(Color.GRAY);
 		btnChangePin.setBounds(183, 24, 114, 25);
+		btnChangePin.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				settings.getUser(0).setPIN(Integer.parseInt(passwordField.getText()));
+				settings.saveXML("saveData.xml");
+			}
+		});
 		userPanel.add(btnChangePin);
 		
 		
@@ -288,7 +296,7 @@ public class SettingGUI {
 		
 		//server logo
 		JLabel lblServer = new JLabel("");
-		lblServer.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/resources/main/gui/server.png")));
+		lblServer.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/server.png")));
 		lblServer.setHorizontalAlignment(SwingConstants.CENTER);
 		lblServer.setBackground(Color.DARK_GRAY);
 		lblServer.setBounds(0, 0, 115, 39);
@@ -426,6 +434,14 @@ public class SettingGUI {
 		chngPin.setBorder(null);
 		chngPin.setBackground(Color.GRAY);
 		chngPin.setBounds(205, 30, 119, 25);
+		chngPin.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				settings.getUser(0).setPIN(Integer.parseInt(passwordField_1.getText()));
+				settings.saveXML("saveData.xml");
+			}
+		});
 		exPanel.add(chngPin);
 		
 		//example user change profile pic button
@@ -468,7 +484,7 @@ public class SettingGUI {
 		exPanel.add(changeName);
 		
 		JButton deleteacc = new JButton("");
-		deleteacc.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/resources/main/gui/red_x_icon.png")));
+		deleteacc.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/red_x_icon.png")));
 		deleteacc.setBorder(null);
 		deleteacc.setBackground(Color.DARK_GRAY);
 		deleteacc.setBounds(428, 3, 30, 30);
@@ -502,7 +518,7 @@ public class SettingGUI {
 		scrollpanel.add(exPanel2);
 		
 		JLabel label = new JLabel();
-		label.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/resources/main/gui/smile_green.png")));
+		label.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/smile_green.png")));
 		label.setBorder(null);
 		label.setBounds(10, 3, 93, 93);
 		exPanel2.add(label);
@@ -513,6 +529,14 @@ public class SettingGUI {
 		button.setBorder(null);
 		button.setBackground(Color.GRAY);
 		button.setBounds(205, 30, 119, 25);
+		button.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				settings.getUser(0).setPIN(Integer.parseInt(passwordField_2.getText()));
+				settings.saveXML("saveData.xml");
+			}
+		});
 		exPanel2.add(button);
 		
 		JButton button_1 = new JButton("Change Profile Pic");
@@ -550,7 +574,7 @@ public class SettingGUI {
 		exPanel2.add(button_3);
 		
 		JButton button_4 = new JButton("");
-		button_4.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/resources/main/gui/red_x_icon.png")));
+		button_4.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/red_x_icon.png")));
 		button_4.setBorder(null);
 		button_4.setBackground(Color.DARK_GRAY);
 		button_4.setBounds(428, 3, 30, 30);
