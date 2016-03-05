@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><Settings><PIN val="10"/><profilePicID val="5"/><configureN val="2"/><serverURL val="banana"/></Settings>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Settings><user name="admin"><admin>true</admin><PIN>9999</PIN><filterN>3</filterN></user><user name="Child 1"><admin>false</admin><PIN>1111</PIN><filterN>2</filterN></user><user name="Child 2"><admin>false</admin><PIN>2222</PIN><filterN>3</filterN></user><configureN val="3"/><serverURL val="servertest"/></Settings>

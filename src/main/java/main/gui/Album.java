@@ -7,8 +7,8 @@ public class Album {
 
 	String name;
 	ArrayList<Track> tracks;
-	int objectId;
 	String mediaURL;
+	int objectId;
 	private static String AlbumArt;
 	
 	public Album (String newName, ArrayList<Track> songs, String albumURL){
@@ -24,20 +24,54 @@ public class Album {
 		AlbumArt = "/main/gui/note.png";
 	}
 	
-	public String getAlbumArt(){
-		return AlbumArt;
+	public String getName()
+	{
+		return name;
 	}
 	
-	public void setAlbumArt(String newArt){
-		AlbumArt = newArt;
+	public void setName(String newName)
+	{
+		name = newName;
+	}
+	
+	public ArrayList<Track> getTracks()
+	{
+		return tracks;
+	}
+	
+	public void setTracks(ArrayList<Track> tracks)
+	{
+		this.tracks = tracks;
+	}
+	
+	public void addTrack(Track newTrack)
+	{
+		tracks.add(newTrack);
+	}
+	
+	public String getMediaURL()
+	{
+		return mediaURL;
+	}
+
+	public void setMediaURL(String newURL){
+		mediaURL = newURL;
+	}
+	
+	public int getObjectId()
+	{
+		return objectId;
 	}
 
 	public void setObjectId(int id){
 		objectId = id;
 	}
 	
-	public int getObjectId()
-	{
-		return objectId;
+	public String getAlbumArt(){
+		return AlbumArt;
+	}
+	
+	public void setAlbumArt(String newArt){
+		AlbumArt = newArt;
 	}
 }

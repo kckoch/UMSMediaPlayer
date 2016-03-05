@@ -7,6 +7,7 @@ import javax.swing.*;
 public class Main {
 	private static JFrame login;
 	private static JFrame mainframe;
+	private static Setting settings;
 	private static User user;
 	private static ArrayList<User> users;
 	private static ArrayList<Track> tracksA;
@@ -49,12 +50,12 @@ public class Main {
 		users.get(0).setIcon("/main/gui/panda_orange_2.png");
 		
 		users.add(new User("Child 1", false, 1111, 1));
-		users.get(1).addFavorites(albumA);
+		users.get(1).addFavorite(albumA);
 		users.get(1).setIcon("/main/gui/giraffe_green.png");
 		
 		users.add(new User("Child 2", false, 2222, 3));
-		users.get(2).addFavorites(albumA);
-		users.get(2).addFavorites(albumB);
+		users.get(2).addFavorite(albumA);
+		users.get(2).addFavorite(albumB);
 		users.get(2).setIcon("/main/gui/smile_blue.png");
 
 		boolean logged = false;
@@ -75,7 +76,7 @@ public class Main {
 			login.setVisible(false);
 			login.dispose();
 			
-			mainframe = MainFrame.init(user, users);//displays the main screen
+			mainframe = MainFrame.init(user, users, settings);//displays the main screen
 			mainframe.setVisible(true);
 			while(user.getLoggedin()) {//loops until user logs out
 				System.out.print("");

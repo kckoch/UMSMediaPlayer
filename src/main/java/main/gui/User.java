@@ -2,7 +2,6 @@ package main.gui;
 
 import java.util.*;
 
-
 public class User {
 	//private Setting setting;
 	private boolean admin;			//if admin, will be true
@@ -62,12 +61,12 @@ public class User {
 	public int getPIN() {
 		return PIN;
 	}
-
-	public int getFilter(){
+	
+	public int getFilter() {
 		return filter;
 	}
 	
-	public void setFilter(int filterValue){
+	public void setFilter(int filterValue) {
 		filter = filterValue;
 	}
 	
@@ -87,7 +86,7 @@ public class User {
 		return favoritesIDs;
 	}
 	
-	public void addFavorites(Album album) {
+	public void addFavorite(Album album) {
 		favorites.add(album);
 		favoritesIDs.add(album.getObjectId());
 	}

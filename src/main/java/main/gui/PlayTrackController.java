@@ -29,7 +29,7 @@ public class PlayTrackController {
 	public void startTrack(Track newTrack)throws NoPlayerException, CannotRealizeException, MalformedURLException, IOException{
 		track = newTrack;
 		currentTime = 0;
-		File trackFile = new File(track.MediaURL);
+		File trackFile = new File(track.getMediaURL());
 		// Register MP3 Decoder
 		Format input1 = new AudioFormat(AudioFormat.MPEGLAYER3);
 		Format input2 = new AudioFormat(AudioFormat.MPEG);
