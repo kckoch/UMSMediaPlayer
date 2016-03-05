@@ -21,12 +21,14 @@ public class PlayTrackController {
 	playerStatus playerStat;
 	JSlider slider;
 	
+	//PlayTrackController constructor
 	public PlayTrackController(JSlider newSlider){
 		trackPlayer = null;
 		playerStat = playerStatus.STOPPED;
 		slider = newSlider;
 	}
 	
+	//starts the track that is in the track object for the controller
 	public void startTrack()throws NoPlayerException, CannotRealizeException, MalformedURLException, IOException{
 		File trackFile = new File(track.MediaURL);
 		// Register MP3 Decoder
@@ -38,6 +40,7 @@ public class PlayTrackController {
 		playTrack();
 	}
 	
+	//plays the track
 	public void playTrack() {
 		
 		switch (playerStat){
@@ -54,7 +57,7 @@ public class PlayTrackController {
 		}
 	}
 		
-	
+	//pauses the track
 	public void pauseTrack(){
 	
 		switch (playerStat){
@@ -70,6 +73,7 @@ public class PlayTrackController {
 				
 	}
 	
+	//stops the track
 	public void stopTrack(){
 		switch(playerStat){
 			case PLAYING:
@@ -82,10 +86,6 @@ public class PlayTrackController {
 			case STOPPED:
 				break;
 		}
-		
-	}
-	
-	public void pickPoint(){
 		
 	}
 	
