@@ -374,6 +374,8 @@ public class MainFrame {
 					System.out.println("in listener");
 					System.out.flush();
 					int row = libraryTable.getSelectedRow();
+                    if(row == -1)
+                        return;
 					String tempstr = (String)libraryModel.getValueAt(row, 0);
 					String id = "";
 					for(int p = 0; p < list.size(); p++){
