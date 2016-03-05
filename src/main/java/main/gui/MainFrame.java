@@ -1,10 +1,13 @@
 package main.gui;
 
 import javax.media.CannotRealizeException;
+import javax.media.ControllerEvent;
+import javax.media.ControllerListener;
 import javax.media.NoPlayerException;
+import javax.media.Player;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-
+import javax.swing.Timer;
 
 //import com.sun.glass.events.MouseEvent;
 
@@ -16,6 +19,8 @@ import java.util.ArrayList;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
 
+import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
@@ -50,6 +55,8 @@ public class MainFrame {
 	private static JPanel buttonPanel;
 	private static JButton removeFavsBut;
 	private static JTextPane trackTitleText;
+	private static Timer timer;
+	private static JTextField trackArtistText;
 	private static LibraryModel libraryModel;
 	private static ArrayList<Container> list;
 	private static ListSelectionModel librarySelectionModel;
@@ -58,8 +65,9 @@ public class MainFrame {
 	 * @wbp.parser.entryPoint
 	 */
 
+	//The Main Frame layout and view
 	@SuppressWarnings("rawtypes")
-	public static JFrame init(final User user, final ArrayList<User> users) {
+	public static JFrame init(final User user, final ArrayList<User> users, final Setting settings) {
 		frame = new JFrame("That's My Jam!");
 		frame.setBackground(Color.DARK_GRAY);
 		frame.setResizable(false);
@@ -68,6 +76,8 @@ public class MainFrame {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		timer = new Timer(0, null);
+		
 		
 		mainPanel = new JPanel();
 		mainPanel.setOpaque(false);
@@ -81,10 +91,10 @@ public class MainFrame {
 		listPane.setBackground(Color.DARK_GRAY);
 		listPane.setBounds(10, 0, 474, 381);
 		
-		Vector<Comparable> back = new Vector<Comparable>();
+		Vector<Comparable> back = new Vector<Comparable>();//the back row data
 		back.addElement("Back");
 		
-		final DefaultTableModel favoritesModelAlbums = new DefaultTableModel() {
+		final DefaultTableModel favoritesModelAlbums = new DefaultTableModel() {//Favorites Album table model
 			public boolean isCellEditable(int row, int column){
 				return false;
 			};
@@ -92,7 +102,7 @@ public class MainFrame {
 		};// favorites list data
 		favoritesModelAlbums.addColumn("Album Name");
 		int i;
-		for(i = 0; i < user.getFavorites().size(); i++){
+		for(i = 0; i < user.getFavorites().size(); i++){//adds all the rows for the user's favorites
 			Vector<Comparable> newAlbum = new Vector<Comparable>();
 			newAlbum.addElement(user.getFavorites().get(i).name);
 			favoritesModelAlbums.addRow(newAlbum);
@@ -100,7 +110,7 @@ public class MainFrame {
 		
 		displayed = favoritesModelAlbums;
 		
-		final DefaultTableModel favoritesModelTracks = new DefaultTableModel() {
+		final DefaultTableModel favoritesModelTracks = new DefaultTableModel() {//Favorites Track table model
 			public boolean isCellEditable(int row, int column){
 				return false;
 			};
@@ -108,7 +118,7 @@ public class MainFrame {
 		favoritesModelTracks.addColumn("Title");
 		favoritesModelTracks.addColumn("Duration");
 		favoritesModelTracks.addColumn("Artist");
-		favoritesModelTracks.addRow(back);
+		favoritesModelTracks.addRow(back);//back option
 		notDisplayed = favoritesModelTracks;
 
 		try {
@@ -142,7 +152,7 @@ public class MainFrame {
 			btnSettings.setBounds(195, 3, 35, 25);
 			btnSettings.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					SettingGUI.init(mainPanel, frame, user, libraryTable, users);
+					SettingGUI.init(mainPanel, frame, user, libraryTable, users, settings);
 					//frame.setContentPane(SettingGUI.init(mainPanel, frame, user));
 				}
 			});
@@ -183,11 +193,12 @@ public class MainFrame {
 		btnSearch.setBounds(127, 2, 25, 25);
 		searchPanel.add(btnSearch);
 		
-		removeFavsBut = new JButton("TRASH");
-		removeFavsBut.setBounds(-14, 3, 70, 23);
+		removeFavsBut = new JButton();//Remove From Favorites Button looks like a trash can
+		removeFavsBut.setBounds(25, 8, 20, 20);
+		removeFavsBut.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/trash.png")));
 		buttonPanel.add(removeFavsBut);
 		
-		JTabbedPane mainTab = new JTabbedPane(JTabbedPane.TOP);
+		JTabbedPane mainTab = new JTabbedPane(JTabbedPane.TOP);//Favorites and Library Tabs
 		mainTab.setBackground(Color.LIGHT_GRAY);
 		mainTab.setBounds(0, 12, 484, 369);
 		listPane.add(mainTab);
@@ -202,14 +213,17 @@ public class MainFrame {
 		JScrollPane libraryScroll = new JScrollPane(libraryTable);
 		mainTab.addTab("Library", null, libraryScroll, null);
 		
+		//tries to make remove favorites button invisible when the library tab is selected, doesnt work
 		libraryScroll.addFocusListener(new FocusListener(){
 			public void focusGained(FocusEvent e) {
 		        buttonPanel.remove(removeFavsBut);
+		        buttonPanel.revalidate();
 		        buttonPanel.repaint();
 		    }
 
 		    public void focusLost(FocusEvent e) {
 		    	buttonPanel.add(removeFavsBut);
+		    	buttonPanel.revalidate();
 		    	buttonPanel.repaint();
 		    }
 		});
@@ -235,38 +249,35 @@ public class MainFrame {
 		placeHolderForImage.setBounds(8, 38, 111, 111);
 		playPanel.add(placeHolderForImage);
 	
-		/*final JRadioButton favoritesButton = new JRadioButton("");// button to mark album for favorites
-		favoritesButton.setHorizontalTextPosition(SwingConstants.RIGHT);
-		favoritesButton.setSelectedIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/gold_star.png")));
-		favoritesButton.setBackground(Color.GRAY);
-		favoritesButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/white_star.png")));
-		favoritesButton.setBounds(427, 8, 51, 23);
-		playPanel.add(favoritesButton);*/
-		
-		//track title
-		JLabel trackLabel = new JLabel("Track Title:");
-		trackLabel.setForeground(Color.WHITE);
-		trackLabel.setBounds(129, 35, 70, 23);
-		playPanel.add(trackLabel);
-	
+		//Displays the track title
 		trackTitleText = new JTextPane();
-		trackTitleText.setText("This is the Track Title");
-		trackTitleText.setBounds(203, 38, 158, 20);
+		trackTitleText.setText("Title");
+		trackTitleText.setBounds(129, 38, 111, 20);
 		playPanel.add(trackTitleText);
+		
+		//Displays the track artist
+		trackArtistText = new JTextField();
+		trackArtistText.setText("Artist");
+		trackArtistText.setBounds(250, 38, 111, 20);
+		playPanel.add(trackArtistText);
+		trackArtistText.setColumns(10);
 	
+		//the navigation slider
 		final JSlider songSlider = new JSlider();//slider
 		songSlider.setForeground(Color.WHITE);
 		songSlider.setBackground(Color.GRAY);
 		songSlider.setBounds(129, 62, 313, 26);
-		songSlider.setValue(0);
+		songSlider.setValue(0);//sets the initial value to 0
 		playPanel.add(songSlider);
 		
+		//sets the initial value of the elapsed time 
 	    elapsedTime = (total * songSlider.getValue() / 100);//elapsed time
 	    if(elapsedTime%60 < 10){
 			elapsed = elapsedTime/60 + ":0" + elapsedTime%60;
 		}else{
 			elapsed = elapsedTime/60 + ":" + elapsedTime%60;
 		}
+	    //Displays the elapsed time the track has played
 		final JTextPane elapsedText = new JTextPane();
 		elapsedText.setForeground(Color.WHITE);
 		elapsedText.setBorder(null);
@@ -275,12 +286,13 @@ public class MainFrame {
 		elapsedText.setBounds(129, 87, 38, 20);
 		playPanel.add(elapsedText);
 	
-		//total time
+		//calculates total time
 		if(total%60 < 10){
 			duration = total/60 + ":0" + total%60;
 		}else{
 			duration = total/60 + ":" + total%60;
 		}
+		//Displays the total time of the track
 		final JTextPane totalText = new JTextPane();
 		totalText.setBackground(Color.GRAY);
 		totalText.setForeground(Color.WHITE);
@@ -288,41 +300,21 @@ public class MainFrame {
 		totalText.setBounds(411, 87, 38, 20);
 		playPanel.add(totalText);
 	
-		final JButton playButton = new JButton("");//play button/ pause button
+		//The play and pause button initially looks like play button
+		final JButton playButton = new JButton("");
 		playButton.setBackground(Color.GRAY);
 		playButton.setBorder(null);
 		playButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/play_button.png")));
-		playButton.setBounds(270, 99, 50, 50);
+		playButton.setBounds(176, 99, 50, 50);
 		playPanel.add(playButton);
-	
-		JButton pauseButton = new JButton("");//pause button
-		pauseButton.setBorder(null);
-		pauseButton.setBackground(Color.GRAY);
-		pauseButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/pause_button.png")));
-		pauseButton.setBounds(209, 109, 35, 35);
-		playPanel.add(pauseButton);
 		
-		JButton stopButton = new JButton("");//stop button
+		//The stop button
+		JButton stopButton = new JButton("");
 		stopButton.setBorder(null);
 		stopButton.setBackground(Color.GRAY);
 		stopButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/stop_button.png")));
-		stopButton.setBounds(335, 109, 38, 33);
+		stopButton.setBounds(236, 109, 38, 33);
 		playPanel.add(stopButton);
-	
-		JButton previousButton = new JButton("");//previous button
-		previousButton.setBackground(Color.GRAY);
-		previousButton.setBorder(null);
-		previousButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/skipbackwards_button.png")));
-		previousButton.setBounds(146, 109, 35, 35);
-		playPanel.add(previousButton);
-	
-		JButton nextButton = new JButton("");//next button
-		nextButton.setBackground(Color.GRAY);
-		nextButton.setBorder(null);
-		nextButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/skipforward_button.png")));
-		nextButton.setActionCommand("");
-		nextButton.setBounds(400, 108, 35, 35);
-		playPanel.add(nextButton);
 		
 		mainPanel.setLayout(null);
 
@@ -330,23 +322,9 @@ public class MainFrame {
 		mainPanel.add(playPanel);
 		frame.setContentPane(mainPanel);
 		
-		//links the sliders and elapsed time text together
-		//songSliderBig.setBackground(Color.DARK_GRAY);
-		songSlider.addChangeListener(new ChangeListener() {
-			public void stateChanged(ChangeEvent e){
-				elapsedTime = (total * songSlider.getValue() / 100);
-				if(elapsedTime%60 < 10){
-					elapsed = elapsedTime/60 + ":0" + elapsedTime%60;
-				}else{
-					elapsed = elapsedTime/60 + ":" + elapsedTime%60;
-				}
-			    elapsedText.setText(elapsed);
-			    //elapsedTextBig.setText(elapsed);
-			    //songSliderBig.setValue(songSlider.getValue());
-			}
-		});
+		final PlayTrackController playTrackCntl = new PlayTrackController(songSlider);
 		
-		final PlayTrackController playTrackCntl = new PlayTrackController();
+		
 		
 		final BrowseFavoritesController browseFavCntl = new BrowseFavoritesController(favoritesTable, user);
 		final BrowseServerController servCntl = new BrowseServerController(libraryTable);
@@ -401,7 +379,7 @@ public class MainFrame {
 			}
 		});
 		
-		favoritesSelectionModel.addListSelectionListener(new ListSelectionListener(){
+		favoritesSelectionModel.addListSelectionListener(new ListSelectionListener(){//determines what object is selected on the favorites table
 			public void valueChanged(ListSelectionEvent e){
 				if(favoritesTable.getSelectedRow() >= 0){
 					if(favsAlbumsOrTracks == 1 && favoritesTable.getSelectedRow() == 0){
@@ -449,20 +427,78 @@ public class MainFrame {
 		
 		
 		
-		playButton.addActionListener(new ActionListener() {
+		playButton.addActionListener(new ActionListener() {//plays track if a track is selected or pauses it
 			public void actionPerformed(ActionEvent e){
-				if(playTrackCntl.playerStat == playerStatus.STOPPED){
+				if(playTrackCntl.playerStat == playerStatus.STOPPED){//if the track has been stopped or not started
 					try {
-						playTrackCntl.startTrack(browseFavCntl.selectedTrack);
+						timer.restart();//resets the elapsed time and slider to 0
+						playTrackCntl.startTrack();
+						playButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/pause_button.png")));//changes the play/pause button to the pause icon
 					} catch (NoPlayerException | CannotRealizeException | IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-				}else{
+				}else if(playTrackCntl.playerStat == playerStatus.PAUSED){//if the track has been paused
+					timer.start();//starts up the timer again
 					playTrackCntl.playTrack();
+					playButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/pause_button.png")));//changes the play/pause button to the pause icon
+				}else if(playTrackCntl.playerStat == playerStatus.PLAYING){//if the track is playing
+					timer.stop();//stops the timer
+					playTrackCntl.pauseTrack();
+					playButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/play_button.png")));//changes the play/pause button to the play icon
 				}
 			}
 		});
+		
+	
+		stopButton.addActionListener(new ActionListener() {//stops the track from playing and sets the play pause button to the play icon
+			public void actionPerformed(ActionEvent e){
+				if(playTrackCntl.playerStat == playerStatus.PLAYING){//if the track is playing
+					timer.stop();//stops the timer
+					playTrackCntl.stopTrack();
+					playButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/play_button.png")));//changes the play pause button icon
+				}else if(playTrackCntl.playerStat == playerStatus.PAUSED){//if the track is paused
+					timer.stop();//stops the timer
+					playTrackCntl.stopTrack();
+					playButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/play_button.png")));//changes the play pause button icon
+				}else if(playTrackCntl.playerStat == playerStatus.STOPPED){//if the track is stopped or not started
+					timer.stop();//stops the timer
+					playTrackCntl.stopTrack();
+					playButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/play_button.png")));//changes the play pause button icon
+				}
+			}
+		});
+		
+		
+		//links the sliders and elapsed time text together with the timer
+		timer.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				if(playTrackCntl.playerStat == playerStatus.PLAYING){//if the track is playing
+					//sets the values of the slider and the elapsed time displayed in the play panel
+					songSlider.setValue((int) (playTrackCntl.trackPlayer.getMediaTime().getSeconds()/playTrackCntl.trackPlayer.getDuration().getSeconds()*100));
+					elapsedTime = (total * songSlider.getValue() / 100);
+					if(elapsedTime%60 < 10){
+						elapsed = elapsedTime/60 + ":0" + elapsedTime%60;
+					}else{
+						elapsed = elapsedTime/60 + ":" + elapsedTime%60;
+					}
+					elapsedText.setText(elapsed);//sets the elapsed time displayed in the play panel
+				}if(playTrackCntl.trackPlayer.getMediaTime() == playTrackCntl.trackPlayer.getDuration()){//if the track has ended
+					playTrackCntl.playerStat = playerStatus.STOPPED;//sets the playerStat value to stopped
+					//sets the slider value to 0 and the elapsed time value to 0
+					songSlider.setValue(0);
+					elapsedTime = (total * songSlider.getValue() / 100);
+					if(elapsedTime%60 < 10){
+						elapsed = elapsedTime/60 + ":0" + elapsedTime%60;
+					}else{
+						elapsed = elapsedTime/60 + ":" + elapsedTime%60;
+					}
+					elapsedText.setText(elapsed);
+				}
+			}
+		});
+		
+
 		
 		return frame;
 	}
