@@ -11,24 +11,23 @@ import javax.media.NoPlayerException;
 import javax.media.Player;
 import javax.media.PlugInManager;
 import javax.media.format.AudioFormat;
+import javax.swing.JSlider;
 
 
 public class PlayTrackController {
 	
 	Track track;
-	int currentTime;
 	Player trackPlayer;
 	playerStatus playerStat;
+	JSlider slider;
 	
-	public PlayTrackController(){
-		currentTime = 0;
+	public PlayTrackController(JSlider newSlider){
 		trackPlayer = null;
 		playerStat = playerStatus.STOPPED;
+		slider = newSlider;
 	}
 	
-	public void startTrack(Track newTrack)throws NoPlayerException, CannotRealizeException, MalformedURLException, IOException{
-		track = newTrack;
-		currentTime = 0;
+	public void startTrack()throws NoPlayerException, CannotRealizeException, MalformedURLException, IOException{
 		File trackFile = new File(track.MediaURL);
 		// Register MP3 Decoder
 		Format input1 = new AudioFormat(AudioFormat.MPEGLAYER3);
@@ -37,7 +36,6 @@ public class PlayTrackController {
 		PlugInManager.addPlugIn("com.sun.media.codec.audio.mp3.JavaDecoder", new Format[] { input1, input2 }, new Format[] { output }, PlugInManager.CODEC);
 		trackPlayer = Manager.createRealizedPlayer(trackFile.toURI().toURL());
 		playTrack();
-		
 	}
 	
 	public void playTrack() {
