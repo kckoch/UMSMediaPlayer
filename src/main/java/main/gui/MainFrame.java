@@ -60,6 +60,7 @@ public class MainFrame {
 	private static LibraryModel libraryModel;
 	private static ArrayList<Container> list;
 	private static ListSelectionModel librarySelectionModel;
+	private static int previousid;
 	
 	/**
 	 * @wbp.parser.entryPoint
@@ -137,6 +138,7 @@ public class MainFrame {
 		libraryTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		librarySelectionModel = libraryTable.getSelectionModel();
 		libraryModel.fireTableDataChanged();
+		previousid = 0;
 		
 		buttonPanel = new JPanel();
 		buttonPanel.setBounds(204, 0, 260, 30);
@@ -367,12 +369,16 @@ public class MainFrame {
 					} catch (Exception x) {
 						//
 					}
-					libraryModel = new LibraryModel(SOAP.getList());
+					list = SOAP.getList();
+					list.add(0, new Container(previousid, "Back"));
+					previousid = Integer.parseInt(id);
+					libraryModel = new LibraryModel(list);
 					for(int j = 0; j < SOAP.getList().size(); j++) {
 						System.out.println(SOAP.getList().get(j).getId() + "\t" + SOAP.getList().get(j).getName());
 						System.out.flush();
 					}
 					libraryModel.fireTableDataChanged();
+					libraryTable.setModel(libraryModel);
 					libraryTable.repaint();
 					libraryTable.clearSelection();
 				}
