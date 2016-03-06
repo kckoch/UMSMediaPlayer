@@ -1,5 +1,7 @@
 /*
  * A controller for browsing the server.  This class interacts with SOAP, and is called by MainFrame.
+ * 
+ * WARNING: DOES NOT IMPLEMENT RESTRICTIONS NOR CAN IT SAVE AN ALBUM
  */
 package main.controller;
 
@@ -8,6 +10,7 @@ import java.util.*;
 import main.model.Album;
 import main.model.Container;
 import main.model.SOAP;
+import main.model.Setting;
 import main.model.Track;
 import main.model.User;
 
@@ -15,13 +18,13 @@ public class BrowseServerController {
 	private static ArrayList<Container> list;
 	private static User user;
 	private static int previousid;
-	private static String previousname;
+	private static Setting settings;
 	
 	/*
 	 * Contructor for the controller. Called only once!
 	 * Internal ArrayList shows current container.  User will never change until he/she logs out
 	 */
-	public BrowseServerController(ArrayList<Container> listin, User userin) {
+	public BrowseServerController(ArrayList<Container> listin, User userin, Setting settings) {
 		list = listin;
 		user = userin;
 		previousid = 0;
@@ -42,24 +45,28 @@ public class BrowseServerController {
 	}
 	
 	/*
-	 * This is how you traverse containers.  Keeps track of old Container, and updates internal
+	 * This is how you traverse containers.  Keeps track of old Container id, and updates internal
 	 * list with a new ArrayList.
 	 */
 	public ArrayList<Container> getNewContainer(String name) {
 		final String fav = "Add Album to Favorites";
 		String id = "";
 		if(name.compareTo(fav) == 0) {
-			System.out.println("in fav");
+			System.out.flush();
 			ArrayList<Track> tracks = new ArrayList<Track>();
 			for(int i = 0; i < list.size(); i++) {
 				tracks.add(new Track(list.get(i).getDuration(), list.get(i).getName(), list.get(i).getUrl(), ""));
 			}
 			Album album = new Album("Album x", tracks, "");
-		}
-		for(int p = 0; p < list.size(); p++){
-			if(list.get(p).getName().compareTo(name) == 0) {
-				id = Integer.toString(list.get(p).getId());
-				p = list.size();
+			user.addFavorite(album);
+			//settings.saveXML("saveData.xml");
+			id = "0";
+		} else {
+			for(int p = 0; p < list.size(); p++){
+				if(list.get(p).getName().compareTo(name) == 0) {
+					id = Integer.toString(list.get(p).getId());
+					p = list.size();
+				}
 			}
 		}
 		try {
@@ -70,12 +77,11 @@ public class BrowseServerController {
 		list = SOAP.getList();
 		list.add(0, new Container(previousid, 0, 0, "", "Back"));
 		previousid = Integer.parseInt(id);
-		previousname = name;
 		
-		/*
+		
 		if(list.get(1).getUrl().compareTo("") != 0) {
 			list.add(new Container(Integer.parseInt(id), previousid, 0, "", fav));
-		}*/
+		}
 		
 		for(int j = 0; j < SOAP.getList().size(); j++) {
 			System.out.println(SOAP.getList().get(j).getId() + "\t" + SOAP.getList().get(j).getName());
