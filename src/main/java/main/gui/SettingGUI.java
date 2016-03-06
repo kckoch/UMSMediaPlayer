@@ -3,9 +3,12 @@ package main.gui;
 import java.awt.Color;
 
 import javax.swing.*;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -28,6 +31,8 @@ public class SettingGUI {
 	private static JTextField txtTempUser2;
 	private static JPasswordField passwordField_2;
 	private static JTextField textField_1;
+	private static String tempIcon;
+	private static String[] restrictions = { "Restriction: 1", "Restriction: 2", "Restriction: 3"};
 	
 	/**
 	 * @wbp.parser.entryPoint
@@ -92,8 +97,7 @@ public class SettingGUI {
 		usericon.setBackground(Color.DARK_GRAY);
 		usericon.setBounds(0, 0, 93, 93);
 		userPanel.add(usericon);
-		//usericon.setIcon(new ImageIcon(LoginGUI.class.getResource(user.getSetting().getIcon())));
-		usericon.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/panda_orange_2.png")));
+		usericon.setIcon(new ImageIcon(SettingGUI.class.getResource(settings.getUser(0).getIcon())));
 		
 		
 		//current admin name
@@ -130,6 +134,8 @@ public class SettingGUI {
 		btnChangeProfilePic.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				tempIcon = settings.getUser(0).getIcon();
+				
 				changePicPanel.setPreferredSize(new Dimension(500, 600));
 				changePicPanel.setMaximumSize(new Dimension(500, 600));
 				changePicPanel.setBackground(Color.DARK_GRAY);
@@ -156,6 +162,12 @@ public class SettingGUI {
 				btnNewButton.setBorder(null);
 				btnNewButton.setBackground(Color.GRAY);
 				btnNewButton.setBounds(20, 11, 93, 93);
+				btnNewButton.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/panda_blue_2.png";
+				    }
+			    });
 				pics.add(btnNewButton);
 				
 				JButton button = new JButton("");
@@ -163,6 +175,12 @@ public class SettingGUI {
 				button.setBorder(null);
 				button.setBackground(Color.GRAY);
 				button.setBounds(123, 11, 93, 93);
+				button.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/panda_green_2.png";
+				    }
+			    });
 				pics.add(button);
 				
 				JButton button_1 = new JButton("");
@@ -170,6 +188,12 @@ public class SettingGUI {
 				button_1.setBorder(null);
 				button_1.setBackground(Color.GRAY);
 				button_1.setBounds(226, 11, 93, 93);
+				button_1.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/panda_orange_2.png";
+				    }
+			    });
 				pics.add(button_1);
 				
 				JButton button_2 = new JButton("");
@@ -177,6 +201,12 @@ public class SettingGUI {
 				button_2.setBorder(null);
 				button_2.setBackground(Color.GRAY);
 				button_2.setBounds(329, 11, 93, 93);
+				button_2.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/panda_pink_2.png";
+				    }
+			    });
 				pics.add(button_2);
 				
 				JButton button_3 = new JButton("");
@@ -184,6 +214,12 @@ public class SettingGUI {
 				button_3.setBorder(null);
 				button_3.setBackground(Color.GRAY);
 				button_3.setBounds(20, 115, 93, 93);
+				button_3.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/giraffe_blue.png";
+				    }
+			    });
 				pics.add(button_3);
 				
 				JButton button_4 = new JButton("");
@@ -191,6 +227,12 @@ public class SettingGUI {
 				button_4.setBorder(null);
 				button_4.setBackground(Color.GRAY);
 				button_4.setBounds(123, 115, 93, 93);
+				button_4.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/giraffe_green.png";
+				    }
+			    });
 				pics.add(button_4);
 				
 				JButton button_5 = new JButton("");
@@ -198,6 +240,12 @@ public class SettingGUI {
 				button_5.setBorder(null);
 				button_5.setBackground(Color.GRAY);
 				button_5.setBounds(226, 115, 93, 93);
+				button_5.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/giraffe_orange.png";
+				    }
+			    });
 				pics.add(button_5);
 				
 				JButton button_6 = new JButton("");
@@ -205,6 +253,12 @@ public class SettingGUI {
 				button_6.setBorder(null);
 				button_6.setBackground(Color.GRAY);
 				button_6.setBounds(329, 115, 93, 93);
+				button_6.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/giraffe_pink.png";
+				    }
+			    });
 				pics.add(button_6);
 				
 				JButton button_7 = new JButton("");
@@ -212,6 +266,12 @@ public class SettingGUI {
 				button_7.setBorder(null);
 				button_7.setBackground(Color.GRAY);
 				button_7.setBounds(20, 219, 93, 93);
+				button_7.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/smile_blue.png";
+				    }
+			    });
 				pics.add(button_7);
 				
 				JButton button_8 = new JButton("");
@@ -219,6 +279,12 @@ public class SettingGUI {
 				button_8.setBorder(null);
 				button_8.setBackground(Color.GRAY);
 				button_8.setBounds(123, 219, 93, 93);
+				button_8.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/smile_green.png";
+				    }
+			    });
 				pics.add(button_8);
 				
 				JButton button_9 = new JButton("");
@@ -226,6 +292,12 @@ public class SettingGUI {
 				button_9.setBorder(null);
 				button_9.setBackground(Color.GRAY);
 				button_9.setBounds(226, 219, 93, 93);
+				button_9.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/smile_orange.png";
+				    }
+			    });
 				pics.add(button_9);
 				
 				JButton button_10 = new JButton("");
@@ -233,6 +305,12 @@ public class SettingGUI {
 				button_10.setBorder(null);
 				button_10.setBackground(Color.GRAY);
 				button_10.setBounds(329, 219, 93, 93);
+				button_10.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/smile_pink.png";
+				    }
+			    });
 				pics.add(button_10);
 				
 				JLabel uploadLbl = new JLabel("Or select a file to upload");
@@ -255,6 +333,14 @@ public class SettingGUI {
 				confirm.setBorder(null);
 				confirm.setBackground(Color.GRAY);
 				confirm.setBounds(30, 501, 117, 32);
+				confirm.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		settings.getUser(0).setIcon(tempIcon);
+			    		settings.saveXML("saveData.xml");
+						frame.setContentPane(mainPanel);
+				    }
+			    });
 				changePicPanel.add(confirm);
 				
 				JButton cancel = new JButton("Cancel");
@@ -304,6 +390,7 @@ public class SettingGUI {
 		
 		//server url
 		servURL = new JTextField();
+		servURL.setText(settings.getserverURL());
 		servURL.setBounds(22, 34, 205, 27);
 		servPanel.add(servURL);
 		servURL.setColumns(10);
@@ -315,6 +402,13 @@ public class SettingGUI {
 		btnChangeServerUrl.setBorder(null);
 		btnChangeServerUrl.setBackground(Color.GRAY);
 		btnChangeServerUrl.setBounds(237, 33, 138, 26);
+		btnChangeServerUrl.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				settings.setserverURL(servURL.getText());
+				settings.saveXML("saveData.xml");
+			}
+		});
 		servPanel.add(btnChangeServerUrl);
 		
 		//admin total manage restriction
@@ -392,6 +486,7 @@ public class SettingGUI {
 		lblUsers.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/user.png")));
 		lblUsers.setBackground(Color.DARK_GRAY);
 		
+		
 		//the other accounts panel
 		JPanel scrollpanel = new JPanel();
 		scrollpanel.setBackground(Color.DARK_GRAY);
@@ -409,182 +504,25 @@ public class SettingGUI {
 		accPanel.getVerticalScrollBar().setUnitIncrement(100);
 		mainPanel.add(accPanel);
 		
-		//example panel
-		JPanel exPanel = new JPanel();
-		exPanel.setMinimumSize(new Dimension(460, 25));
-		exPanel.setMaximumSize(new Dimension(460, 125));
-		exPanel.setPreferredSize(new Dimension(460, 125));
-		exPanel.setSize(new Dimension(460, 125));
-		scrollpanel.add(exPanel);
-		exPanel.setBorder(null);
-		exPanel.setBackground(Color.DARK_GRAY);
-		exPanel.setLayout(null);
 		
-		//example icon
-		JLabel exIcon = new JLabel();
-		exIcon.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/giraffe_blue.png")));
-		exIcon.setBorder(null);
-		exIcon.setBounds(10, 3, 93, 93);
-		exPanel.add(exIcon);
-		
-		//example user change pin
-		JButton chngPin = new JButton("Change Pin");
-		chngPin.setForeground(Color.WHITE);
-		chngPin.setFont(new Font("Dialog", Font.PLAIN, 11));
-		chngPin.setBorder(null);
-		chngPin.setBackground(Color.GRAY);
-		chngPin.setBounds(205, 30, 119, 25);
-		chngPin.addActionListener(new ActionListener() {
-			@SuppressWarnings("deprecation")
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				settings.getUser(0).setPIN(Integer.parseInt(passwordField_1.getText()));
-				settings.saveXML("saveData.xml");
+		//scrollpanel.add(exPanel);
+		User tempoUser;
+		for(int u = 0; u < settings.getUsers().size(); u++)
+		{
+			tempoUser = settings.getUser(u);
+			if(!tempoUser.getName().equals(user.getName())) {
+			JPanel tempoPanel = userPanel(tempoUser, frame, settings);
+			scrollpanel.add(tempoPanel);
+				
 			}
-		});
-		exPanel.add(chngPin);
+		}
 		
-		//example user change profile pic button
-		JButton chngPic = new JButton("Change Profile Pic");
-		chngPic.setForeground(Color.WHITE);
-		chngPic.setFont(new Font("Dialog", Font.PLAIN, 11));
-		chngPic.setBorder(null);
-		chngPic.setBackground(Color.GRAY);
-		chngPic.setBounds(113, 85, 138, 25);
-		exPanel.add(chngPic);
 		
-		//example user manage restrictions
-		JButton btnManageRestrictions = new JButton("Manage Restrictions");
-		btnManageRestrictions.setFont(new Font("Dialog", Font.PLAIN, 11));
-		btnManageRestrictions.setForeground(Color.WHITE);
-		btnManageRestrictions.setBorder(null);
-		btnManageRestrictions.setBackground(Color.GRAY);
-		btnManageRestrictions.setBounds(261, 85, 138, 25);
-		exPanel.add(btnManageRestrictions);
-		
-		//example user change pin
-		passwordField_1 = new JPasswordField();
-		passwordField_1.setEchoChar('*');
-		passwordField_1.setBounds(113, 32, 86, 22);
-		exPanel.add(passwordField_1);
-		
-		//example user name
-		txtTempUser = new JTextField();
-		txtTempUser.setText("Temp User");
-		txtTempUser.setBounds(113, 4, 86, 20);
-		exPanel.add(txtTempUser);
-		txtTempUser.setColumns(10);
-		
-		//example user change name button
-		JButton changeName = new JButton("Change Name");
-		changeName.setFont(new Font("Dialog", Font.PLAIN, 11));
-		changeName.setForeground(Color.WHITE);
-		changeName.setBackground(Color.GRAY);
-		changeName.setBounds(205, 3, 119, 23);
-		exPanel.add(changeName);
-		
-		JButton deleteacc = new JButton("");
-		deleteacc.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/red_x_icon.png")));
-		deleteacc.setBorder(null);
-		deleteacc.setBackground(Color.DARK_GRAY);
-		deleteacc.setBounds(428, 3, 30, 30);
-		exPanel.add(deleteacc);
-		scrollpanel.add(exPanel);
-		
-		JRadioButton userRadio = new JRadioButton("User");
-		userRadio.setSelected(true);
-		userRadio.setBackground(Color.DARK_GRAY);
-		userRadio.setBorder(null);
-		userRadio.setForeground(Color.WHITE);
-		userRadio.setBounds(111, 58, 56, 20);
-		exPanel.add(userRadio);
-		
-		JRadioButton rdbtnAdmin = new JRadioButton("Admin");
-		rdbtnAdmin.setBorder(null);
-		rdbtnAdmin.setBackground(Color.DARK_GRAY);
-		rdbtnAdmin.setForeground(Color.WHITE);
-		rdbtnAdmin.setBounds(173, 58, 56, 23);
-		exPanel.add(rdbtnAdmin);
-		
-		//start of the second example panel
-		JPanel exPanel2 = new JPanel();
-		exPanel2.setLayout(null);
-		exPanel2.setSize(new Dimension(460, 120));
-		exPanel2.setPreferredSize(new Dimension(460, 120));
-		exPanel2.setMinimumSize(new Dimension(460, 120));
-		exPanel2.setMaximumSize(new Dimension(460, 120));
-		exPanel2.setBorder(null);
-		exPanel2.setBackground(Color.DARK_GRAY);
-		scrollpanel.add(exPanel2);
-		
-		JLabel label = new JLabel();
-		label.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/smile_green.png")));
-		label.setBorder(null);
-		label.setBounds(10, 3, 93, 93);
-		exPanel2.add(label);
-		
-		JButton button = new JButton("Change Pin");
-		button.setForeground(Color.WHITE);
-		button.setFont(new Font("Dialog", Font.PLAIN, 11));
-		button.setBorder(null);
-		button.setBackground(Color.GRAY);
-		button.setBounds(205, 30, 119, 25);
-		button.addActionListener(new ActionListener() {
-			@SuppressWarnings("deprecation")
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				settings.getUser(0).setPIN(Integer.parseInt(passwordField_2.getText()));
-				settings.saveXML("saveData.xml");
-			}
-		});
-		exPanel2.add(button);
-		
-		JButton button_1 = new JButton("Change Profile Pic");
-		button_1.setForeground(Color.WHITE);
-		button_1.setFont(new Font("Dialog", Font.PLAIN, 11));
-		button_1.setBorder(null);
-		button_1.setBackground(Color.GRAY);
-		button_1.setBounds(113, 68, 138, 25);
-		exPanel2.add(button_1);
-		
-		JButton button_2 = new JButton("Manage Restrictions");
-		button_2.setForeground(Color.WHITE);
-		button_2.setFont(new Font("Dialog", Font.PLAIN, 11));
-		button_2.setBorder(null);
-		button_2.setBackground(Color.GRAY);
-		button_2.setBounds(261, 68, 138, 25);
-		exPanel2.add(button_2);
-		
-		passwordField_2 = new JPasswordField();
-		passwordField_2.setEchoChar('*');
-		passwordField_2.setBounds(113, 32, 86, 22);
-		exPanel2.add(passwordField_2);
-		
-		textField_1 = new JTextField();
-		textField_1.setText("Temp User");
-		textField_1.setColumns(10);
-		textField_1.setBounds(113, 4, 86, 20);
-		exPanel2.add(textField_1);
-		
-		JButton button_3 = new JButton("Change Name");
-		button_3.setForeground(Color.WHITE);
-		button_3.setFont(new Font("Dialog", Font.PLAIN, 11));
-		button_3.setBackground(Color.GRAY);
-		button_3.setBounds(205, 3, 119, 23);
-		exPanel2.add(button_3);
-		
-		JButton button_4 = new JButton("");
-		button_4.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/red_x_icon.png")));
-		button_4.setBorder(null);
-		button_4.setBackground(Color.DARK_GRAY);
-		button_4.setBounds(428, 3, 30, 30);
-		exPanel2.add(button_4);
+		//new user panel
 		addUserPanel.setMaximumSize(new Dimension(460, 75));
 		addUserPanel.setMinimumSize(new Dimension(460, 75));
 		addUserPanel.setSize(new Dimension(460, 75));
 		addUserPanel.setPreferredSize(new Dimension(460, 75));
-		
-		//new user panel
 		addUserPanel.setBackground(Color.DARK_GRAY);
 		addUserPanel.setLayout(null);
 		
@@ -603,5 +541,369 @@ public class SettingGUI {
 		});
 		addUserPanel.add(btnAddUser);
 		scrollpanel.add(addUserPanel);
+	}
+	
+	
+	private static JPanel userPanel(final User user, final JFrame frame, final Setting settings) {
+		
+		//example panel
+		JPanel exPanel = new JPanel();
+		exPanel.setMinimumSize(new Dimension(460, 25));
+		exPanel.setMaximumSize(new Dimension(460, 125));
+		exPanel.setPreferredSize(new Dimension(460, 125));
+		exPanel.setSize(new Dimension(460, 125));
+		exPanel.setBorder(null);
+		exPanel.setBackground(Color.DARK_GRAY);
+		exPanel.setLayout(null);
+		
+		//example icon
+		JLabel exIcon = new JLabel();
+		exIcon.setIcon(new ImageIcon(SettingGUI.class.getResource(user.getIcon())));
+		exIcon.setBorder(null);
+		exIcon.setBounds(10, 3, 93, 93);
+		exPanel.add(exIcon);
+		
+		//example user change pin
+		JButton chngPin = new JButton("Change Pin");
+		chngPin.setForeground(Color.WHITE);
+		chngPin.setFont(new Font("Dialog", Font.PLAIN, 11));
+		chngPin.setBorder(null);
+		chngPin.setBackground(Color.GRAY);
+		chngPin.setBounds(205, 30, 119, 25);
+		chngPin.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				user.setPIN(Integer.parseInt(passwordField_1.getText()));
+				settings.saveXML("saveData.xml");
+			}
+		});
+		exPanel.add(chngPin);
+		
+		//example user change profile pic button
+		JButton chngPic = new JButton("Change Profile Pic");
+		chngPic.setForeground(Color.WHITE);
+		chngPic.setFont(new Font("Dialog", Font.PLAIN, 11));
+		chngPic.setBorder(null);
+		chngPic.setBackground(Color.GRAY);
+		chngPic.setBounds(113, 85, 138, 25);
+		chngPic.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				tempIcon = user.getIcon();
+				
+				changePicPanel.setPreferredSize(new Dimension(500, 600));
+				changePicPanel.setMaximumSize(new Dimension(500, 600));
+				changePicPanel.setBackground(Color.DARK_GRAY);
+				changePicPanel.setSize(500, 600);
+				frame.setContentPane(changePicPanel);
+				changePicPanel.setLayout(null);
+				
+				JLabel chooseLabel = new JLabel("Please choose a new picture:");
+				chooseLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+				chooseLabel.setForeground(Color.WHITE);
+				chooseLabel.setBackground(Color.DARK_GRAY);
+				chooseLabel.setBounds(10, 11, 234, 32);
+				changePicPanel.add(chooseLabel);
+				
+				JPanel pics = new JPanel();
+				pics.setBorder(null);
+				pics.setBackground(Color.GRAY);
+				pics.setBounds(30, 54, 444, 327);
+				changePicPanel.add(pics);
+				pics.setLayout(null);
+				
+				JButton btnNewButton = new JButton("");
+				btnNewButton.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/panda_blue_2.png")));
+				btnNewButton.setBorder(null);
+				btnNewButton.setBackground(Color.GRAY);
+				btnNewButton.setBounds(20, 11, 93, 93);
+				btnNewButton.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/panda_blue_2.png";
+				    }
+			    });
+				pics.add(btnNewButton);
+				
+				JButton button = new JButton("");
+				button.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/panda_green_2.png")));
+				button.setBorder(null);
+				button.setBackground(Color.GRAY);
+				button.setBounds(123, 11, 93, 93);
+				button.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/panda_green_2.png";
+				    }
+			    });
+				pics.add(button);
+				
+				JButton button_1 = new JButton("");
+				button_1.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/panda_orange_2.png")));
+				button_1.setBorder(null);
+				button_1.setBackground(Color.GRAY);
+				button_1.setBounds(226, 11, 93, 93);
+				button_1.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/panda_orange_2.png";
+				    }
+			    });
+				pics.add(button_1);
+				
+				JButton button_2 = new JButton("");
+				button_2.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/panda_pink_2.png")));
+				button_2.setBorder(null);
+				button_2.setBackground(Color.GRAY);
+				button_2.setBounds(329, 11, 93, 93);
+				button_2.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/panda_pink_2.png";
+				    }
+			    });
+				pics.add(button_2);
+				
+				JButton button_3 = new JButton("");
+				button_3.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/giraffe_blue.png")));
+				button_3.setBorder(null);
+				button_3.setBackground(Color.GRAY);
+				button_3.setBounds(20, 115, 93, 93);
+				button_3.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/giraffe_blue.png";
+				    }
+			    });
+				pics.add(button_3);
+				
+				JButton button_4 = new JButton("");
+				button_4.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/giraffe_green.png")));
+				button_4.setBorder(null);
+				button_4.setBackground(Color.GRAY);
+				button_4.setBounds(123, 115, 93, 93);
+				button_4.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/giraffe_green.png";
+				    }
+			    });
+				pics.add(button_4);
+				
+				JButton button_5 = new JButton("");
+				button_5.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/giraffe_orange.png")));
+				button_5.setBorder(null);
+				button_5.setBackground(Color.GRAY);
+				button_5.setBounds(226, 115, 93, 93);
+				button_5.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/giraffe_orange.png";
+				    }
+			    });
+				pics.add(button_5);
+				
+				JButton button_6 = new JButton("");
+				button_6.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/giraffe_pink.png")));
+				button_6.setBorder(null);
+				button_6.setBackground(Color.GRAY);
+				button_6.setBounds(329, 115, 93, 93);
+				button_6.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/giraffe_pink.png";
+				    }
+			    });
+				pics.add(button_6);
+				
+				JButton button_7 = new JButton("");
+				button_7.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/smile_blue.png")));
+				button_7.setBorder(null);
+				button_7.setBackground(Color.GRAY);
+				button_7.setBounds(20, 219, 93, 93);
+				button_7.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/smile_blue.png";
+				    }
+			    });
+				pics.add(button_7);
+				
+				JButton button_8 = new JButton("");
+				button_8.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/smile_green.png")));
+				button_8.setBorder(null);
+				button_8.setBackground(Color.GRAY);
+				button_8.setBounds(123, 219, 93, 93);
+				button_8.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/smile_green.png";
+				    }
+			    });
+				pics.add(button_8);
+				
+				JButton button_9 = new JButton("");
+				button_9.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/smile_orange.png")));
+				button_9.setBorder(null);
+				button_9.setBackground(Color.GRAY);
+				button_9.setBounds(226, 219, 93, 93);
+				button_9.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/smile_orange.png";
+				    }
+			    });
+				pics.add(button_9);
+				
+				JButton button_10 = new JButton("");
+				button_10.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/smile_pink.png")));
+				button_10.setBorder(null);
+				button_10.setBackground(Color.GRAY);
+				button_10.setBounds(329, 219, 93, 93);
+				button_10.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		tempIcon = "/main/gui/smile_pink.png";
+				    }
+			    });
+				pics.add(button_10);
+				
+				JLabel uploadLbl = new JLabel("Or select a file to upload");
+				uploadLbl.setFont(new Font("Tahoma", Font.PLAIN, 15));
+				uploadLbl.setForeground(Color.WHITE);
+				uploadLbl.setBounds(186, 392, 167, 32);
+				changePicPanel.add(uploadLbl);
+				
+				JButton upload = new JButton("Upload");
+				upload.setBackground(Color.GRAY);
+				upload.setForeground(Color.WHITE);
+				upload.setBorderPainted(false);
+				upload.setBorder(null);
+				upload.setBounds(385, 399, 89, 23);
+				changePicPanel.add(upload);
+				
+				JButton confirm = new JButton("Confirm");
+				confirm.setForeground(Color.WHITE);
+				confirm.setFont(new Font("Tahoma", Font.PLAIN, 21));
+				confirm.setBorder(null);
+				confirm.setBackground(Color.GRAY);
+				confirm.setBounds(30, 501, 117, 32);
+				confirm.addActionListener(new ActionListener(){
+			    	@Override
+				    public void actionPerformed(ActionEvent e) {
+			    		user.setIcon(tempIcon);
+			    		settings.saveXML("saveData.xml");
+						frame.setContentPane(mainPanel);
+				    }
+			    });
+				changePicPanel.add(confirm);
+				
+				JButton cancel = new JButton("Cancel");
+				cancel.setForeground(UIManager.getColor("OptionPane.errorDialog.border.background"));
+				cancel.setFont(new Font("Tahoma", Font.PLAIN, 21));
+				cancel.setBorder(null);
+				cancel.setBackground(Color.GRAY);
+				cancel.setBounds(357, 501, 117, 32);
+				cancel.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						frame.setContentPane(mainPanel);
+					}
+				});
+				changePicPanel.add(cancel);
+			}
+		});
+		exPanel.add(chngPic);
+		
+		//example user manage restrictions
+		
+		final JComboBox<Object> btnManageRestrictions = new JComboBox<Object>(restrictions);
+		btnManageRestrictions.setSelectedIndex(user.getFilter() - 1);
+		btnManageRestrictions.setFont(new Font("Dialog", Font.PLAIN, 11));
+		btnManageRestrictions.setForeground(Color.WHITE);
+		btnManageRestrictions.setBorder(null);
+		btnManageRestrictions.setBackground(Color.GRAY);
+		btnManageRestrictions.setBounds(261, 85, 138, 25);
+		btnManageRestrictions.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				user.setFilter(btnManageRestrictions.getSelectedIndex() + 1);
+				settings.saveXML("saveData.xml");
+			}
+		});
+		exPanel.add(btnManageRestrictions);
+		
+		//example user change pin
+		passwordField_1 = new JPasswordField();
+		passwordField_1.setEchoChar('*');
+		passwordField_1.setBounds(113, 32, 86, 22);
+		exPanel.add(passwordField_1);
+		
+		//example user name
+		txtTempUser = new JTextField();
+		txtTempUser.setText(user.getName());
+		txtTempUser.setBounds(113, 4, 86, 20);
+		exPanel.add(txtTempUser);
+		txtTempUser.setColumns(10);
+		
+		//example user change name button
+		JButton changeName = new JButton("Change Name");
+		changeName.setFont(new Font("Dialog", Font.PLAIN, 11));
+		changeName.setForeground(Color.WHITE);
+		changeName.setBackground(Color.GRAY);
+		changeName.setBounds(205, 3, 119, 23);
+		changeName.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				user.setName(txtTempUser.getText());
+				settings.saveXML("saveData.xml");
+			}
+		});
+		exPanel.add(changeName);
+		
+		JButton deleteacc = new JButton("");
+		deleteacc.setIcon(new ImageIcon(SettingGUI.class.getResource("/main/gui/red_x_icon.png")));
+		deleteacc.setBorder(null);
+		deleteacc.setBackground(Color.DARK_GRAY);
+		deleteacc.setBounds(428, 3, 30, 30);
+		exPanel.add(deleteacc);
+		
+		ButtonGroup group_1 = new ButtonGroup();
+		
+		JRadioButton userRadio = new JRadioButton("User");
+		userRadio.setSelected(!user.getAdmin());
+		userRadio.setBackground(Color.DARK_GRAY);
+		userRadio.setBorder(null);
+		userRadio.setForeground(Color.WHITE);
+		userRadio.setBounds(111, 58, 56, 20);
+		userRadio.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				user.setAdmin(false);
+				settings.saveXML("saveData.xml");
+			}
+		});
+		exPanel.add(userRadio);
+		
+		JRadioButton rdbtnAdmin = new JRadioButton("Admin");
+		rdbtnAdmin.setSelected(user.getAdmin());
+		rdbtnAdmin.setBorder(null);
+		rdbtnAdmin.setBackground(Color.DARK_GRAY);
+		rdbtnAdmin.setForeground(Color.WHITE);
+		rdbtnAdmin.setBounds(173, 58, 56, 23);
+		rdbtnAdmin.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				user.setAdmin(true);
+				settings.saveXML("saveData.xml");
+			}
+		});
+		exPanel.add(rdbtnAdmin);
+		
+		group_1.add(userRadio);
+		group_1.add(rdbtnAdmin);
+		
+		return exPanel;
 	}
 }
