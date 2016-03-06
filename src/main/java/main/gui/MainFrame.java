@@ -499,9 +499,7 @@ public class MainFrame {
 				}
 			}
 		});
-		
 
-		
 		return frame;
 	}
 }

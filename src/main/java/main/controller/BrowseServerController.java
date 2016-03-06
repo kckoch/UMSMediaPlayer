@@ -1,3 +1,6 @@
+/*
+ * A controller for browsing the server.  This class interacts with SOAP, and is called by MainFrame.
+ */
 package main.controller;
 
 import java.util.*;
@@ -14,20 +17,34 @@ public class BrowseServerController {
 	private static int previousid;
 	private static String previousname;
 	
+	/*
+	 * Contructor for the controller. Called only once!
+	 * Internal ArrayList shows current container.  User will never change until he/she logs out
+	 */
 	public BrowseServerController(ArrayList<Container> listin, User userin) {
 		list = listin;
 		user = userin;
 		previousid = 0;
 	}
 	
+	/*
+	 * Sets the internal ArrayList to a new passed in list
+	 */
 	public void setList(ArrayList<Container> listin) {
 		list = listin;
 	}
 	
+	/*
+	 * Returns current ArrayList
+	 */
 	public ArrayList<Container> getList() {
 		return list;
 	}
 	
+	/*
+	 * This is how you traverse containers.  Keeps track of old Container, and updates internal
+	 * list with a new ArrayList.
+	 */
 	public ArrayList<Container> getNewContainer(String name) {
 		final String fav = "Add Album to Favorites";
 		String id = "";
