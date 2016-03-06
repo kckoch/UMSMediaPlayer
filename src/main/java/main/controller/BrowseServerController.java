@@ -5,7 +5,17 @@
  */
 package main.controller;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.*;
+
+import org.omg.CORBA_2_3.portable.OutputStream;
+
+import com.sun.corba.se.spi.orbutil.fsm.Input;
 
 import main.model.Album;
 import main.model.Container;
@@ -89,5 +99,31 @@ public class BrowseServerController {
 		}
 		
 		return list;
+	}
+	
+	/*
+	 * UNKNOWN WHETHER THIS CODE WORKS
+	 */
+	public void downloadTrack(String urlIn) throws IOException {
+		File file = new File("./temp/" + urlIn);
+		file.createNewFile();
+		
+		URL url = new java.net.URL(urlIn);
+		URLConnection urlConnect = url.openConnection();
+		byte[] buff = new byte[8*1024];
+		
+		InputStream stream = urlConnect.getInputStream();
+		try {
+			FileOutputStream output = new FileOutputStream("./temp/" + file.getName());
+			try {
+				int bytesRead;
+				while((bytesRead = stream.read(buff)) != -1)
+					output.write(buff, 0, bytesRead);
+			} finally {
+				output.close();
+			}
+		} finally {
+			stream.close();
+		}
 	}
 }
