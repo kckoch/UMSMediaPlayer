@@ -54,25 +54,28 @@ public class SOAP {
 	}
 	
 	static void processResults(String soapResponse) {
+		//parsing normal containers
 		final String START_TAG = "<Result>";
 		final String END_TAG = "</Result>";
-		final String ID_START = "<container id=";
+		final String ID_START = "<container id=\"";
 		final String TITLE_START = "<dc:title>";
 		final String TITLE_END = "</dc:title>";
+		//parsing mp3
+		final String SONG_ID_START = "<item id=\"";
+		final String ARTIST_START = "<upnp:artist>";
+		final String ARTIST_END = "</upnp:artist>";
+		final String URL_START = "</res>";
 		int id = 0;
-        int idStartIndex = 0;
-        int idEndIndex = 0;
-        int titleStartIndex = 0;
-        int titleEndIndex = 0;
+		int start = 0;
+		int end = 0;
 		String title = "";
 		int startIndex = soapResponse.indexOf(START_TAG) + START_TAG.length();
 		int endIndex = soapResponse.indexOf(END_TAG);
 		String resultStr = soapResponse.substring(startIndex, endIndex);
 		resultStr = resultStr.replace("&lt;", "<").replace("&gt;",">");
-	    
+	    /*
 		while(resultStr.length() > 0) {
-
-			idStartIndex = resultStr.indexOf(ID_START) + ID_START.length() + 1;
+			idStartIndex = resultStr.indexOf(ID_START) + ID_START.length();
 			idEndIndex = idStartIndex + 2;
 			id = Integer.parseInt(resultStr.substring(idStartIndex, idEndIndex));
 			
@@ -84,6 +87,52 @@ public class SOAP {
             if(resultStr.indexOf(ID_START) < 0)
                 resultStr = "";
             list.add(new Container(id, title));
+		}
+		
+		*/
+		int index=0;
+		while (index !=-1){
+			String tempid;
+
+			index = resultStr.indexOf("<container id=", index);
+			if (index !=-1){			
+				tempid = resultStr.substring(index+14, index+20);
+				String intValue = tempid.replaceAll("[^0-9]", "");
+				id = Integer.parseInt(intValue);
+				
+				index = resultStr.indexOf("title>", index);
+				title = resultStr.substring(index+6, resultStr.indexOf("</dc:title>", index));
+
+				list.add(new Container(id, title));
+			}
+		
+		}
+		
+		index = 0;
+		while (index !=-1){
+			String tempid, artist, url;
+			index = resultStr.indexOf("item id=", index);
+			tempid = resultStr.substring(index+7, index+12);
+			String intValue = tempid.replaceAll("[^0-9]", "");
+			id = Integer.parseInt(intValue);
+			
+			index = resultStr.indexOf("title>", index);
+			title = resultStr.substring(index+6, resultStr.indexOf("</dc:title>", index));
+			System.out.println(title);
+
+			/*
+			start = resultStr.indexOf(ARTIST_START + ARTIST_START.length());
+			end = resultStr.indexOf(ARTIST_END);
+			artist = resultStr.substring(start, end);
+			System.out.println(artist);*/
+			
+			index = resultStr.indexOf(">http://127.0.0.1:5001", index);
+			start = resultStr.lastIndexOf("\">", resultStr.indexOf(URL_START)) + "\">".length();
+			end = resultStr.indexOf("</res");
+			url = resultStr.substring(start, end);
+			System.out.println(url);
+			
+			list.add(new Container(id, title));
 		}
         return;
 	}
