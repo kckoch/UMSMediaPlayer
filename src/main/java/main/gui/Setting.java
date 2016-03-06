@@ -91,13 +91,13 @@ public class Setting {
 			NodeList nUsers;
 			NodeList nAlbums;
 			NodeList nTracks;
-			Album tempAlbum;
-			Track tempTrack;
+//			Album tempAlbum;
+//			Track tempTrack;
 			//ArrayList<Album> favAlbums;
 			ArrayList<Track> favTracks;
 			User newUser;
 			Album newAlbum;
-			Track newTrack;
+//			Track newTrack;
 			nUsers = doc.getElementsByTagName("user");
 			for (int temp = 0; temp < nUsers.getLength(); temp++) {
 				nNode = nUsers.item(temp);

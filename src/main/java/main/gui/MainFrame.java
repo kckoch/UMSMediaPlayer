@@ -358,6 +358,11 @@ public class MainFrame {
 					list = servCntl.getNewContainer(tempstr);
 					
 					libraryModel = new LibraryModel(list);
+					for(int j = 0; j < SOAP.getList().size(); j++) {
+						System.out.println(SOAP.getList().get(j).getId() + "\t" + SOAP.getList().get(j).getName());
+						System.out.flush();
+					}
+
 					libraryModel.fireTableDataChanged();
 					libraryTable.setModel(libraryModel);
 					libraryTable.repaint();
