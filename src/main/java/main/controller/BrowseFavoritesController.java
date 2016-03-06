@@ -1,4 +1,4 @@
-package main.gui;
+package main.controller;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -7,6 +7,10 @@ import java.util.Vector;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import main.model.Album;
+import main.model.Track;
+import main.model.User;
 
 public class BrowseFavoritesController {
 	
@@ -30,7 +34,7 @@ public class BrowseFavoritesController {
 			if(view == 1 && favoritesTable.getSelectedRow() == 0){//in trackView and if the back option is selected
 				favoritesTable.setModel(albumView);//switches to albumView
 				int i;
-				for(i = selectedAlbum.tracks.size(); i > 0; i--){//clears the trackView
+				for(i = selectedAlbum.getTracks().size(); i > 0; i--){//clears the trackView
 					trackView.removeRow(i);
 				}
 			}else{
@@ -38,16 +42,16 @@ public class BrowseFavoritesController {
 				if(view == 0){//in albumView
 					setSelectedAlbum(rowIndex);
 					int i;
-					for(i = 0; i < user.getFavorites().get(rowIndex).tracks.size(); i++){//builds the rows with tracks information from the selected album
+					for(i = 0; i < user.getFavorites().get(rowIndex).getTracks().size(); i++){//builds the rows with tracks information from the selected album
 						Vector<Comparable> newTrack = new Vector<Comparable>();
-						newTrack.addElement(user.getFavorites().get(rowIndex).tracks.get(i).title);
-						newTrack.addElement(user.getFavorites().get(rowIndex).tracks.get(i).totalTime);
-						newTrack.addElement(user.getFavorites().get(rowIndex).tracks.get(i).artist);
+						newTrack.addElement(user.getFavorites().get(rowIndex).getTracks().get(i).getTitle());
+						newTrack.addElement(user.getFavorites().get(rowIndex).getTracks().get(i).getTotalTime());
+						newTrack.addElement(user.getFavorites().get(rowIndex).getTracks().get(i).getArtist());
 						trackView.addRow(newTrack);
 					}
 					favoritesTable.setModel(trackView);//switches to trackView
 				}
-				if(view == 1){//trackView and row slected other than back option
+				if(view == 1){//trackView and row selected other than back option
 					if(rowIndex >= 0){		
 						setSelectedTrack(rowIndex);
 					}
@@ -61,7 +65,7 @@ public class BrowseFavoritesController {
 	public void setSelectedAlbum(int row){
 		int i;
 		for(i = 0; i < user.getFavorites().size(); i++){
-			if(favoritesTable.getModel().getValueAt(row, 0) == user.getFavorites().get(i).name){//makes sure the correct album is selected
+			if(favoritesTable.getModel().getValueAt(row, 0) == user.getFavorites().get(i).getName()){//makes sure the correct album is selected
 				selectedAlbum = user.getFavorites().get(i);
 				break;
 			}
@@ -79,9 +83,9 @@ public class BrowseFavoritesController {
 	public void setSelectedTrack(int row){
 		 
 		int i;
-		for(i = 0; i < selectedAlbum.tracks.size(); i++){	
-			if(favoritesTable.getModel().getValueAt(row, 0) == selectedAlbum.tracks.get(i).title){//makes sure the correct track is selected
-					selectedTrack = selectedAlbum.tracks.get(i);
+		for(i = 0; i < selectedAlbum.getTracks().size(); i++){	
+			if(favoritesTable.getModel().getValueAt(row, 0) == selectedAlbum.getTracks().get(i).getTitle()){//makes sure the correct track is selected
+					selectedTrack = selectedAlbum.getTracks().get(i);
 					break;
 			}
 		}
@@ -100,7 +104,7 @@ public class BrowseFavoritesController {
 			albumView.removeRow(row);//removes the row from favorites
 			favoritesTable.setModel(albumView);//switches to albumView
 			int j;
-			for(j = selectedAlbum.tracks.size(); j > 0; j--){//clears trackView
+			for(j = selectedAlbum.getTracks().size(); j > 0; j--){//clears trackView
 				trackView.removeRow(j);
 			}
 		}else if(view == 0){//if in albumView

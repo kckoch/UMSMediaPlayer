@@ -5,6 +5,11 @@ import java.util.*;
 
 import javax.swing.*;
 
+import main.model.Album;
+import main.model.Setting;
+import main.model.Track;
+import main.model.User;
+
 public class Main {
 	private static JFrame login;
 	private static JFrame mainframe;

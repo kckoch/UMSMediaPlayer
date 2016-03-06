@@ -1,4 +1,4 @@
-package main.gui;
+package main.model;
 
 import java.util.*;
 

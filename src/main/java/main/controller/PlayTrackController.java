@@ -1,4 +1,4 @@
-package main.gui;
+package main.controller;
 
 
 import java.io.File;
@@ -12,6 +12,10 @@ import javax.media.Player;
 import javax.media.PlugInManager;
 import javax.media.format.AudioFormat;
 import javax.swing.JSlider;
+
+import main.model.Container;
+import main.model.Track;
+import main.model.playerStatus;
 
 
 public class PlayTrackController {
@@ -30,7 +34,7 @@ public class PlayTrackController {
 	
 	//starts the track that is in the track object for the controller
 	public void startTrack()throws NoPlayerException, CannotRealizeException, MalformedURLException, IOException{
-		File trackFile = new File(track.mediaURL);
+		File trackFile = new File(track.getMediaURL());
 		// Register MP3 Decoder
 		Format input1 = new AudioFormat(AudioFormat.MPEGLAYER3);
 		Format input2 = new AudioFormat(AudioFormat.MPEG);
@@ -89,4 +93,23 @@ public class PlayTrackController {
 		
 	}
 	
+	public playerStatus getPlayerStatus() {
+		return playerStat;
+	}
+	
+	public void setPlayerStatus(playerStatus stat) {
+		playerStat = stat;
+	}
+
+	public Track getTrack() {
+		return track;
+	}
+
+	public void setTrack(Track selectedTrack) {
+		track = selectedTrack;
+	}
+
+	public Player getTrackPlayer() {
+		return trackPlayer;
+	}
 }

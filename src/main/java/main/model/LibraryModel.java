@@ -1,8 +1,9 @@
-package main.gui;
+package main.model;
 
 import java.util.ArrayList;
 
 import javax.swing.table.AbstractTableModel;
+
 
 public class LibraryModel extends AbstractTableModel {
 	private static final String[] columnHeaders = {"Name"};

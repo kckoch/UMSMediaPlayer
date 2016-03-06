@@ -1,4 +1,4 @@
-package main.gui;
+package main.model;
 
 import java.awt.*;
 import java.io.File;
@@ -11,6 +11,7 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+
 
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
@@ -64,7 +65,7 @@ public class Setting {
 	}
 	
 // Loads in XML save data
-	void loadXML(String inputFileName) {
+	public void loadXML(String inputFileName) {
 		// Read in XML file (Load)
 		try {
 			// Designate input file
@@ -163,7 +164,7 @@ public class Setting {
 	}
 
 // Outputs XML save data
-	void saveXML(String outputFileName) {
+	public void saveXML(String outputFileName) {
 		// Output XML file (Save)
 		try {
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();

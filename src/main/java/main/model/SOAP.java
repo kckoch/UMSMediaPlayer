@@ -1,7 +1,8 @@
-package main.gui;
+package main.model;
 
 import java.io.IOException;
 import java.util.*;
+
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -131,7 +132,7 @@ public class SOAP {
         return;
 	}
 	
-	static ArrayList<Container> getList() {
+	public static ArrayList<Container> getList() {
 		return list;
 	}
 }
