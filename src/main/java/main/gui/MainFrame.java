@@ -195,6 +195,7 @@ public class MainFrame {
 		searchPanel.add(btnSearch);
 		
 		removeFavsBut = new JButton();//Remove From Favorites Button looks like a trash can
+		removeFavsBut.setBackground(Color.WHITE);
 		removeFavsBut.setBounds(25, 8, 20, 20);
 		removeFavsBut.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/trash.png")));
 		buttonPanel.add(removeFavsBut);
@@ -328,7 +329,7 @@ public class MainFrame {
 		
 		
 		final BrowseFavoritesController browseFavCntl = new BrowseFavoritesController(favoritesTable, user);
-		final BrowseServerController servCntl = new BrowseServerController(libraryTable);
+		final BrowseServerController servCntl = new BrowseServerController(list, user);
 		
 		removeFavsBut.addActionListener(new ActionListener() {//remove album from favorites
 			public void actionPerformed(ActionEvent e){
@@ -350,33 +351,13 @@ public class MainFrame {
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				if (!e.getValueIsAdjusting()) {
-					System.out.println("in listener");
-					System.out.flush();
 					int row = libraryTable.getSelectedRow();
                     if(row == -1)
                         return;
 					String tempstr = (String)libraryModel.getValueAt(row, 0);
-					String id = "";
-					for(int p = 0; p < list.size(); p++){
-						if(list.get(p).getName().compareTo(tempstr) == 0) {
-							id = Integer.toString(list.get(p).getId());
-							p = list.size();
-						}
-					}
-					try {
-						SOAP.sendRequest(id);
-					} catch (Exception x) {
-						//
-					}
-					list = SOAP.getList();
-					list.add(0, new Container(previousid, "Back"));
-					previousid = Integer.parseInt(id);
+					list = servCntl.getNewContainer(tempstr);
+					
 					libraryModel = new LibraryModel(list);
-					for(int j = 0; j < SOAP.getList().size(); j++) {
-						System.out.println(SOAP.getList().get(j).getId() + "\t" + SOAP.getList().get(j).getName());
-						if(user)
-						System.out.flush();
-					}
 					libraryModel.fireTableDataChanged();
 					libraryTable.setModel(libraryModel);
 					libraryTable.repaint();

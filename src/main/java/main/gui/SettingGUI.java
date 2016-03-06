@@ -579,12 +579,12 @@ public class SettingGUI {
 		button_4.setBackground(Color.DARK_GRAY);
 		button_4.setBounds(428, 3, 30, 30);
 		exPanel2.add(button_4);
+		
+		//new user panel
 		addUserPanel.setMaximumSize(new Dimension(460, 75));
 		addUserPanel.setMinimumSize(new Dimension(460, 75));
 		addUserPanel.setSize(new Dimension(460, 75));
 		addUserPanel.setPreferredSize(new Dimension(460, 75));
-		
-		//new user panel
 		addUserPanel.setBackground(Color.DARK_GRAY);
 		addUserPanel.setLayout(null);
 		
