@@ -41,7 +41,6 @@ public class MainFrame {
 	private static JTextField txtSearch;
 	private static JTable favoritesTable;
 	private static JTable libraryTable;
-	private static JScrollPane libraryPanel;
 	private static JPanel playPanel;
 	private static JLabel placeHolderForImage;
 	private static JFrame playFrame;
@@ -375,6 +374,7 @@ public class MainFrame {
 					libraryModel = new LibraryModel(list);
 					for(int j = 0; j < SOAP.getList().size(); j++) {
 						System.out.println(SOAP.getList().get(j).getId() + "\t" + SOAP.getList().get(j).getName());
+						if(user)
 						System.out.flush();
 					}
 					libraryModel.fireTableDataChanged();
