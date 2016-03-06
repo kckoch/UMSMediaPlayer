@@ -31,7 +31,7 @@ public class BrowseServerController {
 	private static Setting settings;
 	
 	/*
-	 * Contructor for the controller. Called only once!
+	 * Constructor for the controller. Called only once!
 	 * Internal ArrayList shows current container.  User will never change until he/she logs out
 	 */
 	public BrowseServerController(ArrayList<Container> listin, User userin, Setting settings) {
