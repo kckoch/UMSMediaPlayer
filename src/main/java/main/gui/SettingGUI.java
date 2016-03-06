@@ -539,14 +539,17 @@ public class SettingGUI {
 		btnAddUser.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//
+				User addingUser = new User("tempname", false, 0000, settings.getconfigureN());
+				addingUser.setIcon("/main/gui/smile_orange.png");
+				settings.addUser(addingUser);
+				settings.saveXML("saveData.xml");
 			}
 		});
 		addUserPanel.add(btnAddUser);
 		scrollpanel.add(addUserPanel);
 	}
 	
-	
+	// Create panel containing user information
 	private static JPanel userPanel(final User user, final JFrame frame, final Setting settings) {
 		
 		//example panel
