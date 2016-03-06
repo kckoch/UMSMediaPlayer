@@ -56,7 +56,7 @@ public class Main {
 		settings.addUser(new User("Admin", true, 9999, 0));
 		settings.getUser(0).setIcon("/main/gui/panda_orange_2.png");
 		
-		settings.addUser(new User("Child 1", false, 1111, 1));
+		settings.addUser(new User("Child 1", false, 1111, 2));
 		settings.getUser(1).addFavorite(albumA);
 		settings.getUser(1).setIcon("/main/gui/giraffe_green.png");
 		

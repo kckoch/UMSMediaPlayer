@@ -78,8 +78,6 @@ public class Setting {
 
 			doc.getDocumentElement().normalize();
 
-			//System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
-
 			NodeList nList;
 			Node nNode;
 			Node nNode1;
@@ -143,17 +141,13 @@ public class Setting {
 
 			nList = doc.getElementsByTagName("configureN");
 			nNode = nList.item(0);
-//			System.out.print("\n" + nNode.getNodeName());
 			eElement = (Element) nNode;
-//			System.out.println(": " + eElement.getAttribute("val"));
 			// Sets value of configureN from XML data
 			this.setconfigureN(Integer.parseInt(eElement.getAttribute("val")));
 
 			nList = doc.getElementsByTagName("serverURL");
 			nNode = nList.item(0);
-//			System.out.print("\n" + nNode.getNodeName());
 			eElement = (Element) nNode;
-//			System.out.println(": " + eElement.getAttribute("val"));
 			// Sets value of serverURL from XML data
 			this.setserverURL(eElement.getAttribute("val"));
 		} catch (Exception e) {
@@ -226,9 +220,6 @@ public class Setting {
 						elem = doc.createElement("artist");
 						elem.appendChild(doc.createTextNode("" + tempTrack.getArtist()));
 						xmltrack.appendChild(elem);
-						/*elem = doc.createElement("filter");
-						elem.appendChild(doc.createTextNode("" + tempTrack.getFilter()));
-						xmltrack.appendChild(elem);*/
 					}
 					elem = doc.createElement("mediaURL");
 					elem.appendChild(doc.createTextNode("" + tempAlbum.getMediaURL()));
