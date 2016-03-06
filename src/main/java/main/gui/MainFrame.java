@@ -374,7 +374,6 @@ public class MainFrame {
 					libraryModel = new LibraryModel(list);
 					for(int j = 0; j < SOAP.getList().size(); j++) {
 						System.out.println(SOAP.getList().get(j).getId() + "\t" + SOAP.getList().get(j).getName());
-						if(user)
 						System.out.flush();
 					}
 					libraryModel.fireTableDataChanged();
