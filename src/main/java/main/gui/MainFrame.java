@@ -40,9 +40,6 @@ import main.model.*;
 
 import java.awt.Color;
 import java.awt.Dimension;
-//import java.awt.Insets;
-//import java.awt.Rectangle;
-//import java.awt.ComponentOrientation;
 
 
 public class MainFrame {
@@ -339,7 +336,7 @@ public class MainFrame {
 		
 		
 		final BrowseFavoritesController browseFavCntl = new BrowseFavoritesController(favoritesTable, user);
-		final BrowseServerController servCntl = new BrowseServerController(list, user);
+		final BrowseServerController servCntl = new BrowseServerController(list, user, settings);
 		
 		removeFavsBut.addActionListener(new ActionListener() {//remove album from favorites
 			public void actionPerformed(ActionEvent e){
@@ -499,9 +496,7 @@ public class MainFrame {
 				}
 			}
 		});
-		
 
-		
 		return frame;
 	}
 }

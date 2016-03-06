@@ -1,3 +1,8 @@
+/*
+ * This class holds all of the info from a SOAP request
+ * This information will be used to create songs and albums
+ * Only contains getters and setters
+ */
 package main.model;
 
 import java.util.*;
@@ -9,7 +14,10 @@ public class Container {
 
     public Container() {
         id = 0;
+        pid = 0;
+        duration = 0;
         name = "";
+        url = "";
     }
 
     public Container(int id, int pid, long duration, String url, String str) {

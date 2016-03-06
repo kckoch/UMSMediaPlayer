@@ -1,3 +1,7 @@
+/*
+ * This is the only class that directly interacts with the UPNP server.
+ * Sends and Reads messages to/from the server
+ */
 package main.model;
 
 import java.io.IOException;
@@ -27,6 +31,9 @@ public class SOAP {
 "	</s:Body>" +
 "</s:Envelope>";
 	
+	/*
+	 * Sends a request to the server for a certain container of a given objID
+	 */
 	public static void sendRequest(String objID) throws IOException{
 		String objectId = objID;
 
@@ -54,6 +61,10 @@ public class SOAP {
 		
 	}
 	
+	/*
+	 * Reads in the response and extracts the relevant information
+	 * Will update the internal ArrayList
+	 */
 	static void processResults(String soapResponse) {
 		final String START_TAG = "<Result>";
 		final String END_TAG = "</Result>";
@@ -132,6 +143,9 @@ public class SOAP {
         return;
 	}
 	
+	/*
+	 * Allows for the calling classes to have access to the updated ArrayList
+	 */
 	public static ArrayList<Container> getList() {
 		return list;
 	}
