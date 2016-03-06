@@ -28,6 +28,16 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 
+import main.controller.BrowseFavoritesController;
+import main.controller.BrowseServerController;
+import main.controller.PlayTrackController;
+import main.model.Container;
+import main.model.LibraryModel;
+import main.model.SOAP;
+import main.model.Setting;
+import main.model.User;
+import main.model.*;
+
 import java.awt.Color;
 import java.awt.Dimension;
 //import java.awt.Insets;
@@ -104,7 +114,7 @@ public class MainFrame {
 		int i;
 		for(i = 0; i < user.getFavorites().size(); i++){//adds all the rows for the user's favorites
 			Vector<Comparable> newAlbum = new Vector<Comparable>();
-			newAlbum.addElement(user.getFavorites().get(i).name);
+			newAlbum.addElement(user.getFavorites().get(i).getName());
 			favoritesModelAlbums.addRow(newAlbum);
 		}
 		
@@ -195,6 +205,7 @@ public class MainFrame {
 		searchPanel.add(btnSearch);
 		
 		removeFavsBut = new JButton();//Remove From Favorites Button looks like a trash can
+		removeFavsBut.setBackground(Color.WHITE);
 		removeFavsBut.setBounds(25, 8, 20, 20);
 		removeFavsBut.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/trash.png")));
 		buttonPanel.add(removeFavsBut);
@@ -328,7 +339,7 @@ public class MainFrame {
 		
 		
 		final BrowseFavoritesController browseFavCntl = new BrowseFavoritesController(favoritesTable, user);
-		final BrowseServerController servCntl = new BrowseServerController(libraryTable);
+		final BrowseServerController servCntl = new BrowseServerController(list, user);
 		
 		removeFavsBut.addActionListener(new ActionListener() {//remove album from favorites
 			public void actionPerformed(ActionEvent e){
@@ -350,32 +361,18 @@ public class MainFrame {
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				if (!e.getValueIsAdjusting()) {
-					System.out.println("in listener");
-					System.out.flush();
 					int row = libraryTable.getSelectedRow();
                     if(row == -1)
                         return;
 					String tempstr = (String)libraryModel.getValueAt(row, 0);
-					String id = "";
-					for(int p = 0; p < list.size(); p++){
-						if(list.get(p).getName().compareTo(tempstr) == 0) {
-							id = Integer.toString(list.get(p).getId());
-							p = list.size();
-						}
-					}
-					try {
-						SOAP.sendRequest(id);
-					} catch (Exception x) {
-						//
-					}
-					list = SOAP.getList();
-					list.add(0, new Container(previousid, "Back"));
-					previousid = Integer.parseInt(id);
+					list = servCntl.getNewContainer(tempstr);
+					
 					libraryModel = new LibraryModel(list);
 					for(int j = 0; j < SOAP.getList().size(); j++) {
-						System.out.println(SOAP.getList().get(j).getId() + "\t" + SOAP.getList().get(j).getName());
+						System.out.println(list.get(j).getId() + "\t" + list.get(j).getName());
 						System.out.flush();
 					}
+
 					libraryModel.fireTableDataChanged();
 					libraryTable.setModel(libraryModel);
 					libraryTable.repaint();
@@ -404,10 +401,10 @@ public class MainFrame {
 					}
 					if(favsAlbumsOrTracks == 1){
 						browseFavCntl.setSelectedObject(favoritesTable, favsAlbumsOrTracks, notDisplayed, displayed);
-						if(browseFavCntl.selectedTrack != null){
-							playTrackCntl.track = browseFavCntl.selectedTrack;
-							trackTitleText.setText(playTrackCntl.track.title);
-							total = (int) playTrackCntl.track.totalTime;
+						if(browseFavCntl.getSelectedTrack() != null){
+							playTrackCntl.setTrack(browseFavCntl.getSelectedTrack());
+							trackTitleText.setText(playTrackCntl.getTrack().getTitle());
+							total = (int) playTrackCntl.getTrack().getTotalTime();
 							elapsedTime = (total * songSlider.getValue() / 100);//elapsed time
 						    if(elapsedTime%60 < 10){
 								elapsed = elapsedTime/60 + ":0" + elapsedTime%60;
@@ -434,7 +431,7 @@ public class MainFrame {
 		
 		playButton.addActionListener(new ActionListener() {//plays track if a track is selected or pauses it
 			public void actionPerformed(ActionEvent e){
-				if(playTrackCntl.playerStat == playerStatus.STOPPED){//if the track has been stopped or not started
+				if(playTrackCntl.getPlayerStatus() == playerStatus.STOPPED){//if the track has been stopped or not started
 					try {
 						timer.restart();//resets the elapsed time and slider to 0
 						playTrackCntl.startTrack();
@@ -443,11 +440,11 @@ public class MainFrame {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-				}else if(playTrackCntl.playerStat == playerStatus.PAUSED){//if the track has been paused
+				}else if(playTrackCntl.getPlayerStatus() == playerStatus.PAUSED){//if the track has been paused
 					timer.start();//starts up the timer again
 					playTrackCntl.playTrack();
 					playButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/pause_button.png")));//changes the play/pause button to the pause icon
-				}else if(playTrackCntl.playerStat == playerStatus.PLAYING){//if the track is playing
+				}else if(playTrackCntl.getPlayerStatus() == playerStatus.PLAYING){//if the track is playing
 					timer.stop();//stops the timer
 					playTrackCntl.pauseTrack();
 					playButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/play_button.png")));//changes the play/pause button to the play icon
@@ -458,15 +455,15 @@ public class MainFrame {
 	
 		stopButton.addActionListener(new ActionListener() {//stops the track from playing and sets the play pause button to the play icon
 			public void actionPerformed(ActionEvent e){
-				if(playTrackCntl.playerStat == playerStatus.PLAYING){//if the track is playing
+				if(playTrackCntl.getPlayerStatus() == playerStatus.PLAYING){//if the track is playing
 					timer.stop();//stops the timer
 					playTrackCntl.stopTrack();
 					playButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/play_button.png")));//changes the play pause button icon
-				}else if(playTrackCntl.playerStat == playerStatus.PAUSED){//if the track is paused
+				}else if(playTrackCntl.getPlayerStatus() == playerStatus.PAUSED){//if the track is paused
 					timer.stop();//stops the timer
 					playTrackCntl.stopTrack();
 					playButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/play_button.png")));//changes the play pause button icon
-				}else if(playTrackCntl.playerStat == playerStatus.STOPPED){//if the track is stopped or not started
+				}else if(playTrackCntl.getPlayerStatus() == playerStatus.STOPPED){//if the track is stopped or not started
 					timer.stop();//stops the timer
 					playTrackCntl.stopTrack();
 					playButton.setIcon(new ImageIcon(MainFrame.class.getResource("/main/gui/play_button.png")));//changes the play pause button icon
@@ -478,9 +475,9 @@ public class MainFrame {
 		//links the sliders and elapsed time text together with the timer
 		timer.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				if(playTrackCntl.playerStat == playerStatus.PLAYING){//if the track is playing
+				if(playTrackCntl.getPlayerStatus() == playerStatus.PLAYING){//if the track is playing
 					//sets the values of the slider and the elapsed time displayed in the play panel
-					songSlider.setValue((int) (playTrackCntl.trackPlayer.getMediaTime().getSeconds()/playTrackCntl.trackPlayer.getDuration().getSeconds()*100));
+					songSlider.setValue((int) (playTrackCntl.getTrackPlayer().getMediaTime().getSeconds()/playTrackCntl.getTrackPlayer().getDuration().getSeconds()*100));
 					elapsedTime = (total * songSlider.getValue() / 100);
 					if(elapsedTime%60 < 10){
 						elapsed = elapsedTime/60 + ":0" + elapsedTime%60;
@@ -488,8 +485,8 @@ public class MainFrame {
 						elapsed = elapsedTime/60 + ":" + elapsedTime%60;
 					}
 					elapsedText.setText(elapsed);//sets the elapsed time displayed in the play panel
-				}if(playTrackCntl.trackPlayer.getMediaTime() == playTrackCntl.trackPlayer.getDuration()){//if the track has ended
-					playTrackCntl.playerStat = playerStatus.STOPPED;//sets the playerStat value to stopped
+				}if(playTrackCntl.getTrackPlayer().getMediaTime() == playTrackCntl.getTrackPlayer().getDuration()){//if the track has ended
+					playTrackCntl.setPlayerStatus(playerStatus.STOPPED);//sets the playerStat value to stopped
 					//sets the slider value to 0 and the elapsed time value to 0
 					songSlider.setValue(0);
 					elapsedTime = (total * songSlider.getValue() / 100);

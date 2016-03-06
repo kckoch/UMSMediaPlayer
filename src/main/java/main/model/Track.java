@@ -1,6 +1,7 @@
-package main.gui;
+package main.model;
 
 import java.sql.Time;
+
 
 public class Track {
 	

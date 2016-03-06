@@ -1,19 +1,23 @@
-package main.gui;
+package main.model;
 
 import java.util.*;
 
 public class Container {
-    private int id;
-    private String name;
+    private int id, pid;
+    private long duration;
+    private String name, url;
 
     public Container() {
         id = 0;
         name = "";
     }
 
-    public Container(int id, String str) {
+    public Container(int id, int pid, long duration, String url, String str) {
         this.id = id;
+        this.pid = pid;
+        this.duration = duration;
         this.name = str;
+        this.url = url;
     }
 
     public void setId(int id) {
@@ -30,5 +34,13 @@ public class Container {
 
     public String getName() {
         return name;
+    }
+    
+    public String getUrl(){
+    	return url;
+    }
+    
+    public long getDuration() {
+    	return duration;
     }
 }

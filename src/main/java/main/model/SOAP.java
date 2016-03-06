@@ -1,7 +1,8 @@
-package main.gui;
+package main.model;
 
 import java.io.IOException;
 import java.util.*;
+
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -54,48 +55,30 @@ public class SOAP {
 	}
 	
 	static void processResults(String soapResponse) {
-		//parsing normal containers
 		final String START_TAG = "<Result>";
 		final String END_TAG = "</Result>";
 		final String ID_START = "<container id=\"";
-		final String TITLE_START = "<dc:title>";
-		final String TITLE_END = "</dc:title>";
-		//parsing mp3
 		final String SONG_ID_START = "<item id=\"";
 		final String ARTIST_START = "<upnp:artist>";
 		final String ARTIST_END = "</upnp:artist>";
 		final String URL_START = "</res>";
 		int id = 0;
+		int pid = 0;
 		int start = 0;
 		int end = 0;
 		String title = "";
+		String url;
 		int startIndex = soapResponse.indexOf(START_TAG) + START_TAG.length();
 		int endIndex = soapResponse.indexOf(END_TAG);
 		String resultStr = soapResponse.substring(startIndex, endIndex);
 		resultStr = resultStr.replace("&lt;", "<").replace("&gt;",">");
-	    /*
-		while(resultStr.length() > 0) {
-			idStartIndex = resultStr.indexOf(ID_START) + ID_START.length();
-			idEndIndex = idStartIndex + 2;
-			id = Integer.parseInt(resultStr.substring(idStartIndex, idEndIndex));
-			
-			titleStartIndex = resultStr.indexOf(TITLE_START) + TITLE_START.length();
-			titleEndIndex = resultStr.indexOf(TITLE_END);
-			title = resultStr.substring(titleStartIndex, titleEndIndex);
-
-            resultStr = resultStr.substring(titleEndIndex + 50);
-            if(resultStr.indexOf(ID_START) < 0)
-                resultStr = "";
-            list.add(new Container(id, title));
-		}
-		
-		*/
 		int index=0;
+		
 		while (index !=-1){
 			String tempid;
 
 			index = resultStr.indexOf("<container id=", index);
-			if (index !=-1){			
+			if (index != -1){			
 				tempid = resultStr.substring(index+14, index+20);
 				String intValue = tempid.replaceAll("[^0-9]", "");
 				id = Integer.parseInt(intValue);
@@ -103,18 +86,25 @@ public class SOAP {
 				index = resultStr.indexOf("title>", index);
 				title = resultStr.substring(index+6, resultStr.indexOf("</dc:title>", index));
 
-				list.add(new Container(id, title));
+				url = "";
+				list.add(new Container(id, pid, 0, url, title));
 			}
 		
 		}
 		
 		index = 0;
-		while (index !=-1){
-			String tempid, artist, url;
+		while (index != -1){
+			String tempid, temppid, artist;
+			long duration;
 			index = resultStr.indexOf("item id=", index);
 			tempid = resultStr.substring(index+7, index+12);
 			String intValue = tempid.replaceAll("[^0-9]", "");
 			id = Integer.parseInt(intValue);
+			
+			index = resultStr.indexOf("parentID=", index);
+			temppid = resultStr.substring(index+9, index+14);
+			intValue = temppid.replaceAll("[^0-9]", "");
+			pid = Integer.parseInt(intValue);
 			
 			index = resultStr.indexOf("title>", index);
 			title = resultStr.substring(index+6, resultStr.indexOf("</dc:title>", index));
@@ -132,12 +122,17 @@ public class SOAP {
 			url = resultStr.substring(start, end);
 			System.out.println(url);
 			
-			list.add(new Container(id, title));
+			/*
+			start = resultStr.indexOf("duration=\"" + "duration=\"".length());
+			end = resultStr.indexOf("\"", start);
+			duration = Long.parseLong(resultStr.substring(start, end));*/
+			
+			list.add(new Container(id, pid, 0, url, title));
 		}
         return;
 	}
 	
-	static ArrayList<Container> getList() {
+	public static ArrayList<Container> getList() {
 		return list;
 	}
 }

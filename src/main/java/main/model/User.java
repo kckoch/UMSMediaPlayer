@@ -1,6 +1,7 @@
-package main.gui;
+package main.model;
 
 import java.util.*;
+
 
 public class User {
 	//private Setting setting;

@@ -6,6 +6,9 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
+import main.controller.AuthenticateUserController;
+import main.model.User;
+
 public class LoginGUI {
 	private static JFrame frame;
 	private static JPanel windowPane;

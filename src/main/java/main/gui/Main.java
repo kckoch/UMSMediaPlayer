@@ -5,6 +5,11 @@ import java.util.*;
 
 import javax.swing.*;
 
+import main.model.Album;
+import main.model.Setting;
+import main.model.Track;
+import main.model.User;
+
 public class Main {
 	private static JFrame login;
 	private static JFrame mainframe;
@@ -45,7 +50,7 @@ public class Main {
 		albumB.setObjectId(2);
 		Album albumC = new Album("Album C", tracksC, System.getProperty("user.dir") + "audio/Album C");
 		albumB.setObjectId(3);
-		//initialize admin account info and list of albums
+		//initialize admin account info and list of albums BACK UP FOR XML
 		//users = new ArrayList<User>();
 /*
 		settings.addUser(new User("Admin", true, 9999, 0));

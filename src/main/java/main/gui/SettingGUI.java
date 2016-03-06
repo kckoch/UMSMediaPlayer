@@ -4,6 +4,9 @@ import java.awt.Color;
 
 import javax.swing.*;
 
+import main.model.Setting;
+import main.model.User;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
