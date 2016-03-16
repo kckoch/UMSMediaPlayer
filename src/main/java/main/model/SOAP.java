@@ -68,17 +68,13 @@ public class SOAP {
 	static void processResults(String soapResponse) {
 		final String START_TAG = "<Result>";
 		final String END_TAG = "</Result>";
-		final String ID_START = "<container id=\"";
-		final String SONG_ID_START = "<item id=\"";
-		final String ARTIST_START = "<upnp:artist>";
-		final String ARTIST_END = "</upnp:artist>";
 		final String URL_START = "</res>";
 		int id = 0;
 		int pid = 0;
 		int start = 0;
 		int end = 0;
 		String title = "";
-		String url;
+		String url = "";
 		int startIndex = soapResponse.indexOf(START_TAG) + START_TAG.length();
 		int endIndex = soapResponse.indexOf(END_TAG);
 		String resultStr = soapResponse.substring(startIndex, endIndex);
@@ -87,7 +83,7 @@ public class SOAP {
 		
 		while (index !=-1){
 			String tempid;
-
+			
 			index = resultStr.indexOf("<container id=", index);
 			if (index != -1){			
 				tempid = resultStr.substring(index+14, index+20);
@@ -97,16 +93,14 @@ public class SOAP {
 				index = resultStr.indexOf("title>", index);
 				title = resultStr.substring(index+6, resultStr.indexOf("</dc:title>", index));
 
-				url = "";
-				list.add(new Container(id, pid, 0, url, title));
+				list.add(new Container(id, pid, 0, "", title, ""));
 			}
-		
 		}
 		
 		index = 0;
 		while (index != -1){
 			String tempid, temppid, artist;
-			long duration;
+			long duration = 0;
 			index = resultStr.indexOf("item id=", index);
 			tempid = resultStr.substring(index+7, index+12);
 			String intValue = tempid.replaceAll("[^0-9]", "");
@@ -119,26 +113,27 @@ public class SOAP {
 			
 			index = resultStr.indexOf("title>", index);
 			title = resultStr.substring(index+6, resultStr.indexOf("</dc:title>", index));
-			System.out.println(title);
 
-			/*
-			start = resultStr.indexOf(ARTIST_START + ARTIST_START.length());
-			end = resultStr.indexOf(ARTIST_END);
+			start = resultStr.indexOf("upnp:artist>", index) + "upnp:artist>".length();
+			end = resultStr.indexOf("</upnp:artist>", start);
 			artist = resultStr.substring(start, end);
-			System.out.println(artist);*/
+			
+			System.out.println("Remaining message:" + resultStr.substring(index));
+			start = resultStr.indexOf("duration=", index) + "duration=".length() + 1;
+			end = resultStr.indexOf("\"", start);
+			String dur = resultStr.substring(start, end);
+			System.out.println("String dur: " + dur);
+			int hours = Integer.parseInt(dur.substring(0, 2));
+			int min = Integer.parseInt(dur.substring(3, 5));
+			double seconds = Double.parseDouble(dur.substring(6));
+			duration = (long)hours*3600 + (long)min*60 + (long)Math.round(seconds);
 			
 			index = resultStr.indexOf(">http://127.0.0.1:5001", index);
 			start = resultStr.lastIndexOf("\">", resultStr.indexOf(URL_START)) + "\">".length();
 			end = resultStr.indexOf("</res");
 			url = resultStr.substring(start, end);
-			System.out.println(url);
 			
-			/*
-			start = resultStr.indexOf("duration=\"" + "duration=\"".length());
-			end = resultStr.indexOf("\"", start);
-			duration = Long.parseLong(resultStr.substring(start, end));*/
-			
-			list.add(new Container(id, pid, 0, url, title));
+			list.add(new Container(id, pid, duration, url, title, artist));
 		}
         return;
 	}

@@ -10,7 +10,7 @@ import java.util.*;
 public class Container {
     private int id, pid;
     private long duration;
-    private String name, url;
+    private String name, url, artist;
 
     public Container() {
         id = 0;
@@ -20,12 +20,13 @@ public class Container {
         url = "";
     }
 
-    public Container(int id, int pid, long duration, String url, String str) {
+    public Container(int id, int pid, long duration, String url, String name, String artist) {
         this.id = id;
         this.pid = pid;
         this.duration = duration;
-        this.name = str;
+        this.name = name;
         this.url = url;
+        this.artist = artist;
     }
 
     public void setId(int id) {
@@ -50,5 +51,13 @@ public class Container {
     
     public long getDuration() {
     	return duration;
+    }
+    
+    public int getPid() {
+    	return pid;
+    }
+    
+    public String getArtist() {
+    	return artist;
     }
 }

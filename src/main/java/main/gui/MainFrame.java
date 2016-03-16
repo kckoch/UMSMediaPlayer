@@ -333,8 +333,6 @@ public class MainFrame {
 		
 		final PlayTrackController playTrackCntl = new PlayTrackController(songSlider);
 		
-		
-		
 		final BrowseFavoritesController browseFavCntl = new BrowseFavoritesController(favoritesTable, user);
 		final BrowseServerController servCntl = new BrowseServerController(list, user, settings);
 		
@@ -365,10 +363,6 @@ public class MainFrame {
 					list = servCntl.getNewContainer(tempstr);
 					
 					libraryModel = new LibraryModel(list);
-					for(int j = 0; j < SOAP.getList().size(); j++) {
-						System.out.println(list.get(j).getId() + "\t" + list.get(j).getName());
-						System.out.flush();
-					}
 
 					libraryModel.fireTableDataChanged();
 					libraryTable.setModel(libraryModel);

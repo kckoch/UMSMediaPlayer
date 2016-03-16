@@ -37,7 +37,6 @@ public class BrowseServerController {
 	public BrowseServerController(ArrayList<Container> listin, User userin, Setting settings) {
 		list = listin;
 		user = userin;
-		previousid = 0;
 	}
 	
 	/*
@@ -55,7 +54,7 @@ public class BrowseServerController {
 	}
 	
 	/*
-	 * This is how you traverse containers.  Keeps track of old Container id, and updates internal
+	 * This is how you traverse containers.  Updates internal
 	 * list with a new ArrayList.
 	 */
 	public ArrayList<Container> getNewContainer(String name) {
@@ -65,7 +64,7 @@ public class BrowseServerController {
 			System.out.flush();
 			ArrayList<Track> tracks = new ArrayList<Track>();
 			for(int i = 0; i < list.size(); i++) {
-				tracks.add(new Track(list.get(i).getDuration(), list.get(i).getName(), list.get(i).getUrl(), ""));
+				tracks.add(new Track(list.get(i).getDuration(), list.get(i).getName(), list.get(i).getUrl(), list.get(i).getArtist()));
 			}
 			Album album = new Album("Album x", tracks, "");
 			user.addFavorite(album);
@@ -85,12 +84,11 @@ public class BrowseServerController {
 			//
 		}
 		list = SOAP.getList();
-		list.add(0, new Container(previousid, 0, 0, "", "Back"));
+		list.add(0, new Container(previousid, 0, 0, "", "Back", ""));
 		previousid = Integer.parseInt(id);
 		
-		
 		if(list.get(1).getUrl().compareTo("") != 0) {
-			list.add(new Container(Integer.parseInt(id), previousid, 0, "", fav));
+			list.add(new Container(Integer.parseInt(id), previousid, 0, "", fav, ""));
 		}
 		
 		for(int j = 0; j < SOAP.getList().size(); j++) {
