@@ -108,6 +108,7 @@ public class LoginGUI {
 				    public void actionPerformed(ActionEvent e) {
 			    		frame.setContentPane(windowPane);
 			    		numberString = "";
+			    		passwordField.setText("");
 				    }
 				});
 				backbutton.setBorder(null);
@@ -287,18 +288,16 @@ public class LoginGUI {
 				Login.setBackground(new Color(99, 99, 99));
 				Login.setBounds(188, 493, 117, 25);
 				Login.addActionListener(new ActionListener() {
-					@SuppressWarnings("deprecation")
 					@Override
 				    public void actionPerformed(ActionEvent e) {
 						AuthenticateUserController auth = new AuthenticateUserController(tempUser);
-			    		if(!auth.authenticate(passwordField.getText())) {
+			    		if(!auth.authenticate(new String(passwordField.getPassword()))) {
 			    			passwordField.setForeground(UIManager.getColor("OptionPane.errorDialog.border.background"));
 			    		}
 				    }
 				});
 				pinpanel.add(Login);
 				frame.setContentPane(pinpanel);
-				
 			}
 		});
 		
