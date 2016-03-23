@@ -64,6 +64,8 @@ public class Main {
 		settings.getUser(2).addFavorite(albumA);
 		settings.getUser(2).addFavorite(albumB);
 		settings.getUser(2).setIcon("/main/gui/smile_blue.png");
+		
+		settings.setServerURL("http://127.0.0.1:5001/upnp/control/content_directory");
 		*/
 		settings.saveXML("saveData.xml");
 
