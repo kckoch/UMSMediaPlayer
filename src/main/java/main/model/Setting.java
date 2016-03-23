@@ -25,12 +25,44 @@ public class Setting {
 	private int configureN; //only admin can modify
 	private String serverURL; //only admin can modify
 	private ArrayList<User> users;
+	private ArrayList<ArrayList<Album>> restrictions;
 	
 	public Setting(int _configureN, String _serverURL) {
 		configureN = _configureN;
 		serverURL = _serverURL;
 		users = new ArrayList<User>();
+		restrictions = new ArrayList<ArrayList<Album>>();
 //		users.add(new User("admin", true, 9999, 0));
+	}
+	
+	public void configureRestrictions()
+	{
+		for(int i = 0; i < configureN; i++)
+		{
+			restrictions.add(new ArrayList<Album>());
+		}
+	}
+	
+	public void addRestrictionLevel()
+	{
+		configureN++;
+		restrictions.add(new ArrayList<Album>());
+	}
+	
+	public void addRestriction(int level, Album restriction)
+	{
+		restrictions.get(level - 1).add(restriction);
+	}
+	
+	public void removeRestrictionLevel(int level)
+	{
+		configureN--;
+		restrictions.remove(level);
+	}
+	
+	public void removeRestriction(int level, Album restriction)
+	{
+		restrictions.get(level - 1).remove(restrictions.get(level - 1).indexOf(restriction));
 	}
 
 	public int getconfigureN() {
@@ -144,6 +176,7 @@ public class Setting {
 			eElement = (Element) nNode;
 			// Sets value of configureN from XML data
 			this.setconfigureN(Integer.parseInt(eElement.getAttribute("val")));
+			this.configureRestrictions();
 
 			nList = doc.getElementsByTagName("serverURL");
 			nNode = nList.item(0);
