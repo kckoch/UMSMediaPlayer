@@ -13,10 +13,6 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.*;
 
-import org.omg.CORBA_2_3.portable.OutputStream;
-
-import com.sun.corba.se.spi.orbutil.fsm.Input;
-
 import main.model.Album;
 import main.model.Container;
 import main.model.SOAP;
