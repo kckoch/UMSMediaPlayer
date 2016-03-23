@@ -19,6 +19,7 @@ public class Main {
 	private static ArrayList<Track> tracksA;
 	private static ArrayList<Track> tracksB;
 	private static ArrayList<Track> tracksC;
+	private static ArrayList<ArrayList<String>> restrict;
 	
 	/**
 	 * @wbp.parser.entryPoint
@@ -52,6 +53,13 @@ public class Main {
 		albumB.setObjectId(3);
 		//initialize admin account info and list of albums BACK UP FOR XML
 		//users = new ArrayList<User>();
+		restrict = new ArrayList<ArrayList<String>>();
+		restrict.add(new ArrayList<String>());
+		restrict.add(new ArrayList<String>());
+		restrict.add(new ArrayList<String>());
+		restrict.get(0).add("Album A");
+		restrict.get(2).add("Album B");
+		restrict.get(2).add("Album C");
 
 		/*
 		//Generate initial users and add their favorites
@@ -96,7 +104,7 @@ public class Main {
 			login.setVisible(false);
 			login.dispose();
 			
-			mainframe = MainFrame.init(user, settings.getUsers(), settings);//displays the main screen
+			mainframe = MainFrame.init(user, settings.getUsers(), settings, restrict);//displays the main screen
 			mainframe.setVisible(true);
 			while(user.getLoggedin()) {//loops until user logs out
 				System.out.print("");

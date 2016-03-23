@@ -25,14 +25,21 @@ public class BrowseServerController {
 	private static User user;
 	private static int previousid;
 	private static Setting settings;
+	private static ArrayList<String> albums;
 	
 	/*
 	 * Constructor for the controller. Called only once!
 	 * Internal ArrayList shows current container.  User will never change until he/she logs out
 	 */
-	public BrowseServerController(ArrayList<Container> listin, User userin, Setting settings) {
+	public BrowseServerController(ArrayList<Container> listin, User userin, Setting settings, ArrayList<ArrayList<String>> restrict) {
 		list = listin;
 		user = userin;
+		albums = new ArrayList<String>();
+		for(int i = 0; i < user.getFilter(); i++) {
+			for(int j = 0; j < restrict.get(i).size(); j++){
+				albums.add(restrict.get(i).get(j));
+			}
+		}
 	}
 	
 	/*
@@ -80,16 +87,21 @@ public class BrowseServerController {
 			//
 		}
 		list = SOAP.getList();
+		
+		for(int k = 0; k < SOAP.getList().size(); k++) {
+			for(int l = 0; l < albums.size(); l++) {
+				if(list.get(k).getName().compareTo(albums.get(l))!=0)
+					list.remove(k);
+				System.out.println(SOAP.getList().get(k).getId() + "\t" + SOAP.getList().get(k).getName());
+				System.out.flush();
+			}
+		}
+		
 		list.add(0, new Container(previousid, 0, 0, "", "Back", ""));
 		previousid = Integer.parseInt(id);
 		
 		if(list.get(1).getUrl().compareTo("") != 0) {
 			list.add(new Container(Integer.parseInt(id), previousid, 0, "", fav, ""));
-		}
-		
-		for(int j = 0; j < SOAP.getList().size(); j++) {
-			System.out.println(SOAP.getList().get(j).getId() + "\t" + SOAP.getList().get(j).getName());
-			System.out.flush();
 		}
 		
 		return list;
