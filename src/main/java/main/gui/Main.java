@@ -25,7 +25,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		settings = new Setting(3, null);
-		//settings.loadXML("saveData.xml");
+		settings.loadXML("saveData.xml");
 		//initialize and declare sample tracks and albums for the admin user to use as an example
 		Track track0 = new Track(30, "Allegro ma non troppo", System.getProperty("user.dir") + "/audio/Album A/Track 1.mp3", "European Archive");
 		Track track1 = new Track(30, "Larghetto", System.getProperty("user.dir") + "/audio/Album A/Track 2.mp3", "European Archive");
@@ -64,8 +64,8 @@ public class Main {
 		settings.getUser(2).addFavorite(albumA);
 		settings.getUser(2).addFavorite(albumB);
 		settings.getUser(2).setIcon("/main/gui/smile_blue.png");
-		*/
-		settings.saveXML("saveData.xml");
+		
+		settings.saveXML("saveData.xml");*/
 
 		boolean logged = false;
 		while(true) {//loop forever
