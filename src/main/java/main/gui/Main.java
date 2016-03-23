@@ -52,7 +52,8 @@ public class Main {
 		albumB.setObjectId(3);
 		//initialize admin account info and list of albums BACK UP FOR XML
 		//users = new ArrayList<User>();
-/*
+
+		
 		settings.addUser(new User("Admin", true, 9999, 0));
 		settings.getUser(0).setIcon("/main/gui/panda_orange_2.png");
 		
@@ -65,8 +66,10 @@ public class Main {
 		settings.getUser(2).addFavorite(albumB);
 		settings.getUser(2).setIcon("/main/gui/smile_blue.png");
 		
-		settings.setServerURL("http://127.0.0.1:5001/upnp/control/content_directory");
-		*/
+		//Add initial restrictions here
+		
+		settings.setserverURL("http://127.0.0.1:5001/upnp/control/content_directory");
+		
 		settings.saveXML("saveData.xml");
 
 		boolean logged = false;
