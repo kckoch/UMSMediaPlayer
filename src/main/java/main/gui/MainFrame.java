@@ -65,6 +65,7 @@ public class MainFrame {
 	private static JTextField trackArtistText;
 	private static LibraryModel libraryModel;
 	private static ArrayList<Container> list;
+	private static ArrayList<ArrayList<String>> restricts;
 	private static ListSelectionModel librarySelectionModel;
 	private static int previousid;
 	
@@ -74,7 +75,7 @@ public class MainFrame {
 
 	//The Main Frame layout and view
 	@SuppressWarnings("rawtypes")
-	public static JFrame init(final User user, final ArrayList<User> users, final Setting settings) {
+	public static JFrame init(final User user, final ArrayList<User> users, final Setting settings, ArrayList<ArrayList<String>> restrict) {
 		frame = new JFrame("That's My Jam!");
 		frame.setBackground(Color.DARK_GRAY);
 		frame.setResizable(false);
@@ -84,6 +85,7 @@ public class MainFrame {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		timer = new Timer(0, null);
+		restricts = restrict;
 		
 		
 		mainPanel = new JPanel();
@@ -334,7 +336,7 @@ public class MainFrame {
 		final PlayTrackController playTrackCntl = new PlayTrackController(songSlider);
 		
 		final BrowseFavoritesController browseFavCntl = new BrowseFavoritesController(favoritesTable, user);
-		final BrowseServerController servCntl = new BrowseServerController(list, user, settings);
+		final BrowseServerController servCntl = new BrowseServerController(list, user, settings, restricts);
 		
 		removeFavsBut.addActionListener(new ActionListener() {//remove album from favorites
 			public void actionPerformed(ActionEvent e){
