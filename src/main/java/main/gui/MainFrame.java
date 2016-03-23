@@ -395,6 +395,7 @@ public class MainFrame {
 						if(browseFavCntl.getSelectedTrack() != null){
 							playTrackCntl.setTrack(browseFavCntl.getSelectedTrack());
 							trackTitleText.setText(playTrackCntl.getTrack().getTitle());
+							trackArtistText.setText(playTrackCntl.getTrack().getArtist());
 							total = (int) playTrackCntl.getTrack().getTotalTime();
 							elapsedTime = (total * songSlider.getValue() / 100);//elapsed time
 						    if(elapsedTime%60 < 10){
