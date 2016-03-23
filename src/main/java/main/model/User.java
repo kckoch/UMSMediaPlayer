@@ -1,4 +1,4 @@
-package main.gui;
+package main.model;
 
 import java.util.*;
 
@@ -54,20 +54,31 @@ public class User {
 	public String getName() {
 		return name;
 	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	
 	public boolean getAdmin() {
 		return admin;
 	}
 	
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
+	
 	public int getPIN() {
 		return PIN;
 	}
-
-	public int getFilter(){
+	
+	public void setPIN(int PIN) {
+		this.PIN = PIN;
+	}
+	
+	public int getFilter() {
 		return filter;
 	}
 	
-	public void setFilter(int filterValue){
+	public void setFilter(int filterValue) {
 		filter = filterValue;
 	}
 	
@@ -87,7 +98,7 @@ public class User {
 		return favoritesIDs;
 	}
 	
-	public void addFavorites(Album album) {
+	public void addFavorite(Album album) {
 		favorites.add(album);
 		favoritesIDs.add(album.getObjectId());
 	}

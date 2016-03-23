@@ -1,7 +1,5 @@
 package main.gui;
 
-import java.util.*;
-
 public class Container {
     private int id;
     private String name;
@@ -13,7 +11,7 @@ public class Container {
 
     public Container(int id, String str) {
         this.id = id;
-        this.name = name;
+        this.name = str;
     }
 
     public void setId(int id) {

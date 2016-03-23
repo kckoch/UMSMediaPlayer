@@ -1,4 +1,6 @@
-package main.gui;
+package main.controller;
+
+import main.model.User;
 
 //Authenticate User checks the pin number provided after the user selects a profile
 public class AuthenticateUserController {

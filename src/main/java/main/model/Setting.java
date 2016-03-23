@@ -1,4 +1,4 @@
-package main.gui;
+package main.model;
 
 import java.awt.*;
 import java.io.File;
@@ -11,6 +11,7 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+
 
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
@@ -29,7 +30,7 @@ public class Setting {
 		configureN = _configureN;
 		serverURL = _serverURL;
 		users = new ArrayList<User>();
-		users.add(new User("admin", true, 9999, 0));
+//		users.add(new User("admin", true, 9999, 0));
 	}
 
 	public int getconfigureN() {
@@ -53,9 +54,18 @@ public class Setting {
 		users.add(newUser);
 	}
 	
-
-	// Inputs current save data from XML file (Load function)
-	void loadXML(String inputFileName) {
+	public User getUser(int n)
+	{
+		return users.get(n);
+	}
+	
+	public ArrayList<User> getUsers()
+	{
+		return users;
+	}
+	
+// Loads in XML save data
+	public void loadXML(String inputFileName) {
 		// Read in XML file (Load)
 		try {
 			// Designate input file
@@ -68,37 +78,62 @@ public class Setting {
 
 			doc.getDocumentElement().normalize();
 
-			//System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
-
+			NodeList nList;
 			Node nNode;
+			Node nNode1;
 			Node nNode2;
 			Element eElement;
+			Element eElement1;
+			Element eElement2;
 			
 			// Implement User-loading here.
-			NodeList nList = doc.getElementsByTagName("user");
-			for (int temp = 0; temp < nList.getLength(); temp++) {
-				nNode = nList.item(temp);
-				//System.out.println("\nCurrent Element :" + nNode.getNodeName());
+			NodeList nUsers;
+			NodeList nAlbums;
+			NodeList nTracks;
+//			Album tempAlbum;
+//			Track tempTrack;
+			//ArrayList<Album> favAlbums;
+			ArrayList<Track> favTracks;
+			User newUser;
+			Album newAlbum;
+//			Track newTrack;
+			nUsers = doc.getElementsByTagName("user");
+			for (int temp = 0; temp < nUsers.getLength(); temp++) {
+				nNode = nUsers.item(temp);
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-					User newUser;
-					
 					eElement = (Element) nNode;
 
 					newUser = new User(eElement.getAttribute("name"),
 							Boolean.parseBoolean(eElement.getElementsByTagName("admin").item(0).getTextContent()),
 							Integer.parseInt(eElement.getElementsByTagName("PIN").item(0).getTextContent()),
 							Integer.parseInt(eElement.getElementsByTagName("filter").item(0).getTextContent()));
+					newUser.setIcon(eElement.getElementsByTagName("icon").item(0).getTextContent());
 
-					NodeList nList2 = doc.getElementsByTagName("favoriteAlbumID");
-					for (int temp2 = 0; temp2 < nList.getLength(); temp2++) {
-						nNode2 = nList2.item(temp2);
-						if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-							eElement = (Element) nNode;
-//							newUser.addFavorites();
+					nAlbums = eElement.getElementsByTagName("album");
+					for (int temp1 = 0; temp1 < nAlbums.getLength(); temp1++) {
+						nNode1 = nAlbums.item(temp1);
+						if (nNode1.getNodeType() == Node.ELEMENT_NODE) {
+							eElement1 = (Element) nNode1;
+							
+							favTracks = new ArrayList<Track>();
+							nTracks = eElement1.getElementsByTagName("track");
+							for (int temp2 = 0; temp2 < nTracks.getLength(); temp2++) {
+								nNode2 = nTracks.item(temp2);
+								if (nNode2.getNodeType() == Node.ELEMENT_NODE) {
+									eElement2 = (Element) nNode2;
+									//Track(long duration, String trackTitle, String trackURL, String newArtist)
+									favTracks.add(new Track(Long.parseLong(eElement2.getElementsByTagName("totalTime").item(0).getTextContent()),
+											eElement2.getAttribute("name"),
+											eElement2.getElementsByTagName("mediaURL").item(0).getTextContent(),
+											eElement2.getElementsByTagName("artist").item(0).getTextContent()));
+								}
+							}
+							newAlbum = new Album(eElement1.getAttribute("name"),
+									favTracks,
+									eElement1.getElementsByTagName("mediaURL").item(0).getTextContent());
+							newUser.addFavorite(newAlbum);
 						}
-						
 					}
-					
 					users.add(newUser);
 				}
 			}
@@ -106,26 +141,25 @@ public class Setting {
 
 			nList = doc.getElementsByTagName("configureN");
 			nNode = nList.item(0);
-//			System.out.print("\n" + nNode.getNodeName());
 			eElement = (Element) nNode;
-//			System.out.println(": " + eElement.getAttribute("val"));
 			// Sets value of configureN from XML data
 			this.setconfigureN(Integer.parseInt(eElement.getAttribute("val")));
 
 			nList = doc.getElementsByTagName("serverURL");
 			nNode = nList.item(0);
-//			System.out.print("\n" + nNode.getNodeName());
 			eElement = (Element) nNode;
-//			System.out.println(": " + eElement.getAttribute("val"));
 			// Sets value of serverURL from XML data
 			this.setserverURL(eElement.getAttribute("val"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+//		System.out.println("File loaded!");
 	}
 
-	// Outputs current save data to XML file (Save function)
-	void saveXML(String outputFileName) {
+// Outputs XML save data
+	public void saveXML(String outputFileName) {
+		// Output XML file (Save)
 		try {
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -140,6 +174,8 @@ public class Setting {
 			
 			// Implement User-saving here.
 			Element xmluser;
+			Element xmlalbum;
+			Element xmltrack;
 			for(User tempUser : users) {
 				xmluser = doc.createElement("user");
 				rootElement.appendChild(xmluser);
@@ -156,11 +192,38 @@ public class Setting {
 				elem = doc.createElement("filter");
 				elem.appendChild(doc.createTextNode("" + tempUser.getFilter()));
 				xmluser.appendChild(elem);
-				for(Integer tempID : tempUser.getFavoritesIDs())
+				elem = doc.createElement("icon");
+				elem.appendChild(doc.createTextNode("" + tempUser.getIcon()));
+				xmluser.appendChild(elem);
+				for(Album tempAlbum : tempUser.getFavorites())
 				{
-					elem = doc.createElement("favoriteAlbumID");
-					elem.appendChild(doc.createTextNode("" + tempID));
-					xmluser.appendChild(elem);
+					xmlalbum = doc.createElement("album");
+					xmluser.appendChild(xmlalbum);
+					attr = doc.createAttribute("name");
+					attr.setValue("" + tempAlbum.getName());
+					xmlalbum.setAttributeNode(attr);
+					
+					for(Track tempTrack : tempAlbum.getTracks())
+					{
+						xmltrack = doc.createElement("track");
+						xmlalbum.appendChild(xmltrack);
+						attr = doc.createAttribute("name");
+						attr.setValue("" + tempTrack.getTitle());
+						xmltrack.setAttributeNode(attr);
+						
+						elem = doc.createElement("totalTime");
+						elem.appendChild(doc.createTextNode("" + tempTrack.getTotalTime()));
+						xmltrack.appendChild(elem);
+						elem = doc.createElement("mediaURL");
+						elem.appendChild(doc.createTextNode("" + tempTrack.getMediaURL()));
+						xmltrack.appendChild(elem);
+						elem = doc.createElement("artist");
+						elem.appendChild(doc.createTextNode("" + tempTrack.getArtist()));
+						xmltrack.appendChild(elem);
+					}
+					elem = doc.createElement("mediaURL");
+					elem.appendChild(doc.createTextNode("" + tempAlbum.getMediaURL()));
+					xmlalbum.appendChild(elem);
 				}
 			}
 			
@@ -190,7 +253,7 @@ public class Setting {
 
 			transformer.transform(source, result);
 
-			System.out.println("File saved!");
+//			System.out.println("File saved!");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

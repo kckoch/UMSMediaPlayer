@@ -6,9 +6,13 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
+import main.controller.AuthenticateUserController;
+import main.model.User;
+
 public class LoginGUI {
 	private static JFrame frame;
 	private static JPanel windowPane;
+	private static JPanel pinpanel;
 	private static User tempUser;
 	private static JPasswordField passwordField;
 	private static String numberString = "";
@@ -82,6 +86,7 @@ public class LoginGUI {
 		windowPane.add(copyright);
 		
 		//login button
+		
 		JButton loginbutton = new JButton("Login!");
 		loginbutton.setBounds(134, 502, 192, 34);
 		windowPane.add(loginbutton);
@@ -91,211 +96,9 @@ public class LoginGUI {
 		loginbutton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent d) {
-				//The new panel
-				JPanel pinpanel = new JPanel();
-				pinpanel.setSize(500, 600);
-				pinpanel.setBackground(Color.DARK_GRAY);
-				
-				pinpanel.setLayout(null);
-				
-				//back button
-				JButton backbutton = new JButton();
-				backbutton.addActionListener(new ActionListener() {
-					@Override
-				    public void actionPerformed(ActionEvent e) {
-			    		frame.setContentPane(windowPane);
-			    		numberString = "";
-				    }
-				});
-				backbutton.setBorder(null);
-				backbutton.setBackground(Color.DARK_GRAY);
-				backbutton.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/left_round.png")));
-				backbutton.setBounds(35, 76, 75, 67);
-				pinpanel.add(backbutton);
-				
-				//password field
-				passwordField = new JPasswordField();
-				passwordField.setBorder(new EmptyBorder(10, 0, 0, 0));
-				passwordField.setActionCommand("");
-				passwordField.setHorizontalAlignment(SwingConstants.CENTER);
-				passwordField.setFont(new Font("Dialog", Font.PLAIN, 40));
-				passwordField.setEchoChar('*');
-				passwordField.setBounds(152, 156, 176, 39);
-				pinpanel.add(passwordField);
-				
-				//person icon
-				JButton icon = new JButton();
-				icon.setBorder(null);
-				icon.setBackground(Color.DARK_GRAY);
-				icon.setIcon(new ImageIcon(LoginGUI.class.getResource(tempUser.getIcon())));
-				icon.setBounds(176, 19, 129, 124);
-				pinpanel.add(icon);
-				
-				//num pad buttons
-				b1.addActionListener(new ActionListener(){
-			    	@Override
-				    public void actionPerformed(ActionEvent e) {
-			    		numberString += "1";
-			            passwordField.setText(numberString);
-				    }
-			    });
-				b1.setBackground(new Color(99, 99, 99));
-				b1.setForeground(Color.WHITE);
-				b1.setBorder(new LineBorder(new Color(64, 64, 64), 2));
-				b2.addActionListener(new ActionListener(){
-			    	@Override
-				    public void actionPerformed(ActionEvent e) {
-			    		numberString += "2";
-			            passwordField.setText(numberString);
-				    }
-			    });
-				b2.setBackground(new Color(99, 99, 99));
-				b2.setForeground(Color.WHITE);
-				b2.setBorder(new LineBorder(Color.DARK_GRAY, 2));
-				b3.addActionListener(new ActionListener(){
-			    	@Override
-				    public void actionPerformed(ActionEvent e) {
-			    		numberString += "3";
-			            passwordField.setText(numberString);
-				    }
-			    });
-				b3.setBackground(new Color(99, 99, 99));
-				b3.setForeground(Color.WHITE);
-				b3.setBorder(new LineBorder(Color.DARK_GRAY, 2));
-				b4.addActionListener(new ActionListener(){
-			    	@Override
-				    public void actionPerformed(ActionEvent e) {
-			    		numberString += "4";
-			            passwordField.setText(numberString);
-				    }
-			    });
-				b4.setBackground(new Color(99, 99, 99));
-				b4.setForeground(Color.WHITE);
-				b4.setBorder(new LineBorder(Color.DARK_GRAY, 2));
-				b5.addActionListener(new ActionListener(){
-			    	@Override
-				    public void actionPerformed(ActionEvent e) {
-			    		numberString += "5";
-			            passwordField.setText(numberString);
-				    }
-			    });
-				b5.setBackground(new Color(99, 99, 99));
-				b5.setForeground(Color.WHITE);
-				b5.setBorder(new LineBorder(Color.DARK_GRAY, 2));
-				b6.addActionListener(new ActionListener(){
-			    	@Override
-				    public void actionPerformed(ActionEvent e) {
-			    		numberString += "6";
-			            passwordField.setText(numberString);
-				    }
-			    });
-				b6.setBackground(new Color(99, 99, 99));
-				b6.setForeground(Color.WHITE);
-				b6.setBorder(new LineBorder(Color.DARK_GRAY, 2));
-				b7.addActionListener(new ActionListener(){
-			    	@Override
-				    public void actionPerformed(ActionEvent e) {
-			    		numberString += "7";
-			            passwordField.setText(numberString);
-				    }
-			    });
-				b7.setBackground(new Color(99, 99, 99));
-				b7.setForeground(Color.WHITE);
-				b7.setBorder(new LineBorder(Color.DARK_GRAY, 2));
-				b8.addActionListener(new ActionListener(){
-			    	@Override
-				    public void actionPerformed(ActionEvent e) {
-			    		numberString += "8";
-			            passwordField.setText(numberString);
-				    }
-			    });
-				b8.setBackground(new Color(99, 99, 99));
-				b8.setForeground(Color.WHITE);
-				b8.setBorder(new LineBorder(Color.DARK_GRAY, 2));
-				b9.addActionListener(new ActionListener(){
-			    	@Override
-				    public void actionPerformed(ActionEvent e) {
-			    		numberString += "9";
-			            passwordField.setText(numberString);
-				    }
-			    });
-				b9.setBackground(new Color(99, 99, 99));
-				b9.setForeground(Color.WHITE);
-				b9.setBorder(new LineBorder(Color.DARK_GRAY, 2));
-				b0.addActionListener(new ActionListener(){
-			    	@Override
-				    public void actionPerformed(ActionEvent e) {
-			    		numberString += "0";
-			            passwordField.setText(numberString);
-				    }
-			    });
-				b0.setBackground(new Color(99, 99, 99));
-				b0.setForeground(Color.WHITE);
-				b0.setBorder(new LineBorder(Color.DARK_GRAY, 2));
-				ba.addActionListener(new ActionListener(){
-			    	@Override
-				    public void actionPerformed(ActionEvent e) {
-			    		numberString += "*";
-			            passwordField.setText(numberString);
-				    }
-			    });
-				ba.setBackground(new Color(99, 99, 99));
-				ba.setForeground(Color.WHITE);
-				ba.setBorder(new LineBorder(Color.DARK_GRAY, 2));
-				bback.addActionListener(new ActionListener(){
-			    	@Override
-				    public void actionPerformed(ActionEvent e) {
-			    		if(numberString != "") {
-			    			numberString = numberString.substring(0, numberString.length()-1);
-			    			passwordField.setText(numberString);
-			    		}
-				    }
-			    });
-				bback.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/back_button_3.png")));
-				bback.setBackground(new Color(99, 99, 99));
-				bback.setForeground(Color.WHITE);
-				bback.setBorder(new LineBorder(Color.DARK_GRAY, 2));
-				
-				//actual num pad
-				JPanel numPad = new JPanel();
-				numPad.setBackground(Color.DARK_GRAY);
-				numPad.setBorder(new EmptyBorder(15, 15, 15, 15));
-				numPad.setBounds(127, 219, 231, 262);
-				pinpanel.add(numPad);
-				numPad.setLayout(new GridLayout(4,3));
-				
-				numPad.add(b1);
-				numPad.add(b2);
-				numPad.add(b3);
-				numPad.add(b4);
-				numPad.add(b5);
-				numPad.add(b6);
-				numPad.add(b7);
-				numPad.add(b8);
-				numPad.add(b9);
-				numPad.add(ba);
-				numPad.add(b0);
-				numPad.add(bback);
-				
-				//login button
-				JButton Login = new JButton("Login");
-				Login.setForeground(Color.WHITE);
-				Login.setBorder(null);
-				Login.setBackground(new Color(99, 99, 99));
-				Login.setBounds(188, 493, 117, 25);
-				Login.addActionListener(new ActionListener() {
-					@SuppressWarnings("deprecation")
-					@Override
-				    public void actionPerformed(ActionEvent e) {
-						AuthenticateUserController auth = new AuthenticateUserController(tempUser);
-			    		if(!auth.authenticate(passwordField.getText())) {
-			    			passwordField.setForeground(UIManager.getColor("OptionPane.errorDialog.border.background"));
-			    		}
-				    }
-				});
-				pinpanel.add(Login);
+				if(pinpanel == null)
+					pinpanel = pinpanel();
 				frame.setContentPane(pinpanel);
-				
 			}
 		});
 		
@@ -350,6 +153,213 @@ public class LoginGUI {
 			}
 		});
 		panel.add(pic);
+		return panel;
+	}
+	
+	private static JPanel pinpanel() {
+		//The new panel
+		JPanel panel = new JPanel();
+		panel.setSize(500, 600);
+		panel.setBackground(Color.DARK_GRAY);
+		
+		panel.setLayout(null);
+		
+		//back button
+		JButton backbutton = new JButton();
+		backbutton.addActionListener(new ActionListener() {
+			@Override
+		    public void actionPerformed(ActionEvent e) {
+	    		frame.setContentPane(windowPane);
+	    		numberString = "";
+	    		passwordField.setText("");
+		    }
+		});
+		backbutton.setBorder(null);
+		backbutton.setBackground(Color.DARK_GRAY);
+		backbutton.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/left_round.png")));
+		backbutton.setBounds(35, 76, 75, 67);
+		panel.add(backbutton);
+		
+		//password field
+		passwordField = new JPasswordField();
+		passwordField.setBorder(new EmptyBorder(10, 0, 0, 0));
+		passwordField.setActionCommand("");
+		passwordField.setHorizontalAlignment(SwingConstants.CENTER);
+		passwordField.setFont(new Font("Dialog", Font.PLAIN, 40));
+		passwordField.setEchoChar('*');
+		passwordField.setBounds(152, 156, 176, 39);
+		panel.add(passwordField);
+		
+		//person icon
+		JButton icon = new JButton();
+		icon.setBorder(null);
+		icon.setBackground(Color.DARK_GRAY);
+		icon.setIcon(new ImageIcon(LoginGUI.class.getResource(tempUser.getIcon())));
+		icon.setBounds(176, 19, 129, 124);
+		panel.add(icon);
+		
+		//num pad buttons
+		b1.addActionListener(new ActionListener(){
+	    	@Override
+		    public void actionPerformed(ActionEvent e) {
+	    		numberString += "1";
+	            passwordField.setText(numberString);
+		    }
+	    });
+		b1.setBackground(new Color(99, 99, 99));
+		b1.setForeground(Color.WHITE);
+		b1.setBorder(new LineBorder(new Color(64, 64, 64), 2));
+		b2.addActionListener(new ActionListener(){
+	    	@Override
+		    public void actionPerformed(ActionEvent e) {
+	    		numberString += "2";
+	            passwordField.setText(numberString);
+		    }
+	    });
+		b2.setBackground(new Color(99, 99, 99));
+		b2.setForeground(Color.WHITE);
+		b2.setBorder(new LineBorder(Color.DARK_GRAY, 2));
+		b3.addActionListener(new ActionListener(){
+	    	@Override
+		    public void actionPerformed(ActionEvent e) {
+	    		numberString += "3";
+	            passwordField.setText(numberString);
+		    }
+	    });
+		b3.setBackground(new Color(99, 99, 99));
+		b3.setForeground(Color.WHITE);
+		b3.setBorder(new LineBorder(Color.DARK_GRAY, 2));
+		b4.addActionListener(new ActionListener(){
+	    	@Override
+		    public void actionPerformed(ActionEvent e) {
+	    		numberString += "4";
+	            passwordField.setText(numberString);
+		    }
+	    });
+		b4.setBackground(new Color(99, 99, 99));
+		b4.setForeground(Color.WHITE);
+		b4.setBorder(new LineBorder(Color.DARK_GRAY, 2));
+		b5.addActionListener(new ActionListener(){
+	    	@Override
+		    public void actionPerformed(ActionEvent e) {
+	    		numberString += "5";
+	            passwordField.setText(numberString);
+		    }
+	    });
+		b5.setBackground(new Color(99, 99, 99));
+		b5.setForeground(Color.WHITE);
+		b5.setBorder(new LineBorder(Color.DARK_GRAY, 2));
+		b6.addActionListener(new ActionListener(){
+	    	@Override
+		    public void actionPerformed(ActionEvent e) {
+	    		numberString += "6";
+	            passwordField.setText(numberString);
+		    }
+	    });
+		b6.setBackground(new Color(99, 99, 99));
+		b6.setForeground(Color.WHITE);
+		b6.setBorder(new LineBorder(Color.DARK_GRAY, 2));
+		b7.addActionListener(new ActionListener(){
+	    	@Override
+		    public void actionPerformed(ActionEvent e) {
+	    		numberString += "7";
+	            passwordField.setText(numberString);
+		    }
+	    });
+		b7.setBackground(new Color(99, 99, 99));
+		b7.setForeground(Color.WHITE);
+		b7.setBorder(new LineBorder(Color.DARK_GRAY, 2));
+		b8.addActionListener(new ActionListener(){
+	    	@Override
+		    public void actionPerformed(ActionEvent e) {
+	    		numberString += "8";
+	            passwordField.setText(numberString);
+		    }
+	    });
+		b8.setBackground(new Color(99, 99, 99));
+		b8.setForeground(Color.WHITE);
+		b8.setBorder(new LineBorder(Color.DARK_GRAY, 2));
+		b9.addActionListener(new ActionListener(){
+	    	@Override
+		    public void actionPerformed(ActionEvent e) {
+	    		numberString += "9";
+	            passwordField.setText(numberString);
+		    }
+	    });
+		b9.setBackground(new Color(99, 99, 99));
+		b9.setForeground(Color.WHITE);
+		b9.setBorder(new LineBorder(Color.DARK_GRAY, 2));
+		b0.addActionListener(new ActionListener(){
+	    	@Override
+		    public void actionPerformed(ActionEvent e) {
+	    		numberString += "0";
+	            passwordField.setText(numberString);
+		    }
+	    });
+		b0.setBackground(new Color(99, 99, 99));
+		b0.setForeground(Color.WHITE);
+		b0.setBorder(new LineBorder(Color.DARK_GRAY, 2));
+		ba.addActionListener(new ActionListener(){
+	    	@Override
+		    public void actionPerformed(ActionEvent e) {
+	    		numberString += "*";
+	            passwordField.setText(numberString);
+		    }
+	    });
+		ba.setBackground(new Color(99, 99, 99));
+		ba.setForeground(Color.WHITE);
+		ba.setBorder(new LineBorder(Color.DARK_GRAY, 2));
+		bback.addActionListener(new ActionListener(){
+	    	@Override
+		    public void actionPerformed(ActionEvent e) {
+	    		if(numberString != "") {
+	    			numberString = numberString.substring(0, numberString.length()-1);
+	    			passwordField.setText(numberString);
+	    		}
+		    }
+	    });
+		bback.setIcon(new ImageIcon(LoginGUI.class.getResource("/main/gui/back_button_3.png")));
+		bback.setBackground(new Color(99, 99, 99));
+		bback.setForeground(Color.WHITE);
+		bback.setBorder(new LineBorder(Color.DARK_GRAY, 2));
+		
+		//actual num pad
+		JPanel numPad = new JPanel();
+		numPad.setBackground(Color.DARK_GRAY);
+		numPad.setBorder(new EmptyBorder(15, 15, 15, 15));
+		numPad.setBounds(127, 219, 231, 262);
+		panel.add(numPad);
+		numPad.setLayout(new GridLayout(4,3));
+		
+		numPad.add(b1);
+		numPad.add(b2);
+		numPad.add(b3);
+		numPad.add(b4);
+		numPad.add(b5);
+		numPad.add(b6);
+		numPad.add(b7);
+		numPad.add(b8);
+		numPad.add(b9);
+		numPad.add(ba);
+		numPad.add(b0);
+		numPad.add(bback);
+		
+		//login button
+		JButton Login = new JButton("Login");
+		Login.setForeground(Color.WHITE);
+		Login.setBorder(null);
+		Login.setBackground(new Color(99, 99, 99));
+		Login.setBounds(188, 493, 117, 25);
+		Login.addActionListener(new ActionListener() {
+			@Override
+		    public void actionPerformed(ActionEvent e) {
+				AuthenticateUserController auth = new AuthenticateUserController(tempUser);
+	    		if(!auth.authenticate(new String(passwordField.getPassword()))) {
+	    			passwordField.setForeground(UIManager.getColor("OptionPane.errorDialog.border.background"));
+	    		}
+		    }
+		});
+		panel.add(Login);
 		return panel;
 	}
 }
