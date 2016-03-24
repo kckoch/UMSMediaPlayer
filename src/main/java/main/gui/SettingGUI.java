@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import javax.swing.*;
 
+import main.controller.ManageSettingController;
 import main.model.Setting;
 import main.model.User;
 
@@ -36,11 +37,14 @@ public class SettingGUI {
 	private static JTextField textField_1;
 	private static String tempIcon;
 	private static String[] restrictions = { "Restriction: 1", "Restriction: 2", "Restriction: 3"};
+	private static ManageSettingController setControl;
 	
 	/**
 	 * @wbp.parser.entryPoint
 	 */
 	public static void init(final JPanel mainPanelIn, final JFrame frame, final User user, final JTable table, final ArrayList<User> users, final Setting settings) {
+		setControl = new ManageSettingController(settings);
+		
 		mainPanel.setPreferredSize(new Dimension(500, 600));
 		mainPanel.setMaximumSize(new Dimension(500, 600));
 		mainPanel.setBackground(Color.DARK_GRAY);
@@ -83,6 +87,8 @@ public class SettingGUI {
 		exitButton.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				frame.revalidate();
+				frame.repaint();
 				frame.setContentPane(mainPanelIn);
 			}
 		});
@@ -100,7 +106,7 @@ public class SettingGUI {
 		usericon.setBackground(Color.DARK_GRAY);
 		usericon.setBounds(0, 0, 93, 93);
 		userPanel.add(usericon);
-		usericon.setIcon(new ImageIcon(SettingGUI.class.getResource(settings.getUser(0).getIcon())));
+		usericon.setIcon(new ImageIcon(SettingGUI.class.getResource(setControl.getUser(0).getIcon())));
 		
 		
 		//current admin name
@@ -120,8 +126,8 @@ public class SettingGUI {
 			@SuppressWarnings("deprecation")
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				settings.getUser(0).setPIN(Integer.parseInt(passwordField.getText()));
-				settings.saveXML("saveData.xml");
+				setControl.getUser(0).setPIN(Integer.parseInt(passwordField.getText()));
+				setControl.saveXML("saveData.xml");
 			}
 		});
 		userPanel.add(btnChangePin);
@@ -137,7 +143,7 @@ public class SettingGUI {
 		btnChangeProfilePic.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				tempIcon = settings.getUser(0).getIcon();
+				tempIcon = setControl.getUser(0).getIcon();
 				
 				changePicPanel.setPreferredSize(new Dimension(500, 600));
 				changePicPanel.setMaximumSize(new Dimension(500, 600));
@@ -339,9 +345,13 @@ public class SettingGUI {
 				confirm.addActionListener(new ActionListener(){
 			    	@Override
 				    public void actionPerformed(ActionEvent e) {
-			    		settings.getUser(0).setIcon(tempIcon);
-			    		settings.saveXML("saveData.xml");
+			    		setControl.getUser(0).setIcon(tempIcon);
+			    		setControl.saveXML("saveData.xml");
+			    		//frame.revalidate();
+			    		//frame.repaint();
 						frame.setContentPane(mainPanel);
+						frame.revalidate();
+						frame.repaint();
 				    }
 			    });
 				changePicPanel.add(confirm);
@@ -393,7 +403,7 @@ public class SettingGUI {
 		
 		//server url
 		servURL = new JTextField();
-		servURL.setText(settings.getserverURL());
+		servURL.setText(setControl.getserverURL());
 		servURL.setBounds(22, 34, 205, 27);
 		servPanel.add(servURL);
 		servURL.setColumns(10);
@@ -408,8 +418,8 @@ public class SettingGUI {
 		btnChangeServerUrl.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				settings.setserverURL(servURL.getText());
-				settings.saveXML("saveData.xml");
+				setControl.setserverURL(servURL.getText());
+				setControl.saveXML("saveData.xml");
 			}
 		});
 		servPanel.add(btnChangeServerUrl);
@@ -510,11 +520,11 @@ public class SettingGUI {
 		
 		//scrollpanel.add(exPanel);
 		User tempoUser;
-		for(int u = 0; u < settings.getUsers().size(); u++)
+		for(int u = 0; u < setControl.getUsers().size(); u++)
 		{
-			tempoUser = settings.getUser(u);
+			tempoUser = setControl.getUser(u);
 			if(!tempoUser.getName().equals(user.getName())) {
-			JPanel tempoPanel = userPanel(tempoUser, frame, settings);
+			JPanel tempoPanel = userPanel(tempoUser, frame, setControl);
 			scrollpanel.add(tempoPanel);
 				
 			}
@@ -539,18 +549,22 @@ public class SettingGUI {
 		btnAddUser.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				User addingUser = new User("tempname", false, 0000, settings.getconfigureN());
+				User addingUser = new User("tempname", false, 0000, setControl.getconfigureN());
 				addingUser.setIcon("/main/gui/smile_orange.png");
-				settings.addUser(addingUser);
-				settings.saveXML("saveData.xml");
+				setControl.addUser(addingUser);
+				setControl.saveXML("saveData.xml");
+				frame.revalidate();
+				frame.repaint();
 			}
 		});
 		addUserPanel.add(btnAddUser);
 		scrollpanel.add(addUserPanel);
+		scrollpanel.revalidate();
+		scrollpanel.repaint();
 	}
 	
 	// Create panel containing user information
-	private static JPanel userPanel(final User user, final JFrame frame, final Setting settings) {
+	private static JPanel userPanel(final User user, final JFrame frame, final ManageSettingController setControl2) {
 		
 		//example panel
 		JPanel exPanel = new JPanel();
@@ -581,7 +595,7 @@ public class SettingGUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				user.setPIN(Integer.parseInt(passwordField_1.getText()));
-				settings.saveXML("saveData.xml");
+				setControl2.saveXML("saveData.xml");
 			}
 		});
 		exPanel.add(chngPin);
@@ -799,7 +813,7 @@ public class SettingGUI {
 			    	@Override
 				    public void actionPerformed(ActionEvent e) {
 			    		user.setIcon(tempIcon);
-			    		settings.saveXML("saveData.xml");
+			    		setControl2.saveXML("saveData.xml");
 						frame.setContentPane(mainPanel);
 				    }
 			    });
@@ -835,7 +849,7 @@ public class SettingGUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				user.setFilter(btnManageRestrictions.getSelectedIndex() + 1);
-				settings.saveXML("saveData.xml");
+				setControl2.saveXML("saveData.xml");
 			}
 		});
 		exPanel.add(btnManageRestrictions);
@@ -863,7 +877,7 @@ public class SettingGUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				user.setName(txtTempUser.getText());
-				settings.saveXML("saveData.xml");
+				setControl2.saveXML("saveData.xml");
 			}
 		});
 		exPanel.add(changeName);
@@ -887,7 +901,7 @@ public class SettingGUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				user.setAdmin(false);
-				settings.saveXML("saveData.xml");
+				setControl2.saveXML("saveData.xml");
 			}
 		});
 		exPanel.add(userRadio);
@@ -902,7 +916,7 @@ public class SettingGUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				user.setAdmin(true);
-				settings.saveXML("saveData.xml");
+				setControl2.saveXML("saveData.xml");
 			}
 		});
 		exPanel.add(rdbtnAdmin);
