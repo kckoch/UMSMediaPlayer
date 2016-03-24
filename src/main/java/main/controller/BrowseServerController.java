@@ -100,6 +100,8 @@ public class BrowseServerController {
 					temp.add(list.get(k));
 				} else if(list.get(k).getName().compareTo(albums.get(l)) == 0) {
 					temp.add(list.get(k));
+				} else if(albums.get(l).compareTo(prevname) == 0) {
+					temp.add(list.get(k));
 				}
 			}
 		}

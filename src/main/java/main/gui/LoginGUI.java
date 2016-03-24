@@ -357,6 +357,8 @@ public class LoginGUI {
 	    		if(!auth.authenticate(new String(passwordField.getPassword()))) {
 	    			passwordField.setForeground(UIManager.getColor("OptionPane.errorDialog.border.background"));
 	    		}
+	    		numberString = "";
+	    		passwordField.setText("");
 		    }
 		});
 		panel.add(Login);
