@@ -24,6 +24,7 @@ public class BrowseServerController {
 	private static ArrayList<Container> list;
 	private static User user;
 	private static int previousid;
+	private static String previousname;
 	private static Setting settings;
 	private static ArrayList<String> albums;
 	
@@ -63,13 +64,14 @@ public class BrowseServerController {
 	public ArrayList<Container> getNewContainer(String name) {
 		final String fav = "Add Album to Favorites";
 		String id = "";
+		String prevname = "";
 		if(name.compareTo(fav) == 0) {
 			System.out.flush();
 			ArrayList<Track> tracks = new ArrayList<Track>();
 			for(int i = 0; i < list.size(); i++) {
 				tracks.add(new Track(list.get(i).getDuration(), list.get(i).getName(), list.get(i).getUrl(), list.get(i).getArtist()));
 			}
-			Album album = new Album("Album x", tracks, "");
+			Album album = new Album(prevname, tracks, "");
 			user.addFavorite(album);
 			//settings.saveXML("saveData.xml");
 			id = "0";
@@ -77,6 +79,7 @@ public class BrowseServerController {
 			for(int p = 0; p < list.size(); p++){
 				if(list.get(p).getName().compareTo(name) == 0) {
 					id = Integer.toString(list.get(p).getId());
+					prevname = list.get(p).getName();
 					p = list.size();
 				}
 			}
@@ -87,18 +90,24 @@ public class BrowseServerController {
 			//
 		}
 		list = SOAP.getList();
+		ArrayList<Container> temp = new ArrayList<Container>();
 		
-		for(int k = 0; k < SOAP.getList().size(); k++) {
+		for(int k = 0; k < list.size(); k++) {
 			for(int l = 0; l < albums.size(); l++) {
-				if(list.get(k).getName().compareTo(albums.get(l))!=0)
-					list.remove(k);
-				System.out.println(SOAP.getList().get(k).getId() + "\t" + SOAP.getList().get(k).getName());
-				System.out.flush();
+				if (list.get(k).getName().compareTo("Music") == 0) {
+					temp.add(list.get(k));
+				} else if (list.get(k).getName().compareTo("Recently Played")==0) {
+					temp.add(list.get(k));
+				} else if(list.get(k).getName().compareTo(albums.get(l)) == 0) {
+					temp.add(list.get(k));
+				}
 			}
 		}
+		list = temp;
 		
 		list.add(0, new Container(previousid, 0, 0, "", "Back", ""));
 		previousid = Integer.parseInt(id);
+		previousname = prevname;
 		
 		if(list.get(1).getUrl().compareTo("") != 0) {
 			list.add(new Container(Integer.parseInt(id), previousid, 0, "", fav, ""));

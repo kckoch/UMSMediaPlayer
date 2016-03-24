@@ -118,11 +118,9 @@ public class SOAP {
 			end = resultStr.indexOf("</upnp:artist>", start);
 			artist = resultStr.substring(start, end);
 			
-			System.out.println("Remaining message:" + resultStr.substring(index));
 			start = resultStr.indexOf("duration=", index) + "duration=".length() + 1;
 			end = resultStr.indexOf("\"", start);
 			String dur = resultStr.substring(start, end);
-			System.out.println("String dur: " + dur);
 			int hours = Integer.parseInt(dur.substring(0, 2));
 			int min = Integer.parseInt(dur.substring(3, 5));
 			double seconds = Double.parseDouble(dur.substring(6));
