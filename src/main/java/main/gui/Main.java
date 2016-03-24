@@ -45,11 +45,11 @@ public class Main {
 		tracksB.add(track5);
 		tracksC = new ArrayList<Track>();
 		tracksC.add(track6);
-		Album albumA = new Album("Album A", tracksA, System.getProperty("user.dir") + "audio/Album A");
+		Album albumA = new Album("Album A", tracksA, System.getProperty("user.dir") + "/audio/Album A");
 		albumA.setObjectId(1);
-		Album albumB = new Album("Album B", tracksB, System.getProperty("user.dir") + "audio/Album B");
+		Album albumB = new Album("Album B", tracksB, System.getProperty("user.dir") + "/audio/Album B");
 		albumB.setObjectId(2);
-		Album albumC = new Album("Album C", tracksC, System.getProperty("user.dir") + "audio/Album C");
+		Album albumC = new Album("Album C", tracksC, System.getProperty("user.dir") + "/audio/Album C");
 		albumB.setObjectId(3);
 
 		File f = new File(System.getProperty("user.dir") + "saveData.xml");

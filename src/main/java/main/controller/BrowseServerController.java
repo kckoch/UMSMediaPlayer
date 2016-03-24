@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
 import java.util.*;
 
 import main.model.Album;
@@ -35,6 +37,7 @@ public class BrowseServerController {
 	public BrowseServerController(ArrayList<Container> listin, User userin, Setting settings, ArrayList<ArrayList<String>> restrict) {
 		list = listin;
 		user = userin;
+		this.settings = settings;
 		albums = new ArrayList<String>();
 		for(int i = 0; i < user.getFilter(); i++) {
 			for(int j = 0; j < restrict.get(i).size(); j++){
@@ -68,12 +71,31 @@ public class BrowseServerController {
 		if(name.compareTo(fav) == 0) {
 			System.out.flush();
 			ArrayList<Track> tracks = new ArrayList<Track>();
-			for(int i = 0; i < list.size(); i++) {
-				tracks.add(new Track(list.get(i).getDuration(), list.get(i).getName(), list.get(i).getUrl(), list.get(i).getArtist()));
+			File f = new File(System.getProperty("user.dir") + "/audio/" + previousname);
+			boolean download = false;
+			if(!f.exists()) {
+				download = true;
+				try {
+					f.createNewFile();
+				} catch (IOException e) {
+					System.out.println("Create new album failed!");
+				}
+			}
+			for(int i = 1; i < list.size()-1; i++) {
+				tracks.add(new Track(list.get(i).getDuration(), list.get(i).getName(), 
+						System.getProperty("user.dir") + "/audio/" + previousname + "/" + list.get(i).getName()+".mp3", list.get(i).getArtist()));
+				
+				if(download) {
+					try {
+						downloadTrack(list.get(i).getUrl(), previousname, list.get(i).getName());
+					} catch (IOException e) {
+						System.out.println("Download Failed with IOException!");
+					}
+				}
 			}
 			Album album = new Album(prevname, tracks, "");
 			user.addFavorite(album);
-			//settings.saveXML("saveData.xml");
+			settings.saveXML("saveData.xml");
 			id = "0";
 		} else {
 			for(int p = 0; p < list.size(); p++){
@@ -121,17 +143,19 @@ public class BrowseServerController {
 	/*
 	 * BETA CODE
 	 */
-	public void downloadTrack(String urlIn) throws IOException {
-		File file = new File("./temp/" + urlIn);
+	public void downloadTrack(String urlIn, String album, String name) throws IOException {
+		File file = new File(/*System.getProperty("user.dir") + "/audio/" + album + */"/" + name + ".mp3");
+		System.out.println(System.getProperty("user.dir") + "/audio/" + album + "/" + file.getName());
+		System.out.println(urlIn);
 		file.createNewFile();
 		
 		URL url = new java.net.URL(urlIn);
 		URLConnection urlConnect = url.openConnection();
 		byte[] buff = new byte[8*1024];
-		
 		InputStream stream = urlConnect.getInputStream();
+		
 		try {
-			FileOutputStream output = new FileOutputStream("./temp/" + file.getName());
+			FileOutputStream output = new FileOutputStream(System.getProperty("user.dir") + "/audio/" + album + "/" + file.getName());
 			try {
 				int bytesRead;
 				while((bytesRead = stream.read(buff)) != -1)
