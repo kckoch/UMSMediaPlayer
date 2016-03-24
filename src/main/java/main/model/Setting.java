@@ -99,6 +99,11 @@ public class Setting {
 		return users;
 	}
 	
+	public void removeUser(User target)
+	{
+		users.remove(users.indexOf(target));
+	}
+	
 // Loads in XML save data
 	public void loadXML(String inputFileName) {
 		// Read in XML file (Load)

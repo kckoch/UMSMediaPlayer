@@ -919,6 +919,12 @@ public class SettingGUI {
 		deleteacc.setBorder(null);
 		deleteacc.setBackground(Color.DARK_GRAY);
 		deleteacc.setBounds(428, 3, 30, 30);
+		deleteacc.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setControl2.removeUser(user);
+			}
+		});
 		exPanel.add(deleteacc);
 		
 		ButtonGroup group_1 = new ButtonGroup();
