@@ -51,7 +51,6 @@ public class Main {
 		Album albumC = new Album("Album C", tracksC, System.getProperty("user.dir") + "audio/Album C");
 		albumB.setObjectId(3);
 		//initialize admin account info and list of albums BACK UP FOR XML
-		//users = new ArrayList<User>();
 
 		File f = new File(System.getProperty("user.dir") + "saveData.xml");
 		if(f.exists())
