@@ -46,6 +46,11 @@ public class ManageSettingController {
 		return settings.getUsers();
 	}
 	
+	public void removeUser(User target)
+	{
+		settings.removeUser(target);
+	}
+	
 	public void loadXML(String path)
 	{
 		settings.loadXML(path);

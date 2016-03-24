@@ -26,6 +26,7 @@ public class SettingGUI {
 	private static JPanel changePicPanel = new JPanel();
 	private static JPanel restrictPanel = new JPanel();
 	private static JPanel addUserPanel = new JPanel();
+	private static JPanel scrollpanel;
 	private static JTextField servURL;
 	private static JPasswordField passwordField;
 	private static JPasswordField passwordField_1;
@@ -87,8 +88,8 @@ public class SettingGUI {
 		exitButton.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				frame.revalidate();
-				frame.repaint();
+				//frame.revalidate();
+				//frame.repaint();
 				frame.setContentPane(mainPanelIn);
 			}
 		});
@@ -350,8 +351,8 @@ public class SettingGUI {
 			    		//frame.revalidate();
 			    		//frame.repaint();
 						frame.setContentPane(mainPanel);
-						frame.revalidate();
-						frame.repaint();
+						//frame.revalidate();
+						//frame.repaint();
 				    }
 			    });
 				changePicPanel.add(confirm);
@@ -501,7 +502,7 @@ public class SettingGUI {
 		
 		
 		//the other accounts panel
-		JPanel scrollpanel = new JPanel();
+		scrollpanel = new JPanel();
 		scrollpanel.setBackground(Color.DARK_GRAY);
 		scrollpanel.setAutoscrolls(true);
 		scrollpanel.setLayout(new BoxLayout(scrollpanel, BoxLayout.Y_AXIS));
@@ -516,8 +517,6 @@ public class SettingGUI {
 		accPanel.setBounds(10, 315, 478, 285);
 		accPanel.getVerticalScrollBar().setUnitIncrement(100);
 		mainPanel.add(accPanel);
-		
-		
 		//scrollpanel.add(exPanel);
 		User tempoUser;
 		for(int u = 0; u < setControl.getUsers().size(); u++)
@@ -526,7 +525,6 @@ public class SettingGUI {
 			if(!tempoUser.getName().equals(user.getName())) {
 			JPanel tempoPanel = userPanel(tempoUser, frame, setControl);
 			scrollpanel.add(tempoPanel);
-				
 			}
 		}
 		
@@ -553,14 +551,48 @@ public class SettingGUI {
 				addingUser.setIcon("/main/gui/smile_orange.png");
 				setControl.addUser(addingUser);
 				setControl.saveXML("saveData.xml");
+				
+				/*
+				//the other accounts panel
+				
+				scrollpanel = new JPanel();
+				scrollpanel.setBackground(Color.DARK_GRAY);
+				scrollpanel.setAutoscrolls(true);
+				scrollpanel.setLayout(new BoxLayout(scrollpanel, BoxLayout.Y_AXIS));
+				
+				JScrollPane accPanel = new JScrollPane(scrollpanel);
+				accPanel.setViewportBorder(null);
+				accPanel.setVerifyInputWhenFocusTarget(false);
+				accPanel.setOpaque(false);
+				accPanel.setForeground(Color.DARK_GRAY);
+				accPanel.setBorder(null);
+				accPanel.setBackground(Color.DARK_GRAY);
+				accPanel.setBounds(10, 315, 478, 285);
+				accPanel.getVerticalScrollBar().setUnitIncrement(100);
+				mainPanel.add(accPanel);
+				//scrollpanel.add(exPanel);
+				User tempoUser;
+				for(int u = 0; u < setControl.getUsers().size(); u++)
+				{
+					tempoUser = setControl.getUser(u);
+					if(!tempoUser.getName().equals(user.getName())) {
+					JPanel tempoPanel = userPanel(tempoUser, frame, setControl);
+					scrollpanel.add(tempoPanel);
+					}
+				}
+				scrollpanel.revalidate();
+				scrollpanel.repaint();
+				*/
+				/*
 				frame.revalidate();
 				frame.repaint();
+				*/
 			}
 		});
 		addUserPanel.add(btnAddUser);
 		scrollpanel.add(addUserPanel);
-		scrollpanel.revalidate();
-		scrollpanel.repaint();
+		//scrollpanel.revalidate();
+		//scrollpanel.repaint();
 	}
 	
 	// Create panel containing user information
@@ -887,6 +919,12 @@ public class SettingGUI {
 		deleteacc.setBorder(null);
 		deleteacc.setBackground(Color.DARK_GRAY);
 		deleteacc.setBounds(428, 3, 30, 30);
+		deleteacc.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setControl2.removeUser(user);
+			}
+		});
 		exPanel.add(deleteacc);
 		
 		ButtonGroup group_1 = new ButtonGroup();

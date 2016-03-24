@@ -52,7 +52,7 @@ public class Main {
 		Album albumC = new Album("Album C", tracksC, System.getProperty("user.dir") + "/audio/Album C");
 		albumB.setObjectId(3);
 
-		File f = new File(System.getProperty("user.dir") + "saveData.xml");
+		File f = new File("saveData.xml");
 		if(f.exists())
 			settings.loadXML("saveData.xml");
 		else {
