@@ -90,6 +90,7 @@ public class BrowseServerController {
 						downloadTrack(list.get(i).getUrl(), previousname, list.get(i).getName());
 					} catch (IOException e) {
 						System.out.println("Download Failed with IOException!");
+						e.printStackTrace();
 					}
 				}
 			}
@@ -144,27 +145,17 @@ public class BrowseServerController {
 	 * BETA CODE
 	 */
 	public void downloadTrack(String urlIn, String album, String name) throws IOException {
-		File file = new File(/*System.getProperty("user.dir") + "/audio/" + album + */"/" + name + ".mp3");
-		System.out.println(System.getProperty("user.dir") + "/audio/" + album + "/" + file.getName());
+		String path = "./" + album + "-" +  name + ".mp3";
+		File file = new File(path);
+		System.out.println(file.getName());
 		System.out.println(urlIn);
 		file.createNewFile();
 		
-		URL url = new java.net.URL(urlIn);
-		URLConnection urlConnect = url.openConnection();
-		byte[] buff = new byte[8*1024];
-		InputStream stream = urlConnect.getInputStream();
+		URL url = new URL(urlIn);
 		
-		try {
-			FileOutputStream output = new FileOutputStream(System.getProperty("user.dir") + "/audio/" + album + "/" + file.getName());
-			try {
-				int bytesRead;
-				while((bytesRead = stream.read(buff)) != -1)
-					output.write(buff, 0, bytesRead);
-			} finally {
-				output.close();
-			}
-		} finally {
-			stream.close();
-		}
+		ReadableByteChannel rbc = Channels.newChannel(url.openStream());
+		FileOutputStream fos = new FileOutputStream(path);
+		fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+		fos.close();
 	}
 }
