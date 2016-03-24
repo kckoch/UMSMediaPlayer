@@ -119,7 +119,7 @@ public class BrowseServerController {
 	}
 	
 	/*
-	 * UNKNOWN WHETHER THIS CODE WORKS
+	 * BETA CODE
 	 */
 	public void downloadTrack(String urlIn) throws IOException {
 		File file = new File("./temp/" + urlIn);
