@@ -174,14 +174,30 @@ public class Setting {
 				}
 			}
 			
-
 			nList = doc.getElementsByTagName("configureN");
 			nNode = nList.item(0);
 			eElement = (Element) nNode;
 			// Sets value of configureN from XML data
 			this.setconfigureN(Integer.parseInt(eElement.getAttribute("val")));
 			this.configureRestrictions();
-
+			
+			nList = doc.getElementsByTagName("restriction");
+			for (int temp = 0; temp < nList.getLength(); temp++) {
+				nNode = nList.item(temp);
+				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+					eElement = (Element) nNode;
+					nAlbums = eElement.getElementsByTagName("album");
+					for (int temp1 = 0; temp1 < nAlbums.getLength(); temp1++) {
+						nNode1 = nAlbums.item(temp1);
+						if (nNode1.getNodeType() == Node.ELEMENT_NODE) {
+							eElement1 = (Element) nNode1;
+							
+							this.addRestriction(Integer.parseInt(eElement.getAttribute("level")), eElement1.getAttribute("name"));
+						}
+					}
+				}
+			}
+			
 			nList = doc.getElementsByTagName("serverURL");
 			nNode = nList.item(0);
 			eElement = (Element) nNode;
@@ -271,6 +287,27 @@ public class Setting {
 			attr = doc.createAttribute("val");
 			attr.setValue("" + this.getconfigureN());
 			xmlconfigureN.setAttributeNode(attr);
+			
+			int r = 0;
+			for(ArrayList<String> restrict : this.restrictions)
+			{
+				xmlalbum = doc.createElement("restriction");
+				rootElement.appendChild(xmlalbum);
+				attr = doc.createAttribute("level");
+				attr.setValue("" + (r + 1));
+				xmlalbum.setAttributeNode(attr);
+				
+				for(String albumname: restrict)
+				{
+					xmltrack = doc.createElement("album");
+					xmlalbum.appendChild(xmltrack);
+					attr = doc.createAttribute("name");
+					attr.setValue("" + albumname);
+					xmltrack.setAttributeNode(attr);
+				}
+
+				r++;
+			}
 
 			// Server URL Element
 			Element xmlserverURL = doc.createElement("serverURL");
