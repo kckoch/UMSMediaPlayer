@@ -1,5 +1,6 @@
 package main.gui;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
@@ -19,14 +20,12 @@ public class Main {
 	private static ArrayList<Track> tracksA;
 	private static ArrayList<Track> tracksB;
 	private static ArrayList<Track> tracksC;
-	private static ArrayList<ArrayList<String>> restrict;
 	
 	/**
 	 * @wbp.parser.entryPoint
 	 */
 	public static void main(String[] args) {
 		settings = new Setting(0, null);
-		settings.loadXML("saveData.xml");
 		//initialize and declare sample tracks and albums for the admin user to use as an example
 		Track track0 = new Track(30, "Allegro ma non troppo", System.getProperty("user.dir") + "/audio/Album A/Track 1.mp3", "European Archive");
 		Track track1 = new Track(30, "Larghetto", System.getProperty("user.dir") + "/audio/Album A/Track 2.mp3", "European Archive");
@@ -53,38 +52,32 @@ public class Main {
 		albumB.setObjectId(3);
 		//initialize admin account info and list of albums BACK UP FOR XML
 		//users = new ArrayList<User>();
-		restrict = new ArrayList<ArrayList<String>>();
-		restrict.add(new ArrayList<String>());
-		restrict.add(new ArrayList<String>());
-		restrict.add(new ArrayList<String>());
-		restrict.get(0).add("Album A");
-		restrict.get(2).add("Album B");
-		restrict.get(2).add("Album C");
 
-		/*
-		//Generate initial users and add their favorites
-		settings.addUser(new User("Admin", true, 9999, 0));
-		settings.getUser(0).setIcon("/main/gui/panda_orange_2.png");
-		settings.addUser(new User("Child 1", false, 1111, 2));
-		settings.getUser(1).addFavorite(albumA);
-		settings.getUser(1).setIcon("/main/gui/giraffe_green.png");
-		settings.addUser(new User("Child 2", false, 2222, 3));
-		settings.getUser(2).addFavorite(albumA);
-		settings.getUser(2).addFavorite(albumB);
-		settings.getUser(2).setIcon("/main/gui/smile_blue.png");
-		*/
-		//Add initial restrictions
-		settings.setconfigureN(3);
-		settings.configureRestrictions();
-		settings.addRestriction(1, albumA.getName());
-		settings.addRestriction(3, albumB.getName());
-		settings.addRestriction(3, albumC.getName());
-		/*
-		//Set initial server URL
-		settings.setserverURL("http://127.0.0.1:5001/upnp/control/content_directory");
-		//Save initial xml file
-		settings.saveXML("saveData.xml");
-		*/
+		File f = new File(System.getProperty("user.dir") + "saveData.xml");
+		if(f.exists())
+			settings.loadXML("saveData.xml");
+		else {
+			//Generate initial users and add their favorites
+			settings.addUser(new User("Admin", true, 9999, 0));
+			settings.getUser(0).setIcon("/main/gui/panda_orange_2.png");
+			settings.addUser(new User("Child 1", false, 1111, 2));
+			settings.getUser(1).addFavorite(albumA);
+			settings.getUser(1).setIcon("/main/gui/giraffe_green.png");
+			settings.addUser(new User("Child 2", false, 2222, 3));
+			settings.getUser(2).addFavorite(albumA);
+			settings.getUser(2).addFavorite(albumB);
+			settings.getUser(2).setIcon("/main/gui/smile_blue.png");
+			//Add initial restrictions
+			settings.setconfigureN(3);
+			settings.configureRestrictions();
+			settings.addRestriction(1, albumA.getName());
+			settings.addRestriction(3, albumB.getName());
+			settings.addRestriction(3, albumC.getName());
+			//Set initial server URL
+			settings.setserverURL("http://127.0.0.1:5001/upnp/control/content_directory");
+			//Save initial xml file
+			settings.saveXML("saveData.xml");
+		}
 
 		boolean logged = false;
 		while(true) {//loop forever
