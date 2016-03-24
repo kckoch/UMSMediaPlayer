@@ -25,13 +25,13 @@ public class Setting {
 	private int configureN; //only admin can modify
 	private String serverURL; //only admin can modify
 	private ArrayList<User> users;
-	private ArrayList<ArrayList<Album>> restrictions;
-	
+	private ArrayList<ArrayList<String>> restrictions;
+
 	public Setting(int _configureN, String _serverURL) {
 		configureN = _configureN;
 		serverURL = _serverURL;
 		users = new ArrayList<User>();
-		restrictions = new ArrayList<ArrayList<Album>>();
+		restrictions = new ArrayList<ArrayList<String>>();
 //		users.add(new User("admin", true, 9999, 0));
 	}
 	
@@ -39,17 +39,17 @@ public class Setting {
 	{
 		for(int i = 0; i < configureN; i++)
 		{
-			restrictions.add(new ArrayList<Album>());
+			restrictions.add(new ArrayList<String>());
 		}
 	}
 	
 	public void addRestrictionLevel()
 	{
 		configureN++;
-		restrictions.add(new ArrayList<Album>());
+		restrictions.add(new ArrayList<String>());
 	}
 	
-	public void addRestriction(int level, Album restriction)
+	public void addRestriction(int level, String restriction)
 	{
 		restrictions.get(level - 1).add(restriction);
 	}
@@ -60,9 +60,13 @@ public class Setting {
 		restrictions.remove(level);
 	}
 	
-	public void removeRestriction(int level, Album restriction)
+	public void removeRestriction(int level, String restriction)
 	{
 		restrictions.get(level - 1).remove(restrictions.get(level - 1).indexOf(restriction));
+	}
+	
+	public ArrayList<ArrayList<String>> getRestrictions() {
+		return restrictions;
 	}
 
 	public int getconfigureN() {

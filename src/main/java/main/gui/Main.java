@@ -76,9 +76,9 @@ public class Main {
 		//Add initial restrictions
 		settings.setconfigureN(3);
 		settings.configureRestrictions();
-		settings.addRestriction(1, albumA);
-		settings.addRestriction(3, albumB);
-		settings.addRestriction(3, albumC);
+		settings.addRestriction(1, albumA.getName());
+		settings.addRestriction(3, albumB.getName());
+		settings.addRestriction(3, albumC.getName());
 		/*
 		//Set initial server URL
 		settings.setserverURL("http://127.0.0.1:5001/upnp/control/content_directory");
@@ -104,7 +104,7 @@ public class Main {
 			login.setVisible(false);
 			login.dispose();
 			
-			mainframe = MainFrame.init(user, settings.getUsers(), settings, restrict);//displays the main screen
+			mainframe = MainFrame.init(user, settings.getUsers(), settings, settings.getRestrictions());//displays the main screen
 			mainframe.setVisible(true);
 			while(user.getLoggedin()) {//loops until user logs out
 				System.out.print("");
